@@ -2,7 +2,6 @@
 
 **Design a sundial that actually works, for any place on Earth. Print it, laser-cut it, set it in the sun.**
 
-[![CI](https://github.com/antonsoo/gnomon/actions/workflows/ci.yml/badge.svg)](https://github.com/antonsoo/gnomon/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/demo-antonsoo.github.io%2Fgnomon-c9a24b)](https://antonsoo.github.io/gnomon/)
 
