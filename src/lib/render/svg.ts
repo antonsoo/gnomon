@@ -136,10 +136,40 @@ export interface GnomonRenderOptions {
   marginMm: number;
 }
 
-/** The triangular gnomon template, as a separate flat piece: base + fold tab. */
+/**
+ * The triangular gnomon template, as a separate flat piece: base + fold
+ * tab. An equatorial dial's style is, by construction, perpendicular to
+ * the dial face rather than leaning across it (style height 90 deg), so
+ * there is no triangle to cut -- it is a plain rod through the disc's
+ * centre -- and we draw that instead of a degenerate infinite-height
+ * triangle.
+ */
 export function renderGnomonSVG(dial: PolarDialResult, opts: GnomonRenderOptions): string {
   const c = THEMES[opts.theme];
   const base = dial.gnomon.baseLengthMm;
+
+  if (dial.gnomon.styleHeightDeg > 89.9) {
+    const rodLength = base;
+    const w = Math.max(opts.marginMm * 2 + 24, 70);
+    const h = rodLength + opts.marginMm * 2 + 14;
+    const cx = w / 2;
+    const parts: string[] = [];
+    parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}mm" height="${h}mm" viewBox="0 0 ${w} ${h}" font-family="'Cormorant Garamond', Georgia, serif">`);
+    if (c.background !== "none") parts.push(`<rect width="${w}" height="${h}" fill="${c.background}"/>`);
+    parts.push(
+      `<line x1="${cx}" y1="${opts.marginMm}" x2="${cx}" y2="${opts.marginMm + rodLength}" stroke="${c.gnomon}" stroke-width="0.6" stroke-linecap="round"/>`,
+    );
+    parts.push(`<circle cx="${cx}" cy="${opts.marginMm}" r="1" fill="${c.gnomon}"/>`);
+    parts.push(
+      `<text x="${cx}" y="${h - 6}" font-size="2.8" fill="${c.text}" text-anchor="middle">plain rod, ${rodLength.toFixed(0)}mm long,</text>`,
+    );
+    parts.push(
+      `<text x="${cx}" y="${h - 2}" font-size="2.8" fill="${c.text}" text-anchor="middle">through the disc centre, perpendicular to the face</text>`,
+    );
+    parts.push("</svg>");
+    return parts.join("");
+  }
+
   const height = base * Math.tan((dial.gnomon.styleHeightDeg * Math.PI) / 180);
   const tabDepth = Math.max(6, base * 0.15);
   const w = base + opts.marginMm * 2;
