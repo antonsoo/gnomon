@@ -14,5 +14,6 @@ export * from "./dials/declination-lines.ts";
 export * from "./dials/equatorial.ts";
 export * from "./dials/historical-hours.ts";
 export * from "./dials/horizontal.ts";
+export * from "./dials/plane.ts";
 export * from "./dials/types.ts";
 export * from "./dials/vertical.ts";

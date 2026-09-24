@@ -17,12 +17,12 @@
  * south dial is a horizontal dial for the co-latitude (90 - phi).
  */
 
-import { makePlane, vec3 } from "../geometry.ts";
 import type { TimeReference } from "../time-reference.ts";
 import { computeGnomon, generateHourLines } from "./common.ts";
 import type { HourLineOptions } from "./common.ts";
 import { generateDeclinationLines, STANDARD_DECLINATION_LINES, ZODIAC_DECLINATIONS } from "./declination-lines.ts";
 import { generateHistoricalHours } from "./historical-hours.ts";
+import { buildDialPlane } from "./plane.ts";
 import type { PolarDialResult } from "./types.ts";
 
 export interface VerticalDialOptions {
@@ -38,9 +38,7 @@ export interface VerticalDialOptions {
 }
 
 export function buildVerticalDial(opts: VerticalDialOptions): PolarDialResult {
-  const faceAzimuthRad = ((180 + opts.wallDeclinationDeg) * Math.PI) / 180; // from north, clockwise
-  const normal = vec3(Math.sin(faceAzimuthRad), Math.cos(faceAzimuthRad), 0);
-  const plane = makePlane(vec3(0, 0, 0), normal, vec3(0, 0, 1)); // u = straight up the wall
+  const plane = buildDialPlane("vertical", opts.latitudeDeg, opts.wallDeclinationDeg); // u = straight up the wall
 
   const hourLines = generateHourLines(opts.latitudeDeg, plane, opts.timeReference, opts.hourLineOptions);
   const declinationSpecs = opts.includeZodiac

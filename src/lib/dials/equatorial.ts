@@ -10,13 +10,12 @@
  * face.
  */
 
-import { makePlane, vec3 } from "../geometry.ts";
-import { styleAxisENU } from "../geometry.ts";
 import type { TimeReference } from "../time-reference.ts";
 import { computeGnomon, generateHourLines } from "./common.ts";
 import type { HourLineOptions } from "./common.ts";
 import { generateDeclinationLines, STANDARD_DECLINATION_LINES, ZODIAC_DECLINATIONS } from "./declination-lines.ts";
 import { generateHistoricalHours } from "./historical-hours.ts";
+import { buildDialPlane } from "./plane.ts";
 import type { PolarDialResult } from "./types.ts";
 
 export interface EquatorialDialOptions {
@@ -30,8 +29,7 @@ export interface EquatorialDialOptions {
 }
 
 export function buildEquatorialDial(opts: EquatorialDialOptions): PolarDialResult {
-  const normal = styleAxisENU(opts.latitudeDeg); // plane is perpendicular to Earth's axis
-  const plane = makePlane(vec3(0, 0, 0), normal, vec3(0, 0, 1));
+  const plane = buildDialPlane("equatorial", opts.latitudeDeg); // plane is perpendicular to Earth's axis
 
   const hourLines = generateHourLines(opts.latitudeDeg, plane, opts.timeReference, opts.hourLineOptions);
   const declinationSpecs = opts.includeZodiac

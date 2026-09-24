@@ -9,12 +9,12 @@
  * checks the general 3D projector used here against exactly this formula.
  */
 
-import { makePlane, vec3 } from "../geometry.ts";
 import type { TimeReference } from "../time-reference.ts";
 import { computeGnomon, generateHourLines } from "./common.ts";
 import type { HourLineOptions } from "./common.ts";
 import { generateDeclinationLines, STANDARD_DECLINATION_LINES, ZODIAC_DECLINATIONS } from "./declination-lines.ts";
 import { generateHistoricalHours } from "./historical-hours.ts";
+import { buildDialPlane } from "./plane.ts";
 import type { PolarDialResult } from "./types.ts";
 
 export interface HorizontalDialOptions {
@@ -28,7 +28,7 @@ export interface HorizontalDialOptions {
 }
 
 export function buildHorizontalDial(opts: HorizontalDialOptions): PolarDialResult {
-  const plane = makePlane(vec3(0, 0, 0), vec3(0, 0, 1), vec3(0, 1, 0)); // normal = up, u = north
+  const plane = buildDialPlane("horizontal", opts.latitudeDeg);
 
   const hourLines = generateHourLines(opts.latitudeDeg, plane, opts.timeReference, opts.hourLineOptions);
   const declinationSpecs = opts.includeZodiac
