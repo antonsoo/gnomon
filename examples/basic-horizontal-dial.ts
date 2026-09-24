@@ -41,4 +41,4 @@ const svg = renderPolarDialSVG(dial, {
   title: "San Francisco, 37.77N 122.42W",
 });
 
-process.stdout.write(svg + "\n");
+console.log(svg);
