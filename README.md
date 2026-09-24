@@ -67,7 +67,7 @@ no install needed.
 
 ## How it works
 
-### One shadow-casting model, four dial types
+### One shadow-casting model, three dial types (plus the analemmatic's own)
 
 `src/lib/geometry.ts` works entirely in 3D vectors (local East-North-Up
 frame). Given a dial plane (an origin, an outward normal, and an in-plane
@@ -210,10 +210,10 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
 
 ```bash
 npm install
-npm run lint        # eslint
-npm run typecheck    # tsc --noEmit, strict
-npm test             # vitest (196 tests: astronomy, dial geometry, misc data, export, and the oracle suite)
-npm run build         # tsc -b && vite build
+npm run lint       # eslint
+npm run typecheck  # tsc --noEmit, strict
+npm test           # vitest (196 tests: astronomy, dial geometry, misc data, export, and the oracle suite)
+npm run build      # tsc -b && vite build
 ```
 
 All four passed on this machine (14 vCPU WSL2 Linux, 48 GB RAM) before this
