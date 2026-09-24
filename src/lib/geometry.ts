@@ -100,8 +100,17 @@ export interface ShadowSample {
  * requiring the sun to actually be in front of the face (dot(sun, normal)
  * > 0) and trying the reference declination's negation if the first
  * choice fails that check, which reliably lands on the illuminated branch.
+ *
+ * The reference value itself is the solstice declination (+/-23.44 deg,
+ * Earth's obliquity), not an arbitrary small number: that is the widest
+ * the sun's declination ever swings, so it is the choice that finds an
+ * hour line illuminated on *some* date if any nonzero declination would --
+ * i.e. it draws the full range of hour lines the sun can ever actually
+ * cast at that latitude (up to the solstice's own sunrise/sunset), rather
+ * than truncating early-morning/late-evening lines that only appear for
+ * part of the year.
  */
-const HOUR_LINE_REFERENCE_DECLINATION_DEG = 15;
+const HOUR_LINE_REFERENCE_DECLINATION_DEG = 23.44;
 
 export function hourLineAngle(latDeg: number, hourAngleDeg: number, plane: DialPlane): number | null {
   const style = styleAxisENU(latDeg);

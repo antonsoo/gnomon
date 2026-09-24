@@ -94,18 +94,22 @@ function rayPlaneShadow(point: V3, sunDir: V3, plane: OraclePlane): { u: number;
 
 function oracleStyleShadowAngle(latDeg: number, hourAngleDeg: number, plane: OraclePlane): number | null {
   const style = oracleStyleAxis(latDeg);
-  // Try two deliberately different nonzero declinations than the library's
-  // internal reference (15 deg, see geometry.ts): if the two still agree,
-  // that is independent confirmation that hour lines really are
-  // declination-independent, not just that both sides hard-coded the same
-  // number. Zero itself is excluded: for an equatorial dial the plane's
+  // Try several deliberately different nonzero declinations than the
+  // library's internal reference (+/-23.44 deg, see geometry.ts): if they
+  // still agree, that is independent confirmation that hour lines really
+  // are declination-independent, not just that both sides hard-coded the
+  // same number. -8/8 come first (arbitrary, small); +/-23.44 (the
+  // solstices, Earth's actual obliquity) are tried next because they are
+  // needed for the same reason the library needs them -- some early-
+  // morning/late-evening hour angles are only ever illuminated near a
+  // solstice. Zero itself is excluded: for an equatorial dial the plane's
   // normal *is* the polar axis, and the sun sits exactly in that plane at
   // the equinox (sun-direction dot polar-axis = sin(declination) = 0),
   // giving no usable shadow at all -- a real property of equatorial
   // dials, not a bug in either implementation. We also require the sun to
   // be in front of the face (see geometry.ts for why the antipodal branch
   // otherwise appears for some latitude/orientation/hour combinations).
-  for (const declinationDeg of [-8, 8]) {
+  for (const declinationDeg of [-8, 8, -23.44, 23.44]) {
     const sun = oracleSunENU(latDeg, declinationDeg, hourAngleDeg);
     if (dot(sun, plane.normal) <= 0) continue;
     const shadow = rayPlaneShadow(style, sun, plane);
