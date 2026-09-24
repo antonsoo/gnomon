@@ -127,7 +127,7 @@ The suite then, for many latitudes, longitudes, dates and dial types:
    that date's gnomon position casts its shadow in the exact direction of
    the corresponding point on the hour ellipse.
 
-170 of the suite's 182 tests are this oracle; see
+170 of the suite's 196 tests are this oracle; see
 [Accuracy and limitations](#accuracy-and-limitations) for what it does and
 doesn't guarantee.
 
@@ -212,7 +212,7 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
 npm install
 npm run lint        # eslint
 npm run typecheck    # tsc --noEmit, strict
-npm test             # vitest (182 tests: astronomy, export, and the oracle suite)
+npm test             # vitest (196 tests: astronomy, dial geometry, misc data, export, and the oracle suite)
 npm run build         # tsc -b && vite build
 ```
 
