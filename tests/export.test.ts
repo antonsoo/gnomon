@@ -31,6 +31,7 @@ describe("exportPolarDialPDF", () => {
   it("produces an A4 page of the correct physical size", () => {
     const bytes = exportPolarDialPDF(dial, {
       radiusMm: 80,
+      plateShape: "fan",
       innerRadiusMm: 8,
       numerals: "roman",
       title: "Test dial",
@@ -44,6 +45,7 @@ describe("exportPolarDialPDF", () => {
   it("produces a US Letter page of the correct physical size", () => {
     const bytes = exportPolarDialPDF(dial, {
       radiusMm: 80,
+      plateShape: "fan",
       innerRadiusMm: 8,
       numerals: "arabic",
       format: "letter",
@@ -60,6 +62,7 @@ describe("exportPolarDialPDF", () => {
     // code *meant* to draw.
     const bytes = exportPolarDialPDF(dial, {
       radiusMm: 80,
+      plateShape: "fan",
       innerRadiusMm: 8,
       numerals: "roman",
       title: "Test dial",
@@ -85,6 +88,26 @@ describe("exportPolarDialPDF", () => {
   });
 
   it("rejects a dial too large for the chosen page", () => {
-    expect(() => exportPolarDialPDF(dial, { radiusMm: 200, innerRadiusMm: 8, numerals: "arabic", format: "a4" })).toThrow();
+    expect(() => exportPolarDialPDF(dial, { radiusMm: 200, innerRadiusMm: 8, plateShape: "fan", numerals: "arabic", format: "a4" })).toThrow();
+  });
+
+  it("the app's own default radius (90mm) fits A4 for both plate shapes, at a latitude with a wide hour-line spread", () => {
+    // Regression test: the fan/circle width bound must include the label
+    // margin, not just the bare radius -- an earlier version of this check
+    // used radiusMm*2 alone and let a 90mm-radius horizontal dial's own
+    // default export silently fail because its numerals stuck out past
+    // the page.
+    const wideDial = buildHorizontalDial({
+      latitudeDeg: 51.5,
+      timeReference: { mode: "apparent", longitudeDeg: -0.1276 },
+      hourLineOptions: { startHour: 3, endHour: 21, stepHours: 0.25 },
+      nodusDistanceMm: 30,
+      gnomonBaseLengthMm: 60,
+    });
+    for (const plateShape of ["fan", "circle"] as const) {
+      expect(() =>
+        exportPolarDialPDF(wideDial, { radiusMm: 90, innerRadiusMm: 6, plateShape, numerals: "roman", format: "a4" }),
+      ).not.toThrow();
+    }
   });
 });

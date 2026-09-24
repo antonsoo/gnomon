@@ -1,3 +1,4 @@
+import type { PlateShape } from "./lib/render/plate-shape.ts";
 import type { Theme } from "./lib/render/theme.ts";
 
 export type DialType = "horizontal" | "vertical" | "equatorial" | "analemmatic";
@@ -9,6 +10,7 @@ export interface AppState {
   timeZone: string;
   dialType: DialType;
   wallDeclinationDeg: number;
+  plateShape: PlateShape;
   timeMode: "standard" | "apparent";
   dstOffsetOverride: number | null; // null = auto-detect from timeZone
   numerals: "arabic" | "roman";
@@ -33,6 +35,7 @@ export function defaultState(): AppState {
     timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC",
     dialType: "horizontal",
     wallDeclinationDeg: 0,
+    plateShape: "fan",
     timeMode: "standard",
     dstOffsetOverride: null,
     numerals: "roman",

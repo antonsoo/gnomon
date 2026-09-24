@@ -50,13 +50,13 @@ export function buildVerticalDial(opts: VerticalDialOptions): PolarDialResult {
     : [];
   const gnomon = computeGnomon(opts.latitudeDeg, plane, opts.gnomonBaseLengthMm);
 
-  const kindLabel = opts.wallDeclinationDeg === 0 ? "direct south" : `declining ${opts.wallDeclinationDeg.toFixed(0)} deg from south`;
+  const kindLabel = opts.wallDeclinationDeg === 0 ? "direct south" : `declining ${opts.wallDeclinationDeg.toFixed(0)}° from south`;
   return {
     kind: "vertical",
     hourLines,
     declinationLines,
     historicalHours,
     gnomon,
-    orientation: `Mount vertically, wall ${kindLabel}. Style height ${gnomon.styleHeightDeg.toFixed(1)} deg, substyle ${gnomon.substyleAngleDeg.toFixed(1)} deg from the plumb line.`,
+    orientation: `Mount vertically, wall ${kindLabel}. Style height ${gnomon.styleHeightDeg.toFixed(1)}°, substyle ${gnomon.substyleAngleDeg.toFixed(1)}° from the plumb line.`,
   };
 }

@@ -47,6 +47,6 @@ export function buildEquatorialDial(opts: EquatorialDialOptions): PolarDialResul
     declinationLines,
     historicalHours,
     gnomon,
-    orientation: `Tilt the disc so its face is perpendicular to Earth's axis (${Math.abs(opts.latitudeDeg).toFixed(1)} deg from horizontal, facing ${opts.latitudeDeg >= 0 ? "the north celestial pole" : "the south celestial pole"}). Style lies along the axis itself, in the plane's own normal direction.`,
+    orientation: `Tilt the disc so its face is perpendicular to Earth's axis (${Math.abs(opts.latitudeDeg).toFixed(1)}° from horizontal, facing ${opts.latitudeDeg >= 0 ? "the north celestial pole" : "the south celestial pole"}). Style lies along the axis itself, in the plane's own normal direction.`,
   };
 }

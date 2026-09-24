@@ -11,6 +11,7 @@ import { buildVerticalDial } from "./lib/dials/vertical.ts";
 import { equationOfTimeTable } from "./lib/equation-of-time.ts";
 import { svgToPngBlob } from "./lib/export/png.ts";
 import { MOTTOES } from "./lib/motto.ts";
+import type { PlateShape } from "./lib/render/plate-shape.ts";
 import { renderAnalemmaticSVG, renderGnomonSVG, renderPolarDialSVG } from "./lib/render/svg.ts";
 import type { Theme } from "./lib/render/theme.ts";
 import { simulatePolarShadow } from "./lib/simulation.ts";
@@ -24,7 +25,7 @@ const state: AppState = defaultState();
 
 const app = document.getElementById("app")!;
 
-const HOUR_LINE_OPTIONS: HourLineOptions = { startHour: 4, endHour: 20, stepHours: 0.25 };
+const HOUR_LINE_OPTIONS: HourLineOptions = { startHour: 3, endHour: 21, stepHours: 0.25 };
 const DIAL_LABELS: Record<DialType, string> = {
   horizontal: "Horizontal",
   vertical: "Vertical",
@@ -34,6 +35,13 @@ const DIAL_LABELS: Record<DialType, string> = {
 const THEME_LABELS: Record<Theme, string> = { brass: "Brass", slate: "Slate", blueprint: "Blueprint", laser: "Laser cut" };
 
 // --- derived helpers -------------------------------------------------
+
+/** "37.77° N, 122.42° W" -- real degree signs and compass letters, not signed decimals. */
+function formatLatLon(latitudeDeg: number, longitudeDeg: number): string {
+  const latLabel = `${Math.abs(latitudeDeg).toFixed(2)}° ${latitudeDeg >= 0 ? "N" : "S"}`;
+  const lonLabel = `${Math.abs(longitudeDeg).toFixed(2)}° ${longitudeDeg >= 0 ? "E" : "W"}`;
+  return `${latLabel}, ${lonLabel}`;
+}
 
 function timeReference(): TimeReference {
   if (state.timeMode === "apparent") return { mode: "apparent", longitudeDeg: state.longitudeDeg };
@@ -194,7 +202,7 @@ const locationPanel = el("section", { className: "panel" }, [
 // --- Sidebar: dial type ---------------------------------------------------
 
 const wallDeclinationField = fieldRow(
-  "Wall declination from south (deg)",
+  "Wall declination from south (°)",
   el("input", { type: "number", value: String(state.wallDeclinationDeg), attrs: { step: "1" } }) as HTMLInputElement,
 );
 (wallDeclinationField.querySelector("input") as HTMLInputElement).addEventListener("input", (e) => {
@@ -202,7 +210,7 @@ const wallDeclinationField = fieldRow(
   render();
 });
 const wallHint = el("p", { className: "hint" }, [
-  "0 deg = direct south. Positive declines west; negative declines east. The formula handles either hemisphere.",
+  "0\u00B0 = direct south. Positive declines west; negative declines east. The formula handles either hemisphere.",
 ]);
 
 const dialTypePanel = el("section", { className: "panel" }, [
@@ -214,6 +222,8 @@ const dialTypePanel = el("section", { className: "panel" }, [
       state.dialType = v;
       wallDeclinationField.style.display = v === "vertical" ? "" : "none";
       wallHint.style.display = v === "vertical" ? "" : "none";
+      plateShapeField.style.display = v === "analemmatic" ? "none" : "";
+      radiusField.querySelector("label")!.textContent = v === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)";
     },
   ),
   wallDeclinationField,
@@ -239,7 +249,7 @@ autoDstBtn.addEventListener("click", () => {
 });
 
 const timeModePanel = el("section", { className: "panel" }, [
-  el("h2", {}, ["Hour lines read"]),
+  el("h2", {}, ["Time shown"]),
   segmented(
     [
       { value: "standard" as const, label: "Standard/zone time" },
@@ -255,7 +265,7 @@ const timeModePanel = el("section", { className: "panel" }, [
   dstRow,
   autoDstBtn,
   el("p", { className: "hint" }, [
-    "Standard time bakes in the fixed longitude correction from your zone's reference meridian. Apparent time reads the sun directly -- no correction table needed, but it won't match a clock.",
+    "Standard time bakes in the fixed longitude correction from your zone's reference meridian. Apparent time reads the sun directly — no correction table needed, but it won't match a clock.",
   ]),
 ]);
 
@@ -318,6 +328,16 @@ const themeRow = segmented(
   },
 );
 
+const PLATE_SHAPE_LABELS: Record<PlateShape, string> = { fan: "Fan (classic, no wasted plate)", circle: "Full circle" };
+const plateShapeRow = segmented(
+  (Object.keys(PLATE_SHAPE_LABELS) as PlateShape[]).map((v) => ({ value: v, label: PLATE_SHAPE_LABELS[v] })),
+  state.plateShape,
+  (v) => {
+    state.plateShape = v;
+  },
+);
+const plateShapeField = fieldRow("Plate shape", plateShapeRow);
+
 const mottoSelect = el("select", {}, [
   el("option", { value: "-1" }, ["No motto"]),
   ...MOTTOES.map((m, i) => el("option", { value: String(i) }, [m.latin])),
@@ -329,9 +349,12 @@ mottoSelect.addEventListener("change", () => {
   render();
 });
 
+const radiusField = fieldRow(state.dialType === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)", radiusInput);
+
 const appearancePanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Size & appearance"]),
-  fieldRow(state.dialType === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)", radiusInput),
+  radiusField,
+  plateShapeField,
   fieldRow("Theme", themeRow),
   fieldRow("Motto", mottoSelect),
 ]);
@@ -404,7 +427,7 @@ const exportPanel = el("section", { className: "panel" }, [
   el("div", { className: "export-grid" }, [exportSvgBtn, exportPngBtn, exportPdfA4Btn, exportPdfLetterBtn]),
   exportGnomonBtn,
   el("p", { className: "hint" }, [
-    "Laser SVG uses red strokes for cuts (outer edge, gnomon outline) and black for engraving (hour lines, numerals) -- the common convention for hobby laser software.",
+    "Laser SVG uses red strokes for cuts (outer edge, gnomon outline) and black for engraving (hour lines, numerals) — the common convention for hobby laser software.",
   ]),
 ]);
 
@@ -430,19 +453,19 @@ const instructionsSection = el("section", { className: "section", attrs: { id: "
     el("div", { className: "panel" }, [
       el("h3", {}, ["1. Find true north"]),
       el("p", {}, [
-        "A compass points at magnetic north, not true north -- the difference (magnetic declination) is several degrees almost everywhere and changes over time. Look up your local declination (e.g. via NOAA's calculator) and correct for it, or find true north from the sun at local solar noon (shortest shadow of the day, from the hour angle this tool computes) or from Polaris at night.",
+        "A compass points at magnetic north, not true north — the difference (magnetic declination) is several degrees almost everywhere and changes over time. Look up your local declination (e.g. via NOAA's calculator) and correct for it, or find true north from the sun at local solar noon (shortest shadow of the day, from the hour angle this tool computes) or from Polaris at night.",
       ]),
     ]),
     el("div", { className: "panel" }, [
       el("h3", {}, ["2. Level it"]),
       el("p", {}, [
-        "Horizontal and analemmatic dials must sit level -- a tilted plate throws every hour line off by roughly the tilt angle. Vertical dials must be plumb (true vertical), and their face must be square to the wall declination you designed for.",
+        "Horizontal and analemmatic dials must sit level — a tilted plate throws every hour line off by roughly the tilt angle. Vertical dials must be plumb (true vertical), and their face must be square to the wall declination you designed for.",
       ]),
     ]),
     el("div", { className: "panel" }, [
       el("h3", {}, ["3. Set the gnomon"]),
       el("p", {}, [
-        "The style angle shown in the gnomon panel is measured from the dial face, not from vertical. Mount the style so its edge, extended, points at the celestial pole -- Polaris, closely enough, in the northern hemisphere. Getting this angle right matters more than getting the placement right: it is what makes the hour lines correct for your latitude.",
+        "The style angle shown in the gnomon panel is measured from the dial face, not from vertical. Mount the style so its edge, extended, points at the celestial pole — Polaris, closely enough, in the northern hemisphere. Getting this angle right matters more than getting the placement right: it is what makes the hour lines correct for your latitude.",
       ]),
     ]),
   ]),
@@ -451,14 +474,14 @@ const instructionsSection = el("section", { className: "section", attrs: { id: "
 const oracleNote = el("section", { className: "section" }, [
   el("h2", {}, ["How this is checked"]),
   el("p", { className: "orientation-text" }, [
-    "The hour-line geometry is cross-checked by an independent 3D ray-casting oracle in the test suite: a second implementation, with its own sun-position formula and its own plane/ray intersection, casts the actual shadow in 3D for many latitudes, longitudes, dates and dial types and checks it lands on the hour line the dial labels -- plus a direct check against the published closed-form horizontal- and vertical-dial formulas. See ",
+    "The hour-line geometry is cross-checked by an independent 3D ray-casting oracle in the test suite: a second implementation, with its own sun-position formula and its own plane/ray intersection, casts the actual shadow in 3D for many latitudes, longitudes, dates and dial types and checks it lands on the hour line the dial labels — plus a direct check against the published closed-form horizontal- and vertical-dial formulas. See ",
     el("a", { href: "https://github.com/antonsoo/gnomon#accuracy-and-limitations" }, ["Accuracy and limitations"]),
     " in the README for what is, and isn't, guaranteed.",
   ]),
 ]);
 
 const footer = el("footer", { className: "site-footer" }, [
-  el("span", {}, ["Gnomon -- MIT licensed."]),
+  el("span", {}, ["Gnomon — MIT licensed."]),
   el("a", { href: "https://github.com/antonsoo/gnomon" }, ["Source on GitHub"]),
 ]);
 
@@ -487,28 +510,27 @@ function render(): void {
       heightMm: dial.semiMajorMm * 2.6,
       theme: state.theme,
       numerals: state.numerals,
-      title: `${state.latitudeDeg.toFixed(2)}N ${state.longitudeDeg.toFixed(2)}E`,
+      title: formatLatLon(state.latitudeDeg, state.longitudeDeg),
       motto: state.mottoIndex !== null ? MOTTOES[state.mottoIndex] : undefined,
     });
     svgStageWrap.innerHTML = svg;
     orientationText.textContent =
       "Lay flat and level, major axis east-west. Stand on today's date mark (on the north-south line) and read the hour where your shadow crosses the ellipse.";
-    gnomonThumb.replaceChildren("No fixed gnomon -- the dial uses you (or a vertical rod) as the style; its position moves along the date scale.");
+    gnomonThumb.replaceChildren("No fixed gnomon — the dial uses you (or a vertical rod) as the style; its position moves along the date scale.");
   } else {
     const radius = state.radiusMm;
     const shadow = state.simMode === "now" || state.playing || state.simMode === "custom"
       ? simulatePolarShadow(instant, state.latitudeDeg, state.longitudeDeg, buildDialPlane(dial.kind, state.latitudeDeg, state.wallDeclinationDeg), radius * 0.32)
       : null;
     const svg = renderPolarDialSVG(dial, {
-      widthMm: radius * 2.5,
-      heightMm: radius * 2.5,
       radiusMm: radius,
       innerRadiusMm: Math.max(4, radius * 0.06),
+      plateShape: state.plateShape,
       numerals: state.numerals,
       theme: state.theme,
       showDeclinationLines: state.showDeclinationLines,
       showHistoricalHours: state.historicalHours.length > 0,
-      title: `${DIAL_LABELS[state.dialType]} -- ${state.latitudeDeg.toFixed(2)}, ${state.longitudeDeg.toFixed(2)}`,
+      title: `${DIAL_LABELS[state.dialType]} · ${formatLatLon(state.latitudeDeg, state.longitudeDeg)}`,
       motto: state.mottoIndex !== null ? MOTTOES[state.mottoIndex] : undefined,
       shadowTip: shadow?.visible ? shadow.tip : null,
     });
@@ -521,10 +543,10 @@ function render(): void {
 
     if (shadow) {
       readout.replaceChildren(
-        el("span", {}, [el("strong", {}, ["alt "]), `${shadow.altitudeDeg.toFixed(1)} deg`]),
-        el("span", {}, [el("strong", {}, ["az "]), `${shadow.azimuthDeg.toFixed(1)} deg`]),
-        el("span", {}, [el("strong", {}, ["hour angle "]), `${shadow.hourAngleDeg.toFixed(1)} deg`]),
-        el("span", {}, [el("strong", {}, ["declination "]), `${shadow.declinationDeg.toFixed(2)} deg`]),
+        el("span", {}, [el("strong", {}, ["alt "]), `${shadow.altitudeDeg.toFixed(1)}\u00B0`]),
+        el("span", {}, [el("strong", {}, ["az "]), `${shadow.azimuthDeg.toFixed(1)}\u00B0`]),
+        el("span", {}, [el("strong", {}, ["hour angle "]), `${shadow.hourAngleDeg.toFixed(1)}\u00B0`]),
+        el("span", {}, [el("strong", {}, ["declination "]), `${shadow.declinationDeg.toFixed(2)}\u00B0`]),
         el("span", {}, [el("strong", {}, ["equation of time "]), `${shadow.equationOfTimeMin >= 0 ? "+" : ""}${shadow.equationOfTimeMin.toFixed(1)} min`]),
         el("span", {}, [shadow.visible ? "shadow visible on this face" : "sun not illuminating this face right now"]),
       );
@@ -536,7 +558,7 @@ function render(): void {
     mottoBox.replaceChildren(
       el("p", { className: "latin" }, [m.latin]),
       el("p", { className: "translation" }, [`"${m.translation}"`]),
-      el("p", { className: "attribution" }, [m.attribution + (m.note ? ` -- ${m.note}` : "")]),
+      el("p", { className: "attribution" }, [m.attribution + (m.note ? ` — ${m.note}` : "")]),
     );
   } else {
     mottoBox.replaceChildren(el("p", { className: "hint" }, ["Pick a motto in Size & appearance."]));
@@ -574,10 +596,9 @@ function currentSvgString(theme: Theme): string {
   }
   const radius = state.radiusMm;
   return renderPolarDialSVG(dial, {
-    widthMm: radius * 2.5,
-    heightMm: radius * 2.5,
     radiusMm: radius,
     innerRadiusMm: Math.max(4, radius * 0.06),
+    plateShape: state.plateShape,
     numerals: state.numerals,
     theme,
     showDeclinationLines: state.showDeclinationLines,
@@ -618,8 +639,9 @@ async function exportPdf(format: "a4" | "letter") {
     const bytes = exportPolarDialPDF(dial, {
       radiusMm: state.radiusMm,
       innerRadiusMm: Math.max(4, state.radiusMm * 0.06),
+      plateShape: state.plateShape,
       numerals: state.numerals,
-      title: `${DIAL_LABELS[state.dialType]} sundial -- ${state.latitudeDeg.toFixed(2)}, ${state.longitudeDeg.toFixed(2)}`,
+      title: `${DIAL_LABELS[state.dialType]} sundial · ${formatLatLon(state.latitudeDeg, state.longitudeDeg)}`,
       format,
     });
     downloadBlob(new Blob([bytes as BlobPart], { type: "application/pdf" }), `gnomon-${state.dialType}-${format}.pdf`);

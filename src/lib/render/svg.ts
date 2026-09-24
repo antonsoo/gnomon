@@ -10,7 +10,9 @@
 import type { Motto } from "../motto.ts";
 import type { AnalemmaticDialResult, PolarDialResult } from "../dials/types.ts";
 import { hourLabel } from "./numerals.ts";
+import { plateBounds, plateOutline, thetaMaxRad, type PlateShape } from "./plate-shape.ts";
 import { polarToUV, toPage } from "./project.ts";
+import type { PageMapping } from "./project.ts";
 import { THEMES, type Theme } from "./theme.ts";
 
 function esc(s: string): string {
@@ -18,10 +20,18 @@ function esc(s: string): string {
 }
 
 export interface PolarDialRenderOptions {
-  widthMm: number;
-  heightMm: number;
   radiusMm: number;
   innerRadiusMm: number;
+  /**
+   * "fan" (default): the plate is cut to the wedge the hour lines actually
+   * reach (see plate-shape.ts) -- root at the point, no wasted plate. This
+   * is the classic look for a horizontal or declining-vertical dial whose
+   * hour range runs well past 6am-6pm. "circle": the traditional full
+   * circle, root at the centre -- simpler to cut by hand, and correct for
+   * an equatorial dial, whose hour lines are evenly spaced regardless of
+   * latitude.
+   */
+  plateShape: PlateShape;
   numerals: "arabic" | "roman";
   romanStyle?: "IIII" | "IV";
   theme: Theme;
@@ -31,6 +41,23 @@ export interface PolarDialRenderOptions {
   motto?: Motto;
   /** Live shadow tip, in dial (u, v) mm, if simulating "now". */
   shadowTip?: { u: number; v: number } | null;
+}
+
+/** Canvas size and the root's page position for a given plate shape -- shared by the SVG and PDF renderers so they lay out identically. */
+export function polarDialLayout(dial: PolarDialResult, opts: Pick<PolarDialRenderOptions, "radiusMm" | "plateShape">) {
+  const thetaMax = thetaMaxRad(dial);
+  const labelRadius = opts.radiusMm + Math.max(4, opts.radiusMm * 0.06);
+  const bounds = plateBounds(opts.plateShape, labelRadius, thetaMax);
+  const padSide = Math.max(8, opts.radiusMm * 0.08);
+  const padTop = Math.max(6, opts.radiusMm * 0.06);
+  const padBottom = Math.max(20, opts.radiusMm * 0.24); // room for title + motto below the plate
+
+  const widthMm = 2 * bounds.halfWidth + 2 * padSide;
+  const heightMm = (bounds.topU - bounds.bottomU) + padTop + padBottom;
+  const centerX = bounds.halfWidth + padSide;
+  const centerY = padTop + bounds.topU;
+
+  return { thetaMax, widthMm, heightMm, mapping: { centerX, centerY } as PageMapping };
 }
 
 function clipRun(points: { u: number; v: number }[], maxR: number): { u: number; v: number }[][] {
@@ -52,18 +79,18 @@ function clipRun(points: { u: number; v: number }[], maxR: number): { u: number;
 
 export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderOptions): string {
   const c = THEMES[opts.theme];
-  const m = { centerX: opts.widthMm / 2, centerY: opts.heightMm / 2 };
+  const { thetaMax, widthMm, heightMm, mapping: m } = polarDialLayout(dial, opts);
   const parts: string[] = [];
 
   parts.push(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${opts.widthMm}mm" height="${opts.heightMm}mm" viewBox="0 0 ${opts.widthMm} ${opts.heightMm}" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, serif">`,
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${widthMm}mm" height="${heightMm}mm" viewBox="0 0 ${widthMm} ${heightMm}" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, serif">`,
   );
   if (c.background !== "none") {
-    parts.push(`<rect x="0" y="0" width="${opts.widthMm}" height="${opts.heightMm}" fill="${c.background}"/>`);
+    parts.push(`<rect x="0" y="0" width="${widthMm}" height="${heightMm}" fill="${c.background}"/>`);
   }
-  parts.push(
-    `<circle cx="${m.centerX}" cy="${m.centerY}" r="${opts.radiusMm}" fill="none" stroke="${c.frame}" stroke-width="0.4"/>`,
-  );
+  const outline = plateOutline(opts.plateShape, opts.radiusMm, thetaMax);
+  const outlineD = outline.map((p, i) => `${i === 0 ? "M" : "L"} ${toPage(p.u, p.v, m).x.toFixed(3)} ${toPage(p.u, p.v, m).y.toFixed(3)}`).join(" ");
+  parts.push(`<path d="${outlineD} Z" fill="none" stroke="${c.frame}" stroke-width="0.4"/>`);
 
   if (opts.showDeclinationLines) {
     for (const line of dial.declinationLines) {
@@ -118,12 +145,12 @@ export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderO
 
   if (opts.title) {
     parts.push(
-      `<text x="${m.centerX}" y="${opts.heightMm - 6}" font-size="${Math.max(3, opts.radiusMm * 0.05)}" fill="${c.mutedText}" text-anchor="middle" letter-spacing="0.5">${esc(opts.title)}</text>`,
+      `<text x="${m.centerX}" y="${heightMm - 6}" font-size="${Math.max(3, opts.radiusMm * 0.05)}" fill="${c.mutedText}" text-anchor="middle" letter-spacing="0.5">${esc(opts.title)}</text>`,
     );
   }
   if (opts.motto) {
     parts.push(
-      `<text x="${m.centerX}" y="${opts.heightMm - 1.5}" font-style="italic" font-size="${Math.max(2.6, opts.radiusMm * 0.04)}" fill="${c.mutedText}" text-anchor="middle">${esc(opts.motto.latin)}</text>`,
+      `<text x="${m.centerX}" y="${heightMm - 1.5}" font-style="italic" font-size="${Math.max(2.6, opts.radiusMm * 0.04)}" fill="${c.mutedText}" text-anchor="middle">${esc(opts.motto.latin)}</text>`,
     );
   }
 
@@ -193,7 +220,7 @@ export function renderGnomonSVG(dial: PolarDialResult, opts: GnomonRenderOptions
     `<path d="M ${foot.x} ${foot.y} L ${baseRight.x} ${baseRight.y} L ${baseRight.x} ${baseRight.y + tabDepth} L ${foot.x} ${foot.y + tabDepth} Z" fill="none" stroke="${c.frame}" stroke-width="0.25" stroke-dasharray="1.2,0.8"/>`,
   );
   parts.push(
-    `<text x="${x0 + base / 2}" y="${y0 + tabDepth + 5}" font-size="3" fill="${c.text}" text-anchor="middle">style height ${dial.gnomon.styleHeightDeg.toFixed(2)} deg -- fold along dashed line</text>`,
+    `<text x="${x0 + base / 2}" y="${y0 + tabDepth + 5}" font-size="3" fill="${c.text}" text-anchor="middle">style height ${dial.gnomon.styleHeightDeg.toFixed(2)}° — fold along dashed line</text>`,
   );
   parts.push("</svg>");
   return parts.join("");

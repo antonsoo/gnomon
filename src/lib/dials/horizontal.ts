@@ -46,6 +46,6 @@ export function buildHorizontalDial(opts: HorizontalDialOptions): PolarDialResul
     declinationLines,
     historicalHours,
     gnomon,
-    orientation: `Lay flat, noon line (u axis) toward true north. Style height ${gnomon.styleHeightDeg.toFixed(1)} deg = |latitude|.`,
+    orientation: `Lay flat, noon line toward true north. Style height ${gnomon.styleHeightDeg.toFixed(1)}° = |latitude|.`,
   };
 }

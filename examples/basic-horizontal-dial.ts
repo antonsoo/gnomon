@@ -25,20 +25,19 @@ const dial = buildHorizontalDial({
 
 console.error("--- orientation ---");
 console.error(dial.orientation);
-console.error(`style height: ${dial.gnomon.styleHeightDeg.toFixed(2)} deg`);
+console.error(`style height: ${dial.gnomon.styleHeightDeg.toFixed(2)}°`);
 console.error(`${dial.hourLines.length} hour lines, ${dial.declinationLines.length} declination lines`);
 console.error("--- SVG on stdout ---");
 
 const svg = renderPolarDialSVG(dial, {
-  widthMm: 220,
-  heightMm: 220,
   radiusMm: 90,
   innerRadiusMm: 6,
+  plateShape: "fan",
   numerals: "roman",
   theme: "laser",
   showDeclinationLines: true,
   showHistoricalHours: false,
-  title: "San Francisco, 37.77N 122.42W",
+  title: "San Francisco · 37.77° N, 122.42° W",
 });
 
 console.log(svg);
