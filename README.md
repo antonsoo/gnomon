@@ -38,6 +38,9 @@ no install needed.
 - **Dial types**: horizontal (the primary one), vertical (direct-south or
   declining, either hemisphere), equatorial, and analemmatic (the garden
   dial where a person is the gnomon).
+- **Plate shape**: a "fan" (the classic look -- the plate is cut to the
+  wedge the hour lines actually reach, root at the point, no wasted
+  material) or a traditional full circle, your choice.
 - **Hour lines** in standard/zone time (with the longitude correction from
   your zone's reference meridian and an optional DST offset) or local
   apparent solar time -- with half- and quarter-hour marks, Arabic or Roman
@@ -126,7 +129,7 @@ The suite then, for many latitudes, longitudes, dates and dial types:
    that date's gnomon position casts its shadow in the exact direction of
    the corresponding point on the hour ellipse.
 
-170 of the suite's 196 tests are this oracle; see
+170 of the suite's 197 tests are this oracle; see
 [Accuracy and limitations](#accuracy-and-limitations) for what it does and
 doesn't guarantee.
 
@@ -150,13 +153,16 @@ const dial = buildHorizontalDial({
 });
 
 console.log(dial.orientation);
-// "Lay flat, noon line (u axis) toward true north. Style height 37.8 deg = |latitude|."
+// "Lay flat, noon line toward true north. Style height 37.8° = |latitude|."
 
 const svg = renderPolarDialSVG(dial, {
-  widthMm: 220, heightMm: 220, radiusMm: 90, innerRadiusMm: 6,
+  radiusMm: 90, innerRadiusMm: 6, plateShape: "fan",
   numerals: "roman", theme: "brass",
   showDeclinationLines: true, showHistoricalHours: false,
 });
+// Canvas size is computed for you, from the hour lines the dial actually
+// uses: svg.slice(0, 60) starts with
+// '<svg xmlns="http://www.w3.org/2000/svg" width="206.8mm" ...'
 ```
 
 The library (`src/lib/`) has no dependency on the DOM or on the UI code in
@@ -211,7 +217,7 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
 npm install
 npm run lint       # eslint
 npm run typecheck  # tsc --noEmit, strict
-npm test           # vitest (196 tests: astronomy, dial geometry, misc data, export, and the oracle suite)
+npm test           # vitest (197 tests: astronomy, dial geometry, misc data, export, and the oracle suite)
 npm run build      # tsc -b && vite build
 ```
 
