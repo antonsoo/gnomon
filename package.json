@@ -1,6 +1,6 @@
 {
   "name": "gnomon",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Design accurate, printable sundials for any place on Earth: horizontal, vertical, equatorial and analemmatic, with scale-exact SVG/PDF export and a 3D ray-casting oracle test suite.",
   "author": "Anton Soloviev",
   "license": "MIT",

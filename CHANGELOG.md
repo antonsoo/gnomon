@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.0] - 2026-09-30
+
+### Added
+
+- The solar ephemeris is now checked against an independent one: the Sun's
+  apparent declination and the equation of time from Skyfield and JPL DE421
+  at 3,245 dates from 1900 to 2050 (`scripts/solar_oracle.py`, committed as a
+  fixture). Measured: within 0.0034 degrees and 3.8 seconds; the test holds it
+  to 0.005 degrees and 5 seconds. The README said no such check existed.
+
 ## [0.1.0] - 2026-09-24
 
 ### Added
