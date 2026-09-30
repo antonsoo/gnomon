@@ -43,15 +43,19 @@ function formatLatLon(latitudeDeg: number, longitudeDeg: number): string {
   return `${latLabel}, ${lonLabel}`;
 }
 
+/** The DST offset baked into the dial: the manual choice, or whether the zone observes DST today. */
+function dialDstOffsetHours(): number {
+  return state.dstOffsetOverride ?? resolveZone(state.timeZone, new Date()).dstOffsetHours;
+}
+
 function timeReference(): TimeReference {
   if (state.timeMode === "apparent") return { mode: "apparent", longitudeDeg: state.longitudeDeg };
   const zone = resolveZone(state.timeZone, new Date());
-  const dstOffsetHours = state.dstOffsetOverride ?? zone.dstOffsetHours;
   return {
     mode: "standard",
     longitudeDeg: state.longitudeDeg,
     zoneMeridianDeg: zone.zoneMeridianDeg,
-    dstOffsetHours,
+    dstOffsetHours: dialDstOffsetHours(),
   };
 }
 
@@ -243,8 +247,6 @@ dstCheckbox.addEventListener("change", () => {
 const autoDstBtn = el("button", { type: "button", className: "ghost" }, ["Auto-detect from time zone"]);
 autoDstBtn.addEventListener("click", () => {
   state.dstOffsetOverride = null;
-  const zone = resolveZone(state.timeZone, currentInstant());
-  dstCheckbox.checked = zone.dstOffsetHours > 0;
   render();
 });
 
@@ -500,6 +502,7 @@ app.append(
 function render(): void {
   const dial = buildCurrentDial();
   const instant = currentInstant();
+  dstCheckbox.checked = dialDstOffsetHours() > 0;
 
   clear(svgStageWrap);
   readout.replaceChildren();

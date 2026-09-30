@@ -21,7 +21,7 @@ function offsetMinutesAt(timeZone: string, date: Date): number {
 export interface ZoneInfo {
   /** UTC offset in effect on the given date, minutes. */
   currentOffsetMinutes: number;
-  /** The zone's standard-time (non-DST) offset, minutes -- the mode across a year of samples. */
+  /** The zone's standard-time (non-DST) offset, minutes -- the smallest offset across a year of samples. */
   standardOffsetMinutes: number;
   /** Zone meridian for the *standard* offset, degrees east. */
   zoneMeridianDeg: number;
@@ -37,16 +37,10 @@ export function resolveZone(timeZone: string, date: Date): ZoneInfo {
   for (let m = 0; m < 12; m++) {
     samples.push(offsetMinutesAt(timeZone, new Date(Date.UTC(year, m, 15, 12, 0, 0))));
   }
-  const counts = new Map<number, number>();
-  for (const s of samples) counts.set(s, (counts.get(s) ?? 0) + 1);
-  let standardOffsetMinutes = samples[0] ?? 0;
-  let bestCount = -1;
-  for (const [value, count] of counts) {
-    if (count > bestCount) {
-      bestCount = count;
-      standardOffsetMinutes = value;
-    }
-  }
+  // Daylight saving moves clocks forward, so standard time is the smaller
+  // offset. (Not the most common one: US and EU daylight time now covers
+  // seven or eight months of the year, which made DST look "standard".)
+  const standardOffsetMinutes = Math.min(...samples);
 
   const currentOffsetMinutes = offsetMinutesAt(timeZone, date);
   const dstOffsetHours = (currentOffsetMinutes - standardOffsetMinutes) / 60;
