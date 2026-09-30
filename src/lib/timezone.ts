@@ -5,6 +5,16 @@
  * correct as zones change without a data update in this repo.
  */
 
+/** True if `Intl` knows this IANA zone name ("Europe/Rome"); a typo would otherwise throw a RangeError on every render. */
+export function isValidTimeZone(timeZone: string): boolean {
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function offsetMinutesAt(timeZone: string, date: Date): number {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone,

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { resolveZone } from "../src/lib/timezone.ts";
+import { isValidTimeZone, resolveZone } from "../src/lib/timezone.ts";
 
 describe("resolveZone", () => {
   it("takes the smaller offset as standard time, even where daylight time lasts most of the year", () => {
@@ -27,5 +27,14 @@ describe("resolveZone", () => {
     expect(resolveZone("Asia/Tokyo", new Date("2026-07-01T03:00:00Z"))).toMatchObject({ zoneMeridianDeg: 135, isDst: false });
     expect(resolveZone("Asia/Kathmandu", new Date("2026-07-01T03:00:00Z")).zoneMeridianDeg).toBe(86.25);
     expect(resolveZone("America/St_Johns", new Date("2026-07-01T15:00:00Z"))).toMatchObject({ zoneMeridianDeg: -52.5, dstOffsetHours: 1 });
+  });
+});
+
+describe("isValidTimeZone", () => {
+  it("accepts IANA names and rejects free text", () => {
+    expect(isValidTimeZone("Europe/Rome")).toBe(true);
+    expect(isValidTimeZone("UTC")).toBe(true);
+    expect(isValidTimeZone("Pacific Time")).toBe(false);
+    expect(isValidTimeZone("Europe/Atlantis")).toBe(false);
   });
 });

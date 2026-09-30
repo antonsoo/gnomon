@@ -27,6 +27,9 @@ All notable changes to this project are documented in this file.
   motto fields without a name; the date and time-of-day controls had no label
   at all. Latitude and longitude also accept only valid ranges now, and show
   an invalid value instead of silently ignoring it.
+- A time zone typed as free text ("Pacific Time") made every redraw throw,
+  freezing the dial. An unknown name is now refused with a note, and the dial
+  keeps the last valid zone.
 
 ## [0.1.0] - 2026-09-24
 

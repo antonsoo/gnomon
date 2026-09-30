@@ -16,7 +16,7 @@ import { renderAnalemmaticSVG, renderGnomonSVG, renderPolarDialSVG } from "./lib
 import type { Theme } from "./lib/render/theme.ts";
 import { simulatePolarShadow } from "./lib/simulation.ts";
 import type { TimeReference } from "./lib/time-reference.ts";
-import { resolveZone } from "./lib/timezone.ts";
+import { isValidTimeZone, resolveZone } from "./lib/timezone.ts";
 import { clear, downloadBlob, el } from "./ui/dom.ts";
 import type { AppState, DialType, HistoricalSystem } from "./state.ts";
 import { defaultState } from "./state.ts";
@@ -188,6 +188,7 @@ citySelect.addEventListener("change", () => {
   latInput.value = String(c.latitudeDeg);
   lonInput.value = String(c.longitudeDeg);
   tzInput.value = c.timeZone;
+  tzInput.removeAttribute("aria-invalid");
   cityNote.textContent = c.note ?? "";
   render();
 });
@@ -206,7 +207,16 @@ lonInput.addEventListener("input", () => {
   }
 });
 tzInput.addEventListener("change", () => {
-  state.timeZone = tzInput.value.trim() || "UTC";
+  const requested = tzInput.value.trim() || "UTC";
+  if (!isValidTimeZone(requested)) {
+    // Keep the last valid zone rather than leave the dial unrenderable.
+    tzInput.setAttribute("aria-invalid", "true");
+    cityNote.textContent = `"${requested}" isn't an IANA time zone name. Use one like America/Los_Angeles or Europe/Rome; the dial still uses ${state.timeZone}.`;
+    return;
+  }
+  tzInput.removeAttribute("aria-invalid");
+  cityNote.textContent = "";
+  state.timeZone = requested;
   render();
 });
 geoBtn.addEventListener("click", () => {
@@ -223,6 +233,7 @@ geoBtn.addEventListener("click", () => {
       latInput.value = String(state.latitudeDeg);
       lonInput.value = String(state.longitudeDeg);
       tzInput.value = state.timeZone;
+      tzInput.removeAttribute("aria-invalid");
       geoBtn.textContent = "Use my location";
       cityNote.textContent = "";
       render();
