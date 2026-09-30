@@ -100,7 +100,10 @@ algorithm behind the NOAA Solar Calculator (itself Jean Meeus, *Astronomical
 Algorithms*, 2nd ed., 1998, ch. 25 & 28): geometric mean longitude and
 anomaly, the equation of center, apparent longitude, and the obliquity of
 the ecliptic, giving declination and the equation of time to about 0.01
-degree for dates within a few centuries of the present.
+degree for dates within a few centuries of the present. Measured against an
+independent ephemeris (Skyfield with JPL DE421, at 12:00 UTC every 17 days
+from 1900 to 2050, `tests/ephemeris.test.ts`), it stays within 0.0034 degrees
+of the apparent declination and 3.8 seconds of the equation of time.
 
 ### The oracle test suite
 
@@ -129,7 +132,7 @@ The suite then, for many latitudes, longitudes, dates and dial types:
    that date's gnomon position casts its shadow in the exact direction of
    the corresponding point on the hour ellipse.
 
-170 of the suite's 197 tests are this oracle; see
+170 of the suite's 199 tests are this oracle; see
 [Accuracy and limitations](#accuracy-and-limitations) for what it does and
 doesn't guarantee.
 
@@ -178,7 +181,9 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
 
 - **Solar position** is accurate to about 0.01 degree for dates within a
   few centuries of the present (the NOAA/Meeus low-precision algorithm);
-  it does not account for atmospheric refraction, which shifts the sun's
+  against JPL DE421 from 1900 to 2050 it is within 0.0034 degrees in
+  declination and 3.8 seconds in the equation of time. It does not account
+  for atmospheric refraction, which shifts the sun's
   apparent position near the horizon by up to about 0.5 degree -- irrelevant
   for hour-line geometry (computed at a fixed reference declination, not
   from the horizon), but worth knowing if you compare the live simulation
@@ -186,10 +191,12 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
 - **Hour-line geometry** is checked by the independent oracle described
   above, across 9 latitudes from -60 to 78 degrees, multiple wall
   declinations, and a real-date/DST end-to-end case -- but the oracle
-  shares this project's understanding of spherical astronomy (there is no
-  third-party ephemeris library in the dependency tree to check *that*
-  against). What it does guarantee: if the geometry code and the oracle
-  ever disagree, you'll see a failing test, not a silently wrong dial.
+  shares this project's model of the shadow geometry, so what it guarantees
+  is agreement: if the geometry code and the oracle ever disagree, you'll
+  see a failing test, not a silently wrong dial. The solar positions that
+  feed both are checked separately, against a committed fixture from
+  Skyfield and JPL DE421 (`scripts/solar_oracle.py`), not a runtime
+  dependency.
 - **Historical hour curves** (temporal, Babylonian, Italian) are computed
   from the standard sunrise-equation definitions, sampled at 37 dates
   across the year; they are smooth enough to read but are not the same
@@ -217,9 +224,12 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
 npm install
 npm run lint       # eslint
 npm run typecheck  # tsc --noEmit, strict
-npm test           # vitest (197 tests: astronomy, dial geometry, misc data, export, and the oracle suite)
+npm test           # vitest (199 tests: astronomy, the DE421 ephemeris check, dial geometry, misc data, export, and the oracle suite)
 npm run build      # tsc -b && vite build
 ```
+
+To regenerate the ephemeris fixture (downloads DE421, about 17 MB, on first
+use): `uv run --with skyfield python3 scripts/solar_oracle.py`.
 
 All four passed on this machine (14 vCPU WSL2 Linux, 48 GB RAM) before this
 was published.
