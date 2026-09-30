@@ -12,6 +12,22 @@ All notable changes to this project are documented in this file.
   fixture). Measured: within 0.0034 degrees and 3.8 seconds; the test holds it
   to 0.005 degrees and 5 seconds. The README said no such check existed.
 
+### Fixed
+
+- Time-zone detection took a zone's standard offset to be its most common
+  one, but US and EU daylight time lasts seven or eight months: Los Angeles
+  resolved to a -105 degree meridian with "daylight saving" off all summer
+  and -1 hour in winter, London to 15 degrees east, Sydney to 165. The
+  automatic dial came out right because the two errors cancelled, but the
+  checkbox read wrong, and ticking it produced a dial an hour off. The
+  standard offset is now the smallest of the year's offsets, the checkbox
+  shows the detected state, and `resolveZone` has tests.
+- Form fields had labels that weren't tied to their inputs, so screen readers
+  announced the latitude, longitude, time zone, wall declination, radius and
+  motto fields without a name; the date and time-of-day controls had no label
+  at all. Latitude and longitude also accept only valid ranges now, and show
+  an invalid value instead of silently ignoring it.
+
 ## [0.1.0] - 2026-09-24
 
 ### Added
