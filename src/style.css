@@ -223,6 +223,10 @@ select {
   padding: 8px 10px;
 }
 
+input[type="number"]:invalid {
+  border-color: var(--danger);
+}
+
 input[type="range"] {
   width: 100%;
   accent-color: var(--brass);

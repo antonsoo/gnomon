@@ -98,18 +98,50 @@ const orientationText = el("p", { className: "orientation-text" });
 const mottoBox = el("div", { className: "motto" });
 const gnomonThumb = el("div", { className: "gnomon-thumb" });
 const eotTableWrap = el("div");
-const timeSlider = el("input", { type: "range", min: "0", max: "1439", value: "720" }) as HTMLInputElement;
+const timeSlider = el("input", {
+  type: "range",
+  min: "0",
+  max: "1439",
+  value: "720",
+  attrs: { "aria-label": "Time of day for the simulated shadow" },
+}) as HTMLInputElement;
 const timeReadout = el("span", { className: "hint" });
-const dateInput = el("input", { type: "date" }) as HTMLInputElement;
+const dateInput = el("input", { type: "date", attrs: { "aria-label": "Date for the simulated shadow" } }) as HTMLInputElement;
 
+let fieldIds = 0;
+
+/**
+ * A labelled field. The label is tied to its control (`for`, or
+ * `aria-labelledby` on a button group) so screen readers announce it and a
+ * click on the label focuses the input.
+ */
 function fieldRow(label: string, ...controls: HTMLElement[]): HTMLElement {
-  const wrap = el("div", { className: "field" }, [el("label", {}, [label])]);
+  const labelEl = el("label", {}, [label]);
+  const first = controls[0];
+  if (first instanceof HTMLInputElement || first instanceof HTMLSelectElement) {
+    first.id ||= `field-${++fieldIds}`;
+    labelEl.htmlFor = first.id;
+  } else if (first) {
+    labelEl.id = `field-label-${++fieldIds}`;
+    first.setAttribute("role", "group");
+    first.setAttribute("aria-labelledby", labelEl.id);
+  }
+  const wrap = el("div", { className: "field" }, [labelEl]);
   controls.forEach((c) => wrap.append(c));
   return wrap;
 }
 
-function segmented<T extends string>(options: { value: T; label: string }[], current: T, onChange: (v: T) => void): HTMLElement {
+function segmented<T extends string>(
+  options: { value: T; label: string }[],
+  current: T,
+  onChange: (v: T) => void,
+  groupLabel?: string,
+): HTMLElement {
   const wrap = el("div", { className: "segmented" });
+  if (groupLabel) {
+    wrap.setAttribute("role", "group");
+    wrap.setAttribute("aria-label", groupLabel);
+  }
   const buttons = options.map((opt) => {
     const btn = el(
       "button",
@@ -133,8 +165,16 @@ const citySelect = el("select", {}, [
   el("option", { value: "" }, ["Choose a city..."]),
   ...CITIES.map((c) => el("option", { value: c.name }, [`${c.name}, ${c.country}`])),
 ]) as HTMLSelectElement;
-const latInput = el("input", { type: "number", value: String(state.latitudeDeg), attrs: { step: "0.0001" } }) as HTMLInputElement;
-const lonInput = el("input", { type: "number", value: String(state.longitudeDeg), attrs: { step: "0.0001" } }) as HTMLInputElement;
+const latInput = el("input", {
+  type: "number",
+  value: String(state.latitudeDeg),
+  attrs: { step: "0.0001", min: "-90", max: "90" },
+}) as HTMLInputElement;
+const lonInput = el("input", {
+  type: "number",
+  value: String(state.longitudeDeg),
+  attrs: { step: "0.0001", min: "-180", max: "180" },
+}) as HTMLInputElement;
 const tzInput = el("input", { type: "text", value: state.timeZone }) as HTMLInputElement;
 const geoBtn = el("button", { type: "button", className: "ghost" }, ["Use my location"]);
 const cityNote = el("p", { className: "hint" });
@@ -229,6 +269,7 @@ const dialTypePanel = el("section", { className: "panel" }, [
       plateShapeField.style.display = v === "analemmatic" ? "none" : "";
       radiusField.querySelector("label")!.textContent = v === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)";
     },
+    "Dial type",
   ),
   wallDeclinationField,
   wallHint,
@@ -263,6 +304,7 @@ const timeModePanel = el("section", { className: "panel" }, [
       dstRow.style.display = v === "standard" ? "" : "none";
       autoDstBtn.style.display = v === "standard" ? "" : "none";
     },
+    "Time shown",
   ),
   dstRow,
   autoDstBtn,
