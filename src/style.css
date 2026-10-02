@@ -533,3 +533,8 @@ footer.site-footer {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* The page's main landmark. It adds no box: its children lay out as children of the page. */
+.page-main {
+  display: contents;
+}

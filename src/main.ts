@@ -418,7 +418,7 @@ const appearancePanel = el("section", { className: "panel" }, [
   fieldRow("Motto", mottoSelect),
 ]);
 
-const sidebar = el("aside", {}, [locationPanel, dialTypePanel, timeModePanel, overlaysPanel, appearancePanel]);
+const sidebar = el("aside", { attrs: { "aria-label": "Dial settings" } }, [locationPanel, dialTypePanel, timeModePanel, overlaysPanel, appearancePanel]);
 
 // --- Stage -----------------------------------------------------------------
 
@@ -495,7 +495,7 @@ const gnomonPanel = el("section", { className: "panel" }, [el("h2", {}, ["Gnomon
 const mottoPanel = el("section", { className: "panel" }, [el("h2", {}, ["Motto"]), mottoBox]);
 const eotPanel = el("section", { className: "panel" }, [el("h2", {}, ["Equation of time (this year)"]), eotTableWrap]);
 
-const detailsRail = el("aside", { className: "details-rail" }, [orientationPanel, gnomonPanel, exportPanel, mottoPanel, eotPanel]);
+const detailsRail = el("aside", { className: "details-rail", attrs: { "aria-label": "Construction details and export" } }, [orientationPanel, gnomonPanel, exportPanel, mottoPanel, eotPanel]);
 
 // --- Header, instructions, footer -----------------------------------------
 
@@ -547,9 +547,11 @@ const footer = el("footer", { className: "site-footer" }, [
 app.append(
   el("div", { className: "app" }, [
     header,
-    el("div", { className: "layout" }, [sidebar, stage, detailsRail]),
-    instructionsSection,
-    oracleNote,
+    el("main", { className: "page-main" }, [
+      el("div", { className: "layout" }, [sidebar, stage, detailsRail]),
+      instructionsSection,
+      oracleNote,
+    ]),
     footer,
   ]),
 );

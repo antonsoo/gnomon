@@ -22,6 +22,12 @@ All notable changes to this project are documented in this file.
   event handlers and `eval` are not allowed. Every control was exercised
   in Chromium and Firefox with a listener for policy violations: none.
 
+### Accessibility
+
+- Checked with axe-core (WCAG 2.1 A and AA, and its best-practice rules) in light and dark,
+  at desktop and phone widths: no findings now. The page has a `main`
+  landmark, and its two side panels are named.
+
 ## [0.2.1] - 2026-10-02
 
 ### Fixed
