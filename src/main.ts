@@ -9,6 +9,7 @@ import { buildDialPlane } from "./lib/dials/plane.ts";
 import type { AnalemmaticDialResult, PolarDialResult } from "./lib/dials/types.ts";
 import { buildVerticalDial } from "./lib/dials/vertical.ts";
 import { equationOfTimeTable } from "./lib/equation-of-time.ts";
+import { locate, LOCATE_FAILURE_TEXT } from "./lib/locate.ts";
 import { svgToPngBlob } from "./lib/export/png.ts";
 import { MOTTOES } from "./lib/motto.ts";
 import type { PlateShape } from "./lib/render/plate-shape.ts";
@@ -177,7 +178,7 @@ const lonInput = el("input", {
 }) as HTMLInputElement;
 const tzInput = el("input", { type: "text", value: state.timeZone }) as HTMLInputElement;
 const geoBtn = el("button", { type: "button", className: "ghost" }, ["Use my location"]);
-const cityNote = el("p", { className: "hint" });
+const cityNote = el("p", { className: "hint", attrs: { role: "status" } });
 
 citySelect.addEventListener("change", () => {
   const c = CITIES.find((x) => x.name === citySelect.value);
@@ -219,30 +220,32 @@ tzInput.addEventListener("change", () => {
   state.timeZone = requested;
   render();
 });
+const GEO_LABEL = "Use my location";
 geoBtn.addEventListener("click", () => {
-  if (!("geolocation" in navigator)) {
-    cityNote.textContent = "Geolocation is not available in this browser.";
-    return;
-  }
   geoBtn.textContent = "Locating...";
-  navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      state.latitudeDeg = Math.round(pos.coords.latitude * 10000) / 10000;
-      state.longitudeDeg = Math.round(pos.coords.longitude * 10000) / 10000;
+  geoBtn.disabled = true;
+  const ready = () => {
+    geoBtn.textContent = GEO_LABEL;
+    geoBtn.disabled = false;
+  };
+  locate("geolocation" in navigator ? navigator.geolocation : undefined, {
+    position(latitudeDeg, longitudeDeg) {
+      state.latitudeDeg = Math.round(latitudeDeg * 10000) / 10000;
+      state.longitudeDeg = Math.round(longitudeDeg * 10000) / 10000;
       state.timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || state.timeZone;
       latInput.value = String(state.latitudeDeg);
       lonInput.value = String(state.longitudeDeg);
       tzInput.value = state.timeZone;
       tzInput.removeAttribute("aria-invalid");
-      geoBtn.textContent = "Use my location";
+      ready();
       cityNote.textContent = "";
       render();
     },
-    () => {
-      geoBtn.textContent = "Use my location";
-      cityNote.textContent = "Location request denied or unavailable.";
+    failed(reason) {
+      ready();
+      cityNote.textContent = LOCATE_FAILURE_TEXT[reason];
     },
-  );
+  });
 });
 
 const locationPanel = el("section", { className: "panel" }, [

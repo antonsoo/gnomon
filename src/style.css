@@ -303,6 +303,11 @@ button.ghost {
   background: transparent;
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
 .checkbox-row {
   display: flex;
   align-items: center;

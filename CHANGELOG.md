@@ -2,6 +2,22 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.1] - 2026-10-02
+
+### Fixed
+
+- "Use my location" could say "Locating..." until the page was reloaded.
+  Firefox calls neither geolocation callback when its permission prompt is
+  closed without a choice, and the API's own timeout only starts once
+  permission is given. The page now waits 20 seconds for any answer, then
+  gives the button back and says the browser has not answered; an answer
+  that comes later is still used. Found by running the page in Firefox
+  beside Chromium.
+- The message under the button says what happened (permission refused, no
+  position found, no location service) instead of one sentence for all of
+  them, and is announced to screen readers. The button is disabled while a
+  request is out.
+
 ## [0.2.0] - 2026-09-30
 
 ### Added
