@@ -50,6 +50,12 @@ export function styleAxisENU(latDeg: number): Vec3 {
   return latDeg >= 0 ? towardNCP : scale(towardNCP, -1);
 }
 
+/** A physical style must project out of the receiving face, not behind it. */
+export function styleAxisForPlane(latDeg: number, plane: DialPlane): Vec3 {
+  const elevated = styleAxisENU(latDeg);
+  return dot(elevated, plane.normal) < 0 ? scale(elevated, -1) : elevated;
+}
+
 /**
  * Project a point along the sun's ray onto a plane. Returns null if the ray
  * is parallel to the plane (sun exactly along the style, i.e. declination
@@ -60,6 +66,7 @@ export function projectOntoPlane(point: Vec3, sunDirection: Vec3, plane: DialPla
   if (Math.abs(denom) < 1e-12) return null;
   const rel = sub(point, plane.origin);
   const t = dot(rel, plane.normal) / denom;
+  if (t < 0) return null; // a shadow travels away from the sun
   return sub(point, scale(sunDirection, t));
 }
 
@@ -77,53 +84,38 @@ export interface ShadowSample {
 }
 
 /**
- * The shadow direction of the *style line itself* (not a specific nodus
- * point) -- this is what defines an hour line. Because the style is an
- * infinite line through the plane origin, its shadow for a given hour angle
- * is independent of solar declination (every declination at the same hour
- * angle lies in the same "hour-angle meridian" plane containing the polar
- * axis, and that whole plane casts the same shadow line). We fix
- * declination at a nonzero reference value for the projection (any value
- * works, by the argument above) -- specifically *not* zero, because for
- * an equatorial dial the plane's normal *is* the polar axis, and
- * sun-direction dot polar-axis = sin(declination), which is exactly zero
- * for every hour angle at declination 0 (the sun sits exactly in an
- * equatorial dial's plane at the equinox, casting no usable shadow at
- * all -- a real, well-known property of equatorial dials, not a bug).
- *
- * There is a second subtlety a fixed reference declination alone doesn't
- * solve: the shadow of a specific style *point* (as opposed to the
- * abstract line) flips to the antipodal point -- same line, opposite
- * ray -- exactly when the sun crosses from illuminating the front of the
- * dial face to the back for that hour angle (a real seasonal effect on
- * declining and equatorial dials, not a rounding issue). We resolve it by
- * requiring the sun to actually be in front of the face (dot(sun, normal)
- * > 0) and trying the reference declination's negation if the first
- * choice fails that check, which reliably lands on the illuminated branch.
- *
- * The reference value itself is the solstice declination (+/-23.44 deg,
- * Earth's obliquity), not an arbitrary small number: that is the widest
- * the sun's declination ever swings, so it is the choice that finds an
- * hour line illuminated on *some* date if any nonzero declination would --
- * i.e. it draws the full range of hour lines the sun can ever actually
- * cast at that latitude (up to the solstice's own sunrise/sunset), rather
- * than truncating early-morning/late-evening lines that only appear for
- * part of the year.
+ * Find a physical hour ray. The shadow's line is independent of declination,
+ * but the sun must be above the horizon AND in front of the face on some
+ * date. In the annual declination range cos(delta) is positive, so each
+ * visibility constraint is linear in t = tan(delta): a + b*t > 0.
+ * Intersect those intervals and use an interior point as the reference sun.
+ * Checking just the solstices misses some declining-wall hours; checking
+ * only the face also admits night-time hour lines.
  */
-const HOUR_LINE_REFERENCE_DECLINATION_DEG = 23.44;
-
 export function hourLineAngle(latDeg: number, hourAngleDeg: number, plane: DialPlane): number | null {
-  const style = styleAxisENU(latDeg);
-  for (const declinationDeg of [HOUR_LINE_REFERENCE_DECLINATION_DEG, -HOUR_LINE_REFERENCE_DECLINATION_DEG]) {
-    const sun = sunDirectionENU(latDeg, declinationDeg, hourAngleDeg);
-    if (dot(sun, plane.normal) <= 0) continue; // this declination puts the sun behind the face; try the other
-    const shadow = projectOntoPlane(add(plane.origin, style), sun, plane);
-    if (!shadow) continue;
-    const { u, v } = toPlaneCoords(shadow, plane);
-    if (u === 0 && v === 0) continue;
-    return Math.atan2(v, u);
+  const style = styleAxisForPlane(latDeg, plane);
+  if (dot(style, plane.normal) < 1e-12) return null;
+  const equinoxSun = sunDirectionENU(latDeg, 0, hourAngleDeg);
+  const phi = latDeg * Math.PI / 180;
+  const pole = vec3(0, Math.cos(phi), Math.sin(phi));
+  const limit = Math.tan(23.44 * Math.PI / 180);
+  let lower = -limit;
+  let upper = limit;
+  for (const normal of [vec3(0, 0, 1), plane.normal]) {
+    const a = dot(equinoxSun, normal);
+    const b = dot(pole, normal);
+    if (Math.abs(b) < 1e-12) {
+      if (a <= 1e-12) return null;
+    } else if (b > 0) lower = Math.max(lower, -a / b);
+    else upper = Math.min(upper, -a / b);
   }
-  return null;
+  if (upper - lower < 1e-12) return null;
+  const declinationDeg = Math.atan((lower + upper) / 2) * 180 / Math.PI;
+  const sun = sunDirectionENU(latDeg, declinationDeg, hourAngleDeg);
+  const shadow = projectOntoPlane(add(plane.origin, style), sun, plane);
+  if (!shadow) return null;
+  const { u, v } = toPlaneCoords(shadow, plane);
+  return u === 0 && v === 0 ? null : Math.atan2(v, u);
 }
 
 /**
@@ -138,7 +130,8 @@ export function nodusShadow(
   plane: DialPlane,
   nodusDistance: number,
 ): { u: number; v: number; altitudeDeg: number } | null {
-  const style = styleAxisENU(latDeg);
+  const style = styleAxisForPlane(latDeg, plane);
+  if (dot(style, plane.normal) < 1e-12) return null;
   const nodus = add(plane.origin, scale(style, nodusDistance));
   const sun = sunDirectionENU(latDeg, declinationDeg, hourAngleDeg);
   if (sun.altitudeDeg <= 0) return null; // below the horizon entirely

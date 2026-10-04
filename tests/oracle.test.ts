@@ -81,19 +81,24 @@ function oraclePlane(normal: V3, uHint: V3): OraclePlane {
   return { origin: [0, 0, 0], normal: n, u, v };
 }
 
-/** Cast a ray from `point` toward the sun and intersect it with `plane`; null if no valid intersection. */
+/** Cast a ray from `point` away from the sun; negative travel cannot cast a shadow. */
 function rayPlaneShadow(point: V3, sunDir: V3, plane: OraclePlane): { u: number; v: number } | null {
   const denom = dot(sunDir, plane.normal);
   if (Math.abs(denom) < 1e-12) return null;
   const rel = sub(point, plane.origin);
   const t = dot(rel, plane.normal) / denom;
+  if (t < 0) return null;
   const hit = sub(point, scl(sunDir, t));
   const relHit = sub(hit, plane.origin);
   return { u: dot(relHit, plane.u), v: dot(relHit, plane.v) };
 }
 
 function oracleStyleShadowAngle(latDeg: number, hourAngleDeg: number, plane: OraclePlane): number | null {
-  const style = oracleStyleAxis(latDeg);
+  // Choose the end of the polar line that is in front of the receiving face.
+  // Previously both this oracle and the library put northern wall styles
+  // inside the wall and accepted negative ray travel. Direction matters.
+  const pole = oracleStyleAxis(latDeg);
+  const style = dot(pole, plane.normal) < 0 ? scl(pole, -1) : pole;
   // Try several deliberately different nonzero declinations than the
   // library's internal reference (+/-23.44 deg, see geometry.ts): if they
   // still agree, that is independent confirmation that hour lines really
@@ -111,6 +116,7 @@ function oracleStyleShadowAngle(latDeg: number, hourAngleDeg: number, plane: Ora
   // otherwise appears for some latitude/orientation/hour combinations).
   for (const declinationDeg of [-8, 8, -23.44, 23.44]) {
     const sun = oracleSunENU(latDeg, declinationDeg, hourAngleDeg);
+    if (sun[2] <= 0) continue;
     if (dot(sun, plane.normal) <= 0) continue;
     const shadow = rayPlaneShadow(style, sun, plane);
     if (!shadow || (shadow.u === 0 && shadow.v === 0)) continue;
@@ -183,12 +189,10 @@ describe("oracle: vertical direct-south dial vs co-latitude horizontal closed fo
         const plane = oraclePlane([0, -1, 0], [0, 0, 1]); // south, up
         const angle = oracleStyleShadowAngle(lat, h, plane);
         expect(angle).not.toBeNull();
-        // A direct vertical south dial has the same hour-line pattern as a
-        // horizontal dial for the co-latitude, but left-right mirrored --
-        // a documented caveat of that equivalence (Waugh, ch. 4), because
-        // "noon is up" on the wall but "noon is away from the viewer" on
-        // the horizontal plane, which reverses which side is east.
-        const expected = -Math.atan(Math.cos((lat * Math.PI) / 180) * Math.tan((h * Math.PI) / 180));
+        // The receiving face is viewed from the south: noon is DOWN,
+        // morning is to the viewer's left. atan(tan(theta)) alone loses
+        // the half-turn and cannot check the physical ray direction.
+        const expected = Math.PI - Math.atan(Math.cos((lat * Math.PI) / 180) * Math.tan((h * Math.PI) / 180));
         expect(angularDiffRad(angle as number, expected)).toBeLessThan(1e-9);
       });
     }

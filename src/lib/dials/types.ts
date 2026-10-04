@@ -35,10 +35,12 @@ export interface HistoricalHourCurve {
 export interface GnomonTemplate {
   /** Angle of the style above the dial plane, degrees. */
   styleHeightDeg: number;
-  /** Angle of the substyle from the reference (u) axis, degrees (0 for direct dials). */
+  /** Angle of the outward style's base from the reference (u) axis toward v, degrees. */
   substyleAngleDeg: number;
   /** Base length of the gnomon's triangular template along the substyle line, mm. */
   baseLengthMm: number;
+  /** Distance along the style from its foot to the date-line shadow marker. */
+  nodusDistanceMm?: number;
 }
 
 export interface PolarDialResult {

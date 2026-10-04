@@ -49,6 +49,7 @@ export function buildVerticalDial(opts: VerticalDialOptions): PolarDialResult {
     ? generateHistoricalHours(opts.latitudeDeg, plane, opts.nodusDistanceMm, opts.historicalHours)
     : [];
   const gnomon = computeGnomon(opts.latitudeDeg, plane, opts.gnomonBaseLengthMm);
+  gnomon.nodusDistanceMm = opts.nodusDistanceMm;
 
   const kindLabel = opts.wallDeclinationDeg === 0 ? "direct south" : `declining ${opts.wallDeclinationDeg.toFixed(0)}° from south`;
   return {
@@ -57,6 +58,6 @@ export function buildVerticalDial(opts: VerticalDialOptions): PolarDialResult {
     declinationLines,
     historicalHours,
     gnomon,
-    orientation: `Mount vertically, wall ${kindLabel}. Style height ${gnomon.styleHeightDeg.toFixed(1)}°, substyle ${gnomon.substyleAngleDeg.toFixed(1)}° from the plumb line.`,
+    orientation: `Mount vertically, wall ${kindLabel}, top of the design upward. The style projects out from the wall at ${gnomon.styleHeightDeg.toFixed(1)}°. Its base runs ${((gnomon.substyleAngleDeg + 360) % 360).toFixed(1)}° clockwise from the upward plumb line as viewed from the front.`,
   };
 }

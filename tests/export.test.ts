@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buildHorizontalDial } from "../src/lib/dials/horizontal.ts";
+import { renderGnomonSVG } from "../src/lib/render/svg.ts";
 import { exportPolarDialPDF } from "../src/lib/export/pdf.ts";
 
 function bytesToLatin1(bytes: Uint8Array): string {
@@ -109,5 +110,48 @@ describe("exportPolarDialPDF", () => {
         exportPolarDialPDF(wideDial, { radiusMm: 90, innerRadiusMm: 6, plateShape, numerals: "roman", format: "a4" }),
       ).not.toThrow();
     }
+  });
+});
+
+describe("construction details in PDF files", () => {
+  it("includes selected curve geometry, a motto and recoverable design notes", () => {
+    const options = { radiusMm: 80, innerRadiusMm: 6, plateShape: "fan" as const, numerals: "roman" as const, format: "a4" as const };
+    const plain = bytesToLatin1(exportPolarDialPDF(dial, options));
+    const withDetails = bytesToLatin1(exportPolarDialPDF(dial, {
+      ...options,
+      showDeclinationLines: true,
+      title: "My dial",
+      description: "Design date 2026-07-01. UTC-07:00. Radius 80 mm.",
+      motto: { latin: "Tempus fugit", translation: "Time flies", attribution: "Traditional" },
+    }));
+    expect(withDetails).toContain('Tempus fugit');
+    expect(withDetails).toContain('Design date 2026-07-01');
+    expect([...withDetails.matchAll(/ l\n/g)].length).toBeGreaterThan([...plain.matchAll(/ l\n/g)].length);
+  });
+
+  it("rejects nonfinite dimensions before producing a misleading PDF", () => {
+    expect(() => exportPolarDialPDF(dial, { radiusMm: NaN, innerRadiusMm: 6, plateShape: "fan", numerals: "roman", format: "a4" })).toThrow("Invalid dial dimensions");
+  });
+});
+
+describe("gnomon fabrication geometry", () => {
+  it("keeps the mounting tab attached and marks the physical nodus on the style edge", () => {
+    const svg = renderGnomonSVG(dial, { theme: "laser", marginMm: 8 });
+    const paths = [...svg.matchAll(/<path d="([^"]+)"[^>]*stroke="([^"]+)"[^>]*\/>/g)];
+    const cuts = paths.filter((p) => p[2] === '#ff0000');
+    expect(cuts).toHaveLength(1);
+    const fold = paths.find((p) => p[0].includes('stroke-dasharray'))!;
+    expect(fold[2]).toBe('#000000');
+    // The fold is an interior engraving, never a red base cut separating the tab.
+    const foldCoordinates = [...fold[1]!.matchAll(/[-\d.]+/g)].map((m) => Number(m[0]));
+    const cutCoordinates = [...cuts[0]![1]!.matchAll(/[-\d.]+/g)].map((m) => Number(m[0]));
+    expect(cutCoordinates[1]).toBeLessThan(foldCoordinates[1]!);
+    expect(cutCoordinates[5]).toBeGreaterThan(foldCoordinates[1]!);
+    const foot = /<circle cx="([\d.]+)" cy="([\d.]+)" r="0.8"/.exec(svg)!;
+    const marker = paths.find((p) => p[1]!.includes('h 3 M'))!;
+    const [startX, centerY] = marker[1]!.match(/[-\d.]+/g)!.map(Number);
+    const measured = Math.hypot(startX! + 1.5 - Number(foot[1]), centerY! - Number(foot[2]));
+    expect(measured).toBeCloseTo(30, 8);
+    expect(svg).toContain('nodus, 30.0mm from foot');
   });
 });

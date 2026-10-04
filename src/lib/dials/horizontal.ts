@@ -39,6 +39,7 @@ export function buildHorizontalDial(opts: HorizontalDialOptions): PolarDialResul
     ? generateHistoricalHours(opts.latitudeDeg, plane, opts.nodusDistanceMm, opts.historicalHours)
     : [];
   const gnomon = computeGnomon(opts.latitudeDeg, plane, opts.gnomonBaseLengthMm);
+  gnomon.nodusDistanceMm = opts.nodusDistanceMm;
 
   return {
     kind: "horizontal",
@@ -46,6 +47,6 @@ export function buildHorizontalDial(opts: HorizontalDialOptions): PolarDialResul
     declinationLines,
     historicalHours,
     gnomon,
-    orientation: `Lay flat, noon line toward true north. Style height ${gnomon.styleHeightDeg.toFixed(1)}° = |latitude|.`,
+    orientation: `Lay flat with the top of the design toward true north. The style rises ${gnomon.styleHeightDeg.toFixed(1)}° above the plate toward the ${opts.latitudeDeg >= 0 ? "north" : "south"} celestial pole.`,
   };
 }

@@ -1,5 +1,5 @@
 import { asinDeg } from "../astronomy.ts";
-import { dot, hourLineAngle } from "../geometry.ts";
+import { dot, hourLineAngle, styleAxisForPlane } from "../geometry.ts";
 import type { DialPlane } from "../geometry.ts";
 import { hourAngleForClock } from "../time-reference.ts";
 import type { TimeReference } from "../time-reference.ts";
@@ -37,9 +37,8 @@ export function computeGnomon(
   plane: DialPlane,
   baseLengthMm: number,
 ): GnomonTemplate {
-  const style = { x: 0, y: Math.cos((latDeg * Math.PI) / 180), z: Math.sin((latDeg * Math.PI) / 180) };
-  const signedStyle = latDeg >= 0 ? style : { x: -style.x, y: -style.y, z: -style.z };
-  const styleHeightDeg = asinDeg(Math.abs(dot(signedStyle, plane.normal)));
+  const signedStyle = styleAxisForPlane(latDeg, plane);
+  const styleHeightDeg = asinDeg(Math.min(1, Math.max(0, dot(signedStyle, plane.normal))));
 
   const uComp = dot(signedStyle, plane.u);
   const vComp = dot(signedStyle, plane.v);

@@ -10,7 +10,8 @@
 import type { Motto } from "../motto.ts";
 import type { AnalemmaticDialResult, PolarDialResult } from "../dials/types.ts";
 import { hourLabel } from "./numerals.ts";
-import { plateBounds, plateOutline, thetaMaxRad, type PlateShape } from "./plate-shape.ts";
+import { plateBounds, plateOutline, plateSector, type PlateShape } from "./plate-shape.ts";
+import { clipCurve } from "./curves.ts";
 import { polarToUV, toPage } from "./project.ts";
 import type { PageMapping } from "./project.ts";
 import { THEMES, type Theme } from "./theme.ts";
@@ -38,6 +39,7 @@ export interface PolarDialRenderOptions {
   showDeclinationLines: boolean;
   showHistoricalHours: boolean;
   title?: string;
+  description?: string;
   motto?: Motto;
   /** Live shadow tip, in dial (u, v) mm, if simulating "now". */
   shadowTip?: { u: number; v: number } | null;
@@ -45,9 +47,9 @@ export interface PolarDialRenderOptions {
 
 /** Canvas size and the root's page position for a given plate shape -- shared by the SVG and PDF renderers so they lay out identically. */
 export function polarDialLayout(dial: PolarDialResult, opts: Pick<PolarDialRenderOptions, "radiusMm" | "plateShape">) {
-  const thetaMax = thetaMaxRad(dial);
+  const { thetaMax, thetaCenter } = plateSector(dial);
   const labelRadius = opts.radiusMm + Math.max(4, opts.radiusMm * 0.06);
-  const bounds = plateBounds(opts.plateShape, labelRadius, thetaMax);
+  const bounds = plateBounds(opts.plateShape, labelRadius, thetaMax, thetaCenter);
   const padSide = Math.max(8, opts.radiusMm * 0.08);
   const padTop = Math.max(6, opts.radiusMm * 0.06);
   const padBottom = Math.max(20, opts.radiusMm * 0.24); // room for title + motto below the plate
@@ -57,45 +59,30 @@ export function polarDialLayout(dial: PolarDialResult, opts: Pick<PolarDialRende
   const centerX = bounds.halfWidth + padSide;
   const centerY = padTop + bounds.topU;
 
-  return { thetaMax, widthMm, heightMm, mapping: { centerX, centerY } as PageMapping };
-}
-
-function clipRun(points: { u: number; v: number }[], maxR: number): { u: number; v: number }[][] {
-  const runs: { u: number; v: number }[][] = [];
-  let current: { u: number; v: number }[] = [];
-  for (const p of points) {
-    if (Math.hypot(p.u, p.v) <= maxR) {
-      current.push(p);
-    } else if (current.length >= 2) {
-      runs.push(current);
-      current = [];
-    } else {
-      current = [];
-    }
-  }
-  if (current.length >= 2) runs.push(current);
-  return runs;
+  return { thetaMax, thetaCenter, widthMm, heightMm, mapping: { centerX, centerY } as PageMapping };
 }
 
 export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderOptions): string {
   const c = THEMES[opts.theme];
-  const { thetaMax, widthMm, heightMm, mapping: m } = polarDialLayout(dial, opts);
+  const { thetaMax, thetaCenter, widthMm, heightMm, mapping: m } = polarDialLayout(dial, opts);
   const parts: string[] = [];
 
   parts.push(
     `<svg xmlns="http://www.w3.org/2000/svg" width="${widthMm}mm" height="${heightMm}mm" viewBox="0 0 ${widthMm} ${heightMm}" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, serif">`,
   );
+  if (opts.title) parts.push(`<title>${esc(opts.title)}</title>`);
+  if (opts.description) parts.push(`<desc>${esc(opts.description)}</desc>`);
   if (c.background !== "none") {
     parts.push(`<rect x="0" y="0" width="${widthMm}" height="${heightMm}" fill="${c.background}"/>`);
   }
-  const outline = plateOutline(opts.plateShape, opts.radiusMm, thetaMax);
+  const outline = plateOutline(opts.plateShape, opts.radiusMm, thetaMax, 96, thetaCenter);
   const outlineD = outline.map((p, i) => `${i === 0 ? "M" : "L"} ${toPage(p.u, p.v, m).x.toFixed(3)} ${toPage(p.u, p.v, m).y.toFixed(3)}`).join(" ");
   parts.push(`<path d="${outlineD} Z" fill="none" stroke="${c.frame}" stroke-width="0.4"/>`);
 
   if (opts.showDeclinationLines) {
     for (const line of dial.declinationLines) {
       const stroke = line.kind === "zodiac" ? c.mutedText : c.declinationLine;
-      for (const run of clipRun(line.points, opts.radiusMm)) {
+      for (const run of clipCurve(line.points, opts.radiusMm, opts.plateShape, thetaMax, thetaCenter)) {
         const d = run.map((p, i) => `${i === 0 ? "M" : "L"} ${toPage(p.u, p.v, m).x.toFixed(3)} ${toPage(p.u, p.v, m).y.toFixed(3)}`).join(" ");
         parts.push(`<path d="${d}" fill="none" stroke="${stroke}" stroke-width="0.25"/>`);
       }
@@ -104,7 +91,7 @@ export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderO
 
   if (opts.showHistoricalHours) {
     for (const curve of dial.historicalHours) {
-      for (const run of clipRun(curve.points, opts.radiusMm)) {
+      for (const run of clipCurve(curve.points, opts.radiusMm, opts.plateShape, thetaMax, thetaCenter)) {
         const d = run.map((p, i) => `${i === 0 ? "M" : "L"} ${toPage(p.u, p.v, m).x.toFixed(3)} ${toPage(p.u, p.v, m).y.toFixed(3)}`).join(" ");
         parts.push(`<path d="${d}" fill="none" stroke="${c.historicalLine}" stroke-width="0.2" stroke-dasharray="1,0.8"/>`);
       }
@@ -174,11 +161,12 @@ export interface GnomonRenderOptions {
 export function renderGnomonSVG(dial: PolarDialResult, opts: GnomonRenderOptions): string {
   const c = THEMES[opts.theme];
   const base = dial.gnomon.baseLengthMm;
+  const nodus = dial.gnomon.nodusDistanceMm;
 
   if (dial.gnomon.styleHeightDeg > 89.9) {
     const rodLength = base;
     const w = Math.max(opts.marginMm * 2 + 24, 70);
-    const h = rodLength + opts.marginMm * 2 + 14;
+    const h = rodLength + opts.marginMm * 2 + 20;
     const cx = w / 2;
     const parts: string[] = [];
     parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}mm" height="${h}mm" viewBox="0 0 ${w} ${h}" font-family="'Cormorant Garamond', Georgia, serif">`);
@@ -187,41 +175,55 @@ export function renderGnomonSVG(dial: PolarDialResult, opts: GnomonRenderOptions
       `<line x1="${cx}" y1="${opts.marginMm}" x2="${cx}" y2="${opts.marginMm + rodLength}" stroke="${c.gnomon}" stroke-width="0.6" stroke-linecap="round"/>`,
     );
     parts.push(`<circle cx="${cx}" cy="${opts.marginMm}" r="1" fill="${c.gnomon}"/>`);
+    if (nodus !== undefined && nodus <= rodLength) {
+      parts.push(`<path d="M ${cx - 2} ${opts.marginMm + nodus} h 4" stroke="${c.text}" stroke-width="0.3"/><text x="${cx + 3}" y="${opts.marginMm + nodus}" font-size="2.5" fill="${c.text}">nodus</text>`);
+    }
     parts.push(
-      `<text x="${cx}" y="${h - 6}" font-size="2.8" fill="${c.text}" text-anchor="middle">plain rod, ${rodLength.toFixed(0)}mm long,</text>`,
+      `<text x="${cx}" y="${h - 12}" font-size="2.8" fill="${c.text}" text-anchor="middle">rod ${rodLength.toFixed(1)}mm; dot = foot</text>`,
     );
     parts.push(
-      `<text x="${cx}" y="${h - 2}" font-size="2.8" fill="${c.text}" text-anchor="middle">through the disc centre, perpendicular to the face</text>`,
+      `<text x="${cx}" y="${h - 7}" font-size="2.8" fill="${c.text}" text-anchor="middle">perpendicular to the disc</text>`,
     );
+    if (nodus !== undefined) parts.push(`<text x="${cx}" y="${h - 2}" font-size="2.8" fill="${c.text}" text-anchor="middle">nodus ${nodus.toFixed(1)}mm from foot</text>`);
     parts.push("</svg>");
     return parts.join("");
   }
 
   const height = base * Math.tan((dial.gnomon.styleHeightDeg * Math.PI) / 180);
   const tabDepth = Math.max(6, base * 0.15);
-  const w = base + opts.marginMm * 2;
-  const h = height + tabDepth + opts.marginMm * 2;
-  const x0 = opts.marginMm;
+  const w = Math.max(80, base + opts.marginMm * 2);
+  const h = height + tabDepth + opts.marginMm * 2 + 13;
+  const x0 = (w - base) / 2;
   const y0 = opts.marginMm + height; // baseline y
 
   const parts: string[] = [];
   parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}mm" height="${h}mm" viewBox="0 0 ${w} ${h}" font-family="'Cormorant Garamond', Georgia, serif">`);
   if (c.background !== "none") parts.push(`<rect width="${w}" height="${h}" fill="${c.background}"/>`);
 
-  // Triangle: base-left (style foot) -> base-right -> apex (style edge back to foot).
-  const foot = { x: x0, y: y0 };
+  // The sloping edge runs from base-right (the foot) to the apex.
+  const baseLeft = { x: x0, y: y0 };
   const baseRight = { x: x0 + base, y: y0 };
   const apex = { x: x0, y: y0 - height };
   parts.push(
-    `<path d="M ${foot.x} ${foot.y} L ${baseRight.x} ${baseRight.y} L ${apex.x} ${apex.y} Z" fill="none" stroke="${c.gnomon}" stroke-width="0.35"/>`,
+    `<path d="M ${apex.x} ${apex.y} L ${baseRight.x} ${baseRight.y} L ${baseRight.x} ${baseRight.y + tabDepth} L ${baseLeft.x} ${baseLeft.y + tabDepth} Z" fill="none" stroke="${c.gnomon}" stroke-width="0.35"/>`,
   );
-  // Fold/mount tab along the base, for gluing or slotting into the dial face.
+  parts.push(`<circle cx="${baseRight.x}" cy="${baseRight.y}" r="0.8" fill="${c.text}"/>`);
+  const styleLength = Math.hypot(base, height);
+  if (nodus !== undefined && nodus <= styleLength) {
+    const x = baseRight.x - base * nodus / styleLength;
+    const y = baseRight.y - height * nodus / styleLength;
+    parts.push(`<path d="M ${x - 1.5} ${y} h 3 M ${x} ${y - 1.5} v 3" stroke="${c.text}" stroke-width="0.25"/>`);
+  }
+  // The tab is part of the outer cut. Engrave the fold; cutting the
+  // triangle's base would detach the very tab intended for mounting it.
   parts.push(
-    `<path d="M ${foot.x} ${foot.y} L ${baseRight.x} ${baseRight.y} L ${baseRight.x} ${baseRight.y + tabDepth} L ${foot.x} ${foot.y + tabDepth} Z" fill="none" stroke="${c.frame}" stroke-width="0.25" stroke-dasharray="1.2,0.8"/>`,
+    `<path d="M ${baseLeft.x} ${baseLeft.y} L ${baseRight.x} ${baseRight.y}" fill="none" stroke="${c.text}" stroke-width="0.25" stroke-dasharray="1.2,0.8"/>`,
   );
   parts.push(
-    `<text x="${x0 + base / 2}" y="${y0 + tabDepth + 5}" font-size="3" fill="${c.text}" text-anchor="middle">style height ${dial.gnomon.styleHeightDeg.toFixed(2)}° — fold along dashed line</text>`,
+    `<text x="${w / 2}" y="${y0 + tabDepth + 5}" font-size="2.8" fill="${c.text}" text-anchor="middle">style ${dial.gnomon.styleHeightDeg.toFixed(2)}°; dot = foot</text>`,
   );
+  parts.push(`<text x="${w / 2}" y="${y0 + tabDepth + 10}" font-size="2.8" fill="${c.text}" text-anchor="middle">fold tab along the base</text>`);
+  if (nodus !== undefined) parts.push(`<text x="${w / 2}" y="${y0 + tabDepth + 15}" font-size="2.8" fill="${c.text}" text-anchor="middle">cross = nodus, ${nodus.toFixed(1)}mm from foot</text>`);
   parts.push("</svg>");
   return parts.join("");
 }
@@ -233,6 +235,7 @@ export interface AnalemmaticRenderOptions {
   numerals: "arabic" | "roman";
   romanStyle?: "IIII" | "IV";
   title?: string;
+  description?: string;
   motto?: Motto;
 }
 
@@ -241,6 +244,8 @@ export function renderAnalemmaticSVG(dial: AnalemmaticDialResult, opts: Analemma
   const m = { centerX: opts.widthMm / 2, centerY: opts.heightMm / 2 };
   const parts: string[] = [];
   parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${opts.widthMm}mm" height="${opts.heightMm}mm" viewBox="0 0 ${opts.widthMm} ${opts.heightMm}" font-family="'Cormorant Garamond', Georgia, serif">`);
+  if (opts.title) parts.push(`<title>${esc(opts.title)}</title>`);
+  if (opts.description) parts.push(`<desc>${esc(opts.description)}</desc>`);
   if (c.background !== "none") parts.push(`<rect width="${opts.widthMm}" height="${opts.heightMm}" fill="${c.background}"/>`);
 
   parts.push(

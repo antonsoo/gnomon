@@ -10,9 +10,11 @@
  */
 
 import { jsPDF } from "jspdf";
-import type { PolarDialResult } from "../dials/types.ts";
+import type { PlanePoint, PolarDialResult } from "../dials/types.ts";
+import type { Motto } from "../motto.ts";
 import { hourLabel } from "../render/numerals.ts";
-import { plateBounds, plateOutline, thetaMaxRad, type PlateShape } from "../render/plate-shape.ts";
+import { plateBounds, plateOutline, plateSector, type PlateShape } from "../render/plate-shape.ts";
+import { clipCurve } from "../render/curves.ts";
 import { polarToUV, toPage } from "../render/project.ts";
 
 export type PageFormat = "a4" | "letter";
@@ -24,6 +26,10 @@ export interface PdfExportOptions {
   numerals: "arabic" | "roman";
   romanStyle?: "IIII" | "IV";
   title?: string;
+  description?: string;
+  motto?: Motto;
+  showDeclinationLines?: boolean;
+  showHistoricalHours?: boolean;
   format: PageFormat;
 }
 
@@ -45,18 +51,21 @@ function clampPlateFits(widthMm: number, heightAboveRootMm: number, heightBelowR
 }
 
 export function exportPolarDialPDF(dial: PolarDialResult, opts: PdfExportOptions): Uint8Array {
-  const thetaMax = thetaMaxRad(dial);
+  if (!Number.isFinite(opts.radiusMm) || opts.radiusMm <= 0 || !Number.isFinite(opts.innerRadiusMm)
+    || opts.innerRadiusMm < 0 || opts.innerRadiusMm > opts.radiusMm) throw new Error("Invalid dial dimensions.");
+  const { thetaMax, thetaCenter } = plateSector(dial);
   const labelRadius = opts.radiusMm + Math.max(4, opts.radiusMm * 0.06);
-  const bounds = plateBounds(opts.plateShape, labelRadius, thetaMax);
+  const bounds = plateBounds(opts.plateShape, labelRadius, thetaMax, thetaCenter);
   clampPlateFits(2 * bounds.halfWidth, bounds.topU, -bounds.bottomU, opts.format);
 
   const doc = new jsPDF({ unit: "mm", format: opts.format, orientation: "portrait" });
   const pageWidth = doc.internal.pageSize.getWidth();
+  doc.setProperties({ title: opts.title ?? "Sundial", subject: opts.description ?? "", creator: "Gnomon" });
   const m = { centerX: pageWidth / 2, centerY: 20 + bounds.topU };
 
   doc.setDrawColor(20, 20, 20);
   doc.setLineWidth(0.3);
-  const outline = plateOutline(opts.plateShape, opts.radiusMm, thetaMax);
+  const outline = plateOutline(opts.plateShape, opts.radiusMm, thetaMax, 96, thetaCenter);
   const outlinePts = outline.map((p) => toPage(p.u, p.v, m));
   doc.lines(
     outlinePts.slice(1).map((p, i) => [p.x - outlinePts[i]!.x, p.y - outlinePts[i]!.y]),
@@ -67,6 +76,18 @@ export function exportPolarDialPDF(dial: PolarDialResult, opts: PdfExportOptions
     true,
   );
 
+  const drawCurve = (points: PlanePoint[], historical: boolean) => {
+    doc.setLineWidth(historical ? 0.2 : 0.25);
+    doc.setLineDashPattern(historical ? [1, 0.8] : [], 0);
+    for (const run of clipCurve(points, opts.radiusMm, opts.plateShape, thetaMax, thetaCenter)) {
+      const mapped = run.map((p) => toPage(p.u, p.v, m));
+      doc.lines(mapped.slice(1).map((p, i) => [p.x - mapped[i]!.x, p.y - mapped[i]!.y]), mapped[0]!.x, mapped[0]!.y, [1, 1], "S", false);
+    }
+  };
+  if (opts.showDeclinationLines) for (const line of dial.declinationLines) drawCurve(line.points, false);
+  if (opts.showHistoricalHours) for (const line of dial.historicalHours) drawCurve(line.points, true);
+  doc.setLineDashPattern([], 0);
+
   doc.setFontSize(7);
   for (const line of dial.hourLines) {
     const inner = polarToUV(line.angleRad, opts.innerRadiusMm);
@@ -76,7 +97,7 @@ export function exportPolarDialPDF(dial: PolarDialResult, opts: PdfExportOptions
     doc.setLineWidth(line.isMajor ? 0.35 : 0.15);
     doc.line(p0.x, p0.y, p1.x, p1.y);
     if (line.isMajor) {
-      const lp = polarToUV(line.angleRad, opts.radiusMm + 6);
+      const lp = polarToUV(line.angleRad, labelRadius);
       const pp = toPage(lp.u, lp.v, m);
       const label = hourLabel(line.hour, opts.numerals, opts.romanStyle);
       doc.text(label, pp.x, pp.y, { align: "center", baseline: "middle" });
@@ -86,10 +107,25 @@ export function exportPolarDialPDF(dial: PolarDialResult, opts: PdfExportOptions
   doc.setFillColor(20, 20, 20);
   doc.circle(m.centerX, m.centerY, 0.6, "F");
 
-  const belowPlateY = m.centerY - bounds.bottomU + 10;
+  let belowPlateY = m.centerY - bounds.bottomU + 8;
   if (opts.title) {
     doc.setFontSize(10);
     doc.text(opts.title, pageWidth / 2, belowPlateY, { align: "center" });
+    belowPlateY += 5;
+  }
+  if (opts.motto) {
+    doc.setFontSize(8);
+    const lines = doc.splitTextToSize(opts.motto.latin, pageWidth - 20) as string[];
+    doc.text(lines, pageWidth / 2, belowPlateY, { align: "center" });
+    belowPlateY += lines.length * 3.5 + 2;
+  }
+  if (opts.description) {
+    doc.setFontSize(7);
+    const lines = doc.splitTextToSize(opts.description, pageWidth - 20) as string[];
+    if (belowPlateY + lines.length * 3 > doc.internal.pageSize.getHeight() - 20) {
+      throw new Error("The design notes do not fit below this plate. Reduce the radius or export SVG instead.");
+    }
+    doc.text(lines, 10, belowPlateY);
   }
 
   // 100mm calibration bar, bottom-left of the page -- print at "actual
@@ -101,7 +137,7 @@ export function exportPolarDialPDF(dial: PolarDialResult, opts: PdfExportOptions
   doc.line(10, barY - 1.5, 10, barY + 1.5);
   doc.line(110, barY - 1.5, 110, barY + 1.5);
   doc.setFontSize(7);
-  doc.text("100 mm calibration — verify before cutting", 10, barY + 5);
+  doc.text("100 mm calibration - verify before cutting", 10, barY + 5);
 
   return new Uint8Array(doc.output("arraybuffer"));
 }

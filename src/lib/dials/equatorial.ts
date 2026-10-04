@@ -6,8 +6,8 @@
  * since its hour lines do not depend on latitude at all once you are in
  * the plane's own coordinates. It has two faces (used opposite halves of
  * the year, spring/summer vs. autumn/winter); both share the same hour
- * geometry, so we generate one and let the UI mirror it for the winter
- * face.
+ * geometry when viewed from the same side. This designer renders only
+ * the pole-facing face; a reverse-face construction is not provided.
  */
 
 import type { TimeReference } from "../time-reference.ts";
@@ -40,6 +40,7 @@ export function buildEquatorialDial(opts: EquatorialDialOptions): PolarDialResul
     ? generateHistoricalHours(opts.latitudeDeg, plane, opts.nodusDistanceMm, opts.historicalHours)
     : [];
   const gnomon = computeGnomon(opts.latitudeDeg, plane, opts.gnomonBaseLengthMm);
+  gnomon.nodusDistanceMm = opts.nodusDistanceMm;
 
   return {
     kind: "equatorial",
@@ -47,6 +48,6 @@ export function buildEquatorialDial(opts: EquatorialDialOptions): PolarDialResul
     declinationLines,
     historicalHours,
     gnomon,
-    orientation: `Tilt the disc so its face is perpendicular to Earth's axis (${Math.abs(opts.latitudeDeg).toFixed(1)}° from horizontal, facing ${opts.latitudeDeg >= 0 ? "the north celestial pole" : "the south celestial pole"}). Style lies along the axis itself, in the plane's own normal direction.`,
+    orientation: `Tilt the disc ${(90 - Math.abs(opts.latitudeDeg)).toFixed(1)}° from horizontal so its face is perpendicular to Earth's axis, facing ${opts.latitudeDeg >= 0 ? "the north celestial pole" : "the south celestial pole"}. The rod is perpendicular to the disc. This is the pole-facing face only; it is not illuminated in the opposite half of the year.`,
   };
 }
