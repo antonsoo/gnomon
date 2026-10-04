@@ -2,6 +2,38 @@
 
 All notable changes to this project are documented in this file.
 
+## [Unreleased]
+
+### Fixed
+
+- Northern, south-facing wall dials used a style behind the wall and accepted
+  backwards shadow rays. Both geometry and the original oracle shared this
+  error. Styles now project out of the receiving face; shadows travel away
+  from the sun, and hour rays require daylight in front of the face.
+- Fan plates follow the actual hour-ray sector in either hemisphere.
+  Equatorial mounting instructions use the disc's tilt (90 minus absolute
+  latitude), and wall mounting instructions locate the outward style base.
+- Gnomon templates mark the foot and nodus and keep the fold tab attached:
+  the base fold is engraved, not cut through.
+- Custom simulation times now use the chosen location's zone. Date, time,
+  slider, Now and animation agree across device zones. DST gaps and folds
+  are explicit; automatic clock adjustment and the correction table follow
+  the simulation date. Daily correction curves include leap years fully.
+- Invalid fields pause exports while retaining the last valid drawing.
+  Blank coordinates cannot silently become zero; obsolete geolocation
+  callbacks cannot overwrite a newer choice.
+- Downloads capture one design before asynchronous work. SVG and PDF retain
+  selected overlays and mottoes; PNG failures and PDF size errors recover
+  inline. PNG memory use is bounded and its effective resolution is shown.
+
+### Added
+
+- Keyboard-scrollable preview zoom, a mobile-first preview order, explicit
+  capability notes and disabled unavailable actions for analemmatic dials.
+- Production Chromium/Firefox workflows for simulation, input recovery,
+  downloads, accessibility, layout and privacy boundaries, plus absolute
+  physical shadow and construction-artifact regression tests.
+
 ## [0.2.2] - 2026-10-02
 
 ### Changed

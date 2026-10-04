@@ -1,36 +1,31 @@
 # Gnomon
 
-**Design a sundial that actually works, for any place on Earth. Print it, laser-cut it, set it in the sun.**
+**Design a sundial for your location. Inspect its shadow and export a construction drawing at physical scale.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/demo-antonsoo.github.io%2Fgnomon-c9a24b)](https://antonsoo.github.io/gnomon/)
 
 ![Gnomon: a horizontal sundial being designed for San Francisco, brass theme](docs/assets/hero.png)
 
-Most "sundial generator" tools on the web draw a schematic that looks right
-and isn't: hour lines placed by eyeballing an ellipse, no equation-of-time
-correction, no distinction between local solar time and the clock on your
-wall, a "vertical dial" mode that's really just the horizontal formula
-rotated 90 degrees (wrong for anything but a few special cases). A sundial
-built from one of those is a wall decoration, not an instrument.
+A construction drawing has to connect the location, receiving face, physical
+gnomon and clock convention. Gnomon uses a 3D shadow model for polar-style
+dials and a separate analemmatic model, with solar-position calculations,
+hand-calculated physical examples and ray-casting checks. SVG and PDF use
+millimetres; PDF includes a calibration bar to check after printing.
 
-Gnomon computes the actual geometry: a 3D shadow-casting model shared by
-every dial type, real solar-position astronomy (the same class of algorithm
-behind the NOAA Solar Calculator), and a test suite built around an
-**independent** ray-casting check rather than trusting the formulas that
-drew the picture. It exports scale-exact SVG and PDF so what you cut or
-print is the same shape the math produced, in millimetres, not "close
-enough for a screenshot."
+The [construction and simulation audit](docs/construction-audit.md) explains
+the wall-shadow error found in the original geometry and its oracle, the
+correction, and what remains outside the verification.
 
 ## Quickstart
 
 ```bash
 git clone https://github.com/antonsoo/gnomon.git && cd gnomon
-npm install
+npm ci
 npm run dev
 ```
 
-Open the printed local URL. Or use the [live demo](https://antonsoo.github.io/gnomon/) --
+Use Node 24 for development. Open the printed local URL. Or use the [live demo](https://antonsoo.github.io/gnomon/) --
 no install needed.
 
 ## Features
@@ -51,18 +46,23 @@ no install needed.
   closed form.
 - **Declination (date) lines** for the solstices, equinox, and optionally
   the zodiac entries, for a nodus on the style.
-- **Equation of time** table and daily curve, computed from the same solar
-  ephemeris as everything else.
-- **Gnomon template**: the triangular style as a separate cut piece with a
-  fold/mount tab (or, for the equatorial dial, the plain rod its geometry
+- **Equation of time** table for the simulation year, computed from the same
+  solar ephemeris. The library also exposes a daily curve, including leap days.
+- **Gnomon template**: a triangular style with an attached mounting tab,
+  engraved fold, marked foot and nodus position (or, for the equatorial dial, the plain rod its geometry
   actually calls for -- see [Accuracy and limitations](#accuracy-and-limitations)).
 - **Curated Latin mottoes**, each attribution checked rather than assumed
   (most sundial mottoes are anonymous folk Latin, not a Roman poet).
 - **Export**: SVG in physical millimetres for laser cutters (red = cut,
   black = engrave); PDF at exact print scale for A4 and US Letter with a
   100mm calibration bar; PNG.
-- **Live simulation**: sun altitude/azimuth and the projected shadow for now
-  or any chosen date/time, animatable through the day.
+- **Live simulation** for the three polar-style dials: date and time in the
+  selected location's zone, sun altitude/azimuth and nodus shadow, with day
+  animation. Skipped clock times are rejected; repeated times offer both
+  occurrences. Automatic clock adjustment follows the simulation date.
+- **Inspect and recover**: zoom the preview to 400% without changing export
+  scale, scroll it with the keyboard, and correct invalid fields without
+  losing the last valid drawing. Exports wait until the form is valid.
 - **Location**: latitude/longitude entry, geolocation, a built-in gazetteer
   including historic astronomy sites (Alexandria, Aswan/Syene, Athens, Rome,
   Babylon, Samarkand, Jaipur), and time-zone detection via `Intl`.
@@ -74,7 +74,7 @@ no install needed.
 `src/lib/geometry.ts` works entirely in 3D vectors (local East-North-Up
 frame). Given a dial plane (an origin, an outward normal, and an in-plane
 basis) and the gnomon's style -- a line parallel to Earth's rotation axis,
-pointing at the elevated celestial pole -- it projects the style's shadow
+projecting out of the receiving face -- it projects the style's shadow
 onto the plane for a given hour angle. Horizontal, vertical (direct or
 declining) and equatorial dials are all "the shadow of a polar style on a
 plane"; they differ only in which plane:
@@ -127,12 +127,15 @@ The suite then, for many latitudes, longitudes, dates and dial types:
    their published closed forms (`tan(theta) = sin(phi) * tan(H)` and
    the co-latitude-with-mirroring relationship for vertical dials,
    respectively -- Waugh, *Sundials: Their Theory and Construction*, ch. 3-4).
+   The wall comparison checks the physical ray direction, including the
+   downward noon ray on an equator-facing wall.
 5. Checks the analemmatic dial by an unrelated method: computing the true
    sun azimuth for a given date/time and confirming a plain vertical rod at
    that date's gnomon position casts its shadow in the exact direction of
    the corresponding point on the hour ellipse.
 
-170 of the suite's tests are this oracle; see
+The ray-casting suite is supplemented by absolute wall-shadow coordinates,
+a numerical daylight sweep and measured export geometry; see
 [Accuracy and limitations](#accuracy-and-limitations) for what it does and
 doesn't guarantee.
 
@@ -141,7 +144,7 @@ doesn't guarantee.
 The library has no npm package published yet (see [Contributing](#contributing));
 within this repo, or after cloning it, import it by relative path. A runnable
 version of this example is in `examples/basic-horizontal-dial.ts`
-(`npx tsx examples/basic-horizontal-dial.ts`).
+(`node examples/basic-horizontal-dial.ts` with Node 24).
 
 ```ts
 import { buildHorizontalDial } from "./src/lib/dials/horizontal.ts";
@@ -156,16 +159,16 @@ const dial = buildHorizontalDial({
 });
 
 console.log(dial.orientation);
-// "Lay flat, noon line toward true north. Style height 37.8° = |latitude|."
+// "Lay flat with the top of the design toward true north. The style rises
+// 37.8° above the plate toward the north celestial pole."
 
 const svg = renderPolarDialSVG(dial, {
   radiusMm: 90, innerRadiusMm: 6, plateShape: "fan",
   numerals: "roman", theme: "brass",
   showDeclinationLines: true, showHistoricalHours: false,
 });
-// Canvas size is computed for you, from the hour lines the dial actually
-// uses: svg.slice(0, 60) starts with
-// '<svg xmlns="http://www.w3.org/2000/svg" width="206.8mm" ...'
+// Canvas size follows the sector containing the usable hour rays.
+// The root SVG width and height use millimetres.
 ```
 
 The library (`src/lib/`) has no dependency on the DOM or on the UI code in
@@ -212,27 +215,51 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
   `src/lib/dials/analemmatic.ts`.
 - **PDF export** rejects a dial radius that doesn't fit the chosen page
   rather than silently clipping it.
-- Latitudes very close to the poles (beyond about 85 degrees) can produce
-  degenerate or very long hour lines for some dial orientations; this is a
-  real property of the geometry (a horizontal dial's hour lines genuinely
-  approach infinite length as declination approaches the pole), not
-  something the tool tries to hide, but it isn't specially clipped either.
+- **Simulation dates** range from 1900 to 2100. Local-time conversion uses
+  the browser's time-zone data; future political changes require updated
+  browser data. The automatic clock adjustment uses the actual offset at
+  the chosen instant. Manual "standard time" uses the minimum monthly
+  offset sampled for that year, which is an approximation in zones with
+  negative DST or permanent offset changes.
+- **Analemmatic** hour marks use apparent solar time; they have no zone-time
+  or historical-hour option and no animated shadow, PDF or fixed-style
+  template. The UI exposes these limits before export.
+- **Equatorial** output covers the pole-facing face only. It is not a
+  complete two-sided winter/summer construction.
+- **Degenerate orientations** (for example a horizontal polar style at
+  the equator, or an east/west wall with the style in its plane) cannot
+  make a usable dial in this model. The UI explains the problem and pauses
+  exports. Near-degenerate styles can be impractically tall; dimensions
+  describe geometry, not a fabrication recommendation.
+- Hour-ray visibility uses a nominal annual declination range of
+  +/-23.44 degrees and requires the sun above the horizon and in front of
+  the face. Terrain, refraction, material thickness and mounting errors
+  are not modeled. No physical fabrication or field measurement was
+  performed as part of the automated verification.
+- PNG is a raster preview, bounded to 16 megapixels and 8192 pixels per
+  side. Large designs are downsampled and report their effective resolution.
+  Use SVG or PDF for physical scale. Async exports retain the complete
+  design selected at the time of the click, even if the form changes.
 
 ## Development
 
 ```bash
-npm install
+npm ci
 npm run lint       # eslint
 npm run typecheck  # tsc --noEmit, strict
 npm test           # vitest (astronomy, the DE421 ephemeris check, time zones, dial geometry, misc data, export, and the oracle suite)
-npm run build      # tsc -b && vite build
+npm run build      # tsc -b && vite build; static site in dist/
+npm run test:browser # production workflows in Chromium and Firefox
 ```
 
 To regenerate the ephemeris fixture (downloads DE421, about 17 MB, on first
 use): `uv run --with skyfield python3 scripts/solar_oracle.py`.
 
-All four passed on this machine (14 vCPU WSL2 Linux, 48 GB RAM) before this
-was published.
+Browser setup on a new machine: `npx playwright install chromium firefox`.
+The browser suite checks city-local times across device zones, DST transitions,
+late location callbacks, invalid input, delayed and failed downloads, SVG/PDF/PNG
+artifacts, preview zoom, 320/375/1440px layouts, accessibility, CSP violations
+and off-origin requests. See the [audit](docs/construction-audit.md) for evidence.
 
 ## Contributing
 

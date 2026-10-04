@@ -4,7 +4,7 @@
  * a laser-ready SVG to stdout.
  *
  * Run with:
- *   npx tsx examples/basic-horizontal-dial.ts
+ *   node examples/basic-horizontal-dial.ts  # Node 24
  */
 
 import { buildHorizontalDial } from "../src/lib/dials/horizontal.ts";
