@@ -83,6 +83,24 @@ request, including after a permission timeout warning.
 
 ## Verification
 
+Verified from a clean detached checkout with Node 24.21.0 and npm 11.19.0:
+
+| Check | Result |
+| --- | --- |
+| Fresh `npm ci`, lint and strict type checks | Passed |
+| Unit suite, default and `de_DE.UTF-8` locales | 261 passed in each run |
+| Production Chromium/Firefox workflows | 38 passed |
+| Axe scans of tested layouts and recovery states | 20 scans, zero violations |
+| Tested page errors, unhandled rejections, CSP violations, off-origin requests | Zero |
+| Working-checkout Node 26 build versus clean Node 24 build | All 35 files have matching SHA-256 hashes |
+| README library example | Ran successfully; 53 hour lines, 3 declination lines |
+| Visual review | Five refreshed screenshots, plus a downloaded PDF rendered and text-extracted with Poppler |
+
+The browser harness owns its preview process and waits for Vite's ready
+message, with a 15-second startup timeout. It fails on an occupied port
+instead of testing an unrelated server. This also avoids the initial closed
+loopback-port probe that stalled during this environment's clean run.
+
 The committed suite covers core geometry, time conversion and construction
 output. The production browser suite runs Chromium and Firefox, with
 network routes restricted to the local origin and listeners for page errors,

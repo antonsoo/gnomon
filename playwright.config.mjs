@@ -17,8 +17,10 @@ export default defineConfig({
   },
   webServer: {
     command: 'npm run preview -- --host 127.0.0.1 --port 4317 --strictPort',
-    url: 'http://127.0.0.1:4317/gnomon/',
-    reuseExistingServer: !process.env.CI,
+    // Own the preview process and wait for its ready signal. Probing a closed
+    // loopback port can stall before the launch timeout on filtered hosts.
+    wait: { stdout: /Local:\s+http:\/\/127\.0\.0\.1:4317\/gnomon\// },
+    timeout: 15_000,
   },
   projects: [{ name: 'chromium', use: { browserName: 'chromium' } }, { name: 'firefox', use: { browserName: 'firefox' } }],
 });
