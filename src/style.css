@@ -36,6 +36,8 @@
   box-sizing: border-box;
 }
 
+[hidden] { display: none !important; }
+
 html {
   color-scheme: dark;
 }
@@ -129,11 +131,18 @@ a {
   grid-template-columns: minmax(260px, 320px) minmax(0, 1fr) minmax(300px, 360px);
   gap: 20px;
   align-items: start;
+  grid-template-areas: "settings preview details";
 }
+
+.dial-settings { grid-area: settings; }
+.stage { grid-area: preview; }
+.details-rail { grid-area: details; }
+.layout > * { min-width: 0; }
 
 @media (max-width: 1180px) {
   .layout {
     grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+    grid-template-areas: "settings preview" "details details";
   }
   .details-rail {
     grid-column: 1 / -1;
@@ -143,6 +152,7 @@ a {
 @media (max-width: 820px) {
   .layout {
     grid-template-columns: 1fr;
+    grid-template-areas: "preview" "settings" "details";
   }
   .details-rail {
     grid-column: auto;
@@ -226,6 +236,9 @@ select {
 input[type="number"]:invalid {
   border-color: var(--danger);
 }
+input[aria-invalid="true"] { border-color: var(--danger); }
+.field-error { color: #f4aa8f; font-size: 12px; overflow-wrap: anywhere; }
+.field-error:empty, .hint:empty { display: none; }
 
 input[type="range"] {
   width: 100%;
@@ -250,6 +263,7 @@ select:focus {
   font-size: 11.5px;
   color: var(--ink-faint);
   margin-top: 4px;
+  overflow-wrap: anywhere;
 }
 
 .segmented {
@@ -273,7 +287,7 @@ button {
   background: var(--panel-raised);
   color: var(--ink);
   cursor: pointer;
-  transition: border-color 120ms ease, color 120ms ease, background 120ms ease;
+  transition: border-color 120ms ease;
 }
 
 button:hover {
@@ -305,7 +319,7 @@ button.ghost {
 
 button:disabled {
   opacity: 0.6;
-  cursor: progress;
+  cursor: not-allowed;
 }
 
 .checkbox-row {
@@ -359,14 +373,24 @@ button:disabled {
   align-items: center;
   justify-content: center;
   padding: 12px;
-  min-height: 360px;
+  min-height: clamp(220px, 25vw, 360px);
+  overflow: auto;
 }
 
 .stage-canvas svg {
   max-width: 100%;
   height: auto;
   display: block;
+  max-height: 520px;
 }
+.stage-canvas.zoomed { display: block; max-height: 540px; }
+.stage-canvas.zoomed svg { max-width: none; max-height: none; }
+.preview-controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.preview-controls output { min-width: 4ch; text-align: center; font: 12px var(--font-mono); }
+
+.stage h2 { font: 600 19px var(--font-display); margin: 0; color: var(--brass-bright); }
+.settings-link { font-size: 12px; }
+.stage-canvas[data-theme="laser"], .gnomon-thumb[data-theme="laser"] { background: #fff; }
 
 .readout {
   font-family: var(--font-mono);
@@ -391,8 +415,14 @@ button:disabled {
 
 .time-controls .slider-wrap {
   flex: 1;
-  min-width: 200px;
+  min-width: min(200px, 100%);
 }
+.time-controls { width: 100%; min-width: 0; }
+.time-controls input[type="date"] { flex: 1 1 150px; min-width: 0; }
+.time-controls input[type="time"] { flex: 1 1 110px; min-width: 0; }
+.time-controls .hint { flex-basis: 100%; }
+.skip-link { position: absolute; left: 16px; top: -100px; z-index: 10; padding: 12px; background: var(--ground); }
+.skip-link:focus { top: 8px; }
 
 /* ---------------------------------------------------------------------
    Details rail
@@ -448,6 +478,7 @@ button:disabled {
 .gnomon-thumb svg {
   max-width: 100%;
   height: auto;
+  max-height: 280px;
 }
 
 table.eot-table {

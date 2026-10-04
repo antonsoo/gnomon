@@ -34,7 +34,8 @@ export function equationOfTimeTable(year: number, daysOfMonth: number[] = [1, 11
 export function equationOfTimeCurve(year: number): EquationOfTimeSample[] {
   const samples: EquationOfTimeSample[] = [];
   const start = Date.UTC(year, 0, 1, 12, 0, 0);
-  for (let d = 0; d < 365; d++) {
+  const days = (Date.UTC(year + 1, 0, 1, 12, 0, 0) - start) / 86400000;
+  for (let d = 0; d < days; d++) {
     const date = new Date(start + d * 86400000);
     const { equationOfTimeMin, declinationDeg } = solarEphemeris(date);
     samples.push({ date, label: date.toISOString().slice(0, 10), equationOfTimeMin, declinationDeg });

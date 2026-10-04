@@ -74,3 +74,13 @@ describe("numerals", () => {
     expect(hourLabel(3.75, "arabic")).toBe("3¾");
   });
 });
+
+describe("complete calendar-year correction curves", () => {
+  it.each([[2000, 366], [2024, 366], [2026, 365], [2100, 365]])("includes every day of %s", (year, days) => {
+    const curve = equationOfTimeCurve(year);
+    expect(curve).toHaveLength(days);
+    expect(curve[0]!.label).toBe(`${year}-01-01`);
+    expect(curve.at(-1)!.label).toBe(`${year}-12-31`);
+    expect(new Set(curve.map((row) => row.label)).size).toBe(days);
+  });
+});

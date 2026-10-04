@@ -118,3 +118,39 @@ describe("locate", () => {
     }
   });
 });
+
+describe("obsolete geolocation requests", () => {
+  it("retires a request and its watchdog when the user chooses another location", () => {
+    const h = harness();
+    const cancel = locate(h.source, h.handlers, h.options);
+    cancel();
+    h.allow(1, 2);
+    h.refuse(1);
+    h.advance(60_000);
+    expect(h.log).toEqual([]);
+    expect(h.pendingTimers()).toBe(0);
+  });
+
+  it("retires a request even after its patience warning", () => {
+    const h = harness();
+    const cancel = locate(h.source, h.handlers, h.options);
+    h.advance(20_000);
+    cancel();
+    h.allow(1, 2);
+    expect(h.log).toEqual(["failed unanswered"]);
+  });
+
+  it("recovers from a synchronous platform failure and clears the timer", () => {
+    const h = harness();
+    locate({ getCurrentPosition() { throw new Error("disabled"); } }, h.handlers, h.options);
+    expect(h.log).toEqual(["failed unavailable"]);
+    expect(h.pendingTimers()).toBe(0);
+  });
+
+  it.each([[NaN, 0], [91, 0], [0, Infinity], [0, -181]])("rejects invalid coordinates %s,%s", (lat, lon) => {
+    const h = harness();
+    locate(h.source, h.handlers, h.options);
+    h.allow(lat, lon);
+    expect(h.log).toEqual(["failed unavailable"]);
+  });
+});

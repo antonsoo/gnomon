@@ -2,23 +2,17 @@ import "./fonts/fonts.css";
 import "./style.css";
 
 import { CITIES } from "./lib/cities.ts";
-import { buildAnalemmaticDial } from "./lib/dials/analemmatic.ts";
-import type { HourLineOptions } from "./lib/dials/common.ts";
-import { buildEquatorialDial } from "./lib/dials/equatorial.ts";
-import { buildHorizontalDial } from "./lib/dials/horizontal.ts";
 import { buildDialPlane } from "./lib/dials/plane.ts";
-import type { AnalemmaticDialResult, PolarDialResult } from "./lib/dials/types.ts";
-import { buildVerticalDial } from "./lib/dials/vertical.ts";
+import { captureDesign, designSvg, type DesignSnapshot } from "./design.ts";
 import { equationOfTimeTable } from "./lib/equation-of-time.ts";
 import { locate, LOCATE_FAILURE_TEXT } from "./lib/locate.ts";
-import { svgToPngBlob } from "./lib/export/png.ts";
+import { pngDimensions, svgToPngBlob } from "./lib/export/png.ts";
 import { MOTTOES } from "./lib/motto.ts";
 import type { PlateShape } from "./lib/render/plate-shape.ts";
 import { renderAnalemmaticSVG, renderGnomonSVG, renderPolarDialSVG } from "./lib/render/svg.ts";
 import type { Theme } from "./lib/render/theme.ts";
 import { simulatePolarShadow } from "./lib/simulation.ts";
-import type { TimeReference } from "./lib/time-reference.ts";
-import { isValidTimeZone, resolveZone } from "./lib/timezone.ts";
+import { formatUtcOffset, isValidTimeZone, offsetMinutesAt, resolveLocalDateTime, zonedDateTimeInput } from "./lib/timezone.ts";
 import { clear, downloadBlob, el } from "./ui/dom.ts";
 import type { AppState, DialType, HistoricalSystem } from "./state.ts";
 import { defaultState } from "./state.ts";
@@ -27,7 +21,6 @@ const state: AppState = defaultState();
 
 const app = document.getElementById("app")!;
 
-const HOUR_LINE_OPTIONS: HourLineOptions = { startHour: 3, endHour: 21, stepHours: 0.25 };
 const DIAL_LABELS: Record<DialType, string> = {
   horizontal: "Horizontal",
   vertical: "Vertical",
@@ -38,63 +31,37 @@ const THEME_LABELS: Record<Theme, string> = { brass: "Brass", slate: "Slate", bl
 
 // --- derived helpers -------------------------------------------------
 
-/** "37.77° N, 122.42° W" -- real degree signs and compass letters, not signed decimals. */
-function formatLatLon(latitudeDeg: number, longitudeDeg: number): string {
-  const latLabel = `${Math.abs(latitudeDeg).toFixed(2)}° ${latitudeDeg >= 0 ? "N" : "S"}`;
-  const lonLabel = `${Math.abs(longitudeDeg).toFixed(2)}° ${longitudeDeg >= 0 ? "E" : "W"}`;
-  return `${latLabel}, ${lonLabel}`;
-}
-
-/** The DST offset baked into the dial: the manual choice, or whether the zone observes DST today. */
-function dialDstOffsetHours(): number {
-  return state.dstOffsetOverride ?? resolveZone(state.timeZone, new Date()).dstOffsetHours;
-}
-
-function timeReference(): TimeReference {
-  if (state.timeMode === "apparent") return { mode: "apparent", longitudeDeg: state.longitudeDeg };
-  const zone = resolveZone(state.timeZone, new Date());
-  return {
-    mode: "standard",
-    longitudeDeg: state.longitudeDeg,
-    zoneMeridianDeg: zone.zoneMeridianDeg,
-    dstOffsetHours: dialDstOffsetHours(),
-  };
-}
-
-function buildCurrentDial(): PolarDialResult | AnalemmaticDialResult {
-  if (state.dialType === "analemmatic") {
-    return buildAnalemmaticDial({
-      latitudeDeg: state.latitudeDeg,
-      semiMajorMm: state.radiusMm,
-      startHour: 4,
-      endHour: 20,
-      stepHours: 1,
-      includeZodiac: state.showZodiac,
-    });
-  }
-  const shared = {
-    latitudeDeg: state.latitudeDeg,
-    timeReference: timeReference(),
-    hourLineOptions: HOUR_LINE_OPTIONS,
-    nodusDistanceMm: state.radiusMm * 0.32,
-    gnomonBaseLengthMm: state.radiusMm * 0.62,
-    includeZodiac: state.showZodiac,
-    historicalHours: state.historicalHours,
-  };
-  if (state.dialType === "horizontal") return buildHorizontalDial(shared);
-  if (state.dialType === "equatorial") return buildEquatorialDial(shared);
-  return buildVerticalDial({ ...shared, wallDeclinationDeg: state.wallDeclinationDeg });
-}
-
-function currentInstant(): Date {
+function currentInstant(): Date | null {
   if (state.simMode === "now") return new Date();
-  const d = new Date(state.customDateTimeLocal);
-  return Number.isNaN(d.getTime()) ? new Date() : d;
+  const result = resolveLocalDateTime(state.customDateTimeLocal, state.timeZone);
+  if (result.kind !== "valid") return null;
+  return result.instants[state.timeDisambiguation === "later" ? result.instants.length - 1 : 0]!;
 }
 
 // --- DOM: static shell -------------------------------------------------
 
 const svgStageWrap = el("div", { className: "stage-canvas" });
+svgStageWrap.tabIndex = 0;
+svgStageWrap.setAttribute("role", "group");
+svgStageWrap.setAttribute("aria-label", "Scrollable sundial drawing");
+let previewZoom = 1;
+const zoomOut = el("button", { type: "button", attrs: { "aria-label": "Zoom out preview" } }, ["−"]);
+const zoomIn = el("button", { type: "button", attrs: { "aria-label": "Zoom in preview" } }, ["+"]);
+const zoomReset = el("button", { type: "button" }, ["Fit preview"]);
+const zoomReadout = el("output", { attrs: { "aria-label": "Preview zoom", "aria-live": "polite" } });
+function updatePreviewZoom(): void {
+  const svg = svgStageWrap.querySelector("svg");
+  svgStageWrap.classList.toggle("zoomed", previewZoom > 1);
+  if (svg) svg.style.width = previewZoom > 1 ? `${Math.max(1, svgStageWrap.clientWidth - 26) * previewZoom}px` : "";
+  const label = `${previewZoom * 100}%`;
+  if (zoomReadout.textContent !== label) zoomReadout.textContent = label;
+  zoomOut.disabled = zoomReset.disabled = previewZoom <= 1;
+  zoomIn.disabled = previewZoom >= 4;
+}
+zoomOut.addEventListener("click", () => { previewZoom = Math.max(1, previewZoom - 0.5); updatePreviewZoom(); });
+zoomIn.addEventListener("click", () => { previewZoom = Math.min(4, previewZoom + 0.5); updatePreviewZoom(); });
+zoomReset.addEventListener("click", () => { previewZoom = 1; updatePreviewZoom(); });
+window.addEventListener("resize", updatePreviewZoom);
 const readout = el("div", { className: "readout" });
 const orientationText = el("p", { className: "orientation-text" });
 const mottoBox = el("div", { className: "motto" });
@@ -108,7 +75,20 @@ const timeSlider = el("input", {
   attrs: { "aria-label": "Time of day for the simulated shadow" },
 }) as HTMLInputElement;
 const timeReadout = el("span", { className: "hint" });
-const dateInput = el("input", { type: "date", attrs: { "aria-label": "Date for the simulated shadow" } }) as HTMLInputElement;
+const dateInput = el("input", { type: "date", attrs: { min: "1900-01-01", max: "2100-12-31", "aria-label": "Date for the simulated shadow", "aria-describedby": "simulation-note" } });
+const timeInput = el("input", { type: "time", attrs: { "aria-label": "Local time for the simulated shadow", "aria-describedby": "simulation-note", step: "60" } });
+const simulationNote = el("p", { className: "hint", id: "simulation-note", attrs: { role: "status" } });
+const designStatus = el("p", { className: "hint", attrs: { role: "status" } });
+const timeBasisNote = el("p", { className: "hint" });
+const foldSelect = el("select", { attrs: { "aria-label": "Repeated local time" } });
+foldSelect.hidden = true;
+foldSelect.addEventListener("change", () => {
+  state.timeDisambiguation = foldSelect.value as "earlier" | "later";
+  render();
+});
+let currentDesign: DesignSnapshot | null = null;
+let exportPending = false;
+const invalidFields = new Map<HTMLInputElement, string>();
 
 let fieldIds = 0;
 
@@ -131,6 +111,36 @@ function fieldRow(label: string, ...controls: HTMLElement[]): HTMLElement {
   const wrap = el("div", { className: "field" }, [labelEl]);
   controls.forEach((c) => wrap.append(c));
   return wrap;
+}
+
+function bindNumber(input: HTMLInputElement, label: string, min: number, max: number, update: (value: number) => void, location = false): void {
+  input.min = String(min);
+  input.max = String(max);
+  input.step = "any";
+  input.required = true;
+  const message = el("p", { className: "field-error", id: `field-error-${++fieldIds}` });
+  input.setAttribute("aria-describedby", message.id);
+  input.after(message);
+  input.addEventListener("input", () => {
+    if (location) retireLocation();
+    const value = input.valueAsNumber;
+    const error = !Number.isFinite(value) || value < min || value > max ? `${label}: enter a number from ${min} to ${max}.` : "";
+    message.textContent = error;
+    input.setAttribute("aria-invalid", String(Boolean(error)));
+    if (error) invalidFields.set(input, error);
+    else {
+      invalidFields.delete(input);
+      update(value);
+    }
+    render();
+  });
+}
+
+function clearFieldError(input: HTMLInputElement): void {
+  invalidFields.delete(input);
+  input.removeAttribute("aria-invalid");
+  const message = document.getElementById(input.getAttribute("aria-describedby") ?? "");
+  if (message?.classList.contains("field-error")) message.textContent = "";
 }
 
 function segmented<T extends string>(
@@ -180,56 +190,55 @@ const lonInput = el("input", {
 const tzInput = el("input", { type: "text", value: state.timeZone }) as HTMLInputElement;
 const geoBtn = el("button", { type: "button", className: "ghost" }, ["Use my location"]);
 const cityNote = el("p", { className: "hint", attrs: { role: "status" } });
+let cancelLocation = () => {};
+function retireLocation(): void {
+  cancelLocation();
+  geoBtn.textContent = "Use my location";
+  geoBtn.disabled = false;
+  citySelect.value = "";
+  cityNote.textContent = "";
+}
 
 citySelect.addEventListener("change", () => {
   const c = CITIES.find((x) => x.name === citySelect.value);
   if (!c) return;
+  retireLocation();
+  citySelect.value = c.name;
   state.latitudeDeg = c.latitudeDeg;
   state.longitudeDeg = c.longitudeDeg;
   state.timeZone = c.timeZone;
   latInput.value = String(c.latitudeDeg);
   lonInput.value = String(c.longitudeDeg);
   tzInput.value = c.timeZone;
-  tzInput.removeAttribute("aria-invalid");
+  [latInput, lonInput, tzInput].forEach(clearFieldError);
   cityNote.textContent = c.note ?? "";
   render();
 });
-latInput.addEventListener("input", () => {
-  const v = Number(latInput.value);
-  if (Number.isFinite(v) && v >= -90 && v <= 90) {
-    state.latitudeDeg = v;
-    render();
-  }
-});
-lonInput.addEventListener("input", () => {
-  const v = Number(lonInput.value);
-  if (Number.isFinite(v) && v >= -180 && v <= 180) {
-    state.longitudeDeg = v;
-    render();
-  }
-});
-tzInput.addEventListener("change", () => {
-  const requested = tzInput.value.trim() || "UTC";
+tzInput.addEventListener("input", () => {
+  retireLocation();
+  const requested = tzInput.value.trim();
   if (!isValidTimeZone(requested)) {
-    // Keep the last valid zone rather than leave the dial unrenderable.
     tzInput.setAttribute("aria-invalid", "true");
-    cityNote.textContent = `"${requested}" isn't an IANA time zone name. Use one like America/Los_Angeles or Europe/Rome; the dial still uses ${state.timeZone}.`;
+    cityNote.textContent = "Enter an IANA time zone such as America/Los_Angeles or Europe/Rome.";
+    invalidFields.set(tzInput, cityNote.textContent);
+    render();
     return;
   }
-  tzInput.removeAttribute("aria-invalid");
+  clearFieldError(tzInput);
   cityNote.textContent = "";
   state.timeZone = requested;
   render();
 });
 const GEO_LABEL = "Use my location";
 geoBtn.addEventListener("click", () => {
+  retireLocation();
   geoBtn.textContent = "Locating...";
   geoBtn.disabled = true;
   const ready = () => {
     geoBtn.textContent = GEO_LABEL;
     geoBtn.disabled = false;
   };
-  locate("geolocation" in navigator ? navigator.geolocation : undefined, {
+  cancelLocation = locate("geolocation" in navigator ? navigator.geolocation : undefined, {
     position(latitudeDeg, longitudeDeg) {
       state.latitudeDeg = Math.round(latitudeDeg * 10000) / 10000;
       state.longitudeDeg = Math.round(longitudeDeg * 10000) / 10000;
@@ -237,9 +246,9 @@ geoBtn.addEventListener("click", () => {
       latInput.value = String(state.latitudeDeg);
       lonInput.value = String(state.longitudeDeg);
       tzInput.value = state.timeZone;
-      tzInput.removeAttribute("aria-invalid");
+      [latInput, lonInput, tzInput].forEach(clearFieldError);
       ready();
-      cityNote.textContent = "";
+      cityNote.textContent = "Coordinates found. Time zone uses your device setting; check it if the device zone differs from your location.";
       render();
     },
     failed(reason) {
@@ -257,6 +266,10 @@ const locationPanel = el("section", { className: "panel" }, [
   geoBtn,
   cityNote,
 ]);
+cityNote.id = "location-note";
+tzInput.setAttribute("aria-describedby", cityNote.id);
+bindNumber(latInput, "Latitude", -90, 90, (v) => { state.latitudeDeg = v; }, true);
+bindNumber(lonInput, "Longitude", -180, 180, (v) => { state.longitudeDeg = v; }, true);
 
 // --- Sidebar: dial type ---------------------------------------------------
 
@@ -264,10 +277,8 @@ const wallDeclinationField = fieldRow(
   "Wall declination from south (°)",
   el("input", { type: "number", value: String(state.wallDeclinationDeg), attrs: { step: "1" } }) as HTMLInputElement,
 );
-(wallDeclinationField.querySelector("input") as HTMLInputElement).addEventListener("input", (e) => {
-  state.wallDeclinationDeg = Number((e.target as HTMLInputElement).value) || 0;
-  render();
-});
+const wallInput = wallDeclinationField.querySelector("input")!;
+bindNumber(wallInput, "Wall declination", -180, 180, (v) => { state.wallDeclinationDeg = v; });
 const wallHint = el("p", { className: "hint" }, [
   "0\u00B0 = direct south. Positive declines west; negative declines east. The formula handles either hemisphere.",
 ]);
@@ -279,6 +290,11 @@ const dialTypePanel = el("section", { className: "panel" }, [
     state.dialType,
     (v) => {
       state.dialType = v;
+      if (v === "analemmatic") { stopPlaying(); state.simMode = "now"; }
+      if (v !== "vertical") {
+        wallInput.value = String(state.wallDeclinationDeg);
+        clearFieldError(wallInput);
+      }
       wallDeclinationField.style.display = v === "vertical" ? "" : "none";
       wallHint.style.display = v === "vertical" ? "" : "none";
       plateShapeField.style.display = v === "analemmatic" ? "none" : "";
@@ -294,21 +310,22 @@ wallHint.style.display = "none";
 
 // --- Sidebar: time reference ---------------------------------------------
 
-const dstCheckbox = el("input", { type: "checkbox" }) as HTMLInputElement;
-const dstRow = el("label", { className: "checkbox-row" }, [dstCheckbox, "Daylight saving in effect"]);
-dstCheckbox.addEventListener("change", () => {
-  state.dstOffsetOverride = dstCheckbox.checked ? 1 : 0;
-  render();
-});
-const autoDstBtn = el("button", { type: "button", className: "ghost" }, ["Auto-detect from time zone"]);
-autoDstBtn.addEventListener("click", () => {
-  state.dstOffsetOverride = null;
+const dstSelect = el("select", {}, [
+  el("option", { value: "auto" }, ["Automatic for simulation date"]),
+  el("option", { value: "0" }, ["Standard time (+0 hours)"]),
+  el("option", { value: "0.5" }, ["Daylight time (+30 minutes)"]),
+  el("option", { value: "1" }, ["Daylight time (+1 hour)"]),
+  el("option", { value: "2" }, ["Daylight time (+2 hours)"]),
+]);
+const dstRow = fieldRow("Dial clock adjustment", dstSelect);
+dstSelect.addEventListener("change", () => {
+  state.dstOffsetOverride = dstSelect.value === "auto" ? null : Number(dstSelect.value);
   render();
 });
 
 const timeModePanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Time shown"]),
-  segmented(
+  el("div", { className: "polar-time-controls" }, [segmented(
     [
       { value: "standard" as const, label: "Standard/zone time" },
       { value: "apparent" as const, label: "Local apparent time" },
@@ -316,13 +333,10 @@ const timeModePanel = el("section", { className: "panel" }, [
     state.timeMode,
     (v) => {
       state.timeMode = v;
-      dstRow.style.display = v === "standard" ? "" : "none";
-      autoDstBtn.style.display = v === "standard" ? "" : "none";
     },
     "Time shown",
-  ),
-  dstRow,
-  autoDstBtn,
+  ), dstRow]),
+  el("p", { className: "hint analemmatic-note" }, ["Analemmatic hour marks use local apparent solar time. Zone-time corrections and historical overlays are not available for this layout."]),
   el("p", { className: "hint" }, [
     "Standard time bakes in the fixed longitude correction from your zone's reference meridian. Apparent time reads the sun directly — no correction table needed, but it won't match a clock.",
   ]),
@@ -359,25 +373,21 @@ function toggleHistorical(system: HistoricalSystem, on: boolean) {
   state.historicalHours = on ? [...state.historicalHours, system] : state.historicalHours.filter((s) => s !== system);
 }
 
+const polarOverlays = el("div", {}, [
+  overlayCheckbox("Declination (date) lines", state.showDeclinationLines, (v) => (state.showDeclinationLines = v)),
+  el("p", { className: "hint" }, ["Historical hour systems (curves, computed day by day):"]),
+  historicalWrap,
+]);
 const overlaysPanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Hours & overlays"]),
   fieldRow("Numerals", numeralsRow),
-  overlayCheckbox("Declination (date) lines", state.showDeclinationLines, (v) => (state.showDeclinationLines = v)),
   overlayCheckbox("Zodiac entries", state.showZodiac, (v) => (state.showZodiac = v)),
-  el("p", { className: "hint" }, ["Historical hour systems (curves, computed day by day):"]),
-  historicalWrap,
+  polarOverlays,
 ]);
 
 // --- Sidebar: size + theme + motto ----------------------------------------
 
 const radiusInput = el("input", { type: "number", value: String(state.radiusMm), attrs: { step: "5", min: "30", max: "400" } }) as HTMLInputElement;
-radiusInput.addEventListener("input", () => {
-  const v = Number(radiusInput.value);
-  if (Number.isFinite(v) && v >= 20) {
-    state.radiusMm = v;
-    render();
-  }
-});
 
 const themeRow = segmented(
   (Object.keys(THEME_LABELS) as Theme[]).map((v) => ({ value: v, label: THEME_LABELS[v] })),
@@ -409,6 +419,7 @@ mottoSelect.addEventListener("change", () => {
 });
 
 const radiusField = fieldRow(state.dialType === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)", radiusInput);
+bindNumber(radiusInput, "Radius", 30, 400, (v) => { state.radiusMm = v; });
 
 const appearancePanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Size & appearance"]),
@@ -418,45 +429,67 @@ const appearancePanel = el("section", { className: "panel" }, [
   fieldRow("Motto", mottoSelect),
 ]);
 
-const sidebar = el("aside", { attrs: { "aria-label": "Dial settings" } }, [locationPanel, dialTypePanel, timeModePanel, overlaysPanel, appearancePanel]);
+const sidebar = el("aside", { className: "dial-settings", id: "settings", tabIndex: -1, attrs: { "aria-label": "Dial settings" } }, [locationPanel, dialTypePanel, timeModePanel, overlaysPanel, appearancePanel]);
 
 // --- Stage -----------------------------------------------------------------
 
 const nowBtn = el("button", { type: "button", attrs: { "aria-pressed": "true" } }, ["Now"]);
-const playBtn = el("button", { type: "button", className: "ghost" }, ["▶ Animate day"]);
-nowBtn.addEventListener("click", () => {
-  state.simMode = "now";
+const playBtn = el("button", { type: "button", className: "ghost", attrs: { "aria-pressed": "false" } }, ["▶ Animate day"]);
+function stopPlaying(): void {
   state.playing = false;
   playBtn.textContent = "▶ Animate day";
-  nowBtn.setAttribute("aria-pressed", "true");
+  playBtn.setAttribute("aria-pressed", "false");
+}
+nowBtn.addEventListener("click", () => {
+  state.simMode = "now";
+  stopPlaying();
   render();
 });
 dateInput.addEventListener("change", () => {
   state.simMode = "custom";
-  nowBtn.setAttribute("aria-pressed", "false");
+  stopPlaying();
+  syncCustomDateTime();
+  render();
+});
+timeInput.addEventListener("input", () => {
+  state.simMode = "custom";
+  stopPlaying();
+  if (timeInput.value) {
+    const [hours, minutes] = timeInput.value.split(":").map(Number);
+    timeSlider.value = String(hours! * 60 + minutes!);
+  }
   syncCustomDateTime();
   render();
 });
 timeSlider.addEventListener("input", () => {
   state.simMode = "custom";
-  nowBtn.setAttribute("aria-pressed", "false");
+  stopPlaying();
+  const minutes = Number(timeSlider.value);
+  timeInput.value = `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
   syncCustomDateTime();
   render();
 });
 playBtn.addEventListener("click", () => {
   state.playing = !state.playing;
   state.simMode = "custom";
-  nowBtn.setAttribute("aria-pressed", "false");
   playBtn.textContent = state.playing ? "❚❚ Pause" : "▶ Animate day";
+  playBtn.setAttribute("aria-pressed", String(state.playing));
   render();
 });
 
 function syncCustomDateTime() {
-  const minutes = Number(timeSlider.value);
-  const hh = String(Math.floor(minutes / 60)).padStart(2, "0");
-  const mm = String(minutes % 60).padStart(2, "0");
-  const datePart = dateInput.value || currentInstant().toISOString().slice(0, 10);
-  state.customDateTimeLocal = `${datePart}T${hh}:${mm}`;
+  state.customDateTimeLocal = `${dateInput.value}T${timeInput.value}`;
+}
+
+function setSimulationInstant(instant: Date): void {
+  state.customDateTimeLocal = zonedDateTimeInput(instant, state.timeZone);
+  const [date, time] = state.customDateTimeLocal.split("T");
+  dateInput.value = date!;
+  timeInput.value = time!;
+  timeSlider.value = String(Number(time!.slice(0, 2)) * 60 + Number(time!.slice(3, 5)));
+  const result = resolveLocalDateTime(state.customDateTimeLocal, state.timeZone);
+  state.timeDisambiguation = result.kind === "valid" && result.instants.length > 1
+    && instant.getTime() >= result.instants[1]!.getTime() ? "later" : "earlier";
 }
 
 const exportSvgBtn = el("button", { type: "button", className: "primary" }, ["Download SVG"]);
@@ -464,18 +497,28 @@ const exportPdfA4Btn = el("button", { type: "button" }, ["PDF (A4)"]);
 const exportPdfLetterBtn = el("button", { type: "button" }, ["PDF (Letter)"]);
 const exportPngBtn = el("button", { type: "button" }, ["PNG"]);
 const exportGnomonBtn = el("button", { type: "button", className: "ghost" }, ["Gnomon SVG"]);
+const exportStatus = el("p", { className: "hint", attrs: { role: "status" } });
+const exportCapability = el("p", { className: "hint" });
 
-const stage = el("section", { className: "stage" }, [
+const stage = el("section", { className: "stage", id: "preview", tabIndex: -1, attrs: { "aria-label": "Sundial preview" } }, [
+  el("h2", {}, ["Shadow simulator"]),
+  el("a", { className: "settings-link", href: "#settings" }, ["Edit dial settings"]),
   el("div", { className: "stage-toolbar" }, [
     el("div", { className: "time-controls" }, [
       nowBtn,
       playBtn,
       dateInput,
+      timeInput,
       el("div", { className: "slider-wrap" }, [timeSlider]),
       timeReadout,
+      foldSelect,
     ]),
   ]),
+  simulationNote,
+  designStatus,
   svgStageWrap,
+  el("div", { className: "preview-controls", attrs: { "aria-label": "Drawing magnification" } }, [zoomOut, zoomReadout, zoomIn, zoomReset]),
+  timeBasisNote,
   readout,
 ]);
 
@@ -485,6 +528,8 @@ const exportPanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Export"]),
   el("div", { className: "export-grid" }, [exportSvgBtn, exportPngBtn, exportPdfA4Btn, exportPdfLetterBtn]),
   exportGnomonBtn,
+  exportStatus,
+  exportCapability,
   el("p", { className: "hint" }, [
     "Laser SVG uses red strokes for cuts (outer edge, gnomon outline) and black for engraving (hour lines, numerals) — the common convention for hobby laser software.",
   ]),
@@ -493,7 +538,8 @@ const exportPanel = el("section", { className: "panel" }, [
 const orientationPanel = el("section", { className: "panel" }, [el("h2", {}, ["Mounting"]), orientationText]);
 const gnomonPanel = el("section", { className: "panel" }, [el("h2", {}, ["Gnomon template"]), gnomonThumb]);
 const mottoPanel = el("section", { className: "panel" }, [el("h2", {}, ["Motto"]), mottoBox]);
-const eotPanel = el("section", { className: "panel" }, [el("h2", {}, ["Equation of time (this year)"]), eotTableWrap]);
+const eotHeading = el("h2", {}, ["Equation of time"]);
+const eotPanel = el("section", { className: "panel" }, [eotHeading, eotTableWrap]);
 
 const detailsRail = el("aside", { className: "details-rail", attrs: { "aria-label": "Construction details and export" } }, [orientationPanel, gnomonPanel, exportPanel, mottoPanel, eotPanel]);
 
@@ -502,7 +548,7 @@ const detailsRail = el("aside", { className: "details-rail", attrs: { "aria-labe
 const header = el("header", { className: "masthead" }, [
   el("h1", { className: "wordmark" }, ["Gnomon", el("small", {}, ["sundial designer"])]),
   el("p", { className: "tagline" }, [
-    "Design a sundial that actually works, for any place on Earth. Print it, laser-cut it, set it in the sun.",
+    "Design a sundial for your location. Inspect the shadow, print at scale, and set it in the sun.",
   ]),
 ]);
 
@@ -524,7 +570,7 @@ const instructionsSection = el("section", { className: "section", attrs: { id: "
     el("div", { className: "panel" }, [
       el("h3", {}, ["3. Set the gnomon"]),
       el("p", {}, [
-        "The style angle shown in the gnomon panel is measured from the dial face, not from vertical. Mount the style so its edge, extended, points at the celestial pole — Polaris, closely enough, in the northern hemisphere. Getting this angle right matters more than getting the placement right: it is what makes the hour lines correct for your latitude.",
+        "The style angle is measured from the dial face. Its edge must lie parallel to Earth's axis and project out of the face. On a northern, south-facing wall it slopes outward and downward; its extension through the wall points at the north celestial pole. Follow the mounting directions for the selected dial.",
       ]),
     ]),
   ]),
@@ -546,9 +592,10 @@ const footer = el("footer", { className: "site-footer" }, [
 
 app.append(
   el("div", { className: "app" }, [
+    el("a", { className: "skip-link", href: "#preview" }, ["Skip to sundial preview"]),
     header,
     el("main", { className: "page-main" }, [
-      el("div", { className: "layout" }, [sidebar, stage, detailsRail]),
+      el("div", { className: "layout" }, [stage, sidebar, detailsRail]),
       instructionsSection,
       oracleNote,
     ]),
@@ -558,63 +605,131 @@ app.append(
 
 // --- Render loop -------------------------------------------------------
 
-function render(): void {
-  const dial = buildCurrentDial();
-  const instant = currentInstant();
-  dstCheckbox.checked = dialDstOffsetHours() > 0;
+let lastDesignKey = "";
+let lastDesign: DesignSnapshot | null = null;
+let lastEotYear = 0;
 
+function updateExportButtons(): void {
+  const unavailable = !currentDesign || exportPending;
+  const analemmatic = state.dialType === "analemmatic";
+  exportSvgBtn.disabled = unavailable;
+  exportPngBtn.disabled = unavailable;
+  exportPdfA4Btn.disabled = unavailable || analemmatic;
+  exportPdfLetterBtn.disabled = unavailable || analemmatic;
+  exportGnomonBtn.disabled = unavailable || analemmatic;
+  exportPanel.setAttribute("aria-busy", String(exportPending));
+}
+
+function showInvalidDesign(message: string): void {
+  currentDesign = null;
+  stopPlaying();
+  playBtn.disabled = true;
+  designStatus.textContent = `${message} Preview shows the last valid design; downloads are paused.`;
+  designStatus.className = "field-error";
+  updateExportButtons();
+}
+
+function render(): void {
+  const analemmatic = state.dialType === "analemmatic";
+  timeModePanel.querySelector<HTMLElement>(".polar-time-controls")!.hidden = analemmatic;
+  timeModePanel.querySelector<HTMLElement>(".analemmatic-note")!.hidden = !analemmatic;
+  polarOverlays.hidden = analemmatic;
+  dstRow.hidden = state.timeMode !== "standard";
+  stage.querySelector<HTMLElement>(".stage-toolbar")!.hidden = analemmatic;
+  stage.querySelector("h2")!.textContent = analemmatic ? "Dial preview" : "Shadow simulator";
+  exportCapability.textContent = analemmatic
+    ? "This layout exports as SVG or PNG. It uses a movable vertical rod, so there is no fixed gnomon template or PDF export."
+    : "SVG and PDF include the selected overlays and motto. The simulated shadow is preview-only. Print PDFs at actual size and check the 100 mm bar.";
+  nowBtn.setAttribute("aria-pressed", String(state.simMode === "now"));
+  designStatus.textContent = "";
+  designStatus.className = "hint";
+  if (invalidFields.size) {
+    showInvalidDesign("Correct the highlighted settings.");
+    return;
+  }
+  const now = new Date();
+  if (state.simMode === "now") setSimulationInstant(now);
+  const localResult = resolveLocalDateTime(state.customDateTimeLocal, state.timeZone);
+  const repeated = state.simMode === "custom" && localResult.kind === "valid" && localResult.instants.length > 1;
+  foldSelect.hidden = !repeated;
+  if (repeated && localResult.kind === "valid") {
+    const labels = localResult.instants.map((instant, i) => `${i ? "Second" : "First"} occurrence (${formatUtcOffset(offsetMinutesAt(state.timeZone, instant))})`);
+    if (foldSelect.options[0]?.text !== labels[0] || foldSelect.options[1]?.text !== labels[1]) {
+      foldSelect.replaceChildren(...labels.map((label, i) => el("option", { value: i ? "later" : "earlier" }, [label])));
+    }
+    foldSelect.value = state.timeDisambiguation;
+  }
+  dateInput.setAttribute("aria-invalid", String(localResult.kind === "invalid"));
+  timeInput.setAttribute("aria-invalid", String(localResult.kind !== "valid"));
+  if (localResult.kind !== "valid") {
+    simulationNote.textContent = localResult.message;
+    timeReadout.textContent = "No simulated instant";
+    showInvalidDesign("Choose a valid simulation date and time.");
+    return;
+  }
+  const instant = state.simMode === "now" ? now : currentInstant()!;
+  const local = zonedDateTimeInput(instant, state.timeZone);
+  const offset = formatUtcOffset(offsetMinutesAt(state.timeZone, instant));
+  timeReadout.textContent = `${local.replace("T", " ")} ${offset}`;
+  timeSlider.setAttribute("aria-valuetext", `${timeInput.value} in ${state.timeZone}`);
+  const simulationMessage = analemmatic
+    ? "The date scale sets the position of your vertical rod. Shadow animation is available for the three polar-style dials."
+    : `Date and time in ${state.timeZone}. ${repeated ? "This clock time occurs twice; choose an occurrence above." : "Automatic dial clock adjustment follows this simulation date."}`;
+  if (simulationNote.textContent !== simulationMessage) simulationNote.textContent = simulationMessage;
+  const key = JSON.stringify({ ...state, customDateTimeLocal: local.slice(0, 10), simMode: "custom", timeDisambiguation: "earlier", playing: false, offset });
+  let design: DesignSnapshot;
+  try {
+    if (key !== lastDesignKey || !lastDesign) {
+      lastDesign = captureDesign(state, instant);
+      lastDesignKey = key;
+    }
+    design = lastDesign;
+    if (design.dial.kind !== "analemmatic" && design.dial.gnomon.styleHeightDeg < 0.000001) {
+      throw new Error("The polar style lies in this dial face and cannot cast usable hour lines. Change the dial type or wall direction.");
+    }
+    if (design.dial.kind === "analemmatic" && Math.abs(state.latitudeDeg) < 0.000001) {
+      throw new Error("At the equator the analemmatic ellipse collapses to a line. Choose an equatorial or vertical dial.");
+    }
+  } catch (error) {
+    showInvalidDesign(error instanceof Error ? error.message : String(error));
+    return;
+  }
+  currentDesign = design;
+  playBtn.disabled = false;
+  svgStageWrap.dataset.theme = state.theme;
+  gnomonThumb.dataset.theme = state.theme;
+  const { dial } = design;
+  updateExportButtons();
+  timeBasisNote.textContent = `Hour labels: ${design.timeBasis}.`;
+  const previewScroll = { left: svgStageWrap.scrollLeft, top: svgStageWrap.scrollTop };
   clear(svgStageWrap);
   readout.replaceChildren();
-
   if (dial.kind === "analemmatic") {
-    const svg = renderAnalemmaticSVG(dial, {
-      widthMm: dial.semiMajorMm * 2.6,
-      heightMm: dial.semiMajorMm * 2.6,
-      theme: state.theme,
-      numerals: state.numerals,
-      title: formatLatLon(state.latitudeDeg, state.longitudeDeg),
-      motto: state.mottoIndex !== null ? MOTTOES[state.mottoIndex] : undefined,
-    });
-    svgStageWrap.innerHTML = svg;
-    orientationText.textContent =
-      "Lay flat and level, major axis east-west. Stand on today's date mark (on the north-south line) and read the hour where your shadow crosses the ellipse.";
-    gnomonThumb.replaceChildren("No fixed gnomon — the dial uses you (or a vertical rod) as the style; its position moves along the date scale.");
+    svgStageWrap.innerHTML = renderAnalemmaticSVG(dial, { ...design.analemmaticOptions, theme: state.theme });
+    orientationText.textContent = "Lay flat and level, top of the design toward true north, major axis east-west. Stand on today's date mark and read the apparent solar hour where your shadow crosses the ellipse.";
+    gnomonThumb.replaceChildren("No fixed gnomon: use a vertical rod or stand on the date scale.");
   } else {
-    const radius = state.radiusMm;
-    const shadow = state.simMode === "now" || state.playing || state.simMode === "custom"
-      ? simulatePolarShadow(instant, state.latitudeDeg, state.longitudeDeg, buildDialPlane(dial.kind, state.latitudeDeg, state.wallDeclinationDeg), radius * 0.32)
-      : null;
-    const svg = renderPolarDialSVG(dial, {
-      radiusMm: radius,
-      innerRadiusMm: Math.max(4, radius * 0.06),
-      plateShape: state.plateShape,
-      numerals: state.numerals,
-      theme: state.theme,
-      showDeclinationLines: state.showDeclinationLines,
-      showHistoricalHours: state.historicalHours.length > 0,
-      title: `${DIAL_LABELS[state.dialType]} · ${formatLatLon(state.latitudeDeg, state.longitudeDeg)}`,
-      motto: state.mottoIndex !== null ? MOTTOES[state.mottoIndex] : undefined,
-      shadowTip: shadow?.visible ? shadow.tip : null,
-    });
-    svgStageWrap.innerHTML = svg;
+    const shadow = simulatePolarShadow(instant, state.latitudeDeg, state.longitudeDeg, buildDialPlane(dial.kind, state.latitudeDeg, state.wallDeclinationDeg), state.radiusMm * 0.32);
+    svgStageWrap.innerHTML = renderPolarDialSVG(dial, { ...design.polarOptions, theme: state.theme, shadowTip: shadow.visible ? shadow.tip : null });
     orientationText.textContent = dial.orientation;
-
-    const thumbSvg = renderGnomonSVG(dial, { theme: state.theme, marginMm: 8 });
-    gnomonThumb.replaceChildren();
-    gnomonThumb.innerHTML = thumbSvg;
-
-    if (shadow) {
-      readout.replaceChildren(
-        el("span", {}, [el("strong", {}, ["alt "]), `${shadow.altitudeDeg.toFixed(1)}\u00B0`]),
-        el("span", {}, [el("strong", {}, ["az "]), `${shadow.azimuthDeg.toFixed(1)}\u00B0`]),
-        el("span", {}, [el("strong", {}, ["hour angle "]), `${shadow.hourAngleDeg.toFixed(1)}\u00B0`]),
-        el("span", {}, [el("strong", {}, ["declination "]), `${shadow.declinationDeg.toFixed(2)}\u00B0`]),
-        el("span", {}, [el("strong", {}, ["equation of time "]), `${shadow.equationOfTimeMin >= 0 ? "+" : ""}${shadow.equationOfTimeMin.toFixed(1)} min`]),
-        el("span", {}, [shadow.visible ? "shadow visible on this face" : "sun not illuminating this face right now"]),
-      );
-    }
+    gnomonThumb.innerHTML = renderGnomonSVG(dial, { theme: state.theme, marginMm: 8 });
+    readout.replaceChildren(
+      el("span", {}, [el("strong", {}, ["alt "]), `${shadow.altitudeDeg.toFixed(1)}°`]),
+      el("span", {}, [el("strong", {}, ["az "]), `${shadow.azimuthDeg.toFixed(1)}°`]),
+      el("span", {}, [el("strong", {}, ["hour angle "]), `${shadow.hourAngleDeg.toFixed(1)}°`]),
+      el("span", {}, [el("strong", {}, ["declination "]), `${shadow.declinationDeg.toFixed(2)}°`]),
+      el("span", {}, [el("strong", {}, ["equation of time "]), `${shadow.equationOfTimeMin >= 0 ? "+" : ""}${shadow.equationOfTimeMin.toFixed(1)} min`]),
+      el("span", {}, [shadow.visible ? "shadow visible on this face" : "sun not illuminating this face at this time"]),
+    );
   }
-
+  svgStageWrap.querySelector("svg")?.setAttribute("role", "img");
+  svgStageWrap.querySelector("svg")?.setAttribute("aria-label", design.title);
+  updatePreviewZoom();
+  svgStageWrap.scrollLeft = previewScroll.left;
+  svgStageWrap.scrollTop = previewScroll.top;
+  const thumb = gnomonThumb.querySelector("svg");
+  thumb?.setAttribute("role", "img");
+  thumb?.setAttribute("aria-label", "Gnomon cutting template");
   if (state.mottoIndex !== null) {
     const m = MOTTOES[state.mottoIndex]!;
     mottoBox.replaceChildren(
@@ -622,110 +737,98 @@ function render(): void {
       el("p", { className: "translation" }, [`"${m.translation}"`]),
       el("p", { className: "attribution" }, [m.attribution + (m.note ? ` — ${m.note}` : "")]),
     );
-  } else {
-    mottoBox.replaceChildren(el("p", { className: "hint" }, ["Pick a motto in Size & appearance."]));
-  }
-
-  renderEotTable();
-  const dt = instant;
-  timeReadout.textContent = `${dt.toLocaleDateString()} ${dt.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+  } else mottoBox.replaceChildren(el("p", { className: "hint" }, ["Pick a motto in Size & appearance."]));
+  renderEotTable(Number(local.slice(0, 4)));
 }
 
-function renderEotTable(): void {
-  const rows = equationOfTimeTable(new Date().getFullYear(), [1, 15]);
+function renderEotTable(year: number): void {
+  if (lastEotYear === year) return;
+  lastEotYear = year;
+  eotHeading.textContent = `Equation of time (${year})`;
+  const rows = equationOfTimeTable(year, [1, 15]);
   const table = el("table", { className: "eot-table" }, [
-    el("thead", {}, [el("tr", {}, [el("th", {}, ["Date"]), el("th", {}, ["EoT (min)"])])]),
-    el(
-      "tbody",
-      {},
-      rows.map((r) => el("tr", {}, [el("td", {}, [r.label]), el("td", {}, [`${r.equationOfTimeMin >= 0 ? "+" : ""}${r.equationOfTimeMin.toFixed(1)}`])])),
-    ),
+    el("thead", {}, [el("tr", {}, [el("th", { scope: "col" }, ["Date"]), el("th", { scope: "col" }, ["EoT (min)"])])]),
+    el("tbody", {}, rows.map((r) => el("tr", {}, [el("td", {}, [r.label]), el("td", {}, [`${r.equationOfTimeMin >= 0 ? "+" : ""}${r.equationOfTimeMin.toFixed(1)}`])]))),
   ]);
   eotTableWrap.replaceChildren(table);
 }
 
 // --- Export handlers ---------------------------------------------------
 
-function currentSvgString(theme: Theme): string {
-  const dial = buildCurrentDial();
-  if (dial.kind === "analemmatic") {
-    return renderAnalemmaticSVG(dial, {
-      widthMm: dial.semiMajorMm * 2.6,
-      heightMm: dial.semiMajorMm * 2.6,
-      theme,
-      numerals: state.numerals,
-    });
+async function runExport(produce: (design: DesignSnapshot) => Promise<string> | string): Promise<void> {
+  if (!currentDesign || exportPending) return;
+  const design = currentDesign;
+  exportPending = true;
+  exportStatus.textContent = `Preparing ${design.settings.dialType} design...`;
+  exportStatus.className = "hint";
+  updateExportButtons();
+  try {
+    exportStatus.textContent = await produce(design);
+  } catch (error) {
+    exportStatus.textContent = `Export failed: ${error instanceof Error ? error.message : String(error)}`;
+    exportStatus.className = "field-error";
+  } finally {
+    exportPending = false;
+    updateExportButtons();
   }
-  const radius = state.radiusMm;
-  return renderPolarDialSVG(dial, {
-    radiusMm: radius,
-    innerRadiusMm: Math.max(4, radius * 0.06),
-    plateShape: state.plateShape,
-    numerals: state.numerals,
-    theme,
-    showDeclinationLines: state.showDeclinationLines,
-    showHistoricalHours: state.historicalHours.length > 0,
+}
+
+exportSvgBtn.addEventListener("click", () => void runExport((design) => {
+  const filename = `gnomon-${design.settings.dialType}.svg`;
+  downloadBlob(new Blob([designSvg(design, "laser")], { type: "image/svg+xml" }), filename);
+  return `Downloaded ${filename} at physical millimetre scale.`;
+}));
+exportGnomonBtn.addEventListener("click", () => void runExport((design) => {
+  if (design.dial.kind === "analemmatic") throw new Error("This dial uses a movable vertical rod.");
+  const filename = `gnomon-style-${design.settings.dialType}.svg`;
+  downloadBlob(new Blob([renderGnomonSVG(design.dial, { theme: "laser", marginMm: 8 })], { type: "image/svg+xml" }), filename);
+  return `Downloaded ${filename}.`;
+}));
+exportPngBtn.addEventListener("click", () => void runExport(async (design) => {
+  const svg = designSvg(design, design.settings.theme);
+  const match = /width="([\d.]+)mm" height="([\d.]+)mm"/.exec(svg);
+  if (!match) throw new Error("Cannot determine the design's dimensions. Use SVG instead.");
+  const dimensions = pngDimensions(Number(match[1]), Number(match[2]));
+  const blob = await svgToPngBlob(svg, dimensions.width, dimensions.height);
+  const filename = `gnomon-${design.settings.dialType}.png`;
+  downloadBlob(blob, filename);
+  return `Downloaded ${filename}: ${dimensions.width} × ${dimensions.height} pixels (about ${dimensions.dpi.toFixed(0)} DPI). Use SVG or PDF for physical scale.`;
+}));
+async function exportPdf(format: "a4" | "letter"): Promise<void> {
+  await runExport(async (design) => {
+    if (design.dial.kind === "analemmatic") throw new Error("Use SVG for the analemmatic layout.");
+    const { exportPolarDialPDF } = await import("./lib/export/pdf.ts");
+    const bytes = exportPolarDialPDF(design.dial, { ...design.polarOptions, format });
+    const filename = `gnomon-${design.settings.dialType}-${format}.pdf`;
+    downloadBlob(new Blob([bytes as BlobPart], { type: "application/pdf" }), filename);
+    return `Downloaded ${filename}. Print at actual size and measure the 100 mm calibration bar.`;
   });
 }
+exportPdfA4Btn.addEventListener("click", () => void exportPdf("a4"));
+exportPdfLetterBtn.addEventListener("click", () => void exportPdf("letter"));
 
-exportSvgBtn.addEventListener("click", () => {
-  const svg = currentSvgString("laser");
-  downloadBlob(new Blob([svg], { type: "image/svg+xml" }), `gnomon-${state.dialType}.svg`);
-});
-exportGnomonBtn.addEventListener("click", () => {
-  const dial = buildCurrentDial();
-  if (dial.kind === "analemmatic") return;
-  const svg = renderGnomonSVG(dial, { theme: "laser", marginMm: 8 });
-  downloadBlob(new Blob([svg], { type: "image/svg+xml" }), `gnomon-style-${state.dialType}.svg`);
-});
-exportPngBtn.addEventListener("click", async () => {
-  const svg = currentSvgString(state.theme);
-  const mmMatch = /width="([\d.]+)mm" height="([\d.]+)mm"/.exec(svg);
-  const wMm = mmMatch ? Number(mmMatch[1]) : 200;
-  const hMm = mmMatch ? Number(mmMatch[2]) : 200;
-  const pxPerMm = 300 / 25.4; // 300 DPI
-  const blob = await svgToPngBlob(svg, Math.round(wMm * pxPerMm), Math.round(hMm * pxPerMm));
-  downloadBlob(blob, `gnomon-${state.dialType}.png`);
-});
-async function exportPdf(format: "a4" | "letter") {
-  const dial = buildCurrentDial();
-  if (dial.kind === "analemmatic") {
-    window.alert("PDF export currently supports the horizontal, vertical and equatorial dials. Use SVG export for the analemmatic layout.");
-    return;
-  }
-  try {
-    // jsPDF (and its transitive canvas/purify dependencies) is only
-    // needed once someone actually asks for a PDF, so it is loaded as a
-    // separate chunk rather than bloating the initial page load.
-    const { exportPolarDialPDF } = await import("./lib/export/pdf.ts");
-    const bytes = exportPolarDialPDF(dial, {
-      radiusMm: state.radiusMm,
-      innerRadiusMm: Math.max(4, state.radiusMm * 0.06),
-      plateShape: state.plateShape,
-      numerals: state.numerals,
-      title: `${DIAL_LABELS[state.dialType]} sundial · ${formatLatLon(state.latitudeDeg, state.longitudeDeg)}`,
-      format,
-    });
-    downloadBlob(new Blob([bytes as BlobPart], { type: "application/pdf" }), `gnomon-${state.dialType}-${format}.pdf`);
-  } catch (err) {
-    window.alert(err instanceof Error ? err.message : String(err));
-  }
-}
-exportPdfA4Btn.addEventListener("click", () => exportPdf("a4"));
-exportPdfLetterBtn.addEventListener("click", () => exportPdf("letter"));
-
-// --- Animation tick ------------------------------------------------------
-
-setInterval(() => {
-  if (state.simMode === "now") {
-    render();
-  } else if (state.playing) {
-    const minutes = (Number(timeSlider.value) + 4) % 1440;
-    timeSlider.value = String(minutes);
-    syncCustomDateTime();
+// Advance elapsed time so DST gaps are skipped and repeated minutes remain
+// selectable. Stop at the next local day instead of jumping back to noon.
+const tick = setInterval(() => {
+  if (document.hidden) return;
+  if (state.simMode === "now") render();
+  else if (state.playing) {
+    const instant = currentInstant();
+    if (!instant) { stopPlaying(); return; }
+    const next = new Date(instant.getTime() + 4 * 60_000);
+    if (zonedDateTimeInput(next, state.timeZone).slice(0, 10) !== dateInput.value) {
+      stopPlaying();
+    } else {
+      setSimulationInstant(next);
+    }
     render();
   }
 }, 1000);
-
-dateInput.value = new Date().toISOString().slice(0, 10);
+window.addEventListener("pagehide", (event) => {
+  if (!event.persisted) clearInterval(tick);
+  cancelLocation();
+  stopPlaying();
+});
+window.addEventListener("pageshow", () => render());
+setSimulationInstant(new Date());
 render();

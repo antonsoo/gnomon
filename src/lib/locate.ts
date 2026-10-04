@@ -52,10 +52,10 @@ export interface PositionSource {
 
 const PERMISSION_DENIED = 1;
 
-export function locate(source: PositionSource | undefined, handlers: LocateHandlers, options: LocateOptions = {}): void {
+export function locate(source: PositionSource | undefined, handlers: LocateHandlers, options: LocateOptions = {}): () => void {
   if (!source) {
     handlers.failed("unsupported");
-    return;
+    return () => {};
   }
   const { patienceMs = 20_000 } = options;
   const setTimer = options.setTimer ?? ((fn, ms) => setTimeout(fn, ms));
@@ -70,14 +70,24 @@ export function locate(source: PositionSource | undefined, handlers: LocateHandl
     clearTimer(watchdog);
     return true;
   };
-  source.getCurrentPosition(
-    (position) => {
-      if (answer()) handlers.position(position.coords.latitude, position.coords.longitude);
-    },
-    (error) => {
-      if (answer()) handlers.failed(error.code === PERMISSION_DENIED ? "denied" : "unavailable");
-    },
-    // A fix from the last ten minutes will do for a sundial; give up on a new one after 15 s.
-    { timeout: 15_000, maximumAge: 600_000 },
-  );
+  try {
+    source.getCurrentPosition(
+      (position) => {
+        if (!answer()) return;
+        const { latitude, longitude } = position.coords;
+        if (Number.isFinite(latitude) && Math.abs(latitude) <= 90 && Number.isFinite(longitude) && Math.abs(longitude) <= 180) {
+          handlers.position(latitude, longitude);
+        } else handlers.failed("unavailable");
+      },
+      (error) => {
+        if (answer()) handlers.failed(error.code === PERMISSION_DENIED ? "denied" : "unavailable");
+      },
+      // A fix from the last ten minutes will do for a sundial; give up on a new one after 15 s.
+      { timeout: 15_000, maximumAge: 600_000 },
+    );
+  } catch {
+    if (answer()) handlers.failed("unavailable");
+  }
+  // Browser geolocation cannot be aborted, but stale callbacks can be retired.
+  return () => { answer(); };
 }

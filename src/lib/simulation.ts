@@ -2,8 +2,7 @@
  * Live shadow simulation: for a chosen instant, work out where the
  * gnomon's shadow actually falls, so the preview can be animated. This
  * reuses the same `nodusShadow` projector as the declination lines -- the
- * shadow tip is just the shadow of the point at the far end of the
- * physical style.
+ * shadow marker is the nodus at the specified distance along the style.
  *
  * Note this needs only UTC time + longitude to find the true sun
  * position: a civil time zone and DST are bookkeeping for what a *clock*
@@ -37,7 +36,7 @@ export function simulatePolarShadow(
   const { declinationDeg, equationOfTimeMin } = solarEphemeris(instant);
   const utcHour = instant.getUTCHours() + instant.getUTCMinutes() / 60 + instant.getUTCSeconds() / 3600;
   const apparentSolarHour = utcHour + longitudeDeg / 15 + equationOfTimeMin / 60;
-  const hourAngleDeg = (apparentSolarHour - 12) * 15;
+  const hourAngleDeg = ((apparentSolarHour * 15) % 360 + 360) % 360 - 180;
 
   const { altitudeDeg, azimuthDeg } = altAzFromHourAngle(latDeg, declinationDeg, hourAngleDeg);
   if (altitudeDeg <= 0) {

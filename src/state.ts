@@ -1,5 +1,6 @@
 import type { PlateShape } from "./lib/render/plate-shape.ts";
 import type { Theme } from "./lib/render/theme.ts";
+import { zonedDateTimeInput } from "./lib/timezone.ts";
 
 export type DialType = "horizontal" | "vertical" | "equatorial" | "analemmatic";
 export type HistoricalSystem = "temporal" | "babylonian" | "italian";
@@ -22,17 +23,16 @@ export interface AppState {
   mottoIndex: number | null;
   simMode: "now" | "custom";
   customDateTimeLocal: string; // "YYYY-MM-DDTHH:mm"
+  timeDisambiguation: "earlier" | "later";
   playing: boolean;
 }
 
-export function defaultState(): AppState {
-  const now = new Date();
-  const pad = (n: number) => String(n).padStart(2, "0");
-  const local = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+export function defaultState(now = new Date()): AppState {
+  const timeZone = "America/Los_Angeles";
   return {
     latitudeDeg: 37.7749,
     longitudeDeg: -122.4194,
-    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC",
+    timeZone,
     dialType: "horizontal",
     wallDeclinationDeg: 0,
     plateShape: "fan",
@@ -46,7 +46,8 @@ export function defaultState(): AppState {
     theme: "brass",
     mottoIndex: 0,
     simMode: "now",
-    customDateTimeLocal: local,
+    customDateTimeLocal: zonedDateTimeInput(now, timeZone),
+    timeDisambiguation: "earlier",
     playing: false,
   };
 }
