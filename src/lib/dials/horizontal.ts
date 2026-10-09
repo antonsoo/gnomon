@@ -22,6 +22,7 @@ export interface HorizontalDialOptions {
   timeReference: TimeReference;
   hourLineOptions: HourLineOptions;
   nodusDistanceMm: number;
+  /** Maximum base or rise, extended only if needed to reach the nodus. */
   gnomonBaseLengthMm: number;
   includeZodiac?: boolean;
   historicalHours?: Array<"temporal" | "babylonian" | "italian">;
@@ -38,8 +39,7 @@ export function buildHorizontalDial(opts: HorizontalDialOptions): PolarDialResul
   const historicalHours = opts.historicalHours?.length
     ? generateHistoricalHours(opts.latitudeDeg, plane, opts.nodusDistanceMm, opts.historicalHours)
     : [];
-  const gnomon = computeGnomon(opts.latitudeDeg, plane, opts.gnomonBaseLengthMm);
-  gnomon.nodusDistanceMm = opts.nodusDistanceMm;
+  const gnomon = computeGnomon(opts.latitudeDeg, plane, opts.gnomonBaseLengthMm, opts.nodusDistanceMm);
 
   return {
     kind: "horizontal",

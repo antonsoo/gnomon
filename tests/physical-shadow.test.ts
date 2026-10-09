@@ -60,6 +60,29 @@ describe("physical rays, with hand-derived wall coordinates", () => {
     expect(buildHorizontalDial({ ...common, latitudeDeg: 0 }).hourLines).toHaveLength(0);
     expect(nodusShadow(0, 0, 0, buildDialPlane("horizontal", 0), 30)).toBeNull();
   });
+
+  it("keeps near-normal styles finite without replacing their angle with a perpendicular rod", () => {
+    for (const latitudeDeg of [-89.9999, -89.91, -89, 78, 89, 89.91, 89.9999]) {
+      const g = buildHorizontalDial({ ...common, latitudeDeg }).gnomon;
+      // Reconstruct the casting edge from physical template dimensions.
+      const measuredAngle = Math.atan2(g.heightMm, g.baseLengthMm) * 180 / Math.PI;
+      expect(measuredAngle).toBeCloseTo(Math.abs(latitudeDeg), 8);
+      expect(g.baseLengthMm).toBeGreaterThan(0);
+      expect(Math.max(g.baseLengthMm, g.heightMm)).toBeCloseTo(60, 8);
+      expect(g.styleLengthMm).toBeGreaterThanOrEqual(g.nodusDistanceMm!);
+    }
+    const pole = buildHorizontalDial({ ...common, latitudeDeg: 90 }).gnomon;
+    expect(pole.baseLengthMm).toBe(0);
+    expect(pole.heightMm).toBe(60);
+  });
+
+  it("extends a deliberately small style to its nodus without moving the date curves", () => {
+    const original = buildHorizontalDial(common);
+    const small = buildHorizontalDial({ ...common, gnomonBaseLengthMm: 5 });
+    expect(small.gnomon.styleLengthMm).toBe(30);
+    expect(Math.hypot(small.gnomon.baseLengthMm, small.gnomon.heightMm)).toBeCloseTo(30, 8);
+    expect(small.declinationLines).toEqual(original.declinationLines);
+  });
 });
 
 describe("cut plates follow the actual hour-ray sector", () => {
@@ -79,6 +102,7 @@ describe("cut plates follow the actual hour-ray sector", () => {
       const { thetaMax, thetaCenter } = plateSector(dial);
       const bounds = plateBounds("fan", 90, thetaMax, thetaCenter);
       for (const line of dial.hourLines) expect(withinSector(line.angleRad, thetaMax, thetaCenter)).toBe(true);
+      expect(withinSector(dial.gnomon.substyleAngleDeg * Math.PI / 180, thetaMax, thetaCenter)).toBe(true);
       for (const p of plateOutline("fan", 90, thetaMax, 1000, thetaCenter)) {
         expect(p.u).toBeLessThanOrEqual(bounds.topU + 1e-8);
         expect(p.u).toBeGreaterThanOrEqual(bounds.bottomU - 1e-8);

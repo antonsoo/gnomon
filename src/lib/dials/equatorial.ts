@@ -23,6 +23,7 @@ export interface EquatorialDialOptions {
   timeReference: TimeReference;
   hourLineOptions: HourLineOptions;
   nodusDistanceMm: number;
+  /** Rod length, extended only if needed to reach the nodus. */
   gnomonBaseLengthMm: number;
   includeZodiac?: boolean;
   historicalHours?: Array<"temporal" | "babylonian" | "italian">;
@@ -39,8 +40,7 @@ export function buildEquatorialDial(opts: EquatorialDialOptions): PolarDialResul
   const historicalHours = opts.historicalHours?.length
     ? generateHistoricalHours(opts.latitudeDeg, plane, opts.nodusDistanceMm, opts.historicalHours)
     : [];
-  const gnomon = computeGnomon(opts.latitudeDeg, plane, opts.gnomonBaseLengthMm);
-  gnomon.nodusDistanceMm = opts.nodusDistanceMm;
+  const gnomon = computeGnomon(opts.latitudeDeg, plane, opts.gnomonBaseLengthMm, opts.nodusDistanceMm);
 
   return {
     kind: "equatorial",

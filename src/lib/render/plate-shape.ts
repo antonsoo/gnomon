@@ -25,10 +25,12 @@ export function thetaMaxRad(dial: PolarDialResult): number {
   return max || Math.PI / 2;
 }
 
-/** Smallest sector containing all hour rays, including fans crossing +/-pi. */
+/** Smallest sector containing the hour rays AND the physical style base. */
 export function plateSector(dial: PolarDialResult): { thetaMax: number; thetaCenter: number } {
   const turn = 2 * Math.PI;
-  const angles = dial.hourLines.map((line) => (line.angleRad + turn) % turn).sort((a, b) => a - b);
+  const rays = dial.hourLines.map((line) => line.angleRad);
+  if (dial.gnomon.baseLengthMm > 0) rays.push(dial.gnomon.substyleAngleDeg * Math.PI / 180);
+  const angles = rays.map((angle) => (angle + turn) % turn).sort((a, b) => a - b);
   if (!angles.length) return { thetaMax: Math.PI / 2, thetaCenter: 0 };
   let largestGap = -1;
   let start = angles[0]!;

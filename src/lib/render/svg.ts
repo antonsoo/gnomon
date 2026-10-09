@@ -12,6 +12,7 @@ import type { AnalemmaticDialResult, PolarDialResult } from "../dials/types.ts";
 import { hourLabel } from "./numerals.ts";
 import { plateBounds, plateOutline, type PlateShape } from "./plate-shape.ts";
 import { polarHourMarks } from "./hour-marks.ts";
+import { gnomonBaseEnd, gnomonLayout, gnomonConstructionWarning } from "./gnomon-layout.ts";
 import { clipCurve } from "./curves.ts";
 import { polarToUV, toPage } from "./project.ts";
 import type { PageMapping } from "./project.ts";
@@ -119,8 +120,15 @@ export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderO
     }
   }
 
+  // Engraved mounting line: filled dot = foot, open circle = base end.
+  if (dial.gnomon.baseLengthMm > 0) {
+    const baseEnd = gnomonBaseEnd(dial);
+    const end = toPage(baseEnd.u, baseEnd.v, m);
+    parts.push(`<path d="M ${m.centerX} ${m.centerY} L ${end.x} ${end.y}" fill="none" stroke="${c.text}" stroke-width="0.22" stroke-dasharray="1.2,0.8"/>`);
+    parts.push(`<circle cx="${end.x}" cy="${end.y}" r="1.1" fill="none" stroke="${c.text}" stroke-width="0.25"/>`);
+  }
   // Gnomon foot marker.
-  parts.push(`<circle cx="${m.centerX}" cy="${m.centerY}" r="0.6" fill="${c.gnomon}"/>`);
+  parts.push(`<circle cx="${m.centerX}" cy="${m.centerY}" r="0.6" fill="${c.text}"/>`);
 
   if (opts.shadowTip) {
     const tip = toPage(opts.shadowTip.u, opts.shadowTip.v, m);
@@ -160,70 +168,41 @@ export interface GnomonRenderOptions {
  */
 export function renderGnomonSVG(dial: PolarDialResult, opts: GnomonRenderOptions): string {
   const c = THEMES[opts.theme];
-  const base = dial.gnomon.baseLengthMm;
-  const nodus = dial.gnomon.nodusDistanceMm;
-
-  if (dial.gnomon.styleHeightDeg > 89.9) {
-    const rodLength = base;
-    const w = Math.max(opts.marginMm * 2 + 24, 70);
-    const h = rodLength + opts.marginMm * 2 + 20;
-    const cx = w / 2;
-    const parts: string[] = [];
-    parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}mm" height="${h}mm" viewBox="0 0 ${w} ${h}" font-family="'Cormorant Garamond', Georgia, serif">`);
-    if (c.background !== "none") parts.push(`<rect width="${w}" height="${h}" fill="${c.background}"/>`);
-    parts.push(
-      `<line x1="${cx}" y1="${opts.marginMm}" x2="${cx}" y2="${opts.marginMm + rodLength}" stroke="${c.gnomon}" stroke-width="0.6" stroke-linecap="round"/>`,
-    );
-    parts.push(`<circle cx="${cx}" cy="${opts.marginMm}" r="1" fill="${c.gnomon}"/>`);
-    if (nodus !== undefined && nodus <= rodLength) {
-      parts.push(`<path d="M ${cx - 2} ${opts.marginMm + nodus} h 4" stroke="${c.text}" stroke-width="0.3"/><text x="${cx + 3}" y="${opts.marginMm + nodus}" font-size="2.5" fill="${c.text}">nodus</text>`);
-    }
-    parts.push(
-      `<text x="${cx}" y="${h - 12}" font-size="2.8" fill="${c.text}" text-anchor="middle">rod ${rodLength.toFixed(1)}mm; dot = foot</text>`,
-    );
-    parts.push(
-      `<text x="${cx}" y="${h - 7}" font-size="2.8" fill="${c.text}" text-anchor="middle">perpendicular to the disc</text>`,
-    );
-    if (nodus !== undefined) parts.push(`<text x="${cx}" y="${h - 2}" font-size="2.8" fill="${c.text}" text-anchor="middle">nodus ${nodus.toFixed(1)}mm from foot</text>`);
-    parts.push("</svg>");
-    return parts.join("");
-  }
-
-  const height = base * Math.tan((dial.gnomon.styleHeightDeg * Math.PI) / 180);
-  const tabDepth = Math.max(6, base * 0.15);
-  const w = Math.max(80, base + opts.marginMm * 2);
-  const h = height + tabDepth + opts.marginMm * 2 + 13;
-  const x0 = (w - base) / 2;
-  const y0 = opts.marginMm + height; // baseline y
-
-  const parts: string[] = [];
-  parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}mm" height="${h}mm" viewBox="0 0 ${w} ${h}" font-family="'Cormorant Garamond', Georgia, serif">`);
+  const g = dial.gnomon;
+  const layout = gnomonLayout(dial);
+  const w = Math.max(110, layout.widthMm + opts.marginMm * 2);
+  const h = layout.heightMm + opts.marginMm * 2 + 26;
+  const offset = { x: (w - layout.widthMm) / 2, y: opts.marginMm };
+  const map = (p: { x: number; y: number }) => ({ x: p.x + offset.x, y: p.y + offset.y });
+  const foot = map(layout.foot);
+  const end = map(layout.end);
+  const parts = [`<svg xmlns="http://www.w3.org/2000/svg" width="${w}mm" height="${h}mm" viewBox="0 0 ${w} ${h}" font-family="'Cormorant Garamond', Georgia, serif">`];
   if (c.background !== "none") parts.push(`<rect width="${w}" height="${h}" fill="${c.background}"/>`);
-
-  // The sloping edge runs from base-right (the foot) to the apex.
-  const baseLeft = { x: x0, y: y0 };
-  const baseRight = { x: x0 + base, y: y0 };
-  const apex = { x: x0, y: y0 - height };
-  parts.push(
-    `<path d="M ${apex.x} ${apex.y} L ${baseRight.x} ${baseRight.y} L ${baseRight.x} ${baseRight.y + tabDepth} L ${baseLeft.x} ${baseLeft.y + tabDepth} Z" fill="none" stroke="${c.gnomon}" stroke-width="0.35"/>`,
-  );
-  parts.push(`<circle cx="${baseRight.x}" cy="${baseRight.y}" r="0.8" fill="${c.text}"/>`);
-  const styleLength = Math.hypot(base, height);
-  if (nodus !== undefined && nodus <= styleLength) {
-    const x = baseRight.x - base * nodus / styleLength;
-    const y = baseRight.y - height * nodus / styleLength;
-    parts.push(`<path d="M ${x - 1.5} ${y} h 3 M ${x} ${y - 1.5} v 3" stroke="${c.text}" stroke-width="0.25"/>`);
+  if (layout.rod) {
+    // This is a length gauge, not a rod-width cutting outline.
+    parts.push(`<line x1="${foot.x}" y1="${foot.y}" x2="${end.x}" y2="${end.y}" stroke="${c.text}" stroke-width="0.35"/>`);
+  } else {
+    const path = layout.cut.map((p, i) => { const q = map(p); return `${i ? "L" : "M"} ${q.x} ${q.y}`; }).join(" ");
+    parts.push(`<path d="${path} Z" fill="none" stroke="${c.gnomon}" stroke-width="0.35"/>`);
+    const baseEnd = map(layout.baseEnd!);
+    parts.push(`<path d="M ${baseEnd.x} ${baseEnd.y} L ${foot.x} ${foot.y}" fill="none" stroke="${c.text}" stroke-width="0.25" stroke-dasharray="1.2,0.8"/>`);
+    parts.push(`<circle cx="${baseEnd.x}" cy="${baseEnd.y}" r="1.1" fill="none" stroke="${c.text}" stroke-width="0.25"/>`);
   }
-  // The tab is part of the outer cut. Engrave the fold; cutting the
-  // triangle's base would detach the very tab intended for mounting it.
-  parts.push(
-    `<path d="M ${baseLeft.x} ${baseLeft.y} L ${baseRight.x} ${baseRight.y}" fill="none" stroke="${c.text}" stroke-width="0.25" stroke-dasharray="1.2,0.8"/>`,
-  );
-  parts.push(
-    `<text x="${w / 2}" y="${y0 + tabDepth + 5}" font-size="2.8" fill="${c.text}" text-anchor="middle">style ${dial.gnomon.styleHeightDeg.toFixed(2)}°; dot = foot</text>`,
-  );
-  parts.push(`<text x="${w / 2}" y="${y0 + tabDepth + 10}" font-size="2.8" fill="${c.text}" text-anchor="middle">fold tab along the base</text>`);
-  if (nodus !== undefined) parts.push(`<text x="${w / 2}" y="${y0 + tabDepth + 15}" font-size="2.8" fill="${c.text}" text-anchor="middle">cross = nodus, ${nodus.toFixed(1)}mm from foot</text>`);
+  parts.push(`<circle cx="${foot.x}" cy="${foot.y}" r="0.8" fill="${c.text}"/>`);
+  if (layout.nodus) {
+    const p = map(layout.nodus);
+    parts.push(`<path d="M ${p.x - 1.5} ${p.y} h 3 M ${p.x} ${p.y - 1.5} v 3" stroke="${c.text}" stroke-width="0.25"/>`);
+  }
+  const lines = [
+    layout.rod ? `rod ${g.styleLengthMm.toFixed(2)}mm; perpendicular to plate`
+      : `style ${g.styleHeightDeg.toFixed(4)}°; ${gnomonConstructionWarning(dial) ? "angle gauge for a rigid style" : "fold tab 90° along dashed base"}`,
+    layout.rod ? "filled dot = foot on plate; line = length gauge" : "match filled foot dots and open base-end circles",
+    ...(g.nodusDistanceMm === undefined ? [] : [`cross = nodus, ${g.nodusDistanceMm.toFixed(1)}mm from foot`]),
+    "add a bead or notch at the cross for a date-line shadow",
+  ];
+  for (const [i, line] of lines.entries()) {
+    parts.push(`<text x="${w / 2}" y="${opts.marginMm + layout.heightMm + 6 + i * 5}" font-size="2.8" fill="${c.text}" text-anchor="middle">${esc(line)}</text>`);
+  }
   parts.push("</svg>");
   return parts.join("");
 }
@@ -273,7 +252,7 @@ export function renderAnalemmaticSVG(dial: AnalemmaticDialResult, opts: Analemma
     );
   }
 
-  parts.push(`<circle cx="${m.centerX}" cy="${m.centerY}" r="0.6" fill="${c.gnomon}"/>`);
+  parts.push(`<circle cx="${m.centerX}" cy="${m.centerY}" r="0.6" fill="${c.text}"/>`);
 
   if (opts.title) {
     parts.push(

@@ -39,6 +39,10 @@ export interface GnomonTemplate {
   substyleAngleDeg: number;
   /** Base length of the gnomon's triangular template along the substyle line, mm. */
   baseLengthMm: number;
+  /** Rise perpendicular to the plate; finite even for a normal rod. */
+  heightMm: number;
+  /** Physical length of the shadow-casting edge, from the foot. */
+  styleLengthMm: number;
   /** Distance along the style from its foot to the date-line shadow marker. */
   nodusDistanceMm?: number;
 }
