@@ -7,7 +7,8 @@ import { captureDesign, designSvg, type DesignSnapshot } from "./design.ts";
 import { equationOfTimeTable } from "./lib/equation-of-time.ts";
 import { locate, LOCATE_FAILURE_TEXT } from "./lib/locate.ts";
 import { pngDimensions, svgToPngBlob } from "./lib/export/png.ts";
-import { planPolarPrint } from "./lib/export/print-layout.ts";
+import { planConstructionPrint } from "./lib/export/print-layout.ts";
+import { gnomonConstructionWarning } from "./lib/render/gnomon-layout.ts";
 import { MOTTOES } from "./lib/motto.ts";
 import type { PlateShape } from "./lib/render/plate-shape.ts";
 import { renderAnalemmaticSVG, renderGnomonSVG, renderPolarDialSVG } from "./lib/render/svg.ts";
@@ -67,6 +68,7 @@ const readout = el("div", { className: "readout" });
 const orientationText = el("p", { className: "orientation-text" });
 const mottoBox = el("div", { className: "motto" });
 const gnomonThumb = el("div", { className: "gnomon-thumb" });
+const gnomonNote = el("p", { className: "hint" });
 const eotTableWrap = el("div");
 const timeSlider = el("input", {
   type: "range",
@@ -539,7 +541,7 @@ const exportPanel = el("section", { className: "panel" }, [
 ]);
 
 const orientationPanel = el("section", { className: "panel" }, [el("h2", {}, ["Mounting"]), orientationText]);
-const gnomonPanel = el("section", { className: "panel" }, [el("h2", {}, ["Gnomon template"]), gnomonThumb]);
+const gnomonPanel = el("section", { className: "panel" }, [el("h2", {}, ["Gnomon template"]), gnomonThumb, gnomonNote]);
 const mottoPanel = el("section", { className: "panel" }, [el("h2", {}, ["Motto"]), mottoBox]);
 const eotHeading = el("h2", {}, ["Equation of time"]);
 const eotPanel = el("section", { className: "panel" }, [eotHeading, eotTableWrap]);
@@ -626,8 +628,9 @@ function updateExportButtons(): void {
     const design = currentDesign;
     const dial = currentDesign.dial;
     printSummary = (["a4", "letter"] as const).map((format) => {
-      const plan = planPolarPrint(dial, { ...design.polarOptions, format });
-      return `${format === "a4" ? "A4" : "Letter"}: ${plan.tiled ? `${plan.tiles.length} sheets (${plan.columns} across, ${plan.rows} down) + assembly guide` : "1 sheet"}`;
+      const plan = planConstructionPrint(dial, { ...design.polarOptions, format });
+      const plate = plan.plate;
+      return `${format === "a4" ? "A4" : "Letter"}: ${plan.pageCount} pages total — plate ${plate.tiled ? `${plate.tiles.length} sheets (${plate.columns} across, ${plate.rows} down) + guide` : "1 sheet"}; gnomon ${plan.gnomon.tiled ? `${plan.gnomon.tiles.length} sheets + guide` : "1 sheet"}`;
     }).join(". ") + ".";
   }
   if (exportPlan.textContent !== printSummary) exportPlan.textContent = printSummary;
@@ -652,7 +655,7 @@ function render(): void {
   stage.querySelector("h2")!.textContent = analemmatic ? "Dial preview" : "Shadow simulator";
   exportCapability.textContent = analemmatic
     ? "This layout exports as SVG or PNG. It uses a movable vertical rod, so there is no fixed gnomon template or PDF export."
-    : "Large PDFs include an assembly map and full-size sheets with 10 mm overlaps. Print at 100% and check each 100 mm bar. The simulated shadow is preview-only.";
+    : "PDFs include the matching gnomon template and mounting instructions. Large pieces use full-size sheets with 10 mm overlaps. Print at 100% and check every 100 mm bar. The simulated shadow is preview-only.";
   nowBtn.setAttribute("aria-pressed", String(state.simMode === "now"));
   designStatus.textContent = "";
   designStatus.className = "hint";
@@ -721,11 +724,14 @@ function render(): void {
     svgStageWrap.innerHTML = renderAnalemmaticSVG(dial, { ...design.analemmaticOptions, theme: state.theme });
     orientationText.textContent = "Lay flat and level, top of the design toward true north, major axis east-west. Stand on today's date mark and read the apparent solar hour where your shadow crosses the ellipse.";
     gnomonThumb.replaceChildren("No fixed gnomon: use a vertical rod or stand on the date scale.");
+    gnomonNote.textContent = "";
   } else {
     const shadow = simulatePolarShadow(instant, state.latitudeDeg, state.longitudeDeg, buildDialPlane(dial.kind, state.latitudeDeg, state.wallDeclinationDeg), state.radiusMm * 0.32);
     svgStageWrap.innerHTML = renderPolarDialSVG(dial, { ...design.polarOptions, theme: state.theme, shadowTip: shadow.visible ? shadow.tip : null });
     orientationText.textContent = dial.orientation;
     gnomonThumb.innerHTML = renderGnomonSVG(dial, { theme: state.theme, marginMm: 8 });
+    gnomonNote.textContent = gnomonConstructionWarning(dial)
+      ?? "The PDF includes this piece at full size. Match the filled foot dots and, for a triangle, the open base-end circles. A bead or notch at the cross makes the date-line shadow.";
     readout.replaceChildren(
       el("span", {}, [el("strong", {}, ["alt "]), `${shadow.altitudeDeg.toFixed(1)}°`]),
       el("span", {}, [el("strong", {}, ["az "]), `${shadow.azimuthDeg.toFixed(1)}°`]),
@@ -810,9 +816,9 @@ exportPngBtn.addEventListener("click", () => void runExport(async (design) => {
 async function exportPdf(format: "a4" | "letter"): Promise<void> {
   await runExport(async (design) => {
     if (design.dial.kind === "analemmatic") throw new Error("Use SVG for the analemmatic layout.");
-    const { exportPolarDialPDF } = await import("./lib/export/pdf.ts");
-    const bytes = exportPolarDialPDF(design.dial, { ...design.polarOptions, format });
-    const plan = planPolarPrint(design.dial, { ...design.polarOptions, format });
+    const { exportConstructionPDF } = await import("./lib/export/pdf.ts");
+    const bytes = exportConstructionPDF(design.dial, { ...design.polarOptions, format });
+    const plan = planConstructionPrint(design.dial, { ...design.polarOptions, format });
     const filename = `gnomon-${design.settings.dialType}-${format}.pdf`;
     downloadBlob(new Blob([bytes as BlobPart], { type: "application/pdf" }), filename);
     return `Downloaded ${filename}: ${plan.pageCount} ${plan.pageCount === 1 ? "page" : "pages"}. Print at actual size and measure every 100 mm calibration bar.`;

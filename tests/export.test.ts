@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildHorizontalDial } from "../src/lib/dials/horizontal.ts";
 import { renderGnomonSVG } from "../src/lib/render/svg.ts";
-import { exportPolarDialPDF } from "../src/lib/export/pdf.ts";
+import { exportPolarDialPDF, exportConstructionPDF } from "../src/lib/export/pdf.ts";
 import { planPolarPrint, registrationMarks } from "../src/lib/export/print-layout.ts";
 
 function bytesToLatin1(bytes: Uint8Array): string {
@@ -185,6 +185,15 @@ describe("construction details in PDF files", () => {
 });
 
 describe("gnomon fabrication geometry", () => {
+  it("includes the matching physical style, assembly instructions and both scale bars in a compact kit", () => {
+    const text = bytesToLatin1(exportConstructionPDF(dial, { radiusMm: 80, innerRadiusMm: 6, plateShape: "fan", numerals: "roman", format: "a4" }));
+    expect(text).toContain("/Count 2");
+    expect(text).toContain("Gnomon - cut and fold");
+    expect(text).toContain("30.00 mm along the style");
+    expect(text).toContain("open base-end circles");
+    expect(text.match(/100 mm calibration - verify before cutting/g)).toHaveLength(2);
+  });
+
   it("keeps the mounting tab attached and marks the physical nodus on the style edge", () => {
     const svg = renderGnomonSVG(dial, { theme: "laser", marginMm: 8 });
     const paths = [...svg.matchAll(/<path d="([^"]+)"[^>]*stroke="([^"]+)"[^>]*\/>/g)];

@@ -34,6 +34,15 @@ for (const [name, engine] of Object.entries({ chromium, firefox })) {
     await page.getByRole('button', { name: 'Full circle', exact: true }).click();
     await page.getByLabel('Date for the simulated shadow').fill('2026-06-21');
     await page.getByLabel('Local time for the simulated shadow').fill('12:00');
+    const svgParts = {};
+    for (const [part, button] of [['plate', 'Download SVG'], ['style', 'Gnomon SVG']]) {
+      const ready = page.waitForEvent('download');
+      await page.getByRole('button', { name: button, exact: true }).click();
+      const download = await ready;
+      const file = `${name}-north-${part}.svg`;
+      await download.saveAs(join(directory, file));
+      svgParts[part] = { file, sha256: createHash('sha256').update(readFileSync(join(directory, file))).digest('hex') };
+    }
     for (const format of ['a4', 'letter']) {
       const ready = page.waitForEvent('download');
       await page.getByRole('button', { name: format === 'a4' ? 'PDF (A4)' : 'PDF (Letter)', exact: true }).click();
@@ -41,7 +50,7 @@ for (const [name, engine] of Object.entries({ chromium, firefox })) {
       const file = `${name}-north-${format}.pdf`;
       await download.saveAs(join(directory, file));
       const bytes = readFileSync(join(directory, file));
-      records.push({ file, format, settings: { radiusMm: 150, latitudeDeg: 45, longitudeDeg: 0, timeMode: 'apparent', timeZone: 'UTC', plateShape: 'circle' }, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') });
+      records.push({ file, format, ...svgParts, settings: { dialType: 'horizontal', wallDeclinationDeg: 0, radiusMm: 150, latitudeDeg: 45, longitudeDeg: 0, timeMode: 'apparent', timeZone: 'UTC', plateShape: 'circle' }, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') });
     }
     if (name === 'chromium') {
       await page.screenshot({ path: join(directory, 'large-desktop.png') });

@@ -2,6 +2,7 @@
 import type { PolarDialResult } from "../dials/types.ts";
 import { plateBounds, type PlateShape } from "../render/plate-shape.ts";
 import { polarHourMarks } from "../render/hour-marks.ts";
+import { gnomonLayout } from "../render/gnomon-layout.ts";
 
 export type PageFormat = "a4" | "letter";
 export const PAGE_SIZE_MM: Record<PageFormat, { width: number; height: number }> = {
@@ -25,6 +26,31 @@ export interface PrintTile {
   y: number;
 }
 
+function sheetGrid(drawingWidth: number, drawingHeight: number, format: PageFormat, tiled: boolean) {
+  const page = PAGE_SIZE_MM[format];
+  if (!page) throw new Error("Choose A4 or Letter paper.");
+  const viewport = { x: 10, y: 22, width: page.width - 20, height: page.height - 52 };
+  const overlapMm = 10;
+  const strideX = viewport.width - overlapMm;
+  const strideY = viewport.height - overlapMm;
+  const columns = tiled ? Math.max(1, Math.ceil((drawingWidth - overlapMm) / strideX)) : 1;
+  const rows = tiled ? Math.max(1, Math.ceil((drawingHeight - overlapMm) / strideY)) : 1;
+  if (!Number.isFinite(drawingWidth + drawingHeight) || drawingWidth <= 0 || drawingHeight <= 0
+    || !Number.isFinite(columns * rows) || columns * rows > 64) {
+    throw new Error("This design needs more than 64 full-size sheets or has invalid dimensions. Reduce the size or export SVG instead.");
+  }
+  const assembledWidth = viewport.width + (columns - 1) * strideX;
+  const assembledHeight = viewport.height + (rows - 1) * strideY;
+  const tiles: PrintTile[] = [];
+  for (let row = 0; row < rows; row++) {
+    for (let column = 0; column < columns; column++) {
+      tiles.push({ row, column, id: `R${row + 1}C${column + 1}`, x: column * strideX, y: row * strideY });
+    }
+  }
+  return { page, tiled, viewport, overlapMm, strideX, strideY, columns, rows, assembledWidth, assembledHeight, tiles,
+    pageCount: tiled ? tiles.length + 1 : 1 };
+}
+
 export function planPolarPrint(dial: PolarDialResult, opts: PrintDimensions) {
   if (!Number.isFinite(opts.radiusMm) || opts.radiusMm <= 0 || !Number.isFinite(opts.innerRadiusMm)
     || opts.innerRadiusMm < 0 || opts.innerRadiusMm > opts.radiusMm) throw new Error("Invalid dial dimensions.");
@@ -35,23 +61,15 @@ export function planPolarPrint(dial: PolarDialResult, opts: PrintDimensions) {
   const bounds = plateBounds(opts.plateShape, opts.radiusMm, marks.thetaMax, marks.thetaCenter);
   const plateWidth = 2 * bounds.halfWidth;
   const plateHeight = bounds.topU - bounds.bottomU;
-  // Retain the original compact one-sheet export when its plate fits.
-  const tiled = plateWidth > page.width - 16 || plateHeight > page.height - 55;
-  const viewport = { x: 10, y: 22, width: page.width - 20, height: page.height - 52 };
-  const overlapMm = 10;
-  const strideX = viewport.width - overlapMm;
-  const strideY = viewport.height - overlapMm;
+  // A tall, narrow fan may fit the paper but leave no room for mounting
+  // notes. Reserve space for the app's title, motto and design description.
+  const tiled = plateWidth > page.width - 16 || plateHeight > page.height - 80;
   // Leave room outside the cut for assembly. Unlike the small export,
   // design notes live on the guide rather than below the drawing.
   const drawingWidth = plateWidth + 20;
   const drawingHeight = plateHeight + 20;
-  const columns = tiled ? Math.max(1, Math.ceil((drawingWidth - overlapMm) / strideX)) : 1;
-  const rows = tiled ? Math.max(1, Math.ceil((drawingHeight - overlapMm) / strideY)) : 1;
-  if (!Number.isFinite(columns * rows) || columns * rows > 64) {
-    throw new Error("This design needs more than 64 full-size sheets. Reduce the radius or export SVG instead.");
-  }
-  const assembledWidth = viewport.width + (columns - 1) * strideX;
-  const assembledHeight = viewport.height + (rows - 1) * strideY;
+  const grid = sheetGrid(drawingWidth, drawingHeight, opts.format, tiled);
+  const { assembledWidth, assembledHeight } = grid;
   const root = {
     x: (assembledWidth - drawingWidth) / 2 + 10 + bounds.halfWidth,
     y: (assembledHeight - drawingHeight) / 2 + 10 + bounds.topU,
@@ -60,23 +78,34 @@ export function planPolarPrint(dial: PolarDialResult, opts: PrintDimensions) {
     x: root.x + marks.labelRadius * Math.sin(line.angleRad),
     y: root.y - marks.labelRadius * Math.cos(line.angleRad),
   }));
-  const tiles: PrintTile[] = [];
-  for (let row = 0; row < rows; row++) {
-    for (let column = 0; column < columns; column++) {
-      tiles.push({ row, column, id: `R${row + 1}C${column + 1}`, x: column * strideX, y: row * strideY });
-    }
-  }
   return {
-    ...marks, page, bounds, tiled, viewport, overlapMm, strideX, strideY,
-    rows, columns, assembledWidth, assembledHeight, root, labelAnchors, tiles,
-    pageCount: tiled ? tiles.length + 1 : 1,
+    ...marks, ...grid, bounds, root, labelAnchors,
   };
 }
 
 export type PolarPrintPlan = ReturnType<typeof planPolarPrint>;
 
+export function planGnomonPrint(dial: PolarDialResult, format: PageFormat) {
+  const layout = gnomonLayout(dial);
+  const page = PAGE_SIZE_MM[format];
+  if (!page) throw new Error("Choose A4 or Letter paper.");
+  // Reserve the bottom of compact pages for construction instructions.
+  const tiled = layout.widthMm > page.width - 40 || layout.heightMm > page.height - 150;
+  const grid = sheetGrid(layout.widthMm + 20, layout.heightMm + 20, format, tiled);
+  const origin = { x: (grid.assembledWidth - layout.widthMm) / 2, y: (grid.assembledHeight - layout.heightMm) / 2 };
+  const labelAnchors = [layout.foot, layout.baseEnd, layout.nodus].filter((p) => p !== null).map((p) => ({ x: p.x + origin.x, y: p.y + origin.y }));
+  return { ...grid, layout, origin, labelAnchors, fontSizeMm: 2.5 };
+}
+export type GnomonPrintPlan = ReturnType<typeof planGnomonPrint>;
+
+export function planConstructionPrint(dial: PolarDialResult, opts: PrintDimensions) {
+  const plate = planPolarPrint(dial, opts);
+  const gnomon = planGnomonPrint(dial, opts.format);
+  return { plate, gnomon, pageCount: plate.pageCount + gnomon.pageCount };
+}
+
 /** Each seam's two targets occur at exactly the same drawing coordinates on both sheets. */
-export function registrationMarks(plan: PolarPrintPlan, tile: PrintTile): { x: number; y: number }[] {
+export function registrationMarks(plan: PolarPrintPlan | GnomonPrintPlan, tile: PrintTile): { x: number; y: number }[] {
   const points: { x: number; y: number }[] = [];
   const addPair = (pointAt: (fraction: number) => { x: number; y: number }) => {
     for (const candidates of [[1 / 3, 1 / 4, 1 / 5, 0.4], [2 / 3, 3 / 4, 4 / 5, 0.6]]) {

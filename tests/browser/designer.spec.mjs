@@ -244,14 +244,15 @@ test('300 mm circle exports four tiles in both paper formats and retains the gui
   await page.getByLabel('Dial radius (mm)', { exact: true }).fill('150');
   await page.getByRole('button', { name: 'Full circle', exact: true }).click();
   const panel = page.locator('.panel').filter({ has: page.getByRole('heading', { name: 'Export', exact: true }) });
-  await expect(panel).toContainText('A4: 4 sheets (2 across, 2 down) + assembly guide. Letter: 4 sheets (2 across, 2 down) + assembly guide.');
+  await expect(panel).toContainText('A4: 6 pages total — plate 4 sheets (2 across, 2 down) + guide; gnomon 1 sheet. Letter: 6 pages total — plate 4 sheets (2 across, 2 down) + guide; gnomon 1 sheet.');
   for (const format of ['A4', 'Letter']) {
     const result = await download(page, `PDF (${format})`);
     const text = result.bytes.toString('latin1');
-    expect(text).toContain('/Count 5');
+    expect(text).toContain('/Count 6');
+    expect(text).toContain('Gnomon - cut and fold');
     expect(text).toContain('Radius 150 mm');
     expect(text).toContain('Horas non numero nisi serenas');
-    expect(text.match(/100 mm calibration - verify before cutting/g)).toHaveLength(5);
+    expect(text.match(/100 mm calibration - verify before cutting/g)).toHaveLength(6);
     await testInfo.attach(result.name, { body: result.bytes, contentType: 'application/pdf' });
   }
   await page.setViewportSize({ width: 375, height: 1000 });
@@ -259,7 +260,26 @@ test('300 mm circle exports four tiles in both paper formats and retains the gui
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await page.getByLabel('Dial radius (mm)', { exact: true }).fill('80');
-  await expect(panel).toContainText('A4: 1 sheet. Letter: 1 sheet.');
+  await expect(panel).toContainText('A4: 2 pages total — plate 1 sheet; gnomon 1 sheet. Letter: 2 pages total — plate 1 sheet; gnomon 1 sheet.');
+});
+
+test('near-normal styles retain their angle and show a fabrication warning', async ({ page }) => {
+  await open(page);
+  await page.getByLabel('Latitude', { exact: true }).fill('89.91');
+  const panel = page.locator('.panel').filter({ has: page.getByRole('heading', { name: 'Gnomon template', exact: true }) });
+  await expect(panel).toContainText('One triangle leg is under 3 mm');
+  const style = (await download(page, 'Gnomon SVG')).bytes.toString();
+  expect(style).toContain('89.9100°');
+  const height = Number(/height="([\d.]+)mm"/.exec(style)[1]);
+  expect(height).toBeLessThan(120);
+  expect(style).not.toContain('perpendicular to plate');
+  const pdf = (await download(page, 'PDF (A4)')).bytes.toString('latin1');
+  expect(pdf).toContain('89.9100 degrees');
+  expect(pdf).toContain('One triangle leg is under 3 mm');
+  await page.getByRole('button', { name: 'Equatorial', exact: true }).click();
+  const rod = (await download(page, 'PDF (Letter)')).bytes.toString('latin1');
+  expect(rod).toContain('Gnomon rod - length gauge');
+  expect(rod).not.toContain('One triangle leg is under 3 mm');
 });
 
 for (const width of [320, 375, 1440]) {

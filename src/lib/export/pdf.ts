@@ -5,8 +5,9 @@ import type { Motto } from "../motto.ts";
 import { hourLabel } from "../render/numerals.ts";
 import { plateOutline, type PlateShape } from "../render/plate-shape.ts";
 import { clipCurve } from "../render/curves.ts";
+import { gnomonBaseEnd, gnomonInstructions, gnomonConstructionWarning, type gnomonLayout } from "../render/gnomon-layout.ts";
 import { polarToUV, toPage, type PageMapping } from "../render/project.ts";
-import { planPolarPrint, registrationMarks, type PageFormat, type PolarPrintPlan, type PrintTile } from "./print-layout.ts";
+import { planPolarPrint, planConstructionPrint, registrationMarks, type PageFormat, type PolarPrintPlan, type GnomonPrintPlan, type PrintTile } from "./print-layout.ts";
 
 export type { PageFormat } from "./print-layout.ts";
 export interface PdfExportOptions {
@@ -57,6 +58,15 @@ function drawPlate(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, pl
       doc.text(hourLabel(line.hour, opts.numerals, opts.romanStyle), pp.x, pp.y, { align: "center", baseline: "middle" });
     }
   }
+  if (dial.gnomon.baseLengthMm > 0) {
+    const end = project(gnomonBaseEnd(dial));
+    doc.setLineWidth(0.22 * scale);
+    doc.setLineDashPattern([1.2 * scale, 0.8 * scale], 0);
+    doc.line(m.centerX, m.centerY, end.x, end.y);
+    doc.setLineDashPattern([], 0);
+    doc.setLineWidth(0.25 * scale);
+    doc.circle(end.x, end.y, 1.1 * scale);
+  }
   doc.setFillColor(20, 20, 20);
   doc.circle(m.centerX, m.centerY, 0.6 * scale, "F");
 }
@@ -96,7 +106,7 @@ function singlePage(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, p
   calibrationBar(doc);
 }
 
-function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan): void {
+function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan, kit: boolean): void {
   const width = plan.page.width - 20;
   doc.setTextColor(20, 20, 20);
   doc.setFont("helvetica", "bold");
@@ -146,14 +156,14 @@ function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions
   paragraph("1. Keep all sheets facing the same way. Start at R1C1, then work across each row.");
   paragraph("2. On columns after C1, trim the left blank margin at the dashed frame. On rows after R1, trim the top blank margin there. Keep the printed overlap.");
   paragraph("3. Lay each new sheet over its neighbor's 10 mm overlap. Match both crosshair targets and the drawing. Tape the back, then cut the plate's solid outline.");
-  paragraph("Dashed frames and crosshairs are assembly aids, not dial cuts. The frame sits 10 mm from the left and right paper edges. Keep the separate Gnomon SVG for the style template.");
+  paragraph("Dashed frames and crosshairs are assembly aids, not dial cuts. The frame sits 10 mm from the left and right paper edges. " + (kit ? "The matching gnomon template and mounting instructions follow the plate sheets." : "Keep the separate Gnomon SVG for the style template."));
   if (opts.title) paragraph(opts.title, 10);
   if (opts.motto) paragraph(opts.motto.latin, 9);
   if (opts.description) paragraph(opts.description);
   calibrationBar(doc);
 }
 
-function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan, tile: PrintTile, index: number): void {
+function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan, tile: PrintTile, index: number, totalPages: number): void {
   const v = plan.viewport;
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
@@ -161,7 +171,7 @@ function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, pla
   doc.text(`${tile.id} / ${plan.rows} ${plan.rows === 1 ? "row" : "rows"} x ${plan.columns} ${plan.columns === 1 ? "column" : "columns"}`, 10, 10);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(7);
-  doc.text(`${opts.format.toUpperCase()} | radius ${opts.radiusMm} mm | 100% | page ${index + 2} of ${plan.pageCount}`, plan.page.width - 10, 10, { align: "right" });
+  doc.text(`${opts.format.toUpperCase()} | radius ${opts.radiusMm} mm | 100% | page ${index + 2} of ${totalPages}`, plan.page.width - 10, 10, { align: "right" });
   doc.text(`Drawing origin x ${tile.x.toFixed(1)} mm, y ${tile.y.toFixed(1)} mm | 10 mm overlaps`, 10, 16);
   const m = { centerX: v.x + plan.root.x - tile.x, centerY: v.y + plan.root.y - tile.y };
   doc.saveGraphicsState();
@@ -171,6 +181,17 @@ function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, pla
   drawPlate(doc, dial, opts, plan, m);
   doc.restoreGraphicsState();
 
+  drawTileFrame(doc, plan, tile);
+  if (opts.title) {
+    const lines = doc.splitTextToSize(opts.title, plan.page.width - 125) as string[];
+    doc.text(lines[0]!, plan.page.width - 10, plan.page.height - 19, { align: "right" });
+  }
+  calibrationBar(doc);
+}
+
+/** Shared paper frame and matching targets for both plate and style sheets. */
+function drawTileFrame(doc: jsPDF, plan: PolarPrintPlan | GnomonPrintPlan, tile: PrintTile, prefix = ""): void {
+  const v = plan.viewport;
   doc.setDrawColor(120, 120, 120);
   doc.setLineWidth(0.15);
   doc.setLineDashPattern([1.5, 1], 0);
@@ -188,31 +209,132 @@ function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, pla
   }
   doc.setFontSize(7);
   const neighbors = [
-    tile.column > 0 ? `left R${tile.row + 1}C${tile.column}` : "",
-    tile.column < plan.columns - 1 ? `right R${tile.row + 1}C${tile.column + 2}` : "",
-    tile.row > 0 ? `above R${tile.row}C${tile.column + 1}` : "",
-    tile.row < plan.rows - 1 ? `below R${tile.row + 2}C${tile.column + 1}` : "",
+    tile.column > 0 ? `left ${prefix}R${tile.row + 1}C${tile.column}` : "",
+    tile.column < plan.columns - 1 ? `right ${prefix}R${tile.row + 1}C${tile.column + 2}` : "",
+    tile.row > 0 ? `above ${prefix}R${tile.row}C${tile.column + 1}` : "",
+    tile.row < plan.rows - 1 ? `below ${prefix}R${tile.row + 2}C${tile.column + 1}` : "",
   ].filter(Boolean).join(" / ");
   doc.text(`Join: ${neighbors}`, 10, plan.page.height - 24);
   doc.setFontSize(6);
   doc.text(`Frame ${v.width.toFixed(1)} x ${v.height.toFixed(1)} mm - check both axes`, 10, plan.page.height - 19);
-  if (opts.title) {
-    const lines = doc.splitTextToSize(opts.title, plan.page.width - 125) as string[];
-    doc.text(lines[0]!, plan.page.width - 10, plan.page.height - 19, { align: "right" });
-  }
-  calibrationBar(doc);
 }
 
-export function exportPolarDialPDF(dial: PolarDialResult, opts: PdfExportOptions): Uint8Array {
+function createPlateDocument(dial: PolarDialResult, opts: PdfExportOptions, totalPages?: number): jsPDF {
   const plan = planPolarPrint(dial, opts);
   const doc = new jsPDF({ unit: "mm", format: opts.format, orientation: "portrait" });
   doc.setProperties({ title: opts.title ?? "Sundial", subject: opts.description ?? "", creator: "Gnomon" });
   if (plan.tiled) {
-    assemblyGuide(doc, dial, opts, plan);
+    assemblyGuide(doc, dial, opts, plan, totalPages !== undefined);
     for (const [index, tile] of plan.tiles.entries()) {
       doc.addPage();
-      drawTile(doc, dial, opts, plan, tile, index);
+      drawTile(doc, dial, opts, plan, tile, index, totalPages ?? plan.pageCount);
     }
   } else singlePage(doc, dial, opts, plan);
+  return doc;
+}
+
+/** Plate-only export for callers that fabricate their own style. */
+export function exportPolarDialPDF(dial: PolarDialResult, opts: PdfExportOptions): Uint8Array {
+  return new Uint8Array(createPlateDocument(dial, opts).output("arraybuffer"));
+}
+
+function drawGnomon(doc: jsPDF, shape: ReturnType<typeof gnomonLayout>, origin: { x: number; y: number }, scale = 1): void {
+  const map = (p: { x: number; y: number }) => ({ x: origin.x + p.x * scale, y: origin.y + p.y * scale });
+  const foot = map(shape.foot);
+  const end = map(shape.end);
+  doc.setDrawColor(20, 20, 20);
+  doc.setFillColor(20, 20, 20);
+  doc.setLineWidth(0.35 * scale);
+  doc.setLineDashPattern([], 0);
+  if (shape.rod) doc.line(foot.x, foot.y, end.x, end.y);
+  else {
+    const cut = shape.cut.map(map);
+    doc.lines(cut.slice(1).map((p, i) => [p.x - cut[i]!.x, p.y - cut[i]!.y]), cut[0]!.x, cut[0]!.y, [1, 1], "S", true);
+    const baseEnd = map(shape.baseEnd!);
+    doc.setLineWidth(0.25 * scale);
+    doc.setLineDashPattern([1.2 * scale, 0.8 * scale], 0);
+    doc.line(baseEnd.x, baseEnd.y, foot.x, foot.y);
+    doc.setLineDashPattern([], 0);
+    doc.circle(baseEnd.x, baseEnd.y, 1.1 * scale);
+  }
+  doc.circle(foot.x, foot.y, 0.8 * scale, "F");
+  if (shape.nodus) {
+    const nodus = map(shape.nodus);
+    doc.setLineWidth(0.25 * scale);
+    doc.line(nodus.x - 1.5 * scale, nodus.y, nodus.x + 1.5 * scale, nodus.y);
+    doc.line(nodus.x, nodus.y - 1.5 * scale, nodus.x, nodus.y + 1.5 * scale);
+  }
+}
+
+function gnomonGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: GnomonPrintPlan): void {
+  const shape = plan.layout;
+  doc.setTextColor(20, 20, 20);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(15);
+  doc.text(shape.rod ? "Gnomon rod - length gauge" : gnomonConstructionWarning(dial) ? "Gnomon - angle gauge" : "Gnomon - cut and fold", 10, 15);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8);
+  doc.text(`${opts.format.toUpperCase()} | plate radius ${opts.radiusMm} mm | print at Actual size / 100%`, 10, 22);
+  let y = 32;
+  if (plan.tiled) {
+    doc.text(`GNOMON MAP - reduced size. Cut from the ${plan.tiles.length} G-prefixed sheets that follow.`, 10, y);
+    y += 7;
+    const scale = Math.min((plan.page.width - 20) / plan.assembledWidth, 65 / plan.assembledHeight);
+    const x = (plan.page.width - plan.assembledWidth * scale) / 2;
+    drawGnomon(doc, shape, { x: x + plan.origin.x * scale, y: y + plan.origin.y * scale }, scale);
+    for (const tile of plan.tiles) {
+      doc.setDrawColor(130, 130, 130);
+      doc.setLineWidth(0.15);
+      doc.rect(x + tile.x * scale, y + tile.y * scale, plan.viewport.width * scale, plan.viewport.height * scale);
+      doc.setFontSize(7);
+      doc.text(`G-${tile.id}`, x + tile.x * scale + 2, y + tile.y * scale + 4);
+    }
+    y += plan.assembledHeight * scale + 8;
+  } else {
+    drawGnomon(doc, shape, { x: (plan.page.width - shape.widthMm) / 2, y });
+    y += shape.heightMm + 9;
+  }
+  const paragraph = (text: string) => {
+    doc.setFontSize(8);
+    const lines = doc.splitTextToSize(text, plan.page.width - 20) as string[];
+    if (y + (lines.length - 1) * 3.7 > plan.page.height - 22) throw new Error("The gnomon instructions do not fit on the page.");
+    doc.text(lines, 10, y, { lineHeightFactor: 1.3 });
+    y += lines.length * 3.7 + 2;
+  };
+  if (plan.tiled) paragraph("Assemble G-sheets separately from the plate. Trim only blank left/top margins of later columns/rows. Overlap by 10 mm, match both crosshair targets, and tape the back. Dashed frames and crosshair targets are not cuts.");
+  for (const instruction of gnomonInstructions(dial)) paragraph(instruction);
+  paragraph(dial.orientation);
+  calibrationBar(doc);
+}
+
+/** One download holds the matching plate, style, scale checks and instructions. */
+export function exportConstructionPDF(dial: PolarDialResult, opts: PdfExportOptions): Uint8Array {
+  const plan = planConstructionPrint(dial, opts);
+  const doc = createPlateDocument(dial, opts, plan.pageCount);
+  doc.addPage();
+  gnomonGuide(doc, dial, opts, plan.gnomon);
+  if (plan.gnomon.tiled) {
+    const g = plan.gnomon;
+    for (const [index, tile] of g.tiles.entries()) {
+      doc.addPage();
+      doc.setTextColor(20, 20, 20);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.text(`G-${tile.id} / GNOMON / ${g.rows} rows x ${g.columns} columns`, 10, 10);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(7);
+      doc.text(`${opts.format.toUpperCase()} | radius ${opts.radiusMm} mm | 100% | page ${plan.plate.pageCount + index + 2} of ${plan.pageCount}`, g.page.width - 10, 16, { align: "right" });
+      doc.text(`Drawing origin x ${tile.x.toFixed(1)} mm, y ${tile.y.toFixed(1)} mm`, 10, 16);
+      const v = g.viewport;
+      doc.saveGraphicsState();
+      doc.rect(v.x, v.y, v.width, v.height, null);
+      doc.clip();
+      doc.discardPath();
+      drawGnomon(doc, g.layout, { x: v.x + g.origin.x - tile.x, y: v.y + g.origin.y - tile.y });
+      doc.restoreGraphicsState();
+      drawTileFrame(doc, g, tile, "G-");
+      calibrationBar(doc);
+    }
+  }
   return new Uint8Array(doc.output("arraybuffer"));
 }
