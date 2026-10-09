@@ -10,7 +10,8 @@
 import type { Motto } from "../motto.ts";
 import type { AnalemmaticDialResult, PolarDialResult } from "../dials/types.ts";
 import { hourLabel } from "./numerals.ts";
-import { plateBounds, plateOutline, plateSector, type PlateShape } from "./plate-shape.ts";
+import { plateBounds, plateOutline, type PlateShape } from "./plate-shape.ts";
+import { polarHourMarks } from "./hour-marks.ts";
 import { clipCurve } from "./curves.ts";
 import { polarToUV, toPage } from "./project.ts";
 import type { PageMapping } from "./project.ts";
@@ -47,9 +48,8 @@ export interface PolarDialRenderOptions {
 
 /** Canvas size and the root's page position for a given plate shape -- shared by the SVG and PDF renderers so they lay out identically. */
 export function polarDialLayout(dial: PolarDialResult, opts: Pick<PolarDialRenderOptions, "radiusMm" | "plateShape">) {
-  const { thetaMax, thetaCenter } = plateSector(dial);
-  const labelRadius = opts.radiusMm + Math.max(4, opts.radiusMm * 0.06);
-  const bounds = plateBounds(opts.plateShape, labelRadius, thetaMax, thetaCenter);
+  const { thetaMax, thetaCenter } = polarHourMarks(dial, opts.radiusMm);
+  const bounds = plateBounds(opts.plateShape, opts.radiusMm, thetaMax, thetaCenter);
   const padSide = Math.max(8, opts.radiusMm * 0.08);
   const padTop = Math.max(6, opts.radiusMm * 0.06);
   const padBottom = Math.max(20, opts.radiusMm * 0.24); // room for title + motto below the plate
@@ -64,6 +64,7 @@ export function polarDialLayout(dial: PolarDialResult, opts: Pick<PolarDialRende
 
 export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderOptions): string {
   const c = THEMES[opts.theme];
+  const marks = polarHourMarks(dial, opts.radiusMm);
   const { thetaMax, thetaCenter, widthMm, heightMm, mapping: m } = polarDialLayout(dial, opts);
   const parts: string[] = [];
 
@@ -82,7 +83,7 @@ export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderO
   if (opts.showDeclinationLines) {
     for (const line of dial.declinationLines) {
       const stroke = line.kind === "zodiac" ? c.mutedText : c.declinationLine;
-      for (const run of clipCurve(line.points, opts.radiusMm, opts.plateShape, thetaMax, thetaCenter)) {
+      for (const run of clipCurve(line.points, marks.hourRadius, opts.plateShape, thetaMax, thetaCenter)) {
         const d = run.map((p, i) => `${i === 0 ? "M" : "L"} ${toPage(p.u, p.v, m).x.toFixed(3)} ${toPage(p.u, p.v, m).y.toFixed(3)}`).join(" ");
         parts.push(`<path d="${d}" fill="none" stroke="${stroke}" stroke-width="0.25"/>`);
       }
@@ -91,7 +92,7 @@ export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderO
 
   if (opts.showHistoricalHours) {
     for (const curve of dial.historicalHours) {
-      for (const run of clipCurve(curve.points, opts.radiusMm, opts.plateShape, thetaMax, thetaCenter)) {
+      for (const run of clipCurve(curve.points, marks.hourRadius, opts.plateShape, thetaMax, thetaCenter)) {
         const d = run.map((p, i) => `${i === 0 ? "M" : "L"} ${toPage(p.u, p.v, m).x.toFixed(3)} ${toPage(p.u, p.v, m).y.toFixed(3)}`).join(" ");
         parts.push(`<path d="${d}" fill="none" stroke="${c.historicalLine}" stroke-width="0.2" stroke-dasharray="1,0.8"/>`);
       }
@@ -100,7 +101,7 @@ export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderO
 
   for (const line of dial.hourLines) {
     const inner = polarToUV(line.angleRad, opts.innerRadiusMm);
-    const outer = polarToUV(line.angleRad, opts.radiusMm);
+    const outer = polarToUV(line.angleRad, marks.hourRadius);
     const p0 = toPage(inner.u, inner.v, m);
     const p1 = toPage(outer.u, outer.v, m);
     const stroke = line.isMajor ? c.hourLineMajor : c.hourLineMinor;
@@ -109,12 +110,11 @@ export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderO
       `<line x1="${p0.x.toFixed(3)}" y1="${p0.y.toFixed(3)}" x2="${p1.x.toFixed(3)}" y2="${p1.y.toFixed(3)}" stroke="${stroke}" stroke-width="${width}"/>`,
     );
     if (line.isMajor) {
-      const labelR = opts.radiusMm + Math.max(4, opts.radiusMm * 0.06);
-      const lp = polarToUV(line.angleRad, labelR);
+      const lp = polarToUV(line.angleRad, marks.labelRadius);
       const pp = toPage(lp.u, lp.v, m);
       const label = hourLabel(line.hour, opts.numerals, opts.romanStyle);
       parts.push(
-        `<text x="${pp.x.toFixed(3)}" y="${pp.y.toFixed(3)}" font-size="${Math.max(3, opts.radiusMm * 0.045)}" fill="${c.text}" text-anchor="middle" dominant-baseline="middle">${esc(label)}</text>`,
+        `<text x="${pp.x.toFixed(3)}" y="${pp.y.toFixed(3)}" font-size="${marks.fontSizeMm}" fill="${c.text}" text-anchor="middle" dominant-baseline="middle">${esc(label)}</text>`,
       );
     }
   }
