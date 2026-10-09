@@ -1,0 +1,180 @@
+{
+  "reader": "PyMuPDF 1.28.2",
+  "raster_dpi": 254,
+  "physical_print_verified": false,
+  "results": [
+    {
+      "file": "compact-a4.pdf",
+      "sha256": "d29e94c73c3119549a8c054be7a426fcaf03c84505689d3ee7ce30b27da9cd6f",
+      "pages": 1,
+      "checked_bars": 1,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 1.4551448629163133e-05,
+      "glyphs_inside_cut": 34,
+      "max_reconstructed_vector_error_mm": 0,
+      "seams": 0,
+      "max_seam_pixel_mismatch_fraction": 0
+    },
+    {
+      "file": "compact-letter.pdf",
+      "sha256": "c2b85185b1ec5ac9e8da0ff9d624bb94d90c5c0b97de7560f99b1dc225c3d6b7",
+      "pages": 1,
+      "checked_bars": 1,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 1.197720214918263e-05,
+      "glyphs_inside_cut": 34,
+      "max_reconstructed_vector_error_mm": 0,
+      "seams": 0,
+      "max_seam_pixel_mismatch_fraction": 0
+    },
+    {
+      "file": "north-a4.pdf",
+      "sha256": "dc9813191b638aff0729fe7c3a216885b6f945917611143c84a6e061c52b0a35",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 2.4957667562830466e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.458360462753717e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0
+    },
+    {
+      "file": "north-letter.pdf",
+      "sha256": "01687813789553f2d916bcc4a320d85870ecba5b51a54072abe6a48837e7fd08",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 3.097281256714268e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.6957194037890986e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0006424375917767988
+    },
+    {
+      "file": "south-a4.pdf",
+      "sha256": "2a63a5d9b4966d35a222f1b294a4e301ab1b29967279cc76dea49b39378c7357",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 2.4957667562830466e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.4583604670169734e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0
+    },
+    {
+      "file": "south-letter.pdf",
+      "sha256": "b28496179c38c2286c571214bc52cf617c6774abe6db9e1b386f163f9c7ca146",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 3.097281256714268e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.695719405210184e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0006424375917767988
+    },
+    {
+      "file": "wall-a4.pdf",
+      "sha256": "cd0aa517093cade6443a7cb388fc4cddc38698cf9a4f019edaadfc973bd9ccb3",
+      "pages": 4,
+      "checked_bars": 4,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 2.072234929073602e-05,
+      "glyphs_inside_cut": 84,
+      "max_reconstructed_vector_error_mm": 2.6618109870923945e-05,
+      "seams": 2,
+      "max_seam_pixel_mismatch_fraction": 0.000591952848187517
+    },
+    {
+      "file": "wall-letter.pdf",
+      "sha256": "7824b521e1673b87d2cbe82eefc2254a12596c34663f3e74dba6ad8f064f0ddf",
+      "pages": 4,
+      "checked_bars": 4,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 1.7870428877131417e-05,
+      "glyphs_inside_cut": 84,
+      "max_reconstructed_vector_error_mm": 2.2527906708091905e-05,
+      "seams": 2,
+      "max_seam_pixel_mismatch_fraction": 0.0006791483113069017
+    },
+    {
+      "file": "equatorial-a4.pdf",
+      "sha256": "50a8649b6b9d9b06626159f758a2e6e18b6501349b4442cb313281954cf22900",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 2.4957667562830466e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.4583604670169734e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0
+    },
+    {
+      "file": "equatorial-letter.pdf",
+      "sha256": "7db0c490fca38591294ee53a3643531dd75ba71ba30532ea2acaaba1cc599dbc",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 3.097281256714268e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.695719405210184e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0006424375917767988
+    },
+    {
+      "file": "maximum-a4.pdf",
+      "sha256": "97498ab5a75ed766c81bccf762e89a0a64be83cdb79ced2bd46e39ef75f79c23",
+      "pages": 21,
+      "checked_bars": 21,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 8.731795884386884e-05,
+      "glyphs_inside_cut": 940,
+      "max_reconstructed_vector_error_mm": 6.298489051914657e-05,
+      "seams": 31,
+      "max_seam_pixel_mismatch_fraction": 0.0008730239847369855
+    },
+    {
+      "file": "maximum-letter.pdf",
+      "sha256": "d6d12742694b8c2e993618eec2c09c24a48a3a4167e94a201219c58a31123ce4",
+      "pages": 21,
+      "checked_bars": 21,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 6.752327294634597e-05,
+      "glyphs_inside_cut": 940,
+      "max_reconstructed_vector_error_mm": 6.374782992679684e-05,
+      "seams": 31,
+      "max_seam_pixel_mismatch_fraction": 0.0011380323054331865
+    },
+    {
+      "file": "one-sheet-edge-a4.pdf",
+      "sha256": "43d6253f21e3a7135cf57b0ae01740e65f4e125cad49f1bc320fc1bcf9ce412b",
+      "pages": 1,
+      "checked_bars": 1,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 1.4716171946815848e-05,
+      "glyphs_inside_cut": 34,
+      "max_reconstructed_vector_error_mm": 0,
+      "seams": 0,
+      "max_seam_pixel_mismatch_fraction": 0
+    },
+    {
+      "file": "one-sheet-edge-letter.pdf",
+      "sha256": "a4119540a0e5985c21df900e6b3d7fd688e8d512626485daabc699dfe7f7af00",
+      "pages": 1,
+      "checked_bars": 1,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 1.1080262140694686e-05,
+      "glyphs_inside_cut": 34,
+      "max_reconstructed_vector_error_mm": 0,
+      "seams": 0,
+      "max_seam_pixel_mismatch_fraction": 0
+    }
+  ],
+  "rejected_controls": [
+    "scaled-drawing",
+    "shifted-second-tile",
+    "missing-last-tile"
+  ]
+}

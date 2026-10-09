@@ -13,6 +13,12 @@ dials and a separate analemmatic model, with solar-position calculations,
 hand-calculated physical examples and ray-casting checks. SVG and PDF use
 millimetres; PDF includes a calibration bar to check after printing.
 
+**Printable large dials (source checkout, unreleased).** A 300 mm circle
+now downloads as four full-size A4 or Letter sheets and an assembly guide,
+with matching overlap targets. Artifact inspection also found that the old
+cut outline would remove the hour numerals; SVG and PDF now retain them
+inside the plate. [Open a real PDF and inspect the measurements](docs/printing.md).
+
 The [construction and simulation audit](docs/construction-audit.md) explains
 the wall-shadow error found in the original geometry and its oracle, the
 correction, and what remains outside the verification.
@@ -34,7 +40,7 @@ no install needed.
   declining, either hemisphere), equatorial, and analemmatic (the garden
   dial where a person is the gnomon).
 - **Plate shape**: a "fan" (the classic look -- the plate is cut to the
-  wedge the hour lines actually reach, root at the point, no wasted
+  wedge the hour lines reach, with room for the end numerals, root at the point, no wasted
   material) or a traditional full circle, your choice.
 - **Hour lines** in standard/zone time (with the longitude correction from
   your zone's reference meridian and an optional DST offset) or local
@@ -55,7 +61,8 @@ no install needed.
   (most sundial mottoes are anonymous folk Latin, not a Roman poet).
 - **Export**: SVG in physical millimetres for laser cutters (red = cut,
   black = engrave); PDF at exact print scale for A4 and US Letter with a
-  100mm calibration bar; PNG.
+  100mm calibration bar on every sheet; large plates tile automatically with
+  10 mm overlaps and an assembly map; PNG.
 - **Live simulation** for the three polar-style dials: date and time in the
   selected location's zone, sun altitude/azimuth and nodus shadow, with day
   animation. Skipped clock times are rejected; repeated times offer both
@@ -213,8 +220,11 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
   external source) and cross-checked against the general 3D shadow model
   before being trusted; see the derivation comment in
   `src/lib/dials/analemmatic.ts`.
-- **PDF export** rejects a dial radius that doesn't fit the chosen page
-  rather than silently clipping it.
+- **PDF export** keeps small plates on one page and tiles large ones at full
+  scale. Print at Actual size / 100% and verify every bar and frame. The guide
+  is reduced; the construction sheets are not. The planner caps output at
+  64 construction sheets. [Digital assembly checks](docs/printing.md) do not
+  establish physical printer or paper accuracy.
 - **Simulation dates** range from 1900 to 2100. Local-time conversion uses
   the browser's time-zone data; future political changes require updated
   browser data. The automatic clock adjustment uses the actual offset at

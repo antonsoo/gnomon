@@ -41,8 +41,8 @@ export function planPolarPrint(dial: PolarDialResult, opts: PrintDimensions) {
   const overlapMm = 10;
   const strideX = viewport.width - overlapMm;
   const strideY = viewport.height - overlapMm;
-  // Space outside numeral anchors prevents text/strokes being lost at the
-  // assembled outer edge. Unlike the small export, notes live on the guide.
+  // Leave room outside the cut for assembly. Unlike the small export,
+  // design notes live on the guide rather than below the drawing.
   const drawingWidth = plateWidth + 20;
   const drawingHeight = plateHeight + 20;
   const columns = tiled ? Math.max(1, Math.ceil((drawingWidth - overlapMm) / strideX)) : 1;

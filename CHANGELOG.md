@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Full-size paper construction
+
+- Tile large polar-style PDFs across A4 or Letter at unchanged scale, with a
+  reduced assembly map, numbered sheets, 10 mm overlaps, matching targets,
+  per-sheet calibration and printed frame dimensions. The Export panel shows
+  sheet counts before download. Small plates retain their single-sheet export.
+- Keep hour numerals inside the physical cut in both SVG and PDF. Previously
+  cutting the outer outline removed them. Reserve an internal numeral band,
+  widen fan ends for label clearance, and match PDF/SVG numeral sizes.
+- Retain actual browser downloads and an independently measured 14-PDF matrix,
+  including deliberate wrong-scale, shifted-tile and missing-tile controls.
+  [Instructions and verification](docs/printing.md). Physical printing and
+  paper assembly remain unverified.
+
 ### Fixed
 
 - Northern, south-facing wall dials used a style behind the wall and accepted

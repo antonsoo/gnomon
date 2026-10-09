@@ -1,0 +1,55 @@
+{
+  "reader": "PyMuPDF 1.28.2",
+  "raster_dpi": 254,
+  "physical_print_verified": false,
+  "results": [
+    {
+      "file": "chromium-north-a4.pdf",
+      "sha256": "546188857b544c04856d9a3cf93869be5a1ebc30a5f665f9397f291119229d7c",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 2.4957667562830466e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.458360462753717e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0
+    },
+    {
+      "file": "chromium-north-letter.pdf",
+      "sha256": "9217e3dfb3bcf53f5ae16c85914342e754e23c7fea993675ec22f50e590e346b",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 3.097281256714268e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.6957194037890986e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0006424375917767988
+    },
+    {
+      "file": "firefox-north-a4.pdf",
+      "sha256": "180145183a2fd6046fc103c18cbdae9912394e7a8c8695f08661c7c0f5fd9360",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 2.4957667562830466e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.458360462753717e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0
+    },
+    {
+      "file": "firefox-north-letter.pdf",
+      "sha256": "599c63422fdcf626bcedee849a6a5d5f85837faf7c90ce082064c1ddd29ed703",
+      "pages": 5,
+      "checked_bars": 5,
+      "max_bar_error_mm": 4.127290509359227e-06,
+      "max_cut_radius_error_mm": 3.097281256714268e-05,
+      "glyphs_inside_cut": 136,
+      "max_reconstructed_vector_error_mm": 2.6957194037890986e-05,
+      "seams": 4,
+      "max_seam_pixel_mismatch_fraction": 0.0006424375917767988
+    }
+  ]
+}

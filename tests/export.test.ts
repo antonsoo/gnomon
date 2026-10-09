@@ -101,11 +101,8 @@ describe("exportPolarDialPDF", () => {
   });
 
   it("the app's own default radius (90mm) fits A4 for both plate shapes, at a latitude with a wide hour-line spread", () => {
-    // Regression test: the fan/circle width bound must include the label
-    // margin, not just the bare radius -- an earlier version of this check
-    // used radiusMm*2 alone and let a 90mm-radius horizontal dial's own
-    // default export silently fail because its numerals stuck out past
-    // the page.
+    // The expanded fan includes its end numerals, and the default design
+    // still fits a compact page after reserving that physical space.
     const wideDial = buildHorizontalDial({
       latitudeDeg: 51.5,
       timeReference: { mode: "apparent", longitudeDeg: -0.1276 },

@@ -104,7 +104,7 @@ function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions
   doc.text("Assemble your sundial", 10, 17);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
-  doc.text(`${plan.columns} columns x ${plan.rows} rows / ${plan.tiles.length} full-size sheets / ${opts.format.toUpperCase()}`, 10, 25);
+  doc.text(`${plan.columns} ${plan.columns === 1 ? "column" : "columns"} x ${plan.rows} ${plan.rows === 1 ? "row" : "rows"} / ${plan.tiles.length} full-size sheets / ${opts.format.toUpperCase()}`, 10, 25);
   doc.setFontSize(8);
   doc.text(`Radius ${opts.radiusMm} mm. Overlap ${plan.overlapMm} mm. Print one-sided at Actual size / 100%.`, 10, 32);
   doc.text("Disable Fit, Shrink and extra poster tiling. Check each bar and the frame's width and height.", 10, 37);
@@ -146,7 +146,7 @@ function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions
   paragraph("1. Keep all sheets facing the same way. Start at R1C1, then work across each row.");
   paragraph("2. On columns after C1, trim the left blank margin at the dashed frame. On rows after R1, trim the top blank margin there. Keep the printed overlap.");
   paragraph("3. Lay each new sheet over its neighbor's 10 mm overlap. Match both crosshair targets and the drawing. Tape the back, then cut the plate's solid outline.");
-  paragraph("Dashed frames and crosshairs are assembly aids, not dial cuts. The outer frame needs 10 mm printer margins. Keep the separate Gnomon SVG for the style template.");
+  paragraph("Dashed frames and crosshairs are assembly aids, not dial cuts. The frame sits 10 mm from the left and right paper edges. Keep the separate Gnomon SVG for the style template.");
   if (opts.title) paragraph(opts.title, 10);
   if (opts.motto) paragraph(opts.motto.latin, 9);
   if (opts.description) paragraph(opts.description);
@@ -158,7 +158,7 @@ function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, pla
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
   doc.setTextColor(20, 20, 20);
-  doc.text(`${tile.id} / ${plan.rows} rows x ${plan.columns} columns`, 10, 10);
+  doc.text(`${tile.id} / ${plan.rows} ${plan.rows === 1 ? "row" : "rows"} x ${plan.columns} ${plan.columns === 1 ? "column" : "columns"}`, 10, 10);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(7);
   doc.text(`${opts.format.toUpperCase()} | radius ${opts.radiusMm} mm | 100% | page ${index + 2} of ${plan.pageCount}`, plan.page.width - 10, 10, { align: "right" });

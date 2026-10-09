@@ -1,0 +1,141 @@
+{
+  "before_commit": "ea0b525",
+  "radius_mm": 90,
+  "latitude": 45,
+  "shape": "circle",
+  "format": "a4",
+  "records": [
+    {
+      "file": "before-cut.pdf",
+      "sha256": "15e8c2eed72df40a70345186dd0083fecb5accd9e6f4de3fcaffb975969ceca5",
+      "labels": [
+        {
+          "label": "V",
+          "inside_cut": false
+        },
+        {
+          "label": "VI",
+          "inside_cut": false
+        },
+        {
+          "label": "VII",
+          "inside_cut": false
+        },
+        {
+          "label": "VIII",
+          "inside_cut": false
+        },
+        {
+          "label": "IX",
+          "inside_cut": false
+        },
+        {
+          "label": "X",
+          "inside_cut": false
+        },
+        {
+          "label": "XI",
+          "inside_cut": false
+        },
+        {
+          "label": "XII",
+          "inside_cut": false
+        },
+        {
+          "label": "I",
+          "inside_cut": false
+        },
+        {
+          "label": "II",
+          "inside_cut": false
+        },
+        {
+          "label": "III",
+          "inside_cut": false
+        },
+        {
+          "label": "IIII",
+          "inside_cut": false
+        },
+        {
+          "label": "V",
+          "inside_cut": false
+        },
+        {
+          "label": "VI",
+          "inside_cut": false
+        },
+        {
+          "label": "VII",
+          "inside_cut": false
+        }
+      ]
+    },
+    {
+      "file": "one-sheet-edge-a4.pdf",
+      "sha256": "43d6253f21e3a7135cf57b0ae01740e65f4e125cad49f1bc320fc1bcf9ce412b",
+      "labels": [
+        {
+          "label": "V",
+          "inside_cut": true
+        },
+        {
+          "label": "VI",
+          "inside_cut": true
+        },
+        {
+          "label": "VII",
+          "inside_cut": true
+        },
+        {
+          "label": "VIII",
+          "inside_cut": true
+        },
+        {
+          "label": "IX",
+          "inside_cut": true
+        },
+        {
+          "label": "X",
+          "inside_cut": true
+        },
+        {
+          "label": "XI",
+          "inside_cut": true
+        },
+        {
+          "label": "XII",
+          "inside_cut": true
+        },
+        {
+          "label": "I",
+          "inside_cut": true
+        },
+        {
+          "label": "II",
+          "inside_cut": true
+        },
+        {
+          "label": "III",
+          "inside_cut": true
+        },
+        {
+          "label": "IIII",
+          "inside_cut": true
+        },
+        {
+          "label": "V",
+          "inside_cut": true
+        },
+        {
+          "label": "VI",
+          "inside_cut": true
+        },
+        {
+          "label": "VII",
+          "inside_cut": true
+        }
+      ]
+    }
+  ]
+}
