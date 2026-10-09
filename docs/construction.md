@@ -115,6 +115,7 @@ agreement. These are digital measurements, not printer tolerances.
 | 26 PDFs, both paper sizes, 13 location/size/type combinations | 192 pages, including 42 style pages |
 | Matrix sheet joins | 169 plate seams and 12 style seams |
 | Largest style dimension discrepancy in PDF coordinates | Less than 0.00002 mm |
+| Largest assembled-style axis discrepancy | Less than 0.000021 degrees in reconstructed geometry |
 | Four actual Chromium/Firefox PDF downloads, with their SVG parts | 24 pages; all dimensions and mounting checks passed |
 | Deliberately invalid kits | Rejected a 3% style shrink, a missing style tile, and an 89.91-degree style substituted for an 89-degree design |
 
@@ -125,6 +126,12 @@ and SHA-256 manifests are in [matrix.zip](evidence/construction/matrix.zip)
 and [browser.zip](evidence/construction/browser.zip). The detailed reports
 are [matrix verification](evidence/construction/matrix-verification.json)
 and [browser verification](evidence/construction/browser-verification.json).
+
+The 3 mm warning and page-layout boundary were also exercised through 476
+exports spanning radii 170-250 mm, seven latitudes, horizontal/declining-wall
+dials and both paper sizes. The initial pass found nine compact-plate note
+overflows; after reserving space for those notes, all 476 exports succeeded.
+This sweep checks successful generation, not fabrication accuracy.
 
 Regenerate and measure the files from an installed checkout with Node 24
 and `uv`:
@@ -146,6 +153,31 @@ Python readers are verification tools, not application dependencies. For
 fresh browser downloads, run the production preview and
 `scripts/capture-prints.mjs` as described in [printing.md](printing.md#repeat-the-artifact-checks),
 then use the construction verifier on its output directory.
+
+## Clean-checkout verification
+
+A fresh detached checkout of `53dee8b` was verified with Node 24.21.0 and
+npm 11.19.0 on 2026-10-09:
+
+| Command or workflow | Result |
+| --- | --- |
+| `npm ci`, `npm run lint`, `npm run typecheck` | Passed |
+| `npm test`, repeated with `LC_ALL=de_DE.UTF-8 LANG=de_DE.UTF-8` | 269 passed in each locale |
+| `npm run build`, `npx playwright test` | Production build; all 44 Chromium/Firefox workflows passed |
+| `node examples/basic-horizontal-dial.ts` | Valid SVG; 53 hour lines and 3 declination lines |
+| Regenerate and independently measure all 26 construction PDFs | All checks passed; all three invalid-kit controls rejected |
+| Extract and remeasure the retained matrix and browser archives | Hashes, dimensions and assembly checks passed |
+| `uvx ruff check scripts/verify-construction.py`, `uvx ruff format --check scripts/verify-construction.py` | Passed |
+| Compare fresh Node 24 and working Node 26 production output | All 35 files have identical SHA-256 hashes |
+| Fresh development server, browser PDF download | Correct download; no page errors |
+
+The browser checks include asynchronous click-time snapshots, invalid-input
+recovery, near-normal angle gauges, rod templates, keyboard use, accessibility
+and phone layouts. The [desktop capture](assets/construction/large-desktop.png),
+phone Export panel, full-size style pages and reduced maps were visually
+inspected. They retain the existing drawing-focused UI and show the complete
+kit's page count before download. Large template lettering in the thumbnail
+is small; the PDF provides the full-size drawing and readable instructions.
 
 ## Fabrication limits
 
