@@ -137,6 +137,41 @@ Use `--render <directory>` on the verifier to save a digitally assembled
 north/A4 or wall/Letter image. These Python packages are verification tools,
 not application dependencies.
 
+## Clean-checkout verification
+
+Verified from a fresh detached checkout of `93599b3` with Node 24.21.0 and
+npm 11.19.0 on 2026-10-09:
+
+| Command or workflow | Result |
+| --- | --- |
+| `npm ci`, `npm run lint`, `npm run typecheck` | Passed |
+| `npm test`, then `LC_ALL=de_DE.UTF-8 LANG=de_DE.UTF-8 npm test` | 266 passed in each run |
+| `npm run build`, `npx playwright test` | Production build and all 42 Chromium/Firefox workflows passed |
+| `node examples/basic-horizontal-dial.ts` | Generated SVG; 53 hour lines, 3 declination lines |
+| Regenerate the 14 PDFs and run `verify-prints.py --check-controls` | All geometry/assembly checks passed; all three defective controls rejected |
+| Extract the retained matrix archive and rerun the same verifier | All hashes and measurements passed |
+| `uvx ruff check scripts/verify-prints.py`, `uvx ruff format --check scripts/verify-prints.py` | Passed |
+| Compare clean Node 24 and working Node 26 production builds | All 35 files have identical SHA-256 hashes |
+
+Browser workflows include invalid-input recovery, asynchronous export snapshots,
+all three polar dial types, keyboard operation, phone layouts, accessibility
+scans and off-origin/CSP error checks. The refreshed
+[desktop view](assets/printing/large-desktop.png), phone Export panel above,
+and PDF guide/tile/assembly images were visually inspected. The sheet count
+and print instructions remain readable at phone width.
+
+In the retained Node 26.7.0 fixture generation, individual PDF exports took
+0.9-27.3 ms; the largest PDF was 700,706 bytes. This is one observed pass on
+a 14-vCPU WSL2 Linux machine with about 47 GiB RAM, not a browser
+latency benchmark or a performance guarantee. The default development server
+and production preview were also exercised locally. Build with
+`npm run build`; the static site is in `dist/`.
+
+All changes and evidence are local. No push, release or deployment was performed.
+
+Suggested repository description: "Design sundials with physical shadow geometry and full-size printable SVG/PDF templates."
+Suggested topics: `sundial`, `astronomy`, `geometry`, `svg`, `pdf`, `typescript`, `laser-cutting`.
+
 ## Limits
 
 No physical print, taped assembly, cutter trial or outdoor reading was

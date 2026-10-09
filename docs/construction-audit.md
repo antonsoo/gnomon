@@ -1,5 +1,9 @@
 # Construction and simulation audit
 
+The later [paper-construction audit](printing.md) adds numeral containment
+and multi-sheet PDF checks. Its measurements and screenshots supersede the
+print-layout details below; physical fabrication remains unverified.
+
 This change connects the physical dial, selected civil time and downloaded
 construction files. The audit found defects even though all 210 existing
 unit tests passed. The previous ray oracle and production code shared a
