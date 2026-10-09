@@ -1,0 +1,46 @@
+{
+  "baseline_commit": "cce5033",
+  "comparison": [
+    {
+      "case": "arctic",
+      "before": {
+        "svg_height_mm": 3234.1498589966855,
+        "style_angle_degrees": 89.0000000000001
+      },
+      "after": {
+        "svg_height_mm": 103.8,
+        "style_angle_degrees": 89.00000000000001
+      }
+    },
+    {
+      "case": "near-normal",
+      "before": {
+        "svg_height_mm": 91.8,
+        "style_angle_degrees": 90
+      },
+      "after": {
+        "svg_height_mm": 103.8,
+        "style_angle_degrees": 89.91000000000001
+      }
+    },
+    {
+      "case": "base-outside-old-fan",
+      "before": {
+        "base_end_inside_cut": false
+      },
+      "after": {
+        "base_end_inside_cut": true
+      }
+    },
+    {
+      "case": "tall-narrow",
+      "before": {
+        "error": "The design notes do not fit below this plate. Reduce the radius or shorten the notes."
+      },
+      "after": {
+        "plate_pages": 3,
+        "style_pages": 1
+      }
+    }
+  ]
+}

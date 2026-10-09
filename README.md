@@ -13,11 +13,11 @@ dials and a separate analemmatic model, with solar-position calculations,
 hand-calculated physical examples and ray-casting checks. SVG and PDF use
 millimetres; PDF includes a calibration bar to check after printing.
 
-**Printable large dials (source checkout, unreleased).** A 300 mm circle
-now downloads as four full-size A4 or Letter sheets and an assembly guide,
-with matching overlap targets. Artifact inspection also found that the old
-cut outline would remove the hour numerals; SVG and PDF now retain them
-inside the plate. [Open a real PDF and inspect the measurements](docs/printing.md).
+**Printable construction kit (source checkout, unreleased).** Each PDF now
+contains the plate and its matching gnomon, with mounting marks, nodus placement
+and assembly instructions. Large pieces tile across ordinary A4 or Letter sheets.
+The hour numerals stay inside the cut, and steep styles keep their exact angle
+without becoming metre-tall triangles. [Open a real kit and inspect the measurements](docs/construction.md).
 
 The [construction and simulation audit](docs/construction-audit.md) explains
 the wall-shadow error found in the original geometry and its oracle, the
@@ -40,8 +40,7 @@ no install needed.
   declining, either hemisphere), equatorial, and analemmatic (the garden
   dial where a person is the gnomon).
 - **Plate shape**: a "fan" (the classic look -- the plate is cut to the
-  wedge the hour lines reach, with room for the end numerals, root at the point, no wasted
-  material) or a traditional full circle, your choice.
+  wedge containing the hour lines and style base, with room for the end numerals, root at the point) or a traditional full circle, your choice.
 - **Hour lines** in standard/zone time (with the longitude correction from
   your zone's reference meridian and an optional DST offset) or local
   apparent solar time -- with half- and quarter-hour marks, Arabic or Roman
@@ -55,14 +54,15 @@ no install needed.
 - **Equation of time** table for the simulation year, computed from the same
   solar ephemeris. The library also exposes a daily curve, including leap days.
 - **Gnomon template**: a triangular style with an attached mounting tab,
-  engraved fold, marked foot and nodus position (or, for the equatorial dial, the plain rod its geometry
+  engraved fold, matching foot/base-end marks and nodus position (or, for the equatorial dial, the plain rod its geometry
   actually calls for -- see [Accuracy and limitations](#accuracy-and-limitations)).
 - **Curated Latin mottoes**, each attribution checked rather than assumed
   (most sundial mottoes are anonymous folk Latin, not a Roman poet).
 - **Export**: SVG in physical millimetres for laser cutters (red = cut,
   black = engrave); PDF at exact print scale for A4 and US Letter with a
-  100mm calibration bar on every sheet; large plates tile automatically with
-  10 mm overlaps and an assembly map; PNG.
+  100mm calibration bar on every sheet and the matching gnomon template;
+  large plates and styles tile automatically with 10 mm overlaps and separate
+  assembly maps; PNG.
 - **Live simulation** for the three polar-style dials: date and time in the
   selected location's zone, sun altitude/azimuth and nodus shadow, with day
   animation. Skipped clock times are rejected; repeated times offer both
@@ -162,7 +162,7 @@ const dial = buildHorizontalDial({
   timeReference: { mode: "standard", longitudeDeg: -122.4194, zoneMeridianDeg: -120, dstOffsetHours: 1 },
   hourLineOptions: { startHour: 5, endHour: 19, stepHours: 0.25 },
   nodusDistanceMm: 30,
-  gnomonBaseLengthMm: 60,
+  gnomonBaseLengthMm: 60, // maximum base or rise; extends if needed to reach the nodus
 });
 
 console.log(dial.orientation);
@@ -213,17 +213,18 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
   curve a Roman clockmaker's compass-and-straightedge construction would
   produce down to the last hairline.
 - **The equatorial dial's gnomon** is a plain rod perpendicular to the disc,
-  not a triangle -- the tool detects this (style height at or near 90
-  degrees) and draws a rod template instead of an infinite-height triangle.
+  with a printed length gauge. A style even slightly below 90 degrees retains
+  its exact leaning angle. Templates with a triangle leg under 3 mm are labelled
+  as angle gauges for a rigid style rather than paper folds.
 - **Analemmatic date-scale formula** (`offset = R * cos(phi) * tan(delta)`)
   was derived independently in this repository (not copied from a single
   external source) and cross-checked against the general 3D shadow model
   before being trusted; see the derivation comment in
   `src/lib/dials/analemmatic.ts`.
-- **PDF export** keeps small plates on one page and tiles large ones at full
-  scale. Print at Actual size / 100% and verify every bar and frame. The guide
+- **PDF export** includes the plate and style. Small pieces each use one page;
+  large pieces tile at full scale. Print at Actual size / 100% and verify every bar and frame. The guide
   is reduced; the construction sheets are not. The planner caps output at
-  64 construction sheets. [Digital assembly checks](docs/printing.md) do not
+  64 construction sheets per piece. [Digital assembly checks](docs/printing.md) do not
   establish physical printer or paper accuracy.
 - **Simulation dates** range from 1900 to 2100. Local-time conversion uses
   the browser's time-zone data; future political changes require updated

@@ -1,0 +1,94 @@
+{
+  "reader": "PyMuPDF 1.28.2",
+  "physical_build_verified": false,
+  "results": [
+    {
+      "file": "chromium-north-a4.pdf",
+      "pages": 6,
+      "plate_pages": 5,
+      "style_pages": 1,
+      "max_style_dimension_error_mm": 6.216281470017293e-06,
+      "max_mounted_axis_error_degrees": 4.690033639489486e-06,
+      "style_seams": 0,
+      "plate": {
+        "file": "plate.pdf",
+        "sha256": "0b8bfed39bf71ab83bd1076f705e00f933a2fec7f1deb5a5e0a9ad55935d50b0",
+        "pages": 5,
+        "checked_bars": 5,
+        "max_bar_error_mm": 4.127290509359227e-06,
+        "max_cut_radius_error_mm": 2.4957667562830466e-05,
+        "glyphs_inside_cut": 136,
+        "max_reconstructed_vector_error_mm": 2.458360462753717e-05,
+        "seams": 4,
+        "max_seam_pixel_mismatch_fraction": 0.0
+      },
+      "max_svg_dimension_error_mm": 7.105427357601002e-15
+    },
+    {
+      "file": "chromium-north-letter.pdf",
+      "pages": 6,
+      "plate_pages": 5,
+      "style_pages": 1,
+      "max_style_dimension_error_mm": 8.010864249285987e-06,
+      "max_mounted_axis_error_degrees": 6.3611093629270335e-15,
+      "style_seams": 0,
+      "plate": {
+        "file": "plate.pdf",
+        "sha256": "fcb1299edd31128594a07c496b9cbf685b5a5609767faf67df32cb3639eb6bd1",
+        "pages": 5,
+        "checked_bars": 5,
+        "max_bar_error_mm": 4.127290509359227e-06,
+        "max_cut_radius_error_mm": 3.097281256714268e-05,
+        "glyphs_inside_cut": 136,
+        "max_reconstructed_vector_error_mm": 2.6957194037890986e-05,
+        "seams": 4,
+        "max_seam_pixel_mismatch_fraction": 0.0006424375917767988
+      },
+      "max_svg_dimension_error_mm": 7.105427357601002e-15
+    },
+    {
+      "file": "firefox-north-a4.pdf",
+      "pages": 6,
+      "plate_pages": 5,
+      "style_pages": 1,
+      "max_style_dimension_error_mm": 6.216281470017293e-06,
+      "max_mounted_axis_error_degrees": 4.690033639489486e-06,
+      "style_seams": 0,
+      "plate": {
+        "file": "plate.pdf",
+        "sha256": "1fa8b25ea5da49d28c36cfdee6346234c3d61ba65dda29f529f806b5525f0b60",
+        "pages": 5,
+        "checked_bars": 5,
+        "max_bar_error_mm": 4.127290509359227e-06,
+        "max_cut_radius_error_mm": 2.4957667562830466e-05,
+        "glyphs_inside_cut": 136,
+        "max_reconstructed_vector_error_mm": 2.458360462753717e-05,
+        "seams": 4,
+        "max_seam_pixel_mismatch_fraction": 0.0
+      },
+      "max_svg_dimension_error_mm": 7.105427357601002e-15
+    },
+    {
+      "file": "firefox-north-letter.pdf",
+      "pages": 6,
+      "plate_pages": 5,
+      "style_pages": 1,
+      "max_style_dimension_error_mm": 8.010864249285987e-06,
+      "max_mounted_axis_error_degrees": 6.3611093629270335e-15,
+      "style_seams": 0,
+      "plate": {
+        "file": "plate.pdf",
+        "sha256": "7f9481dfcc15387dd3f5d1d9fdc592d8599a308615b1c1ec9164ca69f564ee9f",
+        "pages": 5,
+        "checked_bars": 5,
+        "max_bar_error_mm": 4.127290509359227e-06,
+        "max_cut_radius_error_mm": 3.097281256714268e-05,
+        "glyphs_inside_cut": 136,
+        "max_reconstructed_vector_error_mm": 2.6957194037890986e-05,
+        "seams": 4,
+        "max_seam_pixel_mismatch_fraction": 0.0006424375917767988
+      },
+      "max_svg_dimension_error_mm": 7.105427357601002e-15
+    }
+  ]
+}

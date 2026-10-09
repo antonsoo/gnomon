@@ -4,6 +4,22 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Matching plate and gnomon kit
+
+- Include the style template and mounting instructions in the PDF download;
+  tile large styles separately with G-prefixed sheets and scale checks.
+- Bound both triangle legs while preserving the exact style angle and nodus.
+  A 90 mm dial at latitude 89 degrees previously produced a 3.23 m SVG;
+  beyond 89.9 degrees the old renderer substituted an incorrect normal rod.
+- Engrave matching filled foot/open base-end marks on both pieces. Include the
+  base direction in the fan cut, where it previously fell outside some walls.
+- Label very thin triangles as angle gauges for a rigid style. Explain the
+  physical bead/notch required for a nodus shadow and uncompensated thickness.
+- Reserve room for mounting notes on tall, narrow plates instead of offering
+  a single-page export that subsequently fails.
+- Retain measured construction PDFs, actual browser downloads and faulty-file
+  controls. [Construction evidence](docs/construction.md).
+
 ### Full-size paper construction
 
 - Tile large polar-style PDFs across A4 or Letter at unchanged scale, with a

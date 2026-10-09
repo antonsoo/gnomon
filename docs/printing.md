@@ -1,8 +1,10 @@
 # Full-size sundials on ordinary paper
 
 The source checkout can print a large polar-style dial across A4 or Letter
-sheets. A 300 mm circle uses four full-size sheets and one assembly guide.
-Small plates still fit on one sheet. This work is local and unreleased.
+sheets. A 300 mm circle uses four full-size plate sheets, an assembly guide
+and its matching gnomon sheet. Small plates still fit on one sheet, followed
+by their gnomon. This work is local and unreleased. See the
+[complete construction kit](construction.md) for the new style geometry and measurements.
 
 [Open the actual A4 browser download](../examples/printing/north-a4.pdf) or
 [the Letter download](../examples/printing/north-letter.pdf). These examples
@@ -30,8 +32,10 @@ of a fabricated sundial.
 5. Lay the new sheet over the neighboring sheet's 10 mm overlap. Match both
    crosshair targets and the drawing. Tape the back, then cut the solid plate
    outline. Gray dashed frames and crosshairs are assembly aids.
-6. Download **Gnomon SVG** separately for the style template. Follow the
-   mounting and nodus instructions for the selected design.
+6. Use the gnomon template included after the plate sheets. If it is tiled,
+   assemble the G-prefixed sheets separately. Match the foot and base-end
+   marks, then follow the printed mounting and nodus instructions. The separate
+   **Gnomon SVG** remains available for vector workflows.
 
 ```text
 Four-sheet example, viewed from the front:
@@ -69,8 +73,10 @@ SVG and PDF use the same band and font size in millimetres. Astronomical
 hour angles and nodus coordinates are unchanged. Curves are shown only in
 the central drawing area; the numeral band has no date curves.
 
-## What was measured
+## Plate tiling baseline measurements
 
+The retained archives below record the plate-only baseline at `93599b3`.
+Current combined-kit evidence is in [construction.md](construction.md).
 The verification reads emitted PDF bytes with **PyMuPDF 1.28.2**, independently
 of the TypeScript layout calculation. It checks page dimensions, every 100 mm
 bar, the cut's vertex radii, actual numeral glyph bounds, clipping frames,
@@ -126,7 +132,7 @@ Then, in another:
 
 ```sh
 node scripts/capture-prints.mjs http://127.0.0.1:4327/gnomon/ test-results/browser-prints
-uv run scripts/verify-prints.py test-results/browser-prints
+uv run scripts/verify-construction.py test-results/browser-prints
 ```
 
 The fixture generator records its inputs, byte sizes, per-export elapsed time
@@ -137,7 +143,7 @@ Use `--render <directory>` on the verifier to save a digitally assembled
 north/A4 or wall/Letter image. These Python packages are verification tools,
 not application dependencies.
 
-## Clean-checkout verification
+## Plate tiling baseline verification
 
 Verified from a fresh detached checkout of `93599b3` with Node 24.21.0 and
 npm 11.19.0 on 2026-10-09:
