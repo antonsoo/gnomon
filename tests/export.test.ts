@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { buildHorizontalDial } from "../src/lib/dials/horizontal.ts";
 import { renderGnomonSVG } from "../src/lib/render/svg.ts";
 import { exportPolarDialPDF } from "../src/lib/export/pdf.ts";
+import { planPolarPrint, registrationMarks } from "../src/lib/export/print-layout.ts";
 
 function bytesToLatin1(bytes: Uint8Array): string {
   let s = "";
@@ -88,8 +89,15 @@ describe("exportPolarDialPDF", () => {
     expect(lengthMm).toBeCloseTo(100, 3);
   });
 
-  it("rejects a dial too large for the chosen page", () => {
-    expect(() => exportPolarDialPDF(dial, { radiusMm: 200, innerRadiusMm: 8, plateShape: "fan", numerals: "arabic", format: "a4" })).toThrow();
+  it("exports a large dial as full-size tiles with a separate guide", () => {
+    const text = bytesToLatin1(exportPolarDialPDF(dial, { radiusMm: 150, innerRadiusMm: 8, plateShape: "circle", numerals: "arabic", format: "a4" }));
+    expect(text).toContain("/Count 5");
+    expect(text).toContain("ASSEMBLY MAP - reduced size, not a cutting template");
+    for (const id of ["R1C1", "R1C2", "R2C1", "R2C2"]) expect(text).toContain(id);
+    expect(text.match(/100 mm calibration - verify before cutting/g)).toHaveLength(5);
+    // Every drawing tile is clipped in a saved graphics state, so off-tile
+    // curves and numerals cannot overwrite the instructions/calibration.
+    expect(text.match(/W\nn\n/g)).toHaveLength(4);
   });
 
   it("the app's own default radius (90mm) fits A4 for both plate shapes, at a latitude with a wide hour-line spread", () => {
@@ -110,6 +118,51 @@ describe("exportPolarDialPDF", () => {
         exportPolarDialPDF(wideDial, { radiusMm: 90, innerRadiusMm: 6, plateShape, numerals: "roman", format: "a4" }),
       ).not.toThrow();
     }
+  });
+});
+
+describe("physical sheet assembly", () => {
+  const dimensions = { radiusMm: 150, innerRadiusMm: 8, plateShape: "circle" as const, format: "a4" as const };
+  it("uses a 2 by 2 A4 grid with 10 mm overlaps for a 300 mm plate", () => {
+    const plan = planPolarPrint(dial, dimensions);
+    expect(plan.tiles.map(({ id, x, y }) => [id, x, y])).toEqual([
+      ["R1C1", 0, 0], ["R1C2", 180, 0], ["R2C1", 0, 235], ["R2C2", 180, 235],
+    ]);
+    expect(plan.root).toEqual({ x: 185, y: 240 });
+    expect(plan.assembledWidth).toBe(370);
+    expect(plan.assembledHeight).toBe(480);
+  });
+
+  for (const format of ["a4", "letter"] as const) {
+    it(`retains identical registration coordinates on both sides of every ${format} seam`, () => {
+      const plan = planPolarPrint(dial, { ...dimensions, radiusMm: 400, format });
+      for (const tile of plan.tiles) {
+        for (const neighbor of plan.tiles.filter((t) => t.row === tile.row && t.column === tile.column + 1
+          || t.column === tile.column && t.row === tile.row + 1)) {
+          const a = registrationMarks(plan, tile);
+          const b = registrationMarks(plan, neighbor);
+          expect(a.filter((p) => b.some((q) => p.x === q.x && p.y === q.y))).toHaveLength(2);
+        }
+        for (const point of registrationMarks(plan, tile)) {
+          expect(point.x - tile.x).toBeGreaterThanOrEqual(2);
+          expect(point.y - tile.y).toBeGreaterThanOrEqual(2);
+          expect(point.x - tile.x).toBeLessThanOrEqual(plan.viewport.width - 2);
+          expect(point.y - tile.y).toBeLessThanOrEqual(plan.viewport.height - 2);
+        }
+      }
+    });
+  }
+
+  it("bounds work before constructing an enormous PDF", () => {
+    for (const radiusMm of [100_000, 1e308, Infinity, NaN, -1]) {
+      expect(() => exportPolarDialPDF(dial, { ...dimensions, radiusMm, numerals: "roman" })).toThrow();
+    }
+  });
+
+  it("keeps a compact dial on one sheet", () => {
+    const text = bytesToLatin1(exportPolarDialPDF(dial, { ...dimensions, radiusMm: 80, numerals: "roman" }));
+    expect(text).toContain("/Count 1");
+    expect(text).not.toContain("ASSEMBLY MAP");
   });
 });
 

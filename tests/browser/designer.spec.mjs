@@ -217,7 +217,7 @@ test('delayed PDF loads retain click-time geometry and filename', async ({ page 
   await expect(page.getByRole('button', { name: 'PDF (A4)', exact: true })).toBeEnabled();
 });
 
-test('failed PNG and oversized PDF exports recover inline', async ({ page }) => {
+test('failed PNG recovers and a large PDF downloads as full-size sheets', async ({ page }) => {
   await page.addInitScript(() => {
     const original = HTMLCanvasElement.prototype.toBlob;
     let fail = true;
@@ -231,10 +231,35 @@ test('failed PNG and oversized PDF exports recover inline', async ({ page }) => 
   await expect(page.getByRole('status').filter({ hasText: 'Export failed' })).toContainText('PNG encoding failed');
   await download(page, 'PNG');
   await page.getByLabel('Dial radius (mm)', { exact: true }).fill('300');
-  await page.getByRole('button', { name: 'PDF (A4)', exact: true }).click();
-  await expect(page.getByRole('status').filter({ hasText: 'Export failed' })).toContainText('does not fit');
+  const large = await download(page, 'PDF (A4)');
+  expect(large.bytes.toString('latin1')).toContain('ASSEMBLY MAP - reduced size, not a cutting template');
+  expect(large.bytes.toString('latin1')).toContain('Radius 300 mm');
+  await expect(page.locator('.panel').filter({ has: page.getByRole('heading', { name: 'Export', exact: true }) })).toContainText('across');
   await page.getByLabel('Dial radius (mm)', { exact: true }).fill('80');
   expect((await download(page, 'PDF (Letter)')).name).toBe('gnomon-horizontal-letter.pdf');
+});
+
+test('300 mm circle exports four tiles in both paper formats and retains the guide', async ({ page }, testInfo) => {
+  await open(page);
+  await page.getByLabel('Dial radius (mm)', { exact: true }).fill('150');
+  await page.getByRole('button', { name: 'Full circle', exact: true }).click();
+  const panel = page.locator('.panel').filter({ has: page.getByRole('heading', { name: 'Export', exact: true }) });
+  await expect(panel).toContainText('A4: 4 sheets (2 across, 2 down) + assembly guide. Letter: 4 sheets (2 across, 2 down) + assembly guide.');
+  for (const format of ['A4', 'Letter']) {
+    const result = await download(page, `PDF (${format})`);
+    const text = result.bytes.toString('latin1');
+    expect(text).toContain('/Count 5');
+    expect(text).toContain('Radius 150 mm');
+    expect(text).toContain('Horas non numero nisi serenas');
+    expect(text.match(/100 mm calibration - verify before cutting/g)).toHaveLength(5);
+    await testInfo.attach(result.name, { body: result.bytes, contentType: 'application/pdf' });
+  }
+  await page.setViewportSize({ width: 375, height: 1000 });
+  await panel.scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  await page.getByLabel('Dial radius (mm)', { exact: true }).fill('80');
+  await expect(panel).toContainText('A4: 1 sheet. Letter: 1 sheet.');
 });
 
 for (const width of [320, 375, 1440]) {

@@ -7,6 +7,7 @@ import { captureDesign, designSvg, type DesignSnapshot } from "./design.ts";
 import { equationOfTimeTable } from "./lib/equation-of-time.ts";
 import { locate, LOCATE_FAILURE_TEXT } from "./lib/locate.ts";
 import { pngDimensions, svgToPngBlob } from "./lib/export/png.ts";
+import { planPolarPrint } from "./lib/export/print-layout.ts";
 import { MOTTOES } from "./lib/motto.ts";
 import type { PlateShape } from "./lib/render/plate-shape.ts";
 import { renderAnalemmaticSVG, renderGnomonSVG, renderPolarDialSVG } from "./lib/render/svg.ts";
@@ -499,6 +500,7 @@ const exportPngBtn = el("button", { type: "button" }, ["PNG"]);
 const exportGnomonBtn = el("button", { type: "button", className: "ghost" }, ["Gnomon SVG"]);
 const exportStatus = el("p", { className: "hint", attrs: { role: "status" } });
 const exportCapability = el("p", { className: "hint" });
+const exportPlan = el("p", { className: "hint", attrs: { "aria-live": "polite" } });
 
 const stage = el("section", { className: "stage", id: "preview", tabIndex: -1, attrs: { "aria-label": "Sundial preview" } }, [
   el("h2", {}, ["Shadow simulator"]),
@@ -528,6 +530,7 @@ const exportPanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Export"]),
   el("div", { className: "export-grid" }, [exportSvgBtn, exportPngBtn, exportPdfA4Btn, exportPdfLetterBtn]),
   exportGnomonBtn,
+  exportPlan,
   exportStatus,
   exportCapability,
   el("p", { className: "hint" }, [
@@ -618,6 +621,16 @@ function updateExportButtons(): void {
   exportPdfLetterBtn.disabled = unavailable || analemmatic;
   exportGnomonBtn.disabled = unavailable || analemmatic;
   exportPanel.setAttribute("aria-busy", String(exportPending));
+  let printSummary = "";
+  if (currentDesign && currentDesign.dial.kind !== "analemmatic") {
+    const design = currentDesign;
+    const dial = currentDesign.dial;
+    printSummary = (["a4", "letter"] as const).map((format) => {
+      const plan = planPolarPrint(dial, { ...design.polarOptions, format });
+      return `${format === "a4" ? "A4" : "Letter"}: ${plan.tiled ? `${plan.tiles.length} sheets (${plan.columns} across, ${plan.rows} down) + assembly guide` : "1 sheet"}`;
+    }).join(". ") + ".";
+  }
+  if (exportPlan.textContent !== printSummary) exportPlan.textContent = printSummary;
 }
 
 function showInvalidDesign(message: string): void {
@@ -639,7 +652,7 @@ function render(): void {
   stage.querySelector("h2")!.textContent = analemmatic ? "Dial preview" : "Shadow simulator";
   exportCapability.textContent = analemmatic
     ? "This layout exports as SVG or PNG. It uses a movable vertical rod, so there is no fixed gnomon template or PDF export."
-    : "SVG and PDF include the selected overlays and motto. The simulated shadow is preview-only. Print PDFs at actual size and check the 100 mm bar.";
+    : "Large PDFs include an assembly map and full-size sheets with 10 mm overlaps. Print at 100% and check each 100 mm bar. The simulated shadow is preview-only.";
   nowBtn.setAttribute("aria-pressed", String(state.simMode === "now"));
   designStatus.textContent = "";
   designStatus.className = "hint";
@@ -799,9 +812,10 @@ async function exportPdf(format: "a4" | "letter"): Promise<void> {
     if (design.dial.kind === "analemmatic") throw new Error("Use SVG for the analemmatic layout.");
     const { exportPolarDialPDF } = await import("./lib/export/pdf.ts");
     const bytes = exportPolarDialPDF(design.dial, { ...design.polarOptions, format });
+    const plan = planPolarPrint(design.dial, { ...design.polarOptions, format });
     const filename = `gnomon-${design.settings.dialType}-${format}.pdf`;
     downloadBlob(new Blob([bytes as BlobPart], { type: "application/pdf" }), filename);
-    return `Downloaded ${filename}. Print at actual size and measure the 100 mm calibration bar.`;
+    return `Downloaded ${filename}: ${plan.pageCount} ${plan.pageCount === 1 ? "page" : "pages"}. Print at actual size and measure every 100 mm calibration bar.`;
   });
 }
 exportPdfA4Btn.addEventListener("click", () => void exportPdf("a4"));
