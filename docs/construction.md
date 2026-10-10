@@ -3,7 +3,8 @@
 The PDF buttons now download a construction kit: the plate, its shadow-casting
 piece, matching mounting marks and instructions. Both pieces use physical
 millimetres. Large pieces tile independently across ordinary A4 or Letter
-paper, with overlaps and calibration bars. This is local, unreleased work.
+paper, with overlaps and calibration bars. The [2026-10-10 source verification](verification-2026-10-10.md)
+records the fresh artifact checks performed before pushing this work.
 
 Try the [two-page garden dial](../examples/printing/garden-a4.pdf), or the
 actual browser downloads of a 300 mm circle in

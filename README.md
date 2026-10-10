@@ -13,7 +13,7 @@ dials and a separate analemmatic model, with solar-position calculations,
 hand-calculated physical examples and ray-casting checks. SVG and PDF use
 millimetres; PDF includes a calibration bar to check after printing.
 
-**Printable construction kit (source checkout, unreleased).** Each PDF now
+**Printable construction kit (source checkout).** Each PDF now
 contains the plate and its matching gnomon, with mounting marks, nodus placement
 and assembly instructions. Large pieces tile across ordinary A4 or Letter sheets.
 The hour numerals stay inside the cut, and steep styles keep their exact angle
