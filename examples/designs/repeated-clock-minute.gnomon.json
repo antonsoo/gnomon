@@ -1,0 +1,23 @@
+{
+  "format": "gnomon-design",
+  "version": 1,
+  "latitudeDeg": 37.7749,
+  "longitudeDeg": -122.4194,
+  "timeZone": "America/Los_Angeles",
+  "dialType": "horizontal",
+  "wallDeclinationDeg": 0,
+  "plateShape": "fan",
+  "timeMode": "standard",
+  "dstOffsetOverride": null,
+  "numerals": "roman",
+  "showDeclinationLines": true,
+  "showZodiac": false,
+  "historicalHours": [],
+  "radiusMm": 90,
+  "theme": "brass",
+  "motto": "Horas non numero nisi serenas",
+  "customDateTimeLocal": "2026-11-01T01:30",
+  "timeDisambiguation": "later",
+  "utcInstant": "2026-11-01T09:30:00.000Z",
+  "utcOffsetMinutes": -480
+}

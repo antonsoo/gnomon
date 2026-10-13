@@ -23,6 +23,11 @@ The [construction and simulation audit](docs/construction-audit.md) explains
 the wall-shadow error found in the original geometry and its oracle, the
 correction, and what remains outside the verification.
 
+**Editable design files (source checkout).** Save the complete setup, reload
+or move to another browser, and reopen it with the same dimensions and selected
+clock minute. A winter design keeps its winter clock adjustment. Invalid files
+leave current work intact. [Design-file guide and examples](docs/design-files.md).
+
 ## Quickstart
 
 ```bash
@@ -58,6 +63,9 @@ no install needed.
   actually calls for -- see [Accuracy and limitations](#accuracy-and-limitations)).
 - **Curated Latin mottoes**, each attribution checked rather than assumed
   (most sundial mottoes are anonymous folk Latin, not a Roman poet).
+- **Save/open designs (source checkout)**: portable `.gnomon.json` files retain
+  construction settings, appearance and a fixed simulation minute, including
+  repeated clock times. Reopen offline; canceled or invalid reads preserve current work.
 - **Export**: SVG in physical millimetres for laser cutters (red = cut,
   black = engrave); PDF at exact print scale for A4 and US Letter with a
   100mm calibration bar on every sheet and the matching gnomon template;

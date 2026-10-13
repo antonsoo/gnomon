@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Portable editable designs
+
+- Add Save design and Open design for a local, versioned `.gnomon.json` file.
+  Retain location, construction settings, appearance and a fixed simulation
+  minute, including which occurrence of a repeated clock time was selected.
+- Validate complete settings, clock evidence and usable geometry before applying
+  an opened file. Unsupported, malformed, oversized or unreadable files preserve
+  current work; canceled or stale reads cannot replace newer settings.
+- Synchronize every control after opening, including dormant overlay choices.
+  Keep geometry exports separate from editable inputs, with example design files
+  and actual browser roundtrips across all four dial types.
+
 ### Matching plate and gnomon kit
 
 - Include the style template and mounting instructions in the PDF download;

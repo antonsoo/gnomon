@@ -1,0 +1,21 @@
+{
+  "source": "4bdf1eb",
+  "beforeReload": {
+    "latitude": "41.9028",
+    "timeZone": "Europe/Rome",
+    "radius": "180",
+    "vertical": "true",
+    "date": "2026-01-15",
+    "time": "12:00",
+    "saveControls": 0
+  },
+  "afterReload": {
+    "latitude": "37.7749",
+    "timeZone": "America/Los_Angeles",
+    "radius": "90",
+    "vertical": "false",
+    "date": "2026-07-01",
+    "time": "12:17",
+    "saveControls": 0
+  }
+}

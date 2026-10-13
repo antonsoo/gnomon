@@ -1,0 +1,23 @@
+{
+  "format": "gnomon-design",
+  "version": 1,
+  "latitudeDeg": -31.5553,
+  "longitudeDeg": 159.082,
+  "timeZone": "Australia/Lord_Howe",
+  "dialType": "horizontal",
+  "wallDeclinationDeg": 0,
+  "plateShape": "fan",
+  "timeMode": "standard",
+  "dstOffsetOverride": 0.5,
+  "numerals": "roman",
+  "showDeclinationLines": true,
+  "showZodiac": false,
+  "historicalHours": [],
+  "radiusMm": 100,
+  "theme": "brass",
+  "motto": "Horas non numero nisi serenas",
+  "customDateTimeLocal": "2026-01-15T13:03",
+  "timeDisambiguation": "earlier",
+  "utcInstant": "2026-01-15T02:03:00.000Z",
+  "utcOffsetMinutes": 660
+}

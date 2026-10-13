@@ -58,6 +58,16 @@ export function captureDesign(state: AppState, instant: Date) {
 
 export type DesignSnapshot = ReturnType<typeof captureDesign>;
 
+/** The same construction boundary applies to edited and reopened designs. */
+export function requireUsableDesign(design: DesignSnapshot): void {
+  if (design.dial.kind !== "analemmatic" && design.dial.gnomon.styleHeightDeg < 0.000001) {
+    throw new Error("The polar style lies in this dial face and cannot cast usable hour lines. Change the dial type or wall direction.");
+  }
+  if (design.dial.kind === "analemmatic" && Math.abs(design.settings.latitudeDeg) < 0.000001) {
+    throw new Error("At the equator the analemmatic ellipse collapses to a line. Choose an equatorial or vertical dial.");
+  }
+}
+
 export function designSvg(design: DesignSnapshot, theme: Theme): string {
   return design.dial.kind === "analemmatic"
     ? renderAnalemmaticSVG(design.dial, { ...design.analemmaticOptions, theme })

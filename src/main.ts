@@ -3,7 +3,8 @@ import "./style.css";
 
 import { CITIES } from "./lib/cities.ts";
 import { buildDialPlane } from "./lib/dials/plane.ts";
-import { captureDesign, designSvg, type DesignSnapshot } from "./design.ts";
+import { captureDesign, designSvg, requireUsableDesign, type DesignSnapshot } from "./design.ts";
+import { MAX_DESIGN_FILE_BYTES, openDesignFile, saveDesignFile, type OpenedDesign } from "./design-file.ts";
 import { equationOfTimeTable } from "./lib/equation-of-time.ts";
 import { locate, LOCATE_FAILURE_TEXT } from "./lib/locate.ts";
 import { pngDimensions, svgToPngBlob } from "./lib/export/png.ts";
@@ -20,6 +21,9 @@ import type { AppState, DialType, HistoricalSystem } from "./state.ts";
 import { defaultState } from "./state.ts";
 
 const state: AppState = defaultState();
+let editRevision = 0;
+const syncControls: (() => void)[] = [];
+function renderEdited(): void { editRevision++; render(); }
 
 const app = document.getElementById("app")!;
 
@@ -87,7 +91,7 @@ const foldSelect = el("select", { attrs: { "aria-label": "Repeated local time" }
 foldSelect.hidden = true;
 foldSelect.addEventListener("change", () => {
   state.timeDisambiguation = foldSelect.value as "earlier" | "later";
-  render();
+  renderEdited();
 });
 let currentDesign: DesignSnapshot | null = null;
 let exportPending = false;
@@ -135,7 +139,7 @@ function bindNumber(input: HTMLInputElement, label: string, min: number, max: nu
       invalidFields.delete(input);
       update(value);
     }
-    render();
+    renderEdited();
   });
 }
 
@@ -148,7 +152,7 @@ function clearFieldError(input: HTMLInputElement): void {
 
 function segmented<T extends string>(
   options: { value: T; label: string }[],
-  current: T,
+  current: () => T,
   onChange: (v: T) => void,
   groupLabel?: string,
 ): HTMLElement {
@@ -160,16 +164,17 @@ function segmented<T extends string>(
   const buttons = options.map((opt) => {
     const btn = el(
       "button",
-      { type: "button", attrs: { "aria-pressed": String(opt.value === current) } },
+      { type: "button", attrs: { "aria-pressed": String(opt.value === current()) } },
       [opt.label],
     );
     btn.addEventListener("click", () => {
       onChange(opt.value);
       wrap.querySelectorAll("button").forEach((b, i) => b.setAttribute("aria-pressed", String(options[i]!.value === opt.value)));
-      render();
+      renderEdited();
     });
     return btn;
   });
+  syncControls.push(() => buttons.forEach((button, i) => button.setAttribute("aria-pressed", String(options[i]!.value === current()))));
   buttons.forEach((b) => wrap.append(b));
   return wrap;
 }
@@ -215,7 +220,7 @@ citySelect.addEventListener("change", () => {
   tzInput.value = c.timeZone;
   [latInput, lonInput, tzInput].forEach(clearFieldError);
   cityNote.textContent = c.note ?? "";
-  render();
+  renderEdited();
 });
 tzInput.addEventListener("input", () => {
   retireLocation();
@@ -224,13 +229,13 @@ tzInput.addEventListener("input", () => {
     tzInput.setAttribute("aria-invalid", "true");
     cityNote.textContent = "Enter an IANA time zone such as America/Los_Angeles or Europe/Rome.";
     invalidFields.set(tzInput, cityNote.textContent);
-    render();
+    renderEdited();
     return;
   }
   clearFieldError(tzInput);
   cityNote.textContent = "";
   state.timeZone = requested;
-  render();
+  renderEdited();
 });
 const GEO_LABEL = "Use my location";
 geoBtn.addEventListener("click", () => {
@@ -252,7 +257,7 @@ geoBtn.addEventListener("click", () => {
       [latInput, lonInput, tzInput].forEach(clearFieldError);
       ready();
       cityNote.textContent = "Coordinates found. Time zone uses your device setting; check it if the device zone differs from your location.";
-      render();
+      renderEdited();
     },
     failed(reason) {
       ready();
@@ -290,7 +295,7 @@ const dialTypePanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Dial type"]),
   segmented(
     (Object.keys(DIAL_LABELS) as DialType[]).map((v) => ({ value: v, label: DIAL_LABELS[v] })),
-    state.dialType,
+    () => state.dialType,
     (v) => {
       state.dialType = v;
       if (v === "analemmatic") { stopPlaying(); state.simMode = "now"; }
@@ -298,10 +303,6 @@ const dialTypePanel = el("section", { className: "panel" }, [
         wallInput.value = String(state.wallDeclinationDeg);
         clearFieldError(wallInput);
       }
-      wallDeclinationField.style.display = v === "vertical" ? "" : "none";
-      wallHint.style.display = v === "vertical" ? "" : "none";
-      plateShapeField.style.display = v === "analemmatic" ? "none" : "";
-      radiusField.querySelector("label")!.textContent = v === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)";
     },
     "Dial type",
   ),
@@ -323,7 +324,7 @@ const dstSelect = el("select", {}, [
 const dstRow = fieldRow("Dial clock adjustment", dstSelect);
 dstSelect.addEventListener("change", () => {
   state.dstOffsetOverride = dstSelect.value === "auto" ? null : Number(dstSelect.value);
-  render();
+  renderEdited();
 });
 
 const timeModePanel = el("section", { className: "panel" }, [
@@ -333,7 +334,7 @@ const timeModePanel = el("section", { className: "panel" }, [
       { value: "standard" as const, label: "Standard/zone time" },
       { value: "apparent" as const, label: "Local apparent time" },
     ],
-    state.timeMode,
+    () => state.timeMode,
     (v) => {
       state.timeMode = v;
     },
@@ -352,39 +353,40 @@ const numeralsRow = segmented(
     { value: "roman" as const, label: "Roman" },
     { value: "arabic" as const, label: "Arabic" },
   ],
-  state.numerals,
+  () => state.numerals,
   (v) => {
     state.numerals = v;
   },
 );
 
-function overlayCheckbox(label: string, checked: boolean, onChange: (v: boolean) => void): HTMLElement {
-  const input = el("input", { type: "checkbox", checked }) as HTMLInputElement;
+function overlayCheckbox(label: string, checked: () => boolean, onChange: (v: boolean) => void): HTMLElement {
+  const input = el("input", { type: "checkbox", checked: checked() }) as HTMLInputElement;
   input.addEventListener("change", () => {
     onChange(input.checked);
-    render();
+    renderEdited();
   });
+  syncControls.push(() => { input.checked = checked(); });
   return el("label", { className: "checkbox-row" }, [input, label]);
 }
 
 const historicalWrap = el("div", {}, [
-  overlayCheckbox("Temporal (Roman unequal) hours", false, (v) => toggleHistorical("temporal", v)),
-  overlayCheckbox("Babylonian hours (from sunrise)", false, (v) => toggleHistorical("babylonian", v)),
-  overlayCheckbox("Italian hours (from sunset)", false, (v) => toggleHistorical("italian", v)),
+  overlayCheckbox("Temporal (Roman unequal) hours", () => state.historicalHours.includes("temporal"), (v) => toggleHistorical("temporal", v)),
+  overlayCheckbox("Babylonian hours (from sunrise)", () => state.historicalHours.includes("babylonian"), (v) => toggleHistorical("babylonian", v)),
+  overlayCheckbox("Italian hours (from sunset)", () => state.historicalHours.includes("italian"), (v) => toggleHistorical("italian", v)),
 ]);
 function toggleHistorical(system: HistoricalSystem, on: boolean) {
   state.historicalHours = on ? [...state.historicalHours, system] : state.historicalHours.filter((s) => s !== system);
 }
 
 const polarOverlays = el("div", {}, [
-  overlayCheckbox("Declination (date) lines", state.showDeclinationLines, (v) => (state.showDeclinationLines = v)),
+  overlayCheckbox("Declination (date) lines", () => state.showDeclinationLines, (v) => (state.showDeclinationLines = v)),
   el("p", { className: "hint" }, ["Historical hour systems (curves, computed day by day):"]),
   historicalWrap,
 ]);
 const overlaysPanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Hours & overlays"]),
   fieldRow("Numerals", numeralsRow),
-  overlayCheckbox("Zodiac entries", state.showZodiac, (v) => (state.showZodiac = v)),
+  overlayCheckbox("Zodiac entries", () => state.showZodiac, (v) => (state.showZodiac = v)),
   polarOverlays,
 ]);
 
@@ -394,7 +396,7 @@ const radiusInput = el("input", { type: "number", value: String(state.radiusMm),
 
 const themeRow = segmented(
   (Object.keys(THEME_LABELS) as Theme[]).map((v) => ({ value: v, label: THEME_LABELS[v] })),
-  state.theme,
+  () => state.theme,
   (v) => {
     state.theme = v;
   },
@@ -403,7 +405,7 @@ const themeRow = segmented(
 const PLATE_SHAPE_LABELS: Record<PlateShape, string> = { fan: "Fan (classic, no wasted plate)", circle: "Full circle" };
 const plateShapeRow = segmented(
   (Object.keys(PLATE_SHAPE_LABELS) as PlateShape[]).map((v) => ({ value: v, label: PLATE_SHAPE_LABELS[v] })),
-  state.plateShape,
+  () => state.plateShape,
   (v) => {
     state.plateShape = v;
   },
@@ -418,7 +420,7 @@ mottoSelect.value = String(state.mottoIndex ?? -1);
 mottoSelect.addEventListener("change", () => {
   const v = Number(mottoSelect.value);
   state.mottoIndex = v >= 0 ? v : null;
-  render();
+  renderEdited();
 });
 
 const radiusField = fieldRow(state.dialType === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)", radiusInput);
@@ -432,7 +434,22 @@ const appearancePanel = el("section", { className: "panel" }, [
   fieldRow("Motto", mottoSelect),
 ]);
 
-const sidebar = el("aside", { className: "dial-settings", id: "settings", tabIndex: -1, attrs: { "aria-label": "Dial settings" } }, [locationPanel, dialTypePanel, timeModePanel, overlaysPanel, appearancePanel]);
+// Editable design files are explicit downloads; coordinates are not persisted in browser storage.
+const saveDesignBtn = el("button", { type: "button" }, ["Save design"]);
+const openDesignBtn = el("button", { type: "button" }, ["Open design"]);
+const cancelOpenBtn = el("button", { type: "button", hidden: true }, ["Cancel open"]);
+const designFileInput = el("input", { type: "file", hidden: true, accept: ".gnomon.json,.json,application/json", attrs: { "aria-label": "Gnomon design file" } });
+const fileStatus = el("p", { id: "design-file-status", className: "hint", attrs: { role: "status", "aria-live": "polite" } });
+const designFilePanel = el("section", { className: "panel" }, [
+  el("h2", {}, ["Design file"]),
+  el("div", { className: "export-grid" }, [saveDesignBtn, openDesignBtn]),
+  cancelOpenBtn, designFileInput, fileStatus,
+  el("p", { className: "hint" }, ["Save an editable design to resume or share. Includes the location and selected date and time. Files stay on your device."]),
+]);
+let openRequest = 0;
+let readingDesign = false;
+
+const sidebar = el("aside", { className: "dial-settings", id: "settings", tabIndex: -1, attrs: { "aria-label": "Dial settings" } }, [designFilePanel, locationPanel, dialTypePanel, timeModePanel, overlaysPanel, appearancePanel]);
 
 // --- Stage -----------------------------------------------------------------
 
@@ -446,13 +463,13 @@ function stopPlaying(): void {
 nowBtn.addEventListener("click", () => {
   state.simMode = "now";
   stopPlaying();
-  render();
+  renderEdited();
 });
 dateInput.addEventListener("change", () => {
   state.simMode = "custom";
   stopPlaying();
   syncCustomDateTime();
-  render();
+  renderEdited();
 });
 timeInput.addEventListener("input", () => {
   state.simMode = "custom";
@@ -462,7 +479,7 @@ timeInput.addEventListener("input", () => {
     timeSlider.value = String(hours! * 60 + minutes!);
   }
   syncCustomDateTime();
-  render();
+  renderEdited();
 });
 timeSlider.addEventListener("input", () => {
   state.simMode = "custom";
@@ -470,14 +487,14 @@ timeSlider.addEventListener("input", () => {
   const minutes = Number(timeSlider.value);
   timeInput.value = `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
   syncCustomDateTime();
-  render();
+  renderEdited();
 });
 playBtn.addEventListener("click", () => {
   state.playing = !state.playing;
   state.simMode = "custom";
   playBtn.textContent = state.playing ? "❚❚ Pause" : "▶ Animate day";
   playBtn.setAttribute("aria-pressed", String(state.playing));
-  render();
+  renderEdited();
 });
 
 function syncCustomDateTime() {
@@ -617,6 +634,9 @@ let lastEotYear = 0;
 function updateExportButtons(): void {
   const unavailable = !currentDesign || exportPending;
   const analemmatic = state.dialType === "analemmatic";
+  saveDesignBtn.disabled = unavailable;
+  cancelOpenBtn.hidden = !readingDesign;
+  designFilePanel.setAttribute("aria-busy", String(readingDesign));
   exportSvgBtn.disabled = unavailable;
   exportPngBtn.disabled = unavailable;
   exportPdfA4Btn.disabled = unavailable || analemmatic;
@@ -646,6 +666,10 @@ function showInvalidDesign(message: string): void {
 }
 
 function render(): void {
+  wallDeclinationField.style.display = state.dialType === "vertical" ? "" : "none";
+  wallHint.style.display = state.dialType === "vertical" ? "" : "none";
+  plateShapeField.style.display = state.dialType === "analemmatic" ? "none" : "";
+  radiusField.querySelector("label")!.textContent = state.dialType === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)";
   const analemmatic = state.dialType === "analemmatic";
   timeModePanel.querySelector<HTMLElement>(".polar-time-controls")!.hidden = analemmatic;
   timeModePanel.querySelector<HTMLElement>(".analemmatic-note")!.hidden = !analemmatic;
@@ -700,12 +724,7 @@ function render(): void {
       lastDesignKey = key;
     }
     design = lastDesign;
-    if (design.dial.kind !== "analemmatic" && design.dial.gnomon.styleHeightDeg < 0.000001) {
-      throw new Error("The polar style lies in this dial face and cannot cast usable hour lines. Change the dial type or wall direction.");
-    }
-    if (design.dial.kind === "analemmatic" && Math.abs(state.latitudeDeg) < 0.000001) {
-      throw new Error("At the equator the analemmatic ellipse collapses to a line. Choose an equatorial or vertical dial.");
-    }
+    requireUsableDesign(design);
   } catch (error) {
     showInvalidDesign(error instanceof Error ? error.message : String(error));
     return;
@@ -826,6 +845,93 @@ async function exportPdf(format: "a4" | "letter"): Promise<void> {
 }
 exportPdfA4Btn.addEventListener("click", () => void exportPdf("a4"));
 exportPdfLetterBtn.addEventListener("click", () => void exportPdf("letter"));
+
+function applyOpenedDesign(opened: OpenedDesign): void {
+  stopPlaying();
+  retireLocation();
+  [...invalidFields.keys()].forEach(clearFieldError);
+  Object.assign(state, opened.state);
+  latInput.value = String(state.latitudeDeg);
+  lonInput.value = String(state.longitudeDeg);
+  tzInput.value = state.timeZone;
+  wallInput.value = String(state.wallDeclinationDeg);
+  radiusInput.value = String(state.radiusMm);
+  dstSelect.value = state.dstOffsetOverride === null ? "auto" : String(state.dstOffsetOverride);
+  mottoSelect.value = String(state.mottoIndex ?? -1);
+  syncControls.forEach(sync => sync());
+  setSimulationInstant(opened.instant);
+  lastDesignKey = "";
+  editRevision++;
+  render();
+}
+
+saveDesignBtn.addEventListener("click", () => {
+  if (!currentDesign || exportPending) return;
+  const instant = currentInstant();
+  if (!instant) return;
+  try {
+    const text = saveDesignFile(state, instant);
+    downloadBlob(new Blob([text], { type: "application/json" }), `gnomon-${state.dialType}.gnomon.json`);
+    fileStatus.className = "hint";
+    fileStatus.textContent = "Design saved with a fixed simulation minute. Use Open design to resume it.";
+  } catch (error) {
+    fileStatus.className = "field-error";
+    fileStatus.textContent = `Could not save the design: ${error instanceof Error ? error.message : String(error)}`;
+  }
+});
+
+function cancelDesignRead(): void {
+  openRequest++;
+  readingDesign = false;
+  updateExportButtons();
+}
+openDesignBtn.addEventListener("click", () => {
+  if (readingDesign) {
+    cancelDesignRead();
+    fileStatus.textContent = "Previous open canceled. Choose a design file.";
+  }
+  designFileInput.click();
+});
+cancelOpenBtn.addEventListener("click", () => {
+  cancelDesignRead();
+  fileStatus.className = "hint";
+  fileStatus.textContent = "Open canceled. Your current design is unchanged.";
+});
+designFileInput.addEventListener("change", () => {
+  const file = designFileInput.files?.[0];
+  designFileInput.value = ""; // Selecting the same file again must allow a retry.
+  if (file) void readDesignFile(file);
+});
+
+async function readDesignFile(file: File): Promise<void> {
+  const request = ++openRequest;
+  const revision = editRevision;
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  readingDesign = true;
+  fileStatus.className = "hint";
+  fileStatus.textContent = `Opening ${file.name}...`;
+  updateExportButtons();
+  try {
+    if (file.size > MAX_DESIGN_FILE_BYTES) throw new Error("Design files must be 16 KiB or smaller.");
+    const bytes = await Promise.race([
+      file.arrayBuffer(),
+      new Promise<never>((_, reject) => { timeout = setTimeout(() => reject(new Error("The file read timed out. Try opening it again.")), 15_000); }),
+    ]);
+    if (request !== openRequest) return;
+    if (revision !== editRevision) throw new Error("Settings changed while the file was opening. Open it again to replace them.");
+    const opened = openDesignFile(new TextDecoder("utf-8", { fatal: true }).decode(bytes));
+    applyOpenedDesign(opened);
+    fileStatus.textContent = `Opened ${file.name}. Simulation paused at the saved date and time.`;
+  } catch (error) {
+    if (request === openRequest) {
+      fileStatus.className = "field-error";
+      fileStatus.textContent = `Could not open the design: ${error instanceof Error ? error.message : String(error)} Your current settings are unchanged.`;
+    }
+  } finally {
+    clearTimeout(timeout);
+    if (request === openRequest) { readingDesign = false; updateExportButtons(); }
+  }
+}
 
 // Advance elapsed time so DST gaps are skipped and repeated minutes remain
 // selectable. Stop at the next local day instead of jumping back to noon.
