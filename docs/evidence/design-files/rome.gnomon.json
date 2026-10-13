@@ -1,0 +1,25 @@
+{
+  "format": "gnomon-design",
+  "version": 1,
+  "latitudeDeg": 41.9028,
+  "longitudeDeg": 12.4964,
+  "timeZone": "Europe/Rome",
+  "dialType": "vertical",
+  "wallDeclinationDeg": 25,
+  "plateShape": "fan",
+  "timeMode": "standard",
+  "dstOffsetOverride": null,
+  "numerals": "arabic",
+  "showDeclinationLines": true,
+  "showZodiac": true,
+  "historicalHours": [
+    "temporal"
+  ],
+  "radiusMm": 180,
+  "theme": "blueprint",
+  "motto": "Tempus fugit",
+  "customDateTimeLocal": "2026-01-15T12:00",
+  "timeDisambiguation": "earlier",
+  "utcInstant": "2026-01-15T11:00:00.000Z",
+  "utcOffsetMinutes": 60
+}

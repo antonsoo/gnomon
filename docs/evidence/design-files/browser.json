@@ -1,0 +1,122 @@
+{
+  "label": "Constructed Rome wall example; no physical assembly is claimed.",
+  "records": [
+    {
+      "profile": "chromium-1440",
+      "timezone": "UTC",
+      "reopenedOffline": true,
+      "designSha256": "5f44a6266c9c11abfefa0d346a6e200e7c5f010f691e3fd1244077131994e8ef",
+      "designBytes": 603,
+      "designResaveIdentical": true,
+      "plateSha256": "d32fc99081167b4dfbe972137950e52a747ca0532aeaf097d33da9f67ef3edae",
+      "gnomonSha256": "7d1fe045c83d2989aead1ecff866be44a29bad37288dee1d801b9c7405a5f906",
+      "svgBytesIdentical": true,
+      "pdfBeforeSha256": "14ad77f417d25899d2dfc579e0acb6eb210babd80677d646955ab3235926d868",
+      "pdfAfterSha256": "0c02da8704c137fa6f39aab7f6cd3c00103e4241530b1797c5674f47581e7ddf",
+      "dimensions": {
+        "viewport": 1440,
+        "page": 1440
+      },
+      "uncaughtErrors": [],
+      "offOriginRequests": []
+    },
+    {
+      "profile": "chromium-375",
+      "timezone": "UTC",
+      "reopenedOffline": true,
+      "designSha256": "5f44a6266c9c11abfefa0d346a6e200e7c5f010f691e3fd1244077131994e8ef",
+      "designBytes": 603,
+      "designResaveIdentical": true,
+      "plateSha256": "d32fc99081167b4dfbe972137950e52a747ca0532aeaf097d33da9f67ef3edae",
+      "gnomonSha256": "7d1fe045c83d2989aead1ecff866be44a29bad37288dee1d801b9c7405a5f906",
+      "svgBytesIdentical": true,
+      "dimensions": {
+        "viewport": 375,
+        "page": 375
+      },
+      "uncaughtErrors": [],
+      "offOriginRequests": []
+    },
+    {
+      "profile": "firefox-1440",
+      "timezone": "Asia/Tokyo",
+      "reopenedOffline": true,
+      "designSha256": "5f44a6266c9c11abfefa0d346a6e200e7c5f010f691e3fd1244077131994e8ef",
+      "designBytes": 603,
+      "designResaveIdentical": true,
+      "plateSha256": "e160d46cf96414a3afa1cb343d0db9ea86c388f8d5571d58f6606d3c78f8c4ef",
+      "gnomonSha256": "1ff2aa4dd983a9131b2fdac8e604ef2c92fcbe25c2d7be4f4e231108381cc4ae",
+      "svgBytesIdentical": true,
+      "dimensions": {
+        "viewport": 1440,
+        "page": 1440
+      },
+      "uncaughtErrors": [],
+      "offOriginRequests": []
+    },
+    {
+      "profile": "firefox-375",
+      "timezone": "Asia/Tokyo",
+      "reopenedOffline": true,
+      "designSha256": "5f44a6266c9c11abfefa0d346a6e200e7c5f010f691e3fd1244077131994e8ef",
+      "designBytes": 603,
+      "designResaveIdentical": true,
+      "plateSha256": "e160d46cf96414a3afa1cb343d0db9ea86c388f8d5571d58f6606d3c78f8c4ef",
+      "gnomonSha256": "1ff2aa4dd983a9131b2fdac8e604ef2c92fcbe25c2d7be4f4e231108381cc4ae",
+      "svgBytesIdentical": true,
+      "dimensions": {
+        "viewport": 375,
+        "page": 375
+      },
+      "uncaughtErrors": [],
+      "offOriginRequests": []
+    }
+  ],
+  "served": [
+    {
+      "path": "/gnomon/",
+      "bytes": 2538,
+      "sha256": "612563014390d8c52456f31c53cdcf6536fdb7be7f4745569ded5cc670ad459a"
+    },
+    {
+      "path": "/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+      "bytes": 42372,
+      "sha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3"
+    },
+    {
+      "path": "/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    {
+      "path": "/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "/gnomon/assets/index-BW70c5Z_.js",
+      "bytes": 67929,
+      "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c"
+    },
+    {
+      "path": "/gnomon/assets/index-DpJ6Eoy3.css",
+      "bytes": 22812,
+      "sha256": "9427d92805d2710c09814a63a514cc80116b3f22360d3f7c36a3163867127e38"
+    },
+    {
+      "path": "/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    {
+      "path": "/gnomon/assets/pdf-BqLlkYGW.js",
+      "bytes": 399814,
+      "sha256": "891cf1e9c3e658ef298526a62e1b5979cc3a0a5a5a8106a086eb5a35f9d98716"
+    }
+  ]
+}

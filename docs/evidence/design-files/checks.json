@@ -1,0 +1,29 @@
+{
+  "implementationCommit": "280eb2657f1deaa6c9763b57e5c48a551889a5c4",
+  "baselineCommit": "4bdf1ebee39f832bcc579aeb11b55a0f77663da9",
+  "cleanTrackedFilesMatched": 156,
+  "node": "24.21.0",
+  "npm": "12.0.1",
+  "commands": [
+    "npm ci",
+    "npm run typecheck",
+    "npm run lint",
+    "npm test",
+    "npm run build",
+    "npx playwright test"
+  ],
+  "unitTests": 294,
+  "browserTests": 66,
+  "logs": [
+    {
+      "path": "clean-checks.txt",
+      "bytes": 3472,
+      "sha256": "6fac7c4b8ed79fd20f1ce2cb359f754312789f5328df847a00de77ac3345212f"
+    },
+    {
+      "path": "clean-browsers.txt",
+      "bytes": 10746,
+      "sha256": "b45c11705591ac051c0f7aaf34711f3a59bd53443765f4a0849551b45ca23087"
+    }
+  ]
+}
