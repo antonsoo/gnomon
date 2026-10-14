@@ -1,0 +1,347 @@
+{
+  "pymupdf": "1.28.2",
+  "pdfs": 48,
+  "pages": 96,
+  "calibrationBars": 96,
+  "maxCalibrationErrorMm": 4.127290509359227e-06,
+  "maxSvgPdfVertexErrorMm": 0.0006994277342724638,
+  "records": [
+    {
+      "pdf": "before/italian-north-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 6,
+      "comparedCurveVertices": 114,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "before/italian-south-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 12,
+      "comparedCurveVertices": 120,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "before/long-day-north-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 14,
+      "comparedCurveVertices": 177,
+      "maxSvgPdfVertexErrorMm": 0.0006859456110499094
+    },
+    {
+      "pdf": "before/long-day-south-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 26,
+      "comparedCurveVertices": 189,
+      "maxSvgPdfVertexErrorMm": 0.0006936195899157249
+    },
+    {
+      "pdf": "before/italian-wall-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 6,
+      "comparedCurveVertices": 61,
+      "maxSvgPdfVertexErrorMm": 0.0006649820727133752
+    },
+    {
+      "pdf": "before/italian-equatorial-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 7,
+      "comparedCurveVertices": 35,
+      "maxSvgPdfVertexErrorMm": 0.0006502014834998618
+    },
+    {
+      "pdf": "before/italian-north-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 6,
+      "comparedCurveVertices": 114,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "before/italian-south-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 12,
+      "comparedCurveVertices": 120,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "before/long-day-north-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 14,
+      "comparedCurveVertices": 177,
+      "maxSvgPdfVertexErrorMm": 0.0006859456110499094
+    },
+    {
+      "pdf": "before/long-day-south-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 26,
+      "comparedCurveVertices": 189,
+      "maxSvgPdfVertexErrorMm": 0.0006936195899157249
+    },
+    {
+      "pdf": "before/italian-wall-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 6,
+      "comparedCurveVertices": 61,
+      "maxSvgPdfVertexErrorMm": 0.0006649820727133752
+    },
+    {
+      "pdf": "before/italian-equatorial-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 7,
+      "comparedCurveVertices": 35,
+      "maxSvgPdfVertexErrorMm": 0.0006502014834998618
+    },
+    {
+      "pdf": "before/italian-north-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 6,
+      "comparedCurveVertices": 114,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "before/italian-south-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 12,
+      "comparedCurveVertices": 120,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "before/long-day-north-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 14,
+      "comparedCurveVertices": 177,
+      "maxSvgPdfVertexErrorMm": 0.0006859456110499094
+    },
+    {
+      "pdf": "before/long-day-south-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 26,
+      "comparedCurveVertices": 189,
+      "maxSvgPdfVertexErrorMm": 0.0006936195899157249
+    },
+    {
+      "pdf": "before/italian-wall-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 6,
+      "comparedCurveVertices": 61,
+      "maxSvgPdfVertexErrorMm": 0.0006649820727133752
+    },
+    {
+      "pdf": "before/italian-equatorial-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 7,
+      "comparedCurveVertices": 35,
+      "maxSvgPdfVertexErrorMm": 0.0006502014834998618
+    },
+    {
+      "pdf": "before/italian-north-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 6,
+      "comparedCurveVertices": 114,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "before/italian-south-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 12,
+      "comparedCurveVertices": 120,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "before/long-day-north-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 14,
+      "comparedCurveVertices": 177,
+      "maxSvgPdfVertexErrorMm": 0.0006859456110499094
+    },
+    {
+      "pdf": "before/long-day-south-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 26,
+      "comparedCurveVertices": 189,
+      "maxSvgPdfVertexErrorMm": 0.0006936195899157249
+    },
+    {
+      "pdf": "before/italian-wall-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 6,
+      "comparedCurveVertices": 61,
+      "maxSvgPdfVertexErrorMm": 0.0006649820727133752
+    },
+    {
+      "pdf": "before/italian-equatorial-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 7,
+      "comparedCurveVertices": 35,
+      "maxSvgPdfVertexErrorMm": 0.0006502014834998618
+    },
+    {
+      "pdf": "after/italian-north-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 12,
+      "comparedCurveVertices": 336,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "after/italian-south-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 18,
+      "comparedCurveVertices": 342,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "after/long-day-north-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 15,
+      "comparedCurveVertices": 180,
+      "maxSvgPdfVertexErrorMm": 0.0006859456110499094
+    },
+    {
+      "pdf": "after/long-day-south-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 27,
+      "comparedCurveVertices": 192,
+      "maxSvgPdfVertexErrorMm": 0.0006936195899157249
+    },
+    {
+      "pdf": "after/italian-wall-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 20,
+      "comparedCurveVertices": 223,
+      "maxSvgPdfVertexErrorMm": 0.0006994277342724638
+    },
+    {
+      "pdf": "after/italian-equatorial-chromium-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 14,
+      "comparedCurveVertices": 70,
+      "maxSvgPdfVertexErrorMm": 0.0006539101636725643
+    },
+    {
+      "pdf": "after/italian-north-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 12,
+      "comparedCurveVertices": 336,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "after/italian-south-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 18,
+      "comparedCurveVertices": 342,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "after/long-day-north-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 15,
+      "comparedCurveVertices": 180,
+      "maxSvgPdfVertexErrorMm": 0.0006859456110499094
+    },
+    {
+      "pdf": "after/long-day-south-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 27,
+      "comparedCurveVertices": 192,
+      "maxSvgPdfVertexErrorMm": 0.0006936195899157249
+    },
+    {
+      "pdf": "after/italian-wall-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 20,
+      "comparedCurveVertices": 223,
+      "maxSvgPdfVertexErrorMm": 0.0006994277342724638
+    },
+    {
+      "pdf": "after/italian-equatorial-chromium-375.pdf",
+      "pages": 2,
+      "historicalPaths": 14,
+      "comparedCurveVertices": 70,
+      "maxSvgPdfVertexErrorMm": 0.0006539101636725643
+    },
+    {
+      "pdf": "after/italian-north-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 12,
+      "comparedCurveVertices": 336,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "after/italian-south-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 18,
+      "comparedCurveVertices": 342,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "after/long-day-north-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 15,
+      "comparedCurveVertices": 180,
+      "maxSvgPdfVertexErrorMm": 0.0006859456110499094
+    },
+    {
+      "pdf": "after/long-day-south-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 27,
+      "comparedCurveVertices": 192,
+      "maxSvgPdfVertexErrorMm": 0.0006936195899157249
+    },
+    {
+      "pdf": "after/italian-wall-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 20,
+      "comparedCurveVertices": 223,
+      "maxSvgPdfVertexErrorMm": 0.0006994277342724638
+    },
+    {
+      "pdf": "after/italian-equatorial-firefox-1440.pdf",
+      "pages": 2,
+      "historicalPaths": 14,
+      "comparedCurveVertices": 70,
+      "maxSvgPdfVertexErrorMm": 0.0006539101636725643
+    },
+    {
+      "pdf": "after/italian-north-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 12,
+      "comparedCurveVertices": 336,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "after/italian-south-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 18,
+      "comparedCurveVertices": 342,
+      "maxSvgPdfVertexErrorMm": 0.0006405053939157738
+    },
+    {
+      "pdf": "after/long-day-north-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 15,
+      "comparedCurveVertices": 180,
+      "maxSvgPdfVertexErrorMm": 0.0006859456110499094
+    },
+    {
+      "pdf": "after/long-day-south-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 27,
+      "comparedCurveVertices": 192,
+      "maxSvgPdfVertexErrorMm": 0.0006936195899157249
+    },
+    {
+      "pdf": "after/italian-wall-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 20,
+      "comparedCurveVertices": 223,
+      "maxSvgPdfVertexErrorMm": 0.0006994277342724638
+    },
+    {
+      "pdf": "after/italian-equatorial-firefox-375.pdf",
+      "pages": 2,
+      "historicalPaths": 14,
+      "comparedCurveVertices": 70,
+      "maxSvgPdfVertexErrorMm": 0.0006539101636725643
+    }
+  ],
+  "scope": "Digital output geometry and calibration. No physical printing, assembly or outdoor accuracy claim."
+}

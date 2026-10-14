@@ -1195,6 +1195,8 @@
       ],
       "svgBytes": 12361,
       "svgSha256": "1a1a876deedfb0affa04ec2df161d8c04895d45a495b9860990e2f00853d641d",
+      "laserSvgBytes": 12302,
+      "laserSvgSha256": "6e4c887a9b94db754044417d24fd0efad39221eb53bd8f9c736816588e392bac",
       "visibleCurvePaths": 6,
       "designSha256": "6aabac6508a631a6afc3b3a7b01f679ebb7b9a71ceaccc2f8e148b6764494620"
     },
@@ -1214,6 +1216,8 @@
       ],
       "svgBytes": 13121,
       "svgSha256": "fd7a7e36fe5ab6420d1a03dd0ce400b90bf62764c08c113f5b6480a67cfb9ac3",
+      "laserSvgBytes": 13062,
+      "laserSvgSha256": "7303341cb7ea6ddd600feccb6c5473a72bbe2f0f7a4271eb6cf200f17e00143f",
       "visibleCurvePaths": 12,
       "designSha256": "28b095f184055559c0d8523a58656aed227ed2d35da5af646d4d19567b61c15c"
     },
@@ -1242,6 +1246,8 @@
       ],
       "svgBytes": 15968,
       "svgSha256": "620b23c1d1d694480c9405459f86f2e53c7b29da83be427e598dec6a717d8657",
+      "laserSvgBytes": 15909,
+      "laserSvgSha256": "f0737c4d374a9364eebd39b7aa8805ee1f06e78af182a4753ea8154e3c140170",
       "visibleCurvePaths": 14,
       "designSha256": "f7ae6701cd468b4f8eba3b4aa76dcc43138dba1893e376a6407a16249cc16476"
     },
@@ -1270,6 +1276,8 @@
       ],
       "svgBytes": 17371,
       "svgSha256": "941d00d813c4f6bd9cad9bb83ca18f0c380046d9454cc498a2058b523e6920de",
+      "laserSvgBytes": 17312,
+      "laserSvgSha256": "76452dccccc751cb9bc6ccd6ceaa59260fa3becee1500b86595f41d0e3a78c69",
       "visibleCurvePaths": 26,
       "designSha256": "5553c7e03f91585553bb7917514fe0e1f6cacf78c676feaa7d9d47d1695148b5"
     },
@@ -1286,6 +1294,8 @@
       ],
       "svgBytes": 10076,
       "svgSha256": "731ab6786b9d8e94347f58644175339b73849395602d1cc938ea56d5e0d376b9",
+      "laserSvgBytes": 10017,
+      "laserSvgSha256": "1227e6203cd1c174eaf6bf2853f12aa4ff178f4e8f1ef340f1330dc00388eaa8",
       "visibleCurvePaths": 6,
       "designSha256": "aba656c800d9e52765d8e473c0f13cd20f8cbc1d7dbfc164707bab35e7f0c23e"
     },
@@ -1305,6 +1315,8 @@
       ],
       "svgBytes": 11211,
       "svgSha256": "9e4677f6eb35dbe8a14774c5841dc906914f057c3ba0066d0515a96d5a3eb016",
+      "laserSvgBytes": 11152,
+      "laserSvgSha256": "b07b8c12ebe492c6bf279708ce9da7a17b19bf4d473abf0acd7198c59c03ddd0",
       "visibleCurvePaths": 7,
       "designSha256": "7fc1a7006807fd842122f91461dd4566891167c09fcb94f26927fd607980f91c"
     }

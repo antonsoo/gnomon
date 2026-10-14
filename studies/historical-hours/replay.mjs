@@ -71,12 +71,15 @@ for (const [name, dialType, latitudeDeg, system] of exportCases) {
     historicalHours: [system], simMode: 'custom', customDateTimeLocal: '2026-06-21T12:00' };
   const design = captureDesign(state, instant);
   const svg = designSvg(design, state.theme);
+  const laser = designSvg(design, 'laser');
   const designFile = saveDesignFile(state, instant);
   await writeFile(join(output, `${name}.svg`), svg);
+  await writeFile(join(output, `${name}-laser.svg`), laser);
   await writeFile(join(output, `${name}.gnomon.json`), designFile);
   exports.push({ name, dialType, latitudeDeg, system,
     hours: design.dial.historicalHours.map((curve) => curve.hourIndex),
     svgBytes: Buffer.byteLength(svg), svgSha256: digest(svg),
+    laserSvgBytes: Buffer.byteLength(laser), laserSvgSha256: digest(laser),
     visibleCurvePaths: (svg.match(/stroke-width="0.2" stroke-dasharray="1,0.8"/g) ?? []).length,
     designSha256: digest(designFile) });
 }

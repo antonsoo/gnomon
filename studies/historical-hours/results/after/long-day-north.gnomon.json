@@ -1,0 +1,25 @@
+{
+  "format": "gnomon-design",
+  "version": 1,
+  "latitudeDeg": 66,
+  "longitudeDeg": 0,
+  "timeZone": "UTC",
+  "dialType": "horizontal",
+  "wallDeclinationDeg": 0,
+  "plateShape": "circle",
+  "timeMode": "apparent",
+  "dstOffsetOverride": null,
+  "numerals": "arabic",
+  "showDeclinationLines": false,
+  "showZodiac": false,
+  "historicalHours": [
+    "babylonian"
+  ],
+  "radiusMm": 80,
+  "theme": "blueprint",
+  "motto": null,
+  "customDateTimeLocal": "2026-06-21T12:00",
+  "timeDisambiguation": "earlier",
+  "utcInstant": "2026-06-21T12:00:00.000Z",
+  "utcOffsetMinutes": 0
+}

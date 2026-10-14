@@ -40,7 +40,8 @@ node studies/historical-hours/replay.mjs --out /tmp/historical-hours-after
 ```
 
 `--source /path/to/an/archive` checks another checkout. `--observe-only` records
-an old implementation's disagreements. Each run retains six actual SVGs,
+an old implementation's disagreements. Each run retains six colored preview
+SVGs and six laser-format export SVGs,
 editable design files, curve/hour counts, runtime source hashes and reference
 errors. [Baseline records](results/before/results.json) retain the original
 omissions. The same frozen design inputs can be opened in the browser; its
