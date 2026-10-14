@@ -32,6 +32,7 @@ leave current work intact. [Design-file guide and examples](docs/design-files.md
 its first A4 or Letter export works offline, including designs edited or opened
 after disconnecting. The PDF writer now loads with the app, increasing the
 initial transfer instead of requiring a separate script at export time.
+[Offline downloads, drawing comparisons and initial-load sizes](studies/offline-pdf/README.md).
 
 ## Quickstart
 

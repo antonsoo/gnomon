@@ -51,6 +51,8 @@ PDF files differ in bytes. An independent PDFium reader rendered all five pages
 at 144 dpi and compared every RGB byte; all matched. The PDF module was loaded
 in the new page before the offline step. This does not establish that the first
 PDF export after loading the app works offline without that module available.
+The subsequent [first-offline-export correction](../studies/offline-pdf/README.md)
+loads the writer with the app and verifies fresh-context PDF downloads.
 
 All nine fetched HTML, script, stylesheet and font responses matched the clean
 `dist/` files by size and SHA-256. The [artifact verification](evidence/design-files/verification.json)

@@ -1,0 +1,53 @@
+{
+  "source": "c65635585a50ccf16bb261861a4b46e28a6efccf",
+  "records": [
+    {
+      "browser": "chromium",
+      "format": "A4",
+      "downloads": [],
+      "failed": [
+        {
+          "url": "http://127.0.0.1:4319/gnomon/assets/pdf-BqLlkYGW.js",
+          "error": "net::ERR_INTERNET_DISCONNECTED"
+        }
+      ],
+      "status": "Export failed: Failed to fetch dynamically imported module: http://127.0.0.1:4319/gnomon/assets/pdf-BqLlkYGW.js"
+    },
+    {
+      "browser": "chromium",
+      "format": "Letter",
+      "downloads": [],
+      "failed": [
+        {
+          "url": "http://127.0.0.1:4319/gnomon/assets/pdf-BqLlkYGW.js",
+          "error": "net::ERR_INTERNET_DISCONNECTED"
+        }
+      ],
+      "status": "Export failed: Failed to fetch dynamically imported module: http://127.0.0.1:4319/gnomon/assets/pdf-BqLlkYGW.js"
+    },
+    {
+      "browser": "firefox",
+      "format": "A4",
+      "downloads": [],
+      "failed": [
+        {
+          "url": "http://127.0.0.1:4319/gnomon/assets/pdf-BqLlkYGW.js",
+          "error": "NS_ERROR_OFFLINE"
+        }
+      ],
+      "status": "Export failed: error loading dynamically imported module: http://127.0.0.1:4319/gnomon/assets/pdf-BqLlkYGW.js"
+    },
+    {
+      "browser": "firefox",
+      "format": "Letter",
+      "downloads": [],
+      "failed": [
+        {
+          "url": "http://127.0.0.1:4319/gnomon/assets/pdf-BqLlkYGW.js",
+          "error": "NS_ERROR_OFFLINE"
+        }
+      ],
+      "status": "Export failed: error loading dynamically imported module: http://127.0.0.1:4319/gnomon/assets/pdf-BqLlkYGW.js"
+    }
+  ]
+}

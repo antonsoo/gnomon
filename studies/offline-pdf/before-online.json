@@ -1,0 +1,238 @@
+{
+  "label": "Constructed Rome wall example; first PDF per fresh context; no physical assembly.",
+  "records": [
+    {
+      "profile": "chromium-1440-a4",
+      "browserVersion": "153.0.8010.12",
+      "mode": "online",
+      "initialScripts": [
+        {
+          "path": "/gnomon/assets/index-BW70c5Z_.js",
+          "bytes": 67929,
+          "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+          "gzipLevel9Bytes": 23966
+        }
+      ],
+      "bytes": 170887,
+      "sha256": "dc8e47fdd4f400c5851fe661943e599d992929654718c3e2481c9349060fbc00",
+      "filename": "gnomon-vertical-a4.pdf",
+      "dimensions": {
+        "viewport": 1440,
+        "page": 1440
+      },
+      "errors": [],
+      "external": [],
+      "afterDisconnect": []
+    },
+    {
+      "profile": "chromium-1440-letter",
+      "browserVersion": "153.0.8010.12",
+      "mode": "online",
+      "initialScripts": [
+        {
+          "path": "/gnomon/assets/index-BW70c5Z_.js",
+          "bytes": 67929,
+          "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+          "gzipLevel9Bytes": 23966
+        }
+      ],
+      "bytes": 128116,
+      "sha256": "cf4ffc895ccaa77d32c508406c66d4917edfd21dc8d65e799060248bd7340e06",
+      "filename": "gnomon-vertical-letter.pdf",
+      "dimensions": {
+        "viewport": 1440,
+        "page": 1440
+      },
+      "errors": [],
+      "external": [],
+      "afterDisconnect": []
+    },
+    {
+      "profile": "chromium-375-a4",
+      "browserVersion": "153.0.8010.12",
+      "mode": "online",
+      "initialScripts": [
+        {
+          "path": "/gnomon/assets/index-BW70c5Z_.js",
+          "bytes": 67929,
+          "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+          "gzipLevel9Bytes": 23966
+        }
+      ],
+      "bytes": 170887,
+      "sha256": "9f167b896c58c7b3ccd4500c6c2e1973f1ed72355acd64369bf3d69447c486da",
+      "filename": "gnomon-vertical-a4.pdf",
+      "dimensions": {
+        "viewport": 375,
+        "page": 375
+      },
+      "errors": [],
+      "external": [],
+      "afterDisconnect": []
+    },
+    {
+      "profile": "chromium-375-letter",
+      "browserVersion": "153.0.8010.12",
+      "mode": "online",
+      "initialScripts": [
+        {
+          "path": "/gnomon/assets/index-BW70c5Z_.js",
+          "bytes": 67929,
+          "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+          "gzipLevel9Bytes": 23966
+        }
+      ],
+      "bytes": 128116,
+      "sha256": "ced100e21e3654c7699b7d48e90f9edd4725fff5075574bd98036c23b8d037ae",
+      "filename": "gnomon-vertical-letter.pdf",
+      "dimensions": {
+        "viewport": 375,
+        "page": 375
+      },
+      "errors": [],
+      "external": [],
+      "afterDisconnect": []
+    },
+    {
+      "profile": "firefox-1440-a4",
+      "browserVersion": "155.0",
+      "mode": "online",
+      "initialScripts": [
+        {
+          "path": "/gnomon/assets/index-BW70c5Z_.js",
+          "bytes": 67929,
+          "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+          "gzipLevel9Bytes": 23966
+        }
+      ],
+      "bytes": 170891,
+      "sha256": "afda0f33f3c7f196c586e6b9e6bb5371093e04e47912e69b5ab2aa0f4efb4b1c",
+      "filename": "gnomon-vertical-a4.pdf",
+      "dimensions": {
+        "viewport": 1440,
+        "page": 1440
+      },
+      "errors": [],
+      "external": [],
+      "afterDisconnect": []
+    },
+    {
+      "profile": "firefox-1440-letter",
+      "browserVersion": "155.0",
+      "mode": "online",
+      "initialScripts": [
+        {
+          "path": "/gnomon/assets/index-BW70c5Z_.js",
+          "bytes": 67929,
+          "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+          "gzipLevel9Bytes": 23966
+        }
+      ],
+      "bytes": 128127,
+      "sha256": "a0a63b8427a39ab9016594721265de6f27502859392f9b066f82fb123d6fb1f9",
+      "filename": "gnomon-vertical-letter.pdf",
+      "dimensions": {
+        "viewport": 1440,
+        "page": 1440
+      },
+      "errors": [],
+      "external": [],
+      "afterDisconnect": []
+    },
+    {
+      "profile": "firefox-375-a4",
+      "browserVersion": "155.0",
+      "mode": "online",
+      "initialScripts": [
+        {
+          "path": "/gnomon/assets/index-BW70c5Z_.js",
+          "bytes": 67929,
+          "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+          "gzipLevel9Bytes": 23966
+        }
+      ],
+      "bytes": 170891,
+      "sha256": "2f5f6fd273175ef229b22267fedced0109b52bd881f4ed182b83586106ddbc55",
+      "filename": "gnomon-vertical-a4.pdf",
+      "dimensions": {
+        "viewport": 375,
+        "page": 375
+      },
+      "errors": [],
+      "external": [],
+      "afterDisconnect": []
+    },
+    {
+      "profile": "firefox-375-letter",
+      "browserVersion": "155.0",
+      "mode": "online",
+      "initialScripts": [
+        {
+          "path": "/gnomon/assets/index-BW70c5Z_.js",
+          "bytes": 67929,
+          "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+          "gzipLevel9Bytes": 23966
+        }
+      ],
+      "bytes": 128127,
+      "sha256": "c9e685a12c1621d134af8e8a29ef95dba79f2f7ef4624a46b050e06d0203f6f5",
+      "filename": "gnomon-vertical-letter.pdf",
+      "dimensions": {
+        "viewport": 375,
+        "page": 375
+      },
+      "errors": [],
+      "external": [],
+      "afterDisconnect": []
+    }
+  ],
+  "served": [
+    {
+      "path": "/gnomon/",
+      "bytes": 2538,
+      "sha256": "612563014390d8c52456f31c53cdcf6536fdb7be7f4745569ded5cc670ad459a"
+    },
+    {
+      "path": "/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+      "bytes": 42372,
+      "sha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3"
+    },
+    {
+      "path": "/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    {
+      "path": "/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "/gnomon/assets/index-BW70c5Z_.js",
+      "bytes": 67929,
+      "sha256": "5ce5326d3d06fe4c3b4e112bdaee1213ae69946e6373de1798eb0ef7f29a0b7c",
+      "gzipLevel9Bytes": 23966
+    },
+    {
+      "path": "/gnomon/assets/index-DpJ6Eoy3.css",
+      "bytes": 22812,
+      "sha256": "9427d92805d2710c09814a63a514cc80116b3f22360d3f7c36a3163867127e38"
+    },
+    {
+      "path": "/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    {
+      "path": "/gnomon/assets/pdf-BqLlkYGW.js",
+      "bytes": 399814,
+      "sha256": "891cf1e9c3e658ef298526a62e1b5979cc3a0a5a5a8106a086eb5a35f9d98716",
+      "gzipLevel9Bytes": 131832
+    }
+  ]
+}
