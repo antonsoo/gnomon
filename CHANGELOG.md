@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Complete historical-hour ranges
+
+- Generate every usable interior hour of the 24-hour Italian and Babylonian
+  cycles. The former 16-hour cutoff omitted Italian afternoon curves and late
+  Babylonian curves on long summer days. Keep hour 24 at its non-shadow
+  sunrise/sunset boundary. Retain independent projection and offline SVG/PDF
+  export evidence in `studies/historical-hours`.
+
 ### First PDF export offline
 
 - Include the vector PDF writer in the loaded application. The first A4 or

@@ -226,6 +226,11 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
   across the year; they are smooth enough to read but are not the same
   curve a Roman clockmaker's compass-and-straightedge construction would
   produce down to the last hairline.
+  The source checkout restores Italian afternoon hours 17–23 and usable
+  Babylonian hours beyond 16 on long days. An independent horizontal
+  projection checks the complete hour ranges and sampled coordinates;
+  [before/after curves and export evidence](studies/historical-hours/README.md)
+  explain the model and grazing boundaries.
 - **The equatorial dial's gnomon** is a plain rod perpendicular to the disc,
   with a printed length gauge. A style even slightly below 90 degrees retains
   its exact leaning angle. Templates with a triangle leg under 3 mm are labelled

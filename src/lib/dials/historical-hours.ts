@@ -52,7 +52,10 @@ export function generateHistoricalHours(
   const curves: HistoricalHourCurve[] = [];
 
   for (const system of systems) {
-    const hourCount = system === "temporal" ? 12 : 16;
+    // Both equal-hour systems run through a 24-hour cycle. Hour 24 is the
+    // sunset/next-sunrise boundary and cannot cast a usable shadow; visit
+    // every interior hour, including Italian afternoons and long summer days.
+    const hourCount = system === "temporal" ? 12 : 23;
     for (let n = 1; n <= hourCount; n++) {
       const points: { u: number; v: number }[] = [];
       for (const declinationDeg of declinations) {
