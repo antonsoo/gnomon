@@ -28,6 +28,11 @@ or move to another browser, and reopen it with the same dimensions and selected
 clock minute. A winter design keeps its winter clock adjustment. Invalid files
 leave current work intact. [Design-file guide and examples](docs/design-files.md).
 
+**PDFs after disconnecting (source checkout).** Once the designer has loaded,
+its first A4 or Letter export works offline, including designs edited or opened
+after disconnecting. The PDF writer now loads with the app, increasing the
+initial transfer instead of requiring a separate script at export time.
+
 ## Quickstart
 
 ```bash

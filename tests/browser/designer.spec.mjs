@@ -194,28 +194,26 @@ test('SVG and PNG retain the selected design, motto and complete dimensions', as
   expect(gnomon.bytes.toString()).toContain('nodus, 28.8mm from foot');
 });
 
-test('delayed PDF loads retain click-time geometry and filename', async ({ page }) => {
-  await open(page);
-  let release;
-  const gate = new Promise((resolve) => { release = resolve; });
-  let requested;
-  const started = new Promise((resolve) => { requested = resolve; });
-  await page.route('**/pdf-*.js', async (route) => { requested(); await gate; await route.continue(); });
-  const ready = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'PDF (A4)', exact: true }).click();
-  await started;
-  await expect(page.getByRole('button', { name: 'PDF (Letter)', exact: true })).toBeDisabled();
-  await page.getByRole('button', { name: 'Vertical', exact: true }).click();
-  await page.getByLabel('Dial radius (mm)', { exact: true }).fill('300');
-  release();
-  const result = await ready;
-  expect(result.suggestedFilename()).toBe('gnomon-horizontal-a4.pdf');
-  const contents = (await readFile(await result.path())).toString('latin1');
-  expect(contents).toContain('/MediaBox [0 0 595.279');
-  expect(contents).toContain('Radius 90 mm');
-  expect(contents).not.toContain('Radius 300 mm');
-  await expect(page.getByRole('button', { name: 'PDF (A4)', exact: true })).toBeEnabled();
-});
+for (const format of ['A4', 'Letter']) {
+  test(`first ${format} PDF export works after a fresh page goes offline`, async ({ page, context }) => {
+    await open(page);
+    await page.evaluate(() => document.fonts.ready);
+    await context.setOffline(true);
+    const requests = [];
+    page.on('request', request => { if (request.url().startsWith('http')) requests.push(request.url()); });
+    // Edit after disconnecting, so a cached download cannot satisfy this check.
+    await page.getByRole('button', { name: 'Vertical', exact: true }).click();
+    await page.getByLabel('Dial radius (mm)', { exact: true }).fill('180');
+    const result = await download(page, `PDF (${format})`);
+    expect(result.name).toBe(`gnomon-vertical-${format.toLowerCase()}.pdf`);
+    const contents = result.bytes.toString('latin1');
+    expect(contents).toContain(format === 'A4' ? '/MediaBox [0 0 595.279' : '/MediaBox [0 0 612.');
+    expect(contents).toContain('Radius 180 mm');
+    expect(contents).not.toContain('Radius 90 mm');
+    expect(requests).toEqual([]);
+    await expect(page.getByRole('button', { name: `PDF (${format})`, exact: true })).toBeEnabled();
+  });
+}
 
 test('failed PNG recovers and a large PDF downloads as full-size sheets', async ({ page }) => {
   await page.addInitScript(() => {

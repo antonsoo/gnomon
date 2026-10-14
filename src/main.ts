@@ -8,6 +8,9 @@ import { MAX_DESIGN_FILE_BYTES, openDesignFile, saveDesignFile, type OpenedDesig
 import { equationOfTimeTable } from "./lib/equation-of-time.ts";
 import { locate, LOCATE_FAILURE_TEXT } from "./lib/locate.ts";
 import { pngDimensions, svgToPngBlob } from "./lib/export/png.ts";
+// Construction export must work when a loaded designer goes offline, including
+// its first PDF. Load the vector writer with the app instead of at click time.
+import { exportConstructionPDF } from "./lib/export/pdf.ts";
 import { planConstructionPrint } from "./lib/export/print-layout.ts";
 import { gnomonConstructionWarning } from "./lib/render/gnomon-layout.ts";
 import { MOTTOES } from "./lib/motto.ts";
@@ -835,7 +838,6 @@ exportPngBtn.addEventListener("click", () => void runExport(async (design) => {
 async function exportPdf(format: "a4" | "letter"): Promise<void> {
   await runExport(async (design) => {
     if (design.dial.kind === "analemmatic") throw new Error("Use SVG for the analemmatic layout.");
-    const { exportConstructionPDF } = await import("./lib/export/pdf.ts");
     const bytes = exportConstructionPDF(design.dial, { ...design.polarOptions, format });
     const plan = planConstructionPrint(design.dial, { ...design.polarOptions, format });
     const filename = `gnomon-${design.settings.dialType}-${format}.pdf`;

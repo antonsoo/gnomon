@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### First PDF export offline
+
+- Include the vector PDF writer in the loaded application. The first A4 or
+  Letter download now works after disconnecting, including newly edited designs.
+  Previously it failed while trying to fetch a separate script at export time.
+- This moves the PDF writer's transfer cost to initial loading. It does not add
+  offline reload/install support or change the construction drawing calculations.
+
 ### Portable editable designs
 
 - Add Save design and Open design for a local, versioned `.gnomon.json` file.
