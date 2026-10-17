@@ -577,13 +577,15 @@ const header = el("header", { className: "masthead" }, [
   ]),
 ]);
 
+const polarGnomonSetup = "The style angle is measured from the dial face. Its edge must lie parallel to Earth's axis and project out of the face. On a northern, south-facing wall it slopes outward and downward; its extension through the wall points at the north celestial pole. Follow the mounting directions for the selected dial.";
+const gnomonSetupText = el("p", {}, [polarGnomonSetup]);
 const instructionsSection = el("section", { className: "section", attrs: { id: "instructions" } }, [
   el("h2", {}, ["Setting it up"]),
   el("div", { className: "instructions-grid" }, [
     el("div", { className: "panel" }, [
       el("h3", {}, ["1. Find true north"]),
       el("p", {}, [
-        "A compass points at magnetic north, not true north — the difference (magnetic declination) is several degrees almost everywhere and changes over time. Look up your local declination (e.g. via NOAA's calculator) and correct for it, or find true north from the sun at local solar noon (shortest shadow of the day, from the hour angle this tool computes) or from Polaris at night.",
+        "A compass points at magnetic north, not true north — the difference (magnetic declination) is several degrees almost everywhere and changes over time. Look up your local declination (e.g. via NOAA's calculator) and correct for it, or use a surveyed true-north reference. In the Northern Hemisphere, Polaris gives an approximate north reference at night.",
       ]),
     ]),
     el("div", { className: "panel" }, [
@@ -594,9 +596,7 @@ const instructionsSection = el("section", { className: "section", attrs: { id: "
     ]),
     el("div", { className: "panel" }, [
       el("h3", {}, ["3. Set the gnomon"]),
-      el("p", {}, [
-        "The style angle is measured from the dial face. Its edge must lie parallel to Earth's axis and project out of the face. On a northern, south-facing wall it slopes outward and downward; its extension through the wall points at the north celestial pole. Follow the mounting directions for the selected dial.",
-      ]),
+      gnomonSetupText,
     ]),
   ]),
 ]);
@@ -744,10 +744,12 @@ function render(): void {
   readout.replaceChildren();
   if (dial.kind === "analemmatic") {
     svgStageWrap.innerHTML = renderAnalemmaticSVG(dial, { ...design.analemmaticOptions, theme: state.theme });
-    orientationText.textContent = "Lay flat and level, top of the design toward true north, major axis east-west. Stand on today's date mark and read the apparent solar hour where your shadow crosses the ellipse.";
+    orientationText.textContent = "Lay flat and level, top of the design toward true north, major axis east-west. For a date marked on the scale, put the vertical rod's base at its matching mark and read the apparent solar hour where the shadow points across the ellipse.";
+    gnomonSetupText.textContent = "Use a vertical rod, checked with a plumb line, with its base at the selected date mark. You can also stand upright on the mark. The shadow direction points toward the apparent solar hour on the ellipse.";
     gnomonThumb.replaceChildren("No fixed gnomon: use a vertical rod or stand on the date scale.");
     gnomonNote.textContent = "";
   } else {
+    gnomonSetupText.textContent = polarGnomonSetup;
     const shadow = simulatePolarShadow(instant, state.latitudeDeg, state.longitudeDeg, buildDialPlane(dial.kind, state.latitudeDeg, state.wallDeclinationDeg), state.radiusMm * 0.32);
     svgStageWrap.innerHTML = renderPolarDialSVG(dial, { ...design.polarOptions, theme: state.theme, shadowTip: shadow.visible ? shadow.tip : null });
     orientationText.textContent = dial.orientation;

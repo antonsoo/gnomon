@@ -27,10 +27,12 @@ export interface DeclinationLineSpec {
   declinationDeg: number;
 }
 
+// Name the calendar event, not a season that reverses in the other hemisphere.
+// Retain the existing kind IDs for callers; their season words are legacy IDs.
 export const STANDARD_DECLINATION_LINES: DeclinationLineSpec[] = [
-  { label: "Summer solstice", kind: "solstice-summer", declinationDeg: 23.44 },
+  { label: "June solstice", kind: "solstice-summer", declinationDeg: 23.44 },
   { label: "Equinox", kind: "equinox", declinationDeg: 0 },
-  { label: "Winter solstice", kind: "solstice-winter", declinationDeg: -23.44 },
+  { label: "December solstice", kind: "solstice-winter", declinationDeg: -23.44 },
 ];
 
 export function generateDeclinationLines(

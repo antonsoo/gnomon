@@ -56,6 +56,9 @@ for (const kind of ['Horizontal', 'Vertical', 'Equatorial', 'Analemmatic']) {
     await upload(page, saved.bytes);
     await expect(status(page)).toContainText('Opened Rome.gnomon.json');
     await expect(page.getByRole('button', { name: kind, exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('#instructions')).toContainText(kind === 'Analemmatic'
+      ? 'Use a vertical rod, checked with a plumb line'
+      : "parallel to Earth's axis");
     await expect(page.getByRole('button', { name: 'Arabic', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByRole('button', { name: 'Blueprint', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByLabel('Zodiac entries', { exact: true })).toBeChecked();

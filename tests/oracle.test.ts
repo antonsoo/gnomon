@@ -281,6 +281,24 @@ describe("oracle: standard-time dial with longitude and DST correction", () => {
 });
 
 describe("oracle: analemmatic dial -- vertical rod shadow direction points at the hour mark", () => {
+  it("the printed June and December standing marks follow the calendar in both hemispheres", () => {
+    for (const latitude of [-33.8688, 51.5072]) {
+      const dial = buildAnalemmaticDial({ latitudeDeg: latitude, semiMajorMm: 90,
+        startHour: 4, endHour: 20, stepHours: 1 });
+      for (const [label, declination] of [["June solstice", 23.44], ["December solstice", -23.44]] as const) {
+        // Select by the engraving a person follows, rather than by its numeric declination.
+        const standing = dial.dateScale.find(mark => mark.label === label);
+        expect(standing).toBeDefined();
+        const sun = oracleSunENU(latitude, declination, 45);
+        expect(sun[2]).toBeGreaterThan(0);
+        const target = dial.hourPoints.find(point => point.hour === 15)!;
+        const direction = Math.atan2(target.x, target.y - standing!.offsetMm);
+        const shadow = Math.atan2(-sun[0], -sun[1]);
+        expect(angularDiffRad(direction, shadow)).toBeLessThan(1e-8);
+      }
+    }
+  });
+
   const cases = [
     { lat: 45, declinationDeg: 0, hour: 15 },
     { lat: 45, declinationDeg: 23.44, hour: 9 },
