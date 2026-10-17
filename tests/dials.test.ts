@@ -18,7 +18,7 @@ describe("declination lines", () => {
     });
     const equinox = dial.declinationLines.find((l) => l.kind === "equinox");
     expect(equinox).toBeDefined();
-    const pts = equinox!.points;
+    const pts = equinox!.points.filter(p => p !== null);
     expect(pts.length).toBeGreaterThan(5);
 
     // Colinearity: every point's cross product with the first-to-last
@@ -46,14 +46,15 @@ describe("declination lines", () => {
     });
     const summer = dial.declinationLines.find((l) => l.kind === "solstice-summer")!;
     const winter = dial.declinationLines.find((l) => l.kind === "solstice-winter")!;
-    expect(summer.points.length).toBeGreaterThan(3);
-    expect(winter.points.length).toBeGreaterThan(3);
+    expect(summer.points.filter(p => p !== null).length).toBeGreaterThan(3);
+    expect(winter.points.filter(p => p !== null).length).toBeGreaterThan(3);
 
     // Both curves are symmetric about the noon line (v = 0): the point
     // swept at hour angle +H should mirror the one at -H.
     for (const line of [summer, winter]) {
-      const first = line.points[0]!;
-      const last = line.points[line.points.length - 1]!;
+      const visible = line.points.filter(p => p !== null);
+      const first = visible[0]!;
+      const last = visible[visible.length - 1]!;
       expect(first.v).toBeCloseTo(-last.v, 3);
       expect(first.u).toBeCloseTo(last.u, 3);
     }

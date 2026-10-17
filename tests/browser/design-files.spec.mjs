@@ -2,6 +2,7 @@ import { test as base, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { Buffer } from 'node:buffer';
 import { readFile } from 'node:fs/promises';
+import { URL } from 'node:url';
 
 const test = base.extend({
   page: async ({ page }, use) => {
@@ -203,3 +204,19 @@ for (const width of [1440, 375]) {
     expect(audit.violations).toEqual([]);
   });
 }
+
+test('polar-day date curves keep unlit intervals in the preview and native offline exports', async ({ page, context }) => {
+  const file = await readFile(new URL('../../studies/shadow-gaps/before/Polar-wall.gnomon.json', import.meta.url));
+  await page.goto('./');
+  await context.setOffline(true);
+  await upload(page, file, 'Polar-wall.gnomon.json');
+  await expect(status(page)).toContainText('Opened Polar-wall.gnomon.json');
+  await expect(page.locator('.stage-canvas svg path[stroke-width="0.25"]')).toHaveCount(3);
+  const drawing = await download(page, 'Download SVG');
+  const paths = drawing.bytes.toString().match(/<path\b[^>]*stroke-width="0\.25"[^>]*\/>/g) ?? [];
+  expect(paths).toHaveLength(3);
+  const saved = await download(page, 'Save design');
+  expect(saved.bytes.equals(file)).toBe(true);
+  const pdf = await download(page, 'PDF (A4)');
+  expect(pdf.bytes.subarray(0, 5).toString()).toBe('%PDF-');
+});

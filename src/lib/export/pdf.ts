@@ -35,7 +35,7 @@ function drawPlate(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, pl
   const outlinePts = outline.map(project);
   doc.lines(outlinePts.slice(1).map((p, i) => [p.x - outlinePts[i]!.x, p.y - outlinePts[i]!.y]), outlinePts[0]!.x, outlinePts[0]!.y, [1, 1], "S", true);
 
-  const drawCurve = (points: PlanePoint[], historical: boolean) => {
+  const drawCurve = (points: (PlanePoint | null)[], historical: boolean) => {
     doc.setLineWidth((historical ? 0.2 : 0.25) * scale);
     doc.setLineDashPattern(historical ? [scale, 0.8 * scale] : [], 0);
     for (const run of clipCurve(points, plan.hourRadius, opts.plateShape, plan.thetaMax, plan.thetaCenter)) {

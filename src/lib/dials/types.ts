@@ -21,7 +21,8 @@ export interface DeclinationLine {
   /** "solstice-summer" | "solstice-winter" | "equinox" | a zodiac sign name */
   kind: string;
   declinationDeg: number;
-  points: PlanePoint[];
+  /** Uniform hour-angle samples from -180 to +180 degrees. Null marks no usable shadow. */
+  points: (PlanePoint | null)[];
 }
 
 export interface HistoricalHourCurve {

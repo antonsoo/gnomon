@@ -10,7 +10,7 @@
 
 import { nodusShadow } from "../geometry.ts";
 import type { DialPlane } from "../geometry.ts";
-import type { DeclinationLine } from "./types.ts";
+import type { DeclinationLine, PlanePoint } from "./types.ts";
 
 export const ZODIAC_DECLINATIONS: { name: string; declinationDeg: number }[] = [
   { name: "Aries / Libra", declinationDeg: 0 },
@@ -44,13 +44,20 @@ export function generateDeclinationLines(
 ): DeclinationLine[] {
   const lines: DeclinationLine[] = [];
   for (const spec of specs) {
-    const points: { u: number; v: number }[] = [];
+    const points: (PlanePoint | null)[] = [];
+    let visibleCount = 0;
     for (let i = 0; i < samples; i++) {
       const hourAngleDeg = -180 + (360 * i) / (samples - 1);
       const shadow = nodusShadow(latDeg, spec.declinationDeg, hourAngleDeg, plane, nodusDistance);
-      if (shadow) points.push({ u: shadow.u, v: shadow.v });
+      if (shadow) {
+        points.push({ u: shadow.u, v: shadow.v });
+        visibleCount++;
+      } else {
+        // Compaction joins separate illuminated intervals across the back of a wall.
+        points.push(null);
+      }
     }
-    if (points.length >= 2) {
+    if (visibleCount >= 2) {
       lines.push({ label: spec.label, kind: spec.kind, declinationDeg: spec.declinationDeg, points });
     }
   }
