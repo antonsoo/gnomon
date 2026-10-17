@@ -1,0 +1,57 @@
+{
+  "scope": "Actual public PNG pixels against native SVG frame and independent DE421 date, 1.5-pixel allowance; no field or physical printer claim.",
+  "records": [
+    {
+      "file": "chromium-1440.png",
+      "sha256": "d280c8d444c474083495954d544827edd709bc932dd8517f131422a297ae7412",
+      "predictedRingCentrePixels": [
+        1381.5,
+        1524.4910635597405
+      ],
+      "observedCentrePixels": [
+        1381.5,
+        1524.5
+      ],
+      "centreErrorPixels": 0.008936440259503797
+    },
+    {
+      "file": "chromium-375.png",
+      "sha256": "d280c8d444c474083495954d544827edd709bc932dd8517f131422a297ae7412",
+      "predictedRingCentrePixels": [
+        1381.5,
+        1524.4910635597405
+      ],
+      "observedCentrePixels": [
+        1381.5,
+        1524.5
+      ],
+      "centreErrorPixels": 0.008936440259503797
+    },
+    {
+      "file": "firefox-1440.png",
+      "sha256": "8b81f6db6123372566286062d54550af0df7e027a7e3fc38a65c10bdf9d3a796",
+      "predictedRingCentrePixels": [
+        1381.5,
+        1524.4910635597405
+      ],
+      "observedCentrePixels": [
+        1381.5,
+        1524.5
+      ],
+      "centreErrorPixels": 0.008936440259503797
+    },
+    {
+      "file": "firefox-375.png",
+      "sha256": "6f681c256cb75a9fab256fc56a8d18901b97203bcf4aa6ba959cc478f040ba30",
+      "predictedRingCentrePixels": [
+        1381.5,
+        1524.4910635597405
+      ],
+      "observedCentrePixels": [
+        1381.5,
+        1524.5
+      ],
+      "centreErrorPixels": 0.008936440259503797
+    }
+  ]
+}

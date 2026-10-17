@@ -1,0 +1,108 @@
+{
+  "url": "https://antonsoo.github.io/gnomon/",
+  "phase": "after",
+  "input": {
+    "latitudeDeg": -33.8688,
+    "radiusMm": 90,
+    "utcInstant": "2026-10-17T01:00:00.000Z"
+  },
+  "scope": "Actual offline native SVG/PNG and unchanged portable-input downloads; native text bounds, no physical printing or field measurement.",
+  "records": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "phase": "after",
+      "svg": "chromium-1440.svg",
+      "svgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "png": "chromium-1440.png",
+      "pngSha256": "d280c8d444c474083495954d544827edd709bc932dd8517f131422a297ae7412",
+      "pixelWidth": 2763,
+      "pixelHeight": 3094,
+      "widthMm": 234,
+      "heightMm": 262,
+      "savedInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "selectedMarkers": 1,
+      "textOverflow": [],
+      "errors": [],
+      "lateRequests": [],
+      "edited": {
+        "svg": "chromium-1440.edited.svg",
+        "sha256": "85d921551bf71c236761b66bf30842628481f320ed43b913682416c4667fe0ec",
+        "utcInstant": "2026-10-17T07:00:00.000Z",
+        "savedInputsSha256": "80a75587a8261dbc26b42759150e826ea33ea1b72aae25830429e7f4d791dca6"
+      }
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "phase": "after",
+      "svg": "chromium-375.svg",
+      "svgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "png": "chromium-375.png",
+      "pngSha256": "d280c8d444c474083495954d544827edd709bc932dd8517f131422a297ae7412",
+      "pixelWidth": 2763,
+      "pixelHeight": 3094,
+      "widthMm": 234,
+      "heightMm": 262,
+      "savedInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "selectedMarkers": 1,
+      "textOverflow": [],
+      "errors": [],
+      "lateRequests": [],
+      "edited": {
+        "svg": "chromium-375.edited.svg",
+        "sha256": "85d921551bf71c236761b66bf30842628481f320ed43b913682416c4667fe0ec",
+        "utcInstant": "2026-10-17T07:00:00.000Z",
+        "savedInputsSha256": "80a75587a8261dbc26b42759150e826ea33ea1b72aae25830429e7f4d791dca6"
+      }
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "phase": "after",
+      "svg": "firefox-1440.svg",
+      "svgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "png": "firefox-1440.png",
+      "pngSha256": "8b81f6db6123372566286062d54550af0df7e027a7e3fc38a65c10bdf9d3a796",
+      "pixelWidth": 2763,
+      "pixelHeight": 3094,
+      "widthMm": 234,
+      "heightMm": 262,
+      "savedInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "selectedMarkers": 1,
+      "textOverflow": [],
+      "errors": [],
+      "lateRequests": [],
+      "edited": {
+        "svg": "firefox-1440.edited.svg",
+        "sha256": "85d921551bf71c236761b66bf30842628481f320ed43b913682416c4667fe0ec",
+        "utcInstant": "2026-10-17T07:00:00.000Z",
+        "savedInputsSha256": "80a75587a8261dbc26b42759150e826ea33ea1b72aae25830429e7f4d791dca6"
+      }
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "phase": "after",
+      "svg": "firefox-375.svg",
+      "svgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "png": "firefox-375.png",
+      "pngSha256": "6f681c256cb75a9fab256fc56a8d18901b97203bcf4aa6ba959cc478f040ba30",
+      "pixelWidth": 2763,
+      "pixelHeight": 3094,
+      "widthMm": 234,
+      "heightMm": 262,
+      "savedInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "selectedMarkers": 1,
+      "textOverflow": [],
+      "errors": [],
+      "lateRequests": [],
+      "edited": {
+        "svg": "firefox-375.edited.svg",
+        "sha256": "85d921551bf71c236761b66bf30842628481f320ed43b913682416c4667fe0ec",
+        "utcInstant": "2026-10-17T07:00:00.000Z",
+        "savedInputsSha256": "80a75587a8261dbc26b42759150e826ea33ea1b72aae25830429e7f4d791dca6"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "source": "3cf564b",
+  "builtSource": "a9c60ff7af389d831a2cc7c801f1509faac77390",
+  "pages": "4121fcffc09a4561926214b51cabd82991990417",
+  "builtFiles": 33,
+  "canonicalUrlsChecked": 34,
+  "exactServedBytes": true,
+  "offlineBrowserContexts": 4,
+  "nativeSvgDownloads": 8,
+  "nativePngDownloads": 4,
+  "originalPortableInputsUnchanged": true,
+  "sameDayEditsPersisted": true,
+  "publicSvgBytesMatchReviewedLocal": true,
+  "pngRingPixelsMatchIndependentOracle": true,
+  "screenshotComparisons": [
+    {
+      "file": "firefox-1440-drawing.png",
+      "sha256": "1ac71747df687fcdd4c480f12a619fd93b1d3d137bd1ee95881b26f4aa948e1f",
+      "identicalToLocal": true,
+      "visuallyReviewed": true
+    },
+    {
+      "file": "firefox-375-drawing.png",
+      "sha256": "a64b8678071080c5cd299aae95a6ae3c2c3196345a2f8e3814eb38c7e9e5144d",
+      "identicalToLocal": true,
+      "visuallyReviewed": true
+    },
+    {
+      "file": "chromium-375-designer.png",
+      "sha256": "c9b209b5158e51bcc65b9c4c66e6924b9c45cf4f28cef55c70cf30679446cc2d",
+      "identicalToLocal": false,
+      "visuallyReviewed": true
+    },
+    {
+      "file": "chromium-1440-drawing.png",
+      "sha256": "85b969bf381650551cd4dbee80dcb2aa2207f11acd5c0229a8b43e33b49603d1",
+      "identicalToLocal": true,
+      "visuallyReviewed": true
+    },
+    {
+      "file": "chromium-1440-designer.png",
+      "sha256": "448669463e8a48b256561653ddfd3268ef7b7b9af517e5a1fa3fc4dbf70f5d59",
+      "identicalToLocal": false,
+      "visuallyReviewed": true
+    },
+    {
+      "file": "firefox-375-designer.png",
+      "sha256": "f5a910ada6f0ff0f851457c9f0579c55dfc18ac08b9307a030d7b38641168734",
+      "identicalToLocal": false,
+      "visuallyReviewed": true
+    },
+    {
+      "file": "chromium-375-drawing.png",
+      "sha256": "85b969bf381650551cd4dbee80dcb2aa2207f11acd5c0229a8b43e33b49603d1",
+      "identicalToLocal": true,
+      "visuallyReviewed": true
+    },
+    {
+      "file": "firefox-1440-designer.png",
+      "sha256": "bd4afb4e38b0c95a8694b2e018491d5d55fc052d35d89622815e4e80957eeb50",
+      "identicalToLocal": false,
+      "visuallyReviewed": true
+    }
+  ],
+  "screenshotNote": "Small differences in control regions were visually reviewed. Screenshots are not used as a proxy for native vector or pixel geometry agreement.",
+  "scope": "Actual public designer, original and edited native downloads; no field measurement or registry release."
+}

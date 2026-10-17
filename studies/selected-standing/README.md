@@ -101,3 +101,20 @@ all completed with exit 0. Independent [PNG pixel measurements](png-geometry.jso
 locate the selected ring in both actual raster downloads against the separate
 DE421 date input; the old images contain no ring there. This checks actual
 pixels, rather than inferring correct drawing content from image dimensions.
+
+## Public designer
+
+The clean `a9c60ff` build is public through source `3cf564b` and Pages
+`4121fcf`. All 33 built files and the canonical root match exactly:
+[served bytes](hosted-bytes.json). Four public Chromium/Firefox desktop/mobile
+contexts open the original inputs offline, save identical bytes, download SVG
+and PNG, then edit the local time and download the new standing point and
+editable inputs: [public replay](hosted/browser.json).
+
+All eight actual SVGs match the reviewed local downloads byte-for-byte and
+pass the independent date/Sun geometry check: [public vectors](hosted/artifacts.json).
+All four actual PNGs also place the ring at the separately predicted pixel
+position: [public pixels](hosted-png.json). Public screenshots have small control
+region differences; both layouts were visually reviewed and four public
+captures are retained under `docs/assets/selected-standing`. Native geometry
+agreement is checked separately. [Publication boundaries](publication.json).
