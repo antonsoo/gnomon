@@ -268,6 +268,10 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
   the face. Terrain, refraction, material thickness and mounting errors
   are not modeled. No physical fabrication or field measurement was
   performed as part of the automated verification.
+- Date curves preserve unusable sampled shadows as breaks, including polar-day
+  receiving faces. Their 3.75-degree hour-angle sampling remains an approximation;
+  visibility boundaries are not solved analytically.
+  [False-chord reproduction and native SVG/PDF measurements](studies/shadow-gaps/README.md).
 - PNG is a raster preview, bounded to 16 megapixels and 8192 pixels per
   side. Large designs are downsampled and report their effective resolution.
   Use SVG or PDF for physical scale. Async exports retain the complete

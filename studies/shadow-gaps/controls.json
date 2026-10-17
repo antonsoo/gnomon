@@ -1,0 +1,61 @@
+{
+  "scope": "Every original finite coordinate is retained exactly; fan clipping already excluded the unsupported connections, so these eight native drawings remain byte-identical.",
+  "cases": [
+    {
+      "case": "north-west-90",
+      "validPointsUnchanged": true,
+      "fanDrawingByteIdentical": true,
+      "beforeBadEdges": 1,
+      "afterBadEdges": 0
+    },
+    {
+      "case": "north-west-350",
+      "validPointsUnchanged": true,
+      "fanDrawingByteIdentical": true,
+      "beforeBadEdges": 1,
+      "afterBadEdges": 0
+    },
+    {
+      "case": "north-east-90",
+      "validPointsUnchanged": true,
+      "fanDrawingByteIdentical": true,
+      "beforeBadEdges": 1,
+      "afterBadEdges": 0
+    },
+    {
+      "case": "north-east-350",
+      "validPointsUnchanged": true,
+      "fanDrawingByteIdentical": true,
+      "beforeBadEdges": 1,
+      "afterBadEdges": 0
+    },
+    {
+      "case": "south-west-90",
+      "validPointsUnchanged": true,
+      "fanDrawingByteIdentical": true,
+      "beforeBadEdges": 1,
+      "afterBadEdges": 0
+    },
+    {
+      "case": "south-west-350",
+      "validPointsUnchanged": true,
+      "fanDrawingByteIdentical": true,
+      "beforeBadEdges": 1,
+      "afterBadEdges": 0
+    },
+    {
+      "case": "south-east-90",
+      "validPointsUnchanged": true,
+      "fanDrawingByteIdentical": true,
+      "beforeBadEdges": 1,
+      "afterBadEdges": 0
+    },
+    {
+      "case": "south-east-350",
+      "validPointsUnchanged": true,
+      "fanDrawingByteIdentical": true,
+      "beforeBadEdges": 1,
+      "afterBadEdges": 0
+    }
+  ]
+}

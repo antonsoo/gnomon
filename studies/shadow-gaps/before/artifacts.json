@@ -1,0 +1,676 @@
+{
+  "scope": "Independent inverse geometry on native serialized date paths; 0.1-degree allowance includes 0.001-mm SVG rounding and sampled chord error. Not ephemeris or field accuracy.",
+  "pymupdf": "1.28.2",
+  "phase": "before",
+  "records": [
+    {
+      "case": "north-west-90",
+      "file": "north-west-90.svg",
+      "format": "svg",
+      "sha256": "654e210ab5042c4d3a62a90df8de9d48ff24b1363501ecbbad60683b9bc74d38",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                25.081999999999994,
+                21.796999999999997
+              ],
+              "toMm": [
+                5.0930000000000035,
+                -33.226
+              ],
+              "midpointMm": [
+                15.087499999999999,
+                -5.714500000000001
+              ],
+              "impliedDeclinationDeg": 85.4945341233428,
+              "expectedDeclinationDeg": 23.44,
+              "errorDeg": 62.054534123342805,
+              "sunUp": 0.9402276740814447
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.054534123342805
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.008026270773378278
+        }
+      ],
+      "badEdges": 1
+    },
+    {
+      "case": "north-west-90",
+      "file": "north-west-90.pdf",
+      "format": "pdf",
+      "sha256": "c8ca11a180c5533edc2c4f58af1af462d9ddb5ee528218c36e6c1b86fd5ae759",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                25.081866963704414,
+                21.796510865953238
+              ],
+              "toMm": [
+                5.093250698513444,
+                -33.22626109653048
+              ],
+              "midpointMm": [
+                15.087558831108929,
+                -5.714875115288621
+              ],
+              "impliedDeclinationDeg": 85.49399229740868,
+              "expectedDeclinationDeg": 23.44,
+              "errorDeg": 62.05399229740868,
+              "sunUp": 0.9402358039577895
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.05399229740868
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.00021532979618356444
+        }
+      ],
+      "badEdges": 1,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-west-90",
+      "file": "north-west-90-fan.svg",
+      "format": "svg",
+      "sha256": "90c8d0e3244698b6ed28b9de20bc58f4881fe8bf5cbf4eaa429d8716108fa66e",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 41,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.02015998380365147
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010574140289641355
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "north-west-350",
+      "file": "north-west-350.svg",
+      "format": "svg",
+      "sha256": "f4cbb0c0099072ea989eeec7041ad67f745ffa249a8c0476e2fc6e2c54e90e33",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                97.541,
+                84.76400000000001
+              ],
+              "toMm": [
+                19.807000000000016,
+                -129.213
+              ],
+              "midpointMm": [
+                58.67400000000001,
+                -22.224499999999992
+              ],
+              "impliedDeclinationDeg": 85.49399197574809,
+              "expectedDeclinationDeg": 23.44,
+              "errorDeg": 62.05399197574809,
+              "sunUp": 0.9402353439870738
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.05399197574809
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0019028249958754275
+        }
+      ],
+      "badEdges": 1
+    },
+    {
+      "case": "north-west-350",
+      "file": "north-west-350-fan.svg",
+      "format": "svg",
+      "sha256": "cafae795bccd0af1abf5a6ae5723da83aab50cb2333282eaaa2cdfcd90843183",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 40,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.014093109215199462
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.002885308690523753
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "north-east-90",
+      "file": "north-east-90.svg",
+      "format": "svg",
+      "sha256": "fdd7cd9c2f5f9470e5476507c266bcc2c1d77d0093ea4bec586b5d29bc04afe7",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                5.0930000000000035,
+                33.226
+              ],
+              "toMm": [
+                25.081999999999994,
+                -21.796999999999997
+              ],
+              "midpointMm": [
+                15.087499999999999,
+                5.714500000000001
+              ],
+              "impliedDeclinationDeg": 85.4945341233428,
+              "expectedDeclinationDeg": 23.44,
+              "errorDeg": 62.054534123342805,
+              "sunUp": 0.9402276740814447
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.054534123342805
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.008026270773395934
+        }
+      ],
+      "badEdges": 1
+    },
+    {
+      "case": "north-east-90",
+      "file": "north-east-90.pdf",
+      "format": "pdf",
+      "sha256": "4663640aab26662992d44380039ccbe6943e4405f5791101648c85080f297bf6",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                5.093250698513444,
+                33.22626109653051
+              ],
+              "toMm": [
+                25.081866963704414,
+                -21.796510865953223
+              ],
+              "midpointMm": [
+                15.087558831108929,
+                5.714875115288642
+              ],
+              "impliedDeclinationDeg": 85.49399229740868,
+              "expectedDeclinationDeg": 23.44,
+              "errorDeg": 62.05399229740868,
+              "sunUp": 0.9402358039577899
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.05399229740868
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.00032730676749382823
+        }
+      ],
+      "badEdges": 1,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-east-90",
+      "file": "north-east-90-fan.svg",
+      "format": "svg",
+      "sha256": "481164302f9ba77f3561ce83887f8d7adef76dd378f5692c36a5626e82285c72",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 41,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.02274798598001837
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.01136361867885105
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "north-east-350",
+      "file": "north-east-350.svg",
+      "format": "svg",
+      "sha256": "86190ec27890633c43304c571d3388251f359325c6e97846ea23640b1588c1ca",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                19.807000000000016,
+                129.21300000000002
+              ],
+              "toMm": [
+                97.541,
+                -84.76400000000001
+              ],
+              "midpointMm": [
+                58.67400000000001,
+                22.224500000000006
+              ],
+              "impliedDeclinationDeg": 85.49399197574809,
+              "expectedDeclinationDeg": 23.44,
+              "errorDeg": 62.05399197574809,
+              "sunUp": 0.9402353439870738
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.05399197574809
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0019028249958596562
+        }
+      ],
+      "badEdges": 1
+    },
+    {
+      "case": "north-east-350",
+      "file": "north-east-350-fan.svg",
+      "format": "svg",
+      "sha256": "79320054bdebff167ea6a1fc3cd8288993a67ca3beda95b309c51bd0a4d8ac6b",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 40,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.014103350873060805
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.002917473518318751
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "south-west-90",
+      "file": "south-west-90.svg",
+      "format": "svg",
+      "sha256": "2e8593f369460b6b5de5d19db82af08a6a23584a65bd764d781a79653051e65b",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.008026270773395936
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                25.081999999999994,
+                -21.796999999999997
+              ],
+              "toMm": [
+                5.0930000000000035,
+                33.226
+              ],
+              "midpointMm": [
+                15.087499999999999,
+                5.714500000000001
+              ],
+              "impliedDeclinationDeg": -85.4945341233428,
+              "expectedDeclinationDeg": -23.44,
+              "errorDeg": 62.054534123342805,
+              "sunUp": 0.9402276740814447
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.054534123342805
+        }
+      ],
+      "badEdges": 1
+    },
+    {
+      "case": "south-west-90",
+      "file": "south-west-90.pdf",
+      "format": "pdf",
+      "sha256": "6f14e319dac7497cbbf13ea47973a0e38f092465598bbf7a4ce1b95f37521144",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0003273067674938284
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                25.081866963704414,
+                -21.796510865953223
+              ],
+              "toMm": [
+                5.093250698513444,
+                33.22626109653051
+              ],
+              "midpointMm": [
+                15.087558831108929,
+                5.714875115288642
+              ],
+              "impliedDeclinationDeg": -85.49399229740868,
+              "expectedDeclinationDeg": -23.44,
+              "errorDeg": 62.05399229740868,
+              "sunUp": 0.9402358039577899
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.05399229740868
+        }
+      ],
+      "badEdges": 1,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "south-west-90",
+      "file": "south-west-90-fan.svg",
+      "format": "svg",
+      "sha256": "a67dc30c9533d5082af44a1b453876e6c710a0d3bdb53abfc537ce47aaa08b75",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011363618678254368
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 41,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.022747985979304275
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "south-west-350",
+      "file": "south-west-350.svg",
+      "format": "svg",
+      "sha256": "a90ee783a2214669040f857450bcda5b2692d2162c91d94d53e2f24ebba0516b",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0019028249958596571
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                97.541,
+                -84.76400000000001
+              ],
+              "toMm": [
+                19.807000000000016,
+                129.21300000000002
+              ],
+              "midpointMm": [
+                58.67400000000001,
+                22.224500000000006
+              ],
+              "impliedDeclinationDeg": -85.49399197574809,
+              "expectedDeclinationDeg": -23.44,
+              "errorDeg": 62.05399197574809,
+              "sunUp": 0.9402353439870738
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.05399197574809
+        }
+      ],
+      "badEdges": 1
+    },
+    {
+      "case": "south-west-350",
+      "file": "south-west-350-fan.svg",
+      "format": "svg",
+      "sha256": "9e544fc663f70e7c0091a174415f3e6a9487a00ae7a7545bd15b46d04d3f3c82",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.002917473517683571
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 40,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.014103350872861853
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "south-east-90",
+      "file": "south-east-90.svg",
+      "format": "svg",
+      "sha256": "500e4c7ab66006d6a032514f904508754ca717ac2ef15d965a4989659e6d5da5",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.00802627077339594
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                5.0930000000000035,
+                -33.226
+              ],
+              "toMm": [
+                25.081999999999994,
+                21.796999999999997
+              ],
+              "midpointMm": [
+                15.087499999999999,
+                -5.714500000000001
+              ],
+              "impliedDeclinationDeg": -85.4945341233428,
+              "expectedDeclinationDeg": -23.44,
+              "errorDeg": 62.054534123342805,
+              "sunUp": 0.9402276740814447
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.054534123342805
+        }
+      ],
+      "badEdges": 1
+    },
+    {
+      "case": "south-east-90",
+      "file": "south-east-90.pdf",
+      "format": "pdf",
+      "sha256": "7b963c851776f66b812f106b3d2c7d90b98e5645ebfadbcccfa02a448a840c20",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0002153297961835641
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                5.093250698513444,
+                -33.22626109653048
+              ],
+              "toMm": [
+                25.081866963704414,
+                21.796510865953238
+              ],
+              "midpointMm": [
+                15.087558831108929,
+                -5.714875115288621
+              ],
+              "impliedDeclinationDeg": -85.49399229740868,
+              "expectedDeclinationDeg": -23.44,
+              "errorDeg": 62.05399229740868,
+              "sunUp": 0.9402358039577894
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.05399229740868
+        }
+      ],
+      "badEdges": 1,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "south-east-90",
+      "file": "south-east-90-fan.svg",
+      "format": "svg",
+      "sha256": "769568ed9c82cdb84d1676339e0099bde481da181deccc75a21fa053eeee39e8",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010574140289514814
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 41,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.020159983803615944
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "south-east-350",
+      "file": "south-east-350.svg",
+      "format": "svg",
+      "sha256": "2b864ebd9a7dd3c0456bf06a2a668c733e13951584127ceeba12faf6db22a64b",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0019028249958596573
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 49,
+          "badEdges": [
+            {
+              "fromMm": [
+                19.807000000000016,
+                -129.213
+              ],
+              "toMm": [
+                97.541,
+                84.76400000000001
+              ],
+              "midpointMm": [
+                58.67400000000001,
+                -22.224499999999992
+              ],
+              "impliedDeclinationDeg": -85.49399197574816,
+              "expectedDeclinationDeg": -23.44,
+              "errorDeg": 62.05399197574816,
+              "sunUp": 0.9402353439870738
+            }
+          ],
+          "maxDeclinationErrorDeg": 62.05399197574816
+        }
+      ],
+      "badEdges": 1
+    },
+    {
+      "case": "south-east-350",
+      "file": "south-east-350-fan.svg",
+      "format": "svg",
+      "sha256": "1139b0e3eb1672400069c60fabc531375179f1a156aba0784318b99003035e8e",
+      "datePaths": [
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0028853086906667305
+        },
+        {
+          "declinationDeg": -23.44,
+          "vertices": 40,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.014093109215448152
+        }
+      ],
+      "badEdges": 0
+    }
+  ],
+  "badEdges": 12
+}

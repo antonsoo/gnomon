@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Date curves across unlit intervals
+
+- Preserve unusable shadow samples as gaps. Polar-day wall drawings previously
+  joined separate visible branches with a false straight segment in the preview,
+  native SVG and construction PDF.
+- Keep every valid coordinate; split the shared drawing path at an unlit,
+  rear-face or grazing projection. `DeclinationLine.points` now retains nullable
+  sample positions; consumers must preserve these breaks when drawing curves.
+  [Actual faulty downloads, inverse geometry and unaffected fan controls](studies/shadow-gaps/README.md).
+
 ### Calendar standing marks in both hemispheres
 
 - Name solstice marks by month. The former Summer/Winter names followed the

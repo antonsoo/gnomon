@@ -1,0 +1,144 @@
+{
+  "url": "http://127.0.0.1:4333/gnomon/",
+  "phase": "after",
+  "case": "north-west-90",
+  "scope": "Actual offline designer, original portable inputs, native SVG and A4/Letter construction kits. Independent metrology reads the saved vectors; no physical printing or field observation.",
+  "records": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "phase": "after",
+      "svg": "chromium-1440.svg",
+      "svgSha256": "757729ae058d406ea6a1a53d371b367316d81e87ce56009225ffabb65f6accea",
+      "pdfs": [
+        {
+          "file": "chromium-1440-A4.pdf",
+          "paper": "A4",
+          "sha256": "54a5248ccce88d17523997c400b5e33d57db017cf2bbd59023e3d1edc4c4b3fb"
+        },
+        {
+          "file": "chromium-1440-Letter.pdf",
+          "paper": "Letter",
+          "sha256": "617f373184c1538e2c096ba97751ce996fe79a72124c27d62eacae7b3aa2ff9d"
+        }
+      ],
+      "datePaths": 3,
+      "portableInputSha256": "d0b33f306d74cd8cbac9bec914732827f9220d9b19bc04793ae93ca25cef86a8",
+      "errors": [],
+      "lateRequests": [],
+      "requests": [
+        "http://127.0.0.1:4333/gnomon/",
+        "http://127.0.0.1:4333/gnomon/assets/index-DdOia6-b.js",
+        "http://127.0.0.1:4333/gnomon/assets/index-DpJ6Eoy3.css",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "phase": "after",
+      "svg": "chromium-375.svg",
+      "svgSha256": "757729ae058d406ea6a1a53d371b367316d81e87ce56009225ffabb65f6accea",
+      "pdfs": [
+        {
+          "file": "chromium-375-A4.pdf",
+          "paper": "A4",
+          "sha256": "0b1b76d7d5247a0669ff59d129b43e3ca883edd53565ff7fb84da280deddd5a5"
+        },
+        {
+          "file": "chromium-375-Letter.pdf",
+          "paper": "Letter",
+          "sha256": "95e271b3f7cd4592a4a9839137cd08314b44dd471a95a4e3c4038a2ff334218e"
+        }
+      ],
+      "datePaths": 3,
+      "portableInputSha256": "d0b33f306d74cd8cbac9bec914732827f9220d9b19bc04793ae93ca25cef86a8",
+      "errors": [],
+      "lateRequests": [],
+      "requests": [
+        "http://127.0.0.1:4333/gnomon/",
+        "http://127.0.0.1:4333/gnomon/assets/index-DdOia6-b.js",
+        "http://127.0.0.1:4333/gnomon/assets/index-DpJ6Eoy3.css",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ]
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "phase": "after",
+      "svg": "firefox-1440.svg",
+      "svgSha256": "c843b963c206a98b47661e6f6849ed00ba418ffa4fd76132e41cba54d4335fc1",
+      "pdfs": [
+        {
+          "file": "firefox-1440-A4.pdf",
+          "paper": "A4",
+          "sha256": "c8121e7e28768a1581f25adc92ffff3bd42f93e960e9951b936359dae846da97"
+        },
+        {
+          "file": "firefox-1440-Letter.pdf",
+          "paper": "Letter",
+          "sha256": "e73e27a0e088137e785e3056610e6b6e719900f6bd49261e66ca83987c1b4c71"
+        }
+      ],
+      "datePaths": 3,
+      "portableInputSha256": "d0b33f306d74cd8cbac9bec914732827f9220d9b19bc04793ae93ca25cef86a8",
+      "errors": [],
+      "lateRequests": [],
+      "requests": [
+        "http://127.0.0.1:4333/gnomon/",
+        "http://127.0.0.1:4333/gnomon/assets/index-DdOia6-b.js",
+        "http://127.0.0.1:4333/gnomon/assets/index-DpJ6Eoy3.css",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2"
+      ]
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "phase": "after",
+      "svg": "firefox-375.svg",
+      "svgSha256": "c843b963c206a98b47661e6f6849ed00ba418ffa4fd76132e41cba54d4335fc1",
+      "pdfs": [
+        {
+          "file": "firefox-375-A4.pdf",
+          "paper": "A4",
+          "sha256": "bfa7b1cb94d38080c84d731993145074796f72f3488d22b3877494392ba7a660"
+        },
+        {
+          "file": "firefox-375-Letter.pdf",
+          "paper": "Letter",
+          "sha256": "f3c326d59a2ffebd5c5dd042192e19fc5070a96d316ee234f71408b402b0f2c6"
+        }
+      ],
+      "datePaths": 3,
+      "portableInputSha256": "d0b33f306d74cd8cbac9bec914732827f9220d9b19bc04793ae93ca25cef86a8",
+      "errors": [],
+      "lateRequests": [],
+      "requests": [
+        "http://127.0.0.1:4333/gnomon/",
+        "http://127.0.0.1:4333/gnomon/assets/index-DdOia6-b.js",
+        "http://127.0.0.1:4333/gnomon/assets/index-DpJ6Eoy3.css",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2"
+      ]
+    }
+  ]
+}

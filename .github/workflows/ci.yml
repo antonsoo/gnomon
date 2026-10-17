@@ -27,5 +27,12 @@ jobs:
           LC_ALL: de_DE.UTF-8
           LANG: de_DE.UTF-8
       - run: npm run build
+      - uses: astral-sh/setup-uv@v10
+        with:
+          python-version: '3.12'
+      - name: Check physical date curves in native SVG and PDF output
+        run: |
+          node studies/shadow-gaps/replay.mjs . "$RUNNER_TEMP/shadow-curves" after
+          uv run --script studies/shadow-gaps/measure.py --capture "$RUNNER_TEMP/shadow-curves" --out "$RUNNER_TEMP/shadow-vectors.json" --expect after
       - run: npx playwright install --with-deps chromium firefox
       - run: npx playwright test

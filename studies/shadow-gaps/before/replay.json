@@ -1,0 +1,335 @@
+{
+  "phase": "before",
+  "sourceRevision": "2a6f7b350102c892dc500102e59bb7fbac5a2d17",
+  "scope": "Controlled polar-day receiving faces; inverse geometry of rendered segment midpoints, not a field measurement or general ephemeris accuracy estimate.",
+  "method": "From each plate point P, reconstruct the direction toward the physical nodus N. Its dot product with the north celestial axis gives sin(declination). A June/December date curve must retain its fixed declination, allowing the 0.02-degree bound for chords between 3.75-degree adjacent hour samples.",
+  "inputs": [
+    {
+      "file": "src/lib/dials/declination-lines.ts",
+      "sha256": "403f9130f2668d5482af94c450be68700437f3eea1392ae695ae391aebbd4d26"
+    },
+    {
+      "file": "src/lib/dials/types.ts",
+      "sha256": "cac7d37587a264e7f0ae1580c1d01aa3d99be75d630ec9bfa7bd10bdcc830ab7"
+    },
+    {
+      "file": "src/lib/render/curves.ts",
+      "sha256": "92c341b8729d540dae49444d61a71b3ef449dca00403e58f266cf185510d6794"
+    },
+    {
+      "file": "src/lib/render/svg.ts",
+      "sha256": "b4352286356d322f5e08e8ce7ff495c342adffe91985bf7d1f2b996bc23c5772"
+    },
+    {
+      "file": "src/lib/export/pdf.ts",
+      "sha256": "1006378c5b48f1792a9d851d908cd08157fe142c5106ec5286fd18c79836862c"
+    }
+  ],
+  "cases": [
+    {
+      "name": "north-west-90",
+      "latitudeDeg": 70,
+      "wallDeclinationDeg": 100,
+      "radiusMm": 90,
+      "nodusDistanceMm": 28.8,
+      "fanSvgSha256": "90c8d0e3244698b6ed28b9de20bc58f4881fe8bf5cbf4eaa429d8716108fa66e",
+      "declinationDeg": 23.44,
+      "gnomonStyleHeightDeg": 3.4048673211610336,
+      "nativeSamples": 49,
+      "visibleSamples": 49,
+      "nullSamples": 0,
+      "plottedRuns": 1,
+      "plottedEdges": 48,
+      "badEdges": [
+        {
+          "from": {
+            "u": 25.081860202600446,
+            "v": 21.796508111328464
+          },
+          "to": {
+            "u": 5.093250144412902,
+            "v": -33.22625824333046
+          },
+          "midpoint": {
+            "u": 15.087555173506674,
+            "v": -5.7148750660009995
+          },
+          "inverseSun": {
+            "declinationDeg": 85.49399286246147,
+            "up": 0.9402358361182812
+          },
+          "declinationErrorDeg": 62.05399286246147
+        }
+      ],
+      "maxInverseDeclinationErrorDeg": 62.05399286246147,
+      "finitePointSha256": "7dd3d53909d6a81259926281e32b401dbe501a7160b1ece282032f3ff00c99f4"
+    },
+    {
+      "name": "north-west-350",
+      "latitudeDeg": 70,
+      "wallDeclinationDeg": 100,
+      "radiusMm": 350,
+      "nodusDistanceMm": 112,
+      "fanSvgSha256": "cafae795bccd0af1abf5a6ae5723da83aab50cb2333282eaaa2cdfcd90843183",
+      "declinationDeg": 23.44,
+      "gnomonStyleHeightDeg": 3.4048673211610336,
+      "nativeSamples": 49,
+      "visibleSamples": 49,
+      "nullSamples": 0,
+      "plottedRuns": 1,
+      "plottedEdges": 48,
+      "badEdges": [
+        {
+          "from": {
+            "u": 97.54056745455729,
+            "v": 84.76419821072182
+          },
+          "to": {
+            "u": 19.80708389493907,
+            "v": -129.2132265018407
+          },
+          "midpoint": {
+            "u": 58.67382567474818,
+            "v": -22.22451414555944
+          },
+          "inverseSun": {
+            "declinationDeg": 85.49399286246154,
+            "up": 0.9402358361182812
+          },
+          "declinationErrorDeg": 62.05399286246154
+        }
+      ],
+      "maxInverseDeclinationErrorDeg": 62.05399286246154,
+      "finitePointSha256": "5924c74cf15d8e5cb5077845cb9447c045d046c274d33285d2ead347476a6181"
+    },
+    {
+      "name": "north-east-90",
+      "latitudeDeg": 70,
+      "wallDeclinationDeg": -100,
+      "radiusMm": 90,
+      "nodusDistanceMm": 28.8,
+      "fanSvgSha256": "481164302f9ba77f3561ce83887f8d7adef76dd378f5692c36a5626e82285c72",
+      "declinationDeg": 23.44,
+      "gnomonStyleHeightDeg": 3.404867321161043,
+      "nativeSamples": 49,
+      "visibleSamples": 49,
+      "nullSamples": 0,
+      "plottedRuns": 1,
+      "plottedEdges": 48,
+      "badEdges": [
+        {
+          "from": {
+            "u": 5.093250144412657,
+            "v": 33.22625824333073
+          },
+          "to": {
+            "u": 25.08186020260044,
+            "v": -21.796508111328624
+          },
+          "midpoint": {
+            "u": 15.087555173506548,
+            "v": 5.7148750660010545
+          },
+          "inverseSun": {
+            "declinationDeg": 85.49399286246137,
+            "up": 0.9402358361182834
+          },
+          "declinationErrorDeg": 62.05399286246137
+        }
+      ],
+      "maxInverseDeclinationErrorDeg": 62.05399286246137,
+      "finitePointSha256": "e8717f7c10662e90b5b0497d3656603d3f70c4a0c4b940baf5f924a5bcc834d6"
+    },
+    {
+      "name": "north-east-350",
+      "latitudeDeg": 70,
+      "wallDeclinationDeg": -100,
+      "radiusMm": 350,
+      "nodusDistanceMm": 112,
+      "fanSvgSha256": "79320054bdebff167ea6a1fc3cd8288993a67ca3beda95b309c51bd0a4d8ac6b",
+      "declinationDeg": 23.44,
+      "gnomonStyleHeightDeg": 3.404867321161043,
+      "nativeSamples": 49,
+      "visibleSamples": 49,
+      "nullSamples": 0,
+      "plottedRuns": 1,
+      "plottedEdges": 48,
+      "badEdges": [
+        {
+          "from": {
+            "u": 19.80708389493813,
+            "v": 129.21322650184172
+          },
+          "to": {
+            "u": 97.54056745455726,
+            "v": -84.76419821072241
+          },
+          "midpoint": {
+            "u": 58.6738256747477,
+            "v": 22.224514145559652
+          },
+          "inverseSun": {
+            "declinationDeg": 85.49399286246147,
+            "up": 0.9402358361182835
+          },
+          "declinationErrorDeg": 62.05399286246147
+        }
+      ],
+      "maxInverseDeclinationErrorDeg": 62.05399286246147,
+      "finitePointSha256": "27142d04192e052c60a7e18a1fcb5fb38dcc7b1adb6c764ec5e3f64c34b48e59"
+    },
+    {
+      "name": "south-west-90",
+      "latitudeDeg": -70,
+      "wallDeclinationDeg": 80,
+      "radiusMm": 90,
+      "nodusDistanceMm": 28.8,
+      "fanSvgSha256": "a67dc30c9533d5082af44a1b453876e6c710a0d3bdb53abfc537ce47aaa08b75",
+      "declinationDeg": -23.44,
+      "gnomonStyleHeightDeg": 3.4048673211610416,
+      "nativeSamples": 49,
+      "visibleSamples": 49,
+      "nullSamples": 0,
+      "plottedRuns": 1,
+      "plottedEdges": 48,
+      "badEdges": [
+        {
+          "from": {
+            "u": 25.08186020260047,
+            "v": -21.79650811132808
+          },
+          "to": {
+            "u": 5.093250144412988,
+            "v": 33.22625824333038
+          },
+          "midpoint": {
+            "u": 15.087555173506729,
+            "v": 5.714875066001149
+          },
+          "inverseSun": {
+            "declinationDeg": -85.49399286246121,
+            "up": 0.9402358361182841
+          },
+          "declinationErrorDeg": 62.053992862461214
+        }
+      ],
+      "maxInverseDeclinationErrorDeg": 62.053992862461214,
+      "finitePointSha256": "20219c85bc7ad73e3d038eddd1f311a0224b57180a1e598d059d372dfaa54c61"
+    },
+    {
+      "name": "south-west-350",
+      "latitudeDeg": -70,
+      "wallDeclinationDeg": 80,
+      "radiusMm": 350,
+      "nodusDistanceMm": 112,
+      "fanSvgSha256": "9e544fc663f70e7c0091a174415f3e6a9487a00ae7a7545bd15b46d04d3f3c82",
+      "declinationDeg": -23.44,
+      "gnomonStyleHeightDeg": 3.4048673211610416,
+      "nativeSamples": 49,
+      "visibleSamples": 49,
+      "nullSamples": 0,
+      "plottedRuns": 1,
+      "plottedEdges": 48,
+      "badEdges": [
+        {
+          "from": {
+            "u": 97.54056745455739,
+            "v": -84.76419821072031
+          },
+          "to": {
+            "u": 19.807083894939396,
+            "v": 129.21322650184035
+          },
+          "midpoint": {
+            "u": 58.67382567474839,
+            "v": 22.224514145560022
+          },
+          "inverseSun": {
+            "declinationDeg": -85.49399286246128,
+            "up": 0.940235836118284
+          },
+          "declinationErrorDeg": 62.053992862461286
+        }
+      ],
+      "maxInverseDeclinationErrorDeg": 62.053992862461286,
+      "finitePointSha256": "9cbe6763d59c3b8c57f7e8e75a56e17f1320c0512b3e1dbc2f4783404b7a422d"
+    },
+    {
+      "name": "south-east-90",
+      "latitudeDeg": -70,
+      "wallDeclinationDeg": -80,
+      "radiusMm": 90,
+      "nodusDistanceMm": 28.8,
+      "fanSvgSha256": "769568ed9c82cdb84d1676339e0099bde481da181deccc75a21fa053eeee39e8",
+      "declinationDeg": -23.44,
+      "gnomonStyleHeightDeg": 3.404867321161041,
+      "nativeSamples": 49,
+      "visibleSamples": 49,
+      "nullSamples": 0,
+      "plottedRuns": 1,
+      "plottedEdges": 48,
+      "badEdges": [
+        {
+          "from": {
+            "u": 5.093250144412714,
+            "v": -33.226258243330676
+          },
+          "to": {
+            "u": 25.081860202600463,
+            "v": 21.796508111328198
+          },
+          "midpoint": {
+            "u": 15.087555173506589,
+            "v": -5.714875066001239
+          },
+          "inverseSun": {
+            "declinationDeg": -85.49399286246113,
+            "up": 0.9402358361182874
+          },
+          "declinationErrorDeg": 62.05399286246113
+        }
+      ],
+      "maxInverseDeclinationErrorDeg": 62.05399286246113,
+      "finitePointSha256": "87515fb9f47595a070ab498b06ce9b5beed4b982225573684a9ac52f3c53b4dd"
+    },
+    {
+      "name": "south-east-350",
+      "latitudeDeg": -70,
+      "wallDeclinationDeg": -80,
+      "radiusMm": 350,
+      "nodusDistanceMm": 112,
+      "fanSvgSha256": "1139b0e3eb1672400069c60fabc531375179f1a156aba0784318b99003035e8e",
+      "declinationDeg": -23.44,
+      "gnomonStyleHeightDeg": 3.404867321161041,
+      "nativeSamples": 49,
+      "visibleSamples": 49,
+      "nullSamples": 0,
+      "plottedRuns": 1,
+      "plottedEdges": 48,
+      "badEdges": [
+        {
+          "from": {
+            "u": 19.807083894938344,
+            "v": -129.2132265018415
+          },
+          "to": {
+            "u": 97.54056745455736,
+            "v": 84.76419821072075
+          },
+          "midpoint": {
+            "u": 58.67382567474785,
+            "v": -22.22451414556037
+          },
+          "inverseSun": {
+            "declinationDeg": -85.49399286246104,
+            "up": 0.9402358361182874
+          },
+          "declinationErrorDeg": 62.053992862461044
+        }
+      ],
+      "maxInverseDeclinationErrorDeg": 62.053992862461044,
+      "finitePointSha256": "bb0475468a6e3e0913cd6a553a4327fc9285cb5f4a6f0a0e193798eeff3428fd"
+    }
+  ],
+  "badEdges": 8
+}
