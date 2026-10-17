@@ -4,6 +4,18 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Movable rod for the selected date
+
+- Show an open standing ring for the selected local minute on an analemmatic
+  dial. Retain the actual point, date/UTC offset and north/south distance in
+  native SVG/PNG; wrap the print legend below the unchanged geometry.
+- Expose its date/time controls, preserve a chosen date when switching dial
+  types, and update the point when the time changes on the same day. Keep
+  animated shadow, fixed-style template and PDF controls unavailable here.
+- Freeze the same civil minute as the existing portable design format,
+  including repeated times and historical offsets containing seconds.
+  [Actual drawings, independent Sun rays and browser downloads](studies/selected-standing/README.md).
+
 ### Date curves across unlit intervals
 
 - Preserve unusable shadow samples as gaps. Polar-day wall drawings previously

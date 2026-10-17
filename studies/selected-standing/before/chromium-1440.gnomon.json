@@ -1,0 +1,23 @@
+{
+  "format": "gnomon-design",
+  "version": 1,
+  "latitudeDeg": -33.8688,
+  "longitudeDeg": 151.2093,
+  "timeZone": "Australia/Sydney",
+  "dialType": "analemmatic",
+  "wallDeclinationDeg": 0,
+  "plateShape": "fan",
+  "timeMode": "apparent",
+  "dstOffsetOverride": null,
+  "numerals": "arabic",
+  "showDeclinationLines": true,
+  "showZodiac": false,
+  "historicalHours": [],
+  "radiusMm": 90,
+  "theme": "blueprint",
+  "motto": null,
+  "customDateTimeLocal": "2026-10-17T12:00",
+  "timeDisambiguation": "earlier",
+  "utcInstant": "2026-10-17T01:00:00.000Z",
+  "utcOffsetMinutes": 660
+}

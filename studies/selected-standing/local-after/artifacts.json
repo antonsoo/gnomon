@@ -1,0 +1,104 @@
+{
+  "scope": "Actual native SVG coordinates against retained DE421 declinations and an independent ENU Sun ray. Numerical controlled check, not physical fabrication or field accuracy.",
+  "phase": "after",
+  "records": [
+    {
+      "file": "chromium-1440.svg",
+      "sha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "selectedMarkers": 1,
+      "offsetMm": -12.092000000000013,
+      "inverseDeclinationDeg": -9.191509169243226,
+      "oracleDeclinationDeg": -9.19296065030604,
+      "declinationErrorDeg": 0.0014514810628138974,
+      "printed15hShadowDirectionErrorDeg": 0.001497035260881119,
+      "svgPhysicalWidthMm": 234.0,
+      "svgPhysicalHeightMm": 262.0
+    },
+    {
+      "file": "chromium-1440.edited.svg",
+      "sha256": "85d921551bf71c236761b66bf30842628481f320ed43b913682416c4667fe0ec",
+      "selectedMarkers": 1,
+      "offsetMm": -12.215000000000003,
+      "inverseDeclinationDeg": -9.283385547874405,
+      "oracleDeclinationDeg": -9.284402084813998,
+      "declinationErrorDeg": 0.0010165369395931378,
+      "printed15hShadowDirectionErrorDeg": 0.001037673516540888,
+      "svgPhysicalWidthMm": 234.0,
+      "svgPhysicalHeightMm": 262.0
+    },
+    {
+      "file": "chromium-375.svg",
+      "sha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "selectedMarkers": 1,
+      "offsetMm": -12.092000000000013,
+      "inverseDeclinationDeg": -9.191509169243226,
+      "oracleDeclinationDeg": -9.19296065030604,
+      "declinationErrorDeg": 0.0014514810628138974,
+      "printed15hShadowDirectionErrorDeg": 0.001497035260881119,
+      "svgPhysicalWidthMm": 234.0,
+      "svgPhysicalHeightMm": 262.0
+    },
+    {
+      "file": "chromium-375.edited.svg",
+      "sha256": "85d921551bf71c236761b66bf30842628481f320ed43b913682416c4667fe0ec",
+      "selectedMarkers": 1,
+      "offsetMm": -12.215000000000003,
+      "inverseDeclinationDeg": -9.283385547874405,
+      "oracleDeclinationDeg": -9.284402084813998,
+      "declinationErrorDeg": 0.0010165369395931378,
+      "printed15hShadowDirectionErrorDeg": 0.001037673516540888,
+      "svgPhysicalWidthMm": 234.0,
+      "svgPhysicalHeightMm": 262.0
+    },
+    {
+      "file": "firefox-1440.svg",
+      "sha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "selectedMarkers": 1,
+      "offsetMm": -12.092000000000013,
+      "inverseDeclinationDeg": -9.191509169243226,
+      "oracleDeclinationDeg": -9.19296065030604,
+      "declinationErrorDeg": 0.0014514810628138974,
+      "printed15hShadowDirectionErrorDeg": 0.001497035260881119,
+      "svgPhysicalWidthMm": 234.0,
+      "svgPhysicalHeightMm": 262.0
+    },
+    {
+      "file": "firefox-1440.edited.svg",
+      "sha256": "85d921551bf71c236761b66bf30842628481f320ed43b913682416c4667fe0ec",
+      "selectedMarkers": 1,
+      "offsetMm": -12.215000000000003,
+      "inverseDeclinationDeg": -9.283385547874405,
+      "oracleDeclinationDeg": -9.284402084813998,
+      "declinationErrorDeg": 0.0010165369395931378,
+      "printed15hShadowDirectionErrorDeg": 0.001037673516540888,
+      "svgPhysicalWidthMm": 234.0,
+      "svgPhysicalHeightMm": 262.0
+    },
+    {
+      "file": "firefox-375.svg",
+      "sha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "selectedMarkers": 1,
+      "offsetMm": -12.092000000000013,
+      "inverseDeclinationDeg": -9.191509169243226,
+      "oracleDeclinationDeg": -9.19296065030604,
+      "declinationErrorDeg": 0.0014514810628138974,
+      "printed15hShadowDirectionErrorDeg": 0.001497035260881119,
+      "svgPhysicalWidthMm": 234.0,
+      "svgPhysicalHeightMm": 262.0
+    },
+    {
+      "file": "firefox-375.edited.svg",
+      "sha256": "85d921551bf71c236761b66bf30842628481f320ed43b913682416c4667fe0ec",
+      "selectedMarkers": 1,
+      "offsetMm": -12.215000000000003,
+      "inverseDeclinationDeg": -9.283385547874405,
+      "oracleDeclinationDeg": -9.284402084813998,
+      "declinationErrorDeg": 0.0010165369395931378,
+      "printed15hShadowDirectionErrorDeg": 0.001037673516540888,
+      "svgPhysicalWidthMm": 234.0,
+      "svgPhysicalHeightMm": 262.0
+    }
+  ],
+  "maximumDeclinationErrorDeg": 0.0014514810628138974,
+  "maximumShadowDirectionErrorDeg": 0.001497035260881119
+}

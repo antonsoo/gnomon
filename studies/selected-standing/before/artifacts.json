@@ -1,0 +1,28 @@
+{
+  "scope": "Actual native SVG coordinates against retained DE421 declinations and an independent ENU Sun ray. Numerical controlled check, not physical fabrication or field accuracy.",
+  "phase": "before",
+  "records": [
+    {
+      "file": "chromium-1440.svg",
+      "sha256": "cc311f316d61d5c608ce8f55488e8c06306024cf5bac2daf00d432fa6c19b708",
+      "selectedMarkers": 0
+    },
+    {
+      "file": "chromium-375.svg",
+      "sha256": "cc311f316d61d5c608ce8f55488e8c06306024cf5bac2daf00d432fa6c19b708",
+      "selectedMarkers": 0
+    },
+    {
+      "file": "firefox-1440.svg",
+      "sha256": "cc311f316d61d5c608ce8f55488e8c06306024cf5bac2daf00d432fa6c19b708",
+      "selectedMarkers": 0
+    },
+    {
+      "file": "firefox-375.svg",
+      "sha256": "cc311f316d61d5c608ce8f55488e8c06306024cf5bac2daf00d432fa6c19b708",
+      "selectedMarkers": 0
+    }
+  ],
+  "maximumDeclinationErrorDeg": 0,
+  "maximumShadowDirectionErrorDeg": 0
+}

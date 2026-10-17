@@ -1,0 +1,32 @@
+{
+  "source": "Skyfield apparent geocentric Sun, epoch of date, JPL DE421",
+  "skyfield": "1.54",
+  "kernel": {
+    "file": "de421.bsp",
+    "bytes": 16788480,
+    "sha256": "a20a7139da04cbc462454634918e9a9ca69127044e2cc9d4f9c16e238d2deedc"
+  },
+  "points": [
+    {
+      "utc": "2026-10-17T01:00:00Z",
+      "apparentDeclinationDeg": -9.19296065030604
+    },
+    {
+      "utc": "2026-10-17T07:00:00Z",
+      "apparentDeclinationDeg": -9.284402084813998
+    },
+    {
+      "utc": "2026-11-01T08:30:00Z",
+      "apparentDeclinationDeg": -14.474071106029353
+    },
+    {
+      "utc": "2026-11-01T09:30:00Z",
+      "apparentDeclinationDeg": -14.48738697476938
+    },
+    {
+      "utc": "1900-01-01T11:50:39Z",
+      "apparentDeclinationDeg": -23.023547346465982
+    }
+  ],
+  "scope": "Independent date input for controlled native standing-point geometry; no field measurement or accuracy extension."
+}

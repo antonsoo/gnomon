@@ -1,0 +1,5 @@
+{
+  "calendarGeometriesUnchanged": 30,
+  "polarNativeDrawingsByteIdentical": 90,
+  "scope": "Exact fixed calendar/hour geometry and native polar SVG controls; selected-point/legend adds analemmatic drawing content."
+}

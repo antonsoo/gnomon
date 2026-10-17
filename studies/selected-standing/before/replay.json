@@ -1,0 +1,674 @@
+{
+  "phase": "before",
+  "sourceRevision": "57fc8c2f0c133c677ab2451732c47694ef948e98",
+  "scope": "Controlled selected-date native drawings and unchanged polar/calendar geometry; not physical printing or field accuracy.",
+  "oracle": {
+    "file": "tests/fixtures/solar-oracle.json",
+    "sha256": "0cdf8c5685c5ae07c3baebb91b8bdecaa61b9a4ff6107ba174274024cf405dcd",
+    "source": "Skyfield + JPL DE421 (scripts/solar_oracle.py)"
+  },
+  "cases": [
+    {
+      "name": "2026-01-16-north-30",
+      "utc": "2026-01-16T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": -20.879258,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "dfbbe5096d2d741e90601aa0d0908e22867e5305179162ebba2de1d3587c0272",
+      "svgSha256": "03d7bca26591a3487af3cadd05f863b462a240ca06b5effa320e6fe35f77ab44"
+    },
+    {
+      "name": "2026-01-16-north-90",
+      "utc": "2026-01-16T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": -20.879258,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "fc5ec81241d4db1bc6c56df053bad8124e9f733af9223e7e6b3b9395dc842cf3",
+      "svgSha256": "f35e3f04cb6dce7817c43280127cf989e72a019d524188af979b5dceb837cc34"
+    },
+    {
+      "name": "2026-01-16-north-400",
+      "utc": "2026-01-16T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": -20.879258,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "9f4ace7bc470c32330eb57dae43930820a598f1dbb43a7c70eb714be9e28770e",
+      "svgSha256": "92df806629e347a83e298a63fe1f97587be7b277ed73a601ddb9353454b25e44"
+    },
+    {
+      "name": "2026-01-16-south-30",
+      "utc": "2026-01-16T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": -20.879258,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "798b6707d2ec22daf0dac8891ec83d7ec459862b751accafeb803642de79f5e9",
+      "svgSha256": "f4c5a188707abbd1eec9ba705959508fbbffa7cdd42cda9810a372dde3e53500"
+    },
+    {
+      "name": "2026-01-16-south-90",
+      "utc": "2026-01-16T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": -20.879258,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "ad2a9d707f14f308211c3cec21f2fe2d3c157e218d89fabf56e2949de74f098c",
+      "svgSha256": "c87d7a7597b7283575612bbedcc62fe920c31e5bdbdadedad2aa6be0297f831b"
+    },
+    {
+      "name": "2026-01-16-south-400",
+      "utc": "2026-01-16T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": -20.879258,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "f6e25f2ab1f29c774b79e1c3538489bbed0daa34bc73ebc25da604bc625456b3",
+      "svgSha256": "217d245cda951f6b0f4dc792ab70e1181cb1f6f1bde51d5d9d752b1b8dbcd612"
+    },
+    {
+      "name": "2026-04-11-north-30",
+      "utc": "2026-04-11T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": 8.422983,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "dfbbe5096d2d741e90601aa0d0908e22867e5305179162ebba2de1d3587c0272",
+      "svgSha256": "1e7659cb2d63e94efc5d086c0da9007455be10514b37d71cc768fe70ed2b69a5"
+    },
+    {
+      "name": "2026-04-11-north-90",
+      "utc": "2026-04-11T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": 8.422983,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "fc5ec81241d4db1bc6c56df053bad8124e9f733af9223e7e6b3b9395dc842cf3",
+      "svgSha256": "389f0fee26fe7da61e055f1537f2fed1817f0962129c88cae3e268db28fdf686"
+    },
+    {
+      "name": "2026-04-11-north-400",
+      "utc": "2026-04-11T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": 8.422983,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "9f4ace7bc470c32330eb57dae43930820a598f1dbb43a7c70eb714be9e28770e",
+      "svgSha256": "fed29d1a2d5bfd5609be0943c24b7d1fcf1a912fd23779809b5478c3d97830a1"
+    },
+    {
+      "name": "2026-04-11-south-30",
+      "utc": "2026-04-11T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": 8.422983,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "798b6707d2ec22daf0dac8891ec83d7ec459862b751accafeb803642de79f5e9",
+      "svgSha256": "f0fdb0421f8ae5e5071c22fbf80cbd7feeff0c84826e5d00c5889250d8b1d940"
+    },
+    {
+      "name": "2026-04-11-south-90",
+      "utc": "2026-04-11T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": 8.422983,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "ad2a9d707f14f308211c3cec21f2fe2d3c157e218d89fabf56e2949de74f098c",
+      "svgSha256": "5a2c9c53f15acf012fd1fb3cfa23469e838400bfe446cea4df3e75b991e06376"
+    },
+    {
+      "name": "2026-04-11-south-400",
+      "utc": "2026-04-11T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": 8.422983,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "f6e25f2ab1f29c774b79e1c3538489bbed0daa34bc73ebc25da604bc625456b3",
+      "svgSha256": "98c568febe1c63006f1492c06720d6976ab56c7e3c5a5a9801063097b297ded3"
+    },
+    {
+      "name": "2026-07-05-north-30",
+      "utc": "2026-07-05T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": 22.754241,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "dfbbe5096d2d741e90601aa0d0908e22867e5305179162ebba2de1d3587c0272",
+      "svgSha256": "5aabd15c6ecaef5cf454194cd8e4e3569b40004117cfa240eadf831e06e54dbe"
+    },
+    {
+      "name": "2026-07-05-north-90",
+      "utc": "2026-07-05T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": 22.754241,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "fc5ec81241d4db1bc6c56df053bad8124e9f733af9223e7e6b3b9395dc842cf3",
+      "svgSha256": "20e08586d0f46baf4cb9a23d5034d0dbbc83f2a6ac9460491704304a5bacf2a6"
+    },
+    {
+      "name": "2026-07-05-north-400",
+      "utc": "2026-07-05T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": 22.754241,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "9f4ace7bc470c32330eb57dae43930820a598f1dbb43a7c70eb714be9e28770e",
+      "svgSha256": "49a4bef208ac1ad1b2c772e813c6ad57eaa84ed7aa83ec5f9d91d106adf8ac63"
+    },
+    {
+      "name": "2026-07-05-south-30",
+      "utc": "2026-07-05T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": 22.754241,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "798b6707d2ec22daf0dac8891ec83d7ec459862b751accafeb803642de79f5e9",
+      "svgSha256": "3ebc3c82261bcd0f469395faf8e0f2ed73ef458a7f7db0a91af298e1833aa035"
+    },
+    {
+      "name": "2026-07-05-south-90",
+      "utc": "2026-07-05T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": 22.754241,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "ad2a9d707f14f308211c3cec21f2fe2d3c157e218d89fabf56e2949de74f098c",
+      "svgSha256": "0994f7c69750605960e6bf6d46cc0b407f7beb827d4ff5224139948928571b1a"
+    },
+    {
+      "name": "2026-07-05-south-400",
+      "utc": "2026-07-05T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": 22.754241,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "f6e25f2ab1f29c774b79e1c3538489bbed0daa34bc73ebc25da604bc625456b3",
+      "svgSha256": "b72d5126b6f70340b54609f0dc20819c42a23a7fbd227241ac1a3ec5d141fd9e"
+    },
+    {
+      "name": "2026-09-28-north-30",
+      "utc": "2026-09-28T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": -2.138752,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "dfbbe5096d2d741e90601aa0d0908e22867e5305179162ebba2de1d3587c0272",
+      "svgSha256": "f982e8ef0f06077e47280807e99febf4ce4649521d170f7f989e42ab8ad60107"
+    },
+    {
+      "name": "2026-09-28-north-90",
+      "utc": "2026-09-28T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": -2.138752,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "fc5ec81241d4db1bc6c56df053bad8124e9f733af9223e7e6b3b9395dc842cf3",
+      "svgSha256": "f5f5e2fdb7a319dba353d5b4d04c21d35218d6a463851e14aa021a8bc4dbfad3"
+    },
+    {
+      "name": "2026-09-28-north-400",
+      "utc": "2026-09-28T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": -2.138752,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "9f4ace7bc470c32330eb57dae43930820a598f1dbb43a7c70eb714be9e28770e",
+      "svgSha256": "9532cbe2d77152c8043a5fc727f4869679d55612bc16220a3a5383777329d729"
+    },
+    {
+      "name": "2026-09-28-south-30",
+      "utc": "2026-09-28T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": -2.138752,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "798b6707d2ec22daf0dac8891ec83d7ec459862b751accafeb803642de79f5e9",
+      "svgSha256": "b4b12541e95b9916f1188f99caea6feb5a26cdcd2d9e814066d2ebc95095c1d1"
+    },
+    {
+      "name": "2026-09-28-south-90",
+      "utc": "2026-09-28T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": -2.138752,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "ad2a9d707f14f308211c3cec21f2fe2d3c157e218d89fabf56e2949de74f098c",
+      "svgSha256": "7eca2f006d1cc43050ca9168a1ffd1e92a23cfe34848c11a412b2fb9a4c29f01"
+    },
+    {
+      "name": "2026-09-28-south-400",
+      "utc": "2026-09-28T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": -2.138752,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "f6e25f2ab1f29c774b79e1c3538489bbed0daa34bc73ebc25da604bc625456b3",
+      "svgSha256": "ceb17998539e5621d356f2454fc8314ef22c36da1766568a04b9ca9d847a6e7d"
+    },
+    {
+      "name": "2026-12-22-north-30",
+      "utc": "2026-12-22T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": -23.435847,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "dfbbe5096d2d741e90601aa0d0908e22867e5305179162ebba2de1d3587c0272",
+      "svgSha256": "96f1bb1ed160c53e6b53ee97afb863d1e070550192f7c317d623f3197fc84af8"
+    },
+    {
+      "name": "2026-12-22-north-90",
+      "utc": "2026-12-22T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": -23.435847,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "fc5ec81241d4db1bc6c56df053bad8124e9f733af9223e7e6b3b9395dc842cf3",
+      "svgSha256": "464f791c657d5345b8cd6b1309a3c0ff04758d6e61de451677299980cbf9a57d"
+    },
+    {
+      "name": "2026-12-22-north-400",
+      "utc": "2026-12-22T12:00:00Z",
+      "latitudeDeg": 37.7749,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": -23.435847,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "9f4ace7bc470c32330eb57dae43930820a598f1dbb43a7c70eb714be9e28770e",
+      "svgSha256": "b69081a6561d5dc0b94507716b03aac8c8d7d5545c0131764d9fa11a8dd16c27"
+    },
+    {
+      "name": "2026-12-22-south-30",
+      "utc": "2026-12-22T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 30,
+      "oracleDeclinationDeg": -23.435847,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "798b6707d2ec22daf0dac8891ec83d7ec459862b751accafeb803642de79f5e9",
+      "svgSha256": "7f2601a88a00c363427763ced36897a85a75b414727a9294ceff1c30df86ae3f"
+    },
+    {
+      "name": "2026-12-22-south-90",
+      "utc": "2026-12-22T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "oracleDeclinationDeg": -23.435847,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "ad2a9d707f14f308211c3cec21f2fe2d3c157e218d89fabf56e2949de74f098c",
+      "svgSha256": "1974645c8e17c7aec3a58e1de8ff8541ad0669e4fa9a10fca50e140f9687df03"
+    },
+    {
+      "name": "2026-12-22-south-400",
+      "utc": "2026-12-22T12:00:00Z",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 400,
+      "oracleDeclinationDeg": -23.435847,
+      "selectedMarkers": 0,
+      "calendarGeometrySha256": "f6e25f2ab1f29c774b79e1c3538489bbed0daa34bc73ebc25da604bc625456b3",
+      "svgSha256": "78ad343c22bc8db1c4ddfd9f393c542f5190c8bf6d71000d5a523f538c9d7db2"
+    }
+  ],
+  "polarControls": [
+    {
+      "name": "2026-01-16-north-30-horizontal",
+      "svgSha256": "4200eaf375790d813bb0f0724453bb2fe6f28ef452ef6babe0877bcd1a1c8a18"
+    },
+    {
+      "name": "2026-01-16-north-30-vertical",
+      "svgSha256": "786d28ebedc6a9d2d91201b7f28631afb561e4720f76d65718e75809af52c180"
+    },
+    {
+      "name": "2026-01-16-north-30-equatorial",
+      "svgSha256": "ceba58267e018da70be8d89d2bea87c8a04c37be67089d349fdc0981333498ca"
+    },
+    {
+      "name": "2026-01-16-north-90-horizontal",
+      "svgSha256": "f984e5b02af2c32fb1c296843073663cbb0165d382384af8e1a5c0d46bbbd69d"
+    },
+    {
+      "name": "2026-01-16-north-90-vertical",
+      "svgSha256": "312b12910915c80e95f4a40f108f0ca14e2923ec7c3e85f1329f708b86270b6e"
+    },
+    {
+      "name": "2026-01-16-north-90-equatorial",
+      "svgSha256": "73d44562bcfb5d04a008854318d614c6b3a22bdf19a873a93777509d4de04f1a"
+    },
+    {
+      "name": "2026-01-16-north-400-horizontal",
+      "svgSha256": "dfc8a70bf1f471e55e603ad26fbcf6ab10031089824245128a9fa467f4908655"
+    },
+    {
+      "name": "2026-01-16-north-400-vertical",
+      "svgSha256": "80be0723ba8a3cf630880108aee1bbd5b883b9a839655b9ed8904d38b94810d8"
+    },
+    {
+      "name": "2026-01-16-north-400-equatorial",
+      "svgSha256": "39d0473f11f587dd991ee881e2b0dc26625b0ce7af822b3510b4adaebb3b74a4"
+    },
+    {
+      "name": "2026-01-16-south-30-horizontal",
+      "svgSha256": "e533ced0a2a603784361ff8fd1ac3386c03622528cb2ec6203ba23d157d0332d"
+    },
+    {
+      "name": "2026-01-16-south-30-vertical",
+      "svgSha256": "7405fbb5f89ada9d9fdab6a8981ff0c572177de3791712476cc6594954c31982"
+    },
+    {
+      "name": "2026-01-16-south-30-equatorial",
+      "svgSha256": "f387edc11f90545a928e6e55ad7a078548a0781efb1d464edbabdd547dc81b5f"
+    },
+    {
+      "name": "2026-01-16-south-90-horizontal",
+      "svgSha256": "543f96135d047e71cc6f7dae10acfa823905ecd3692ca96b71e78f1224f872dc"
+    },
+    {
+      "name": "2026-01-16-south-90-vertical",
+      "svgSha256": "2fe07c370aef63700e3360b6478b436aa0aebaa996cc622b9d4f103d2a37936e"
+    },
+    {
+      "name": "2026-01-16-south-90-equatorial",
+      "svgSha256": "1fdac11e939cc4fe0673f001efcefbb3385ef2896cd9e180714ad532f0d1bb08"
+    },
+    {
+      "name": "2026-01-16-south-400-horizontal",
+      "svgSha256": "86c16efe37b2823ee85657dc36234d6d0de6f8d22785007242ff3925664aba87"
+    },
+    {
+      "name": "2026-01-16-south-400-vertical",
+      "svgSha256": "507790ede50f2bb81b989b5697c43c82d82e956f69dd96652c56a74ca0ec67c5"
+    },
+    {
+      "name": "2026-01-16-south-400-equatorial",
+      "svgSha256": "cb98146cd564db87dd63e412d76d6f3f0da2eb63bcd66d569d14ddf784bc418c"
+    },
+    {
+      "name": "2026-04-11-north-30-horizontal",
+      "svgSha256": "1c45ff394f874fe82ca09e38eea80b35c6af55713fb25de3f86869293b171fa5"
+    },
+    {
+      "name": "2026-04-11-north-30-vertical",
+      "svgSha256": "7ffb2e44280636cea12d7cc10ee6d3766dce90afd99ec0362c5f3851f94e05f8"
+    },
+    {
+      "name": "2026-04-11-north-30-equatorial",
+      "svgSha256": "c59420ea32844a41c7a20a8a5750543ab4200884ec2aaae6bd1528aeb2ac1de4"
+    },
+    {
+      "name": "2026-04-11-north-90-horizontal",
+      "svgSha256": "3b3a0bfe2f47717124a66a53f829c6cb154e75eb759e7d89f12f4cecc0151c54"
+    },
+    {
+      "name": "2026-04-11-north-90-vertical",
+      "svgSha256": "76764ad2f8c9f2d75dde0142953b27dac5326307a9ebc20f1cca5e6e44fbcb86"
+    },
+    {
+      "name": "2026-04-11-north-90-equatorial",
+      "svgSha256": "b9162a86d871976f09dedd05c155e663f6a62b04000b0ac3f360f1f842ec4e68"
+    },
+    {
+      "name": "2026-04-11-north-400-horizontal",
+      "svgSha256": "b0f4e11bd21710c14d3ca07f42822b1cb244243c43993aba6772eb64af96308a"
+    },
+    {
+      "name": "2026-04-11-north-400-vertical",
+      "svgSha256": "b4aaa8deada0c147da7647cb9504ea982600c6a93e5bbc242ee77ecc5b68ceb0"
+    },
+    {
+      "name": "2026-04-11-north-400-equatorial",
+      "svgSha256": "5a8bc4fb59acb665a4f49923b24973da070ad800d499f683c4579dd06e072f90"
+    },
+    {
+      "name": "2026-04-11-south-30-horizontal",
+      "svgSha256": "07cca9283370a627e536dc14fc42f2a29f0997c1c0ed61f9178332e7015eab6e"
+    },
+    {
+      "name": "2026-04-11-south-30-vertical",
+      "svgSha256": "76a0799a6d2b81038f80d1550d61025944f49bb585b0c1c2734cc109fbcdac75"
+    },
+    {
+      "name": "2026-04-11-south-30-equatorial",
+      "svgSha256": "6653ca566722e37ac3f9ced3b59d7b4d030821069117c29d747815194a8da97b"
+    },
+    {
+      "name": "2026-04-11-south-90-horizontal",
+      "svgSha256": "189b2a4d67bd106833d8abeab90996df512c59e0d8558f6db143378c6f9f263f"
+    },
+    {
+      "name": "2026-04-11-south-90-vertical",
+      "svgSha256": "6f6de29ea99fcf0cf47bb4fffac3ef6bcf024e24eb4dea28a7182131f816bd14"
+    },
+    {
+      "name": "2026-04-11-south-90-equatorial",
+      "svgSha256": "c53c2618d81a6629570263aed6203e251353195e087c33c0d1e47ae3be5f9311"
+    },
+    {
+      "name": "2026-04-11-south-400-horizontal",
+      "svgSha256": "64c906b711bf3ff13b47df2b7efa3bbfbecb858cbf28b7df827ccd4888f39abd"
+    },
+    {
+      "name": "2026-04-11-south-400-vertical",
+      "svgSha256": "b644ad6f4e2abe92f23043ed8aac17efb94b8a4493166948346dc0a40797b594"
+    },
+    {
+      "name": "2026-04-11-south-400-equatorial",
+      "svgSha256": "71124f960f55a6861380717cfee50952ab2755b47ad0865588c3a24dddd7ad9e"
+    },
+    {
+      "name": "2026-07-05-north-30-horizontal",
+      "svgSha256": "db6b255442ca08b477532a25ea2eb0aa7ba145bc27ae723bd872b38f5cf38839"
+    },
+    {
+      "name": "2026-07-05-north-30-vertical",
+      "svgSha256": "4ff77c80694e53bcededf7b30acb117f41fe5f66f12208b2a18449de223996cc"
+    },
+    {
+      "name": "2026-07-05-north-30-equatorial",
+      "svgSha256": "50c4ac7ccfb036f7ea1d02689c6824aace6f2fdf7c73dc8abec9b2ac390d2e64"
+    },
+    {
+      "name": "2026-07-05-north-90-horizontal",
+      "svgSha256": "57953161e8d32a088abd7446c050e20ee1521a50372b0477db13896a126567e2"
+    },
+    {
+      "name": "2026-07-05-north-90-vertical",
+      "svgSha256": "aa70d0b61084a54b60e3d06289371cf009f2c303c0d4c32fcc8e68268cd611b3"
+    },
+    {
+      "name": "2026-07-05-north-90-equatorial",
+      "svgSha256": "698204d3f340886fe17a7d140682f871dc7b42b900ee0ef1ebeb2a5e04b85ad1"
+    },
+    {
+      "name": "2026-07-05-north-400-horizontal",
+      "svgSha256": "81f0c34d38e61c1016ae00603c7168a3b5f12cd8b5c533ad1d612a80785b3396"
+    },
+    {
+      "name": "2026-07-05-north-400-vertical",
+      "svgSha256": "0c4c877f0a0abfbfb2d27dabf79c6d947e58f98828a6e388f5514fd48a153a75"
+    },
+    {
+      "name": "2026-07-05-north-400-equatorial",
+      "svgSha256": "2afa468148b0aad5b3a485c3c38dda0cc05c50d006a887b488f2d3f306ef3147"
+    },
+    {
+      "name": "2026-07-05-south-30-horizontal",
+      "svgSha256": "7b91267708228ea85b580d114f63c7ed2128f395933bfa7afa524775131662ce"
+    },
+    {
+      "name": "2026-07-05-south-30-vertical",
+      "svgSha256": "8a8718c04447b734f70145dbb8f5f294897851d0348ce353a5473c608d3b63e9"
+    },
+    {
+      "name": "2026-07-05-south-30-equatorial",
+      "svgSha256": "40d43eefdb73fd0cdbd3692a5437f27bc18503ad96d628877bfdc58640456412"
+    },
+    {
+      "name": "2026-07-05-south-90-horizontal",
+      "svgSha256": "93913da5a0da5c7dc2adfd85ea9822451fb8b9bd7983a0ea7a2a7144358faec8"
+    },
+    {
+      "name": "2026-07-05-south-90-vertical",
+      "svgSha256": "fd0778905b1bdd20cd9c240f0843d8ff57148cc36a9e716c17d87537a69b8fa5"
+    },
+    {
+      "name": "2026-07-05-south-90-equatorial",
+      "svgSha256": "4418c1a0d845cb2a96041ac0c1fb06eba2e64288c288ac363bfab3699f785ae6"
+    },
+    {
+      "name": "2026-07-05-south-400-horizontal",
+      "svgSha256": "1932fe8cd94625e140665ac5e394d8353d29a291df5998990b6d03ab5d537c87"
+    },
+    {
+      "name": "2026-07-05-south-400-vertical",
+      "svgSha256": "ca6e2118c462ef47b6f986f48c89e669c85d29d390d5854674e331355592f881"
+    },
+    {
+      "name": "2026-07-05-south-400-equatorial",
+      "svgSha256": "2d503b82d0035becb7a0cec210c4429ebd87cb798b16946b8385222982483b1d"
+    },
+    {
+      "name": "2026-09-28-north-30-horizontal",
+      "svgSha256": "4821a26e3fa21dd0a7aaffec79e8fa5d636de8ac233e801a30b2ea87322192b4"
+    },
+    {
+      "name": "2026-09-28-north-30-vertical",
+      "svgSha256": "3296e63eeac3d9e2851f2ffa14bf4b4b51aa1a061bfbbf8ad4c0571dc8b9b5d7"
+    },
+    {
+      "name": "2026-09-28-north-30-equatorial",
+      "svgSha256": "859249dc42e56926edd9d7a2a0274839e1e78993388bf21737734b968d264603"
+    },
+    {
+      "name": "2026-09-28-north-90-horizontal",
+      "svgSha256": "760332cbc2906a60cd695021d5683460a801c23fe241e771c6082b80470f6099"
+    },
+    {
+      "name": "2026-09-28-north-90-vertical",
+      "svgSha256": "0f73bd03a2bfaabd0920830dcb933dda58dfe10fa8c271de52ad61869e03c205"
+    },
+    {
+      "name": "2026-09-28-north-90-equatorial",
+      "svgSha256": "061914e69cce3905e4537063f07ccf896aacf9a1aeb65e0e333c82c28203ed61"
+    },
+    {
+      "name": "2026-09-28-north-400-horizontal",
+      "svgSha256": "9053a727e64fff002df950b6f86c68083f84fd444e0b98ff95abb483563869ed"
+    },
+    {
+      "name": "2026-09-28-north-400-vertical",
+      "svgSha256": "f60afc6c70ec7ed728822aa615f8f548b7c36f34907179ba54fa591bc6f0f1c0"
+    },
+    {
+      "name": "2026-09-28-north-400-equatorial",
+      "svgSha256": "54bce00e6fe1394e1439a6b203bb3e147e4d1d2ab1fab6937d4c3354ca3781d0"
+    },
+    {
+      "name": "2026-09-28-south-30-horizontal",
+      "svgSha256": "773aa3208dc5b2fde69f6ee49b2e1e4915041d001cc02f41fa8afb96ae2fe26d"
+    },
+    {
+      "name": "2026-09-28-south-30-vertical",
+      "svgSha256": "62c5942f0887dc3086e3b3890c4ab9206b7a8af7051f49bfa44852af89256b98"
+    },
+    {
+      "name": "2026-09-28-south-30-equatorial",
+      "svgSha256": "4b58fc5350d42b8fe2a08fa96960512a0b936f999a6a63a77fe016c873d2e02a"
+    },
+    {
+      "name": "2026-09-28-south-90-horizontal",
+      "svgSha256": "3f289952343c25d24b1322aebf14e221bd00349f5aefe8617b0d7dad3970d5be"
+    },
+    {
+      "name": "2026-09-28-south-90-vertical",
+      "svgSha256": "16435da8ca133824ef4391d50c601f5bc26aeaa313d964c3c4f547f649c72998"
+    },
+    {
+      "name": "2026-09-28-south-90-equatorial",
+      "svgSha256": "6be3f3d8c8b60f32549a8365543edfee839e45ba7bd132a8602d1ac403c5640b"
+    },
+    {
+      "name": "2026-09-28-south-400-horizontal",
+      "svgSha256": "1937df7c6886ffcc90307aac692ecb5a1720fe87db81b6276f8788d35fb3e47d"
+    },
+    {
+      "name": "2026-09-28-south-400-vertical",
+      "svgSha256": "efa25972ca545a3fa4fca8e08a0770507c3fd9134399b14d82531f62ec617317"
+    },
+    {
+      "name": "2026-09-28-south-400-equatorial",
+      "svgSha256": "29af315eb845be2f26f3983cc143feb63b1b501e869e93da6f6c212a11abf71a"
+    },
+    {
+      "name": "2026-12-22-north-30-horizontal",
+      "svgSha256": "1575a7c652dd8b00664d92975da37e18793850070a203ff07966e37e05663d4d"
+    },
+    {
+      "name": "2026-12-22-north-30-vertical",
+      "svgSha256": "91b82b3502bde33e8a13795268c793bff29b8593c046d3f9a446dd6fb1a9d4a2"
+    },
+    {
+      "name": "2026-12-22-north-30-equatorial",
+      "svgSha256": "ca8098172ed5b1079e3b0a1bdb2f493118b45c007a887cafb98843c62244969d"
+    },
+    {
+      "name": "2026-12-22-north-90-horizontal",
+      "svgSha256": "308cb94796b8896daf2d25ca569550372d19786a36a200c9b646df114de02590"
+    },
+    {
+      "name": "2026-12-22-north-90-vertical",
+      "svgSha256": "dd02bb9c722dd94e0bc568192e4fae44a52a45f8ad597a85587cc4c13f5aa624"
+    },
+    {
+      "name": "2026-12-22-north-90-equatorial",
+      "svgSha256": "4fe2439e1a3e398e138e1051124785ae54cf3fff48cff6f5dc392945dc78183f"
+    },
+    {
+      "name": "2026-12-22-north-400-horizontal",
+      "svgSha256": "abe1a4b507f2402c56e086c34264ffba4ad43da0b4d4e1031b69e6a051828556"
+    },
+    {
+      "name": "2026-12-22-north-400-vertical",
+      "svgSha256": "65b86c04c67b37bdc17394e056d70f06aa8be5375017eed99e6500f58a0785f7"
+    },
+    {
+      "name": "2026-12-22-north-400-equatorial",
+      "svgSha256": "404edf03ec7e08eab72cd30ceccd35b1048d2ba3f6922d8afd159da5c1eadb38"
+    },
+    {
+      "name": "2026-12-22-south-30-horizontal",
+      "svgSha256": "a72da4665a28561ba6539ce4eb097e0a2d5f8970a51453561278567e9151c3a2"
+    },
+    {
+      "name": "2026-12-22-south-30-vertical",
+      "svgSha256": "b2ea0737ca47e6a85203aad02cf1da15b05a0ada59bcec860b8304a59640ad73"
+    },
+    {
+      "name": "2026-12-22-south-30-equatorial",
+      "svgSha256": "a3ca87529666b57f4be6da04f67522b7b2c19bfa4be5daf28a32e7a01c0f8f9b"
+    },
+    {
+      "name": "2026-12-22-south-90-horizontal",
+      "svgSha256": "fbe85a004847e72282b9a9be058c9be6d5a38d1c3fb96387c4cab0e4f10ff3e8"
+    },
+    {
+      "name": "2026-12-22-south-90-vertical",
+      "svgSha256": "2567b254704f53a88e772f75adddef6185b17ee711278fef6448e0a951fc805d"
+    },
+    {
+      "name": "2026-12-22-south-90-equatorial",
+      "svgSha256": "cb88a6893b3688df134689235cc26e7690c01e09d1aee1b2ba768d8be9518671"
+    },
+    {
+      "name": "2026-12-22-south-400-horizontal",
+      "svgSha256": "823b735b7b0fe2ed6eb6aa2dcc1ee18c49a8373bc8cd9084e4fff4f85bdee2e2"
+    },
+    {
+      "name": "2026-12-22-south-400-vertical",
+      "svgSha256": "72ccd726c878a7682d198a639aded906dc508cfb3416f783eabe4127b71ebf31"
+    },
+    {
+      "name": "2026-12-22-south-400-equatorial",
+      "svgSha256": "559870041d3ff4f52f57e51b8c110add2af9edfc2ebc098a9a9d03639652621d"
+    }
+  ]
+}
