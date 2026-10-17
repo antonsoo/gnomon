@@ -72,7 +72,10 @@ const inputs=[];
 for(const file of ['src/lib/dials/declination-lines.ts','src/lib/dials/types.ts','src/lib/render/curves.ts','src/lib/render/svg.ts','src/lib/export/pdf.ts']){
  inputs.push({file,sha256:createHash('sha256').update(await readFile(resolve(root,file))).digest('hex')});
 }
-const result={phase,sourceRevision:execFileSync('git',['-C',root,'rev-parse','HEAD'],{encoding:'utf8'}).trim(),
+let sourceRevision=null;
+try{sourceRevision=execFileSync('git',['-C',root,'rev-parse','HEAD'],{encoding:'utf8',stdio:['ignore','pipe','ignore']}).trim();}
+catch{/* A clean source archive has no Git metadata; exact input hashes remain below. */}
+const result={phase,sourceRevision,
  scope:'Controlled polar-day receiving faces; inverse geometry of rendered segment midpoints, not a field measurement or general ephemeris accuracy estimate.',
  method:'From each plate point P, reconstruct the direction toward the physical nodus N. Its dot product with the north celestial axis gives sin(declination). A June/December date curve must retain its fixed declination, allowing the 0.02-degree bound for chords between 3.75-degree adjacent hour samples.',
  inputs,cases:rows,badEdges:rows.reduce((n,row)=>n+row.badEdges.length,0)};
