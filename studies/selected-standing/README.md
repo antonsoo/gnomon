@@ -93,3 +93,11 @@ To regenerate the independent selected-minute date values, run
 `uv run --script studies/selected-standing/capture_oracle.py --cache CACHE_DIR
 --out RESULT.json`. It downloads JPL DE421 on first use and pins Skyfield 1.54.
 No runtime dependency or network operation was added to the designer.
+
+[Clean archive verification](verification.json) records `a9c60ff`, a fresh Node
+24.21.0 install, lint/type checking, 312 unit checks in each of two number
+locales, build, native-vector replay and 74 actual Chromium/Firefox workflows,
+all completed with exit 0. Independent [PNG pixel measurements](png-geometry.json)
+locate the selected ring in both actual raster downloads against the separate
+DE421 date input; the old images contain no ring there. This checks actual
+pixels, rather than inferring correct drawing content from image dimensions.

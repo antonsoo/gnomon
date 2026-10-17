@@ -1,0 +1,106 @@
+{
+  "scope": "Independent PNG pixels against the native SVG frame and separate DE421 standing offset. Thresholded local ring ROI; no image editing, physical printing or general raster-quality estimate.",
+  "pillow": "12.2.0",
+  "oracleDeclinationDeg": -9.19296065030604,
+  "predictedOffsetMm": -12.093942680236578,
+  "records": [
+    {
+      "phase": "before",
+      "engine": "chromium",
+      "pngSha256": "e05c0fa91e92a40addb2b43cde871a9691b543bf68cb34edd295adbe5031e1b5",
+      "pixels": [
+        2763,
+        2763
+      ],
+      "inkBounds": [
+        170,
+        787,
+        2593,
+        2701
+      ],
+      "predictedRingCentrePixels": [
+        1381.5,
+        1524.3015539551013
+      ],
+      "ringPixelsPresent": false
+    },
+    {
+      "phase": "before",
+      "engine": "firefox",
+      "pngSha256": "c4b00df6d6a3a56b87e8eeea63879992b1b9aa15c3ba246b1f9a57d181b0bf7a",
+      "pixels": [
+        2763,
+        2763
+      ],
+      "inkBounds": [
+        168,
+        787,
+        2595,
+        2699
+      ],
+      "predictedRingCentrePixels": [
+        1381.5,
+        1524.3015539551013
+      ],
+      "ringPixelsPresent": false
+    },
+    {
+      "phase": "after",
+      "engine": "chromium",
+      "pngSha256": "d280c8d444c474083495954d544827edd709bc932dd8517f131422a297ae7412",
+      "pixels": [
+        2763,
+        3094
+      ],
+      "inkBounds": [
+        170,
+        787,
+        2593,
+        2983
+      ],
+      "predictedRingCentrePixels": [
+        1381.5,
+        1524.4910635597403
+      ],
+      "ringPixelsPresent": true,
+      "measuredRingCentrePixels": [
+        1381.5,
+        1524.5
+      ],
+      "centreErrorPixels": 0.008936440259731171,
+      "measuredRingOuterPixels": [
+        43,
+        43
+      ]
+    },
+    {
+      "phase": "after",
+      "engine": "firefox",
+      "pngSha256": "4b83c0e23db56456e0fcc3fdfa458f68a0095c1046734225c8fc99c4db05380d",
+      "pixels": [
+        2763,
+        3094
+      ],
+      "inkBounds": [
+        168,
+        787,
+        2595,
+        2983
+      ],
+      "predictedRingCentrePixels": [
+        1381.5,
+        1524.4910635597403
+      ],
+      "ringPixelsPresent": true,
+      "measuredRingCentrePixels": [
+        1381.5,
+        1524.5
+      ],
+      "centreErrorPixels": 0.008936440259731171,
+      "measuredRingOuterPixels": [
+        43,
+        43
+      ]
+    }
+  ]
+}
