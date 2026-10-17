@@ -79,3 +79,10 @@ strokes and circle plates; it is not a general PDF semantic extractor.
 `browser.mjs URL DESIGN_FILE OUTPUT_DIR before|after` repeats the real offline
 workflow. To measure its downloads, add `--browser OUTPUT_DIR` to `measure.py`
 while retaining the native `--capture` for physical case metadata.
+
+The [clean archive receipt](verification.json) records source `7a07466`, a fresh
+Node 24.21.0 install, lint/type checking, 308 unit checks in each of two number
+locales, the build, independent native-vector replay and 70 Chromium/Firefox
+browser workflows, all with process exit 0. The workflow also includes the
+native SVG/PDF geometry check; this is a local verification result, not a claim
+that the remote workflow ran.
