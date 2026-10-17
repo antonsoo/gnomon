@@ -1,9 +1,10 @@
 import type { AppState } from "./state.ts";
-import { buildAnalemmaticDial } from "./lib/dials/analemmatic.ts";
+import { analemmaticStandingOffset, buildAnalemmaticDial } from "./lib/dials/analemmatic.ts";
 import { buildHorizontalDial } from "./lib/dials/horizontal.ts";
 import { buildVerticalDial } from "./lib/dials/vertical.ts";
 import { buildEquatorialDial } from "./lib/dials/equatorial.ts";
-import { formatUtcOffset, resolveZone, zonedDateTimeInput } from "./lib/timezone.ts";
+import { formatUtcOffset, offsetMinutesAt, resolveLocalDateTime, resolveZone, zonedDateTimeInput } from "./lib/timezone.ts";
+import { solarEphemeris } from "./lib/astronomy.ts";
 import type { TimeReference } from "./lib/time-reference.ts";
 import { MOTTOES } from "./lib/motto.ts";
 import { renderAnalemmaticSVG, renderPolarDialSVG } from "./lib/render/svg.ts";
@@ -44,6 +45,24 @@ export function captureDesign(state: AppState, instant: Date) {
     : `${dial.orientation} Nodus ${(settings.radiusMm * 0.32).toFixed(1)} mm along the style from its foot.`;
   const description = `${title}. ${timeBasis}. ${settings.timeZone}; design date ${zonedDateTimeInput(instant, settings.timeZone).slice(0, 10)}. Radius ${settings.radiusMm} mm. ${mounting}`;
   const common = { numerals: settings.numerals, title, description, motto: settings.mottoIndex === null ? undefined : MOTTOES[settings.mottoIndex] };
+  let selectedDateMark;
+  if (dial.kind === "analemmatic") {
+    // Freeze the same civil minute as a portable design, including historical
+    // second offsets and the selected occurrence of a repeated clock time.
+    const local = zonedDateTimeInput(instant, settings.timeZone);
+    const clock = resolveLocalDateTime(local, settings.timeZone);
+    const minute = clock.kind === "valid" ? clock.instants.find(candidate =>
+      instant.getTime() >= candidate.getTime() && instant.getTime() - candidate.getTime() < 60_000) : undefined;
+    if (!minute) throw new Error("Cannot locate the selected civil minute for the standing mark.");
+    const { declinationDeg } = solarEphemeris(minute);
+    const offsetMm = analemmaticStandingOffset(settings.latitudeDeg, settings.radiusMm, declinationDeg);
+    const distance = Math.abs(offsetMm).toFixed(1);
+    const positionLabel = distance === "0.0" ? "0.0 mm from centre"
+      : `${distance} mm ${offsetMm > 0 ? "north" : "south"} of centre`;
+    selectedDateMark = { offsetMm, declinationDeg, utcInstant: minute.toISOString(),
+      localLabel: `${local.replace("T", " ")} ${formatUtcOffset(offsetMinutesAt(settings.timeZone, minute))}`,
+      positionLabel };
+  }
   const polarOptions = {
     ...common,
     radiusMm: settings.radiusMm,
@@ -52,7 +71,7 @@ export function captureDesign(state: AppState, instant: Date) {
     showDeclinationLines: settings.showDeclinationLines,
     showHistoricalHours: settings.historicalHours.length > 0,
   };
-  const analemmaticOptions = { ...common, widthMm: settings.radiusMm * 2.6, heightMm: settings.radiusMm * 2.6 };
+  const analemmaticOptions = { ...common, widthMm: settings.radiusMm * 2.6, heightMm: settings.radiusMm * 2.6, selectedDateMark };
   return { settings, dial, title, description, timeBasis, dstOffsetHours, polarOptions, analemmaticOptions };
 }
 

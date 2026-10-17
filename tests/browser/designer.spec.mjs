@@ -166,7 +166,8 @@ test('unsupported capabilities and degenerate geometry have useful recovery', as
   await expect(page.getByRole('button', { name: 'Gnomon SVG', exact: true })).toBeDisabled();
   await expect(page.getByRole('button', { name: 'PDF (A4)', exact: true })).toBeDisabled();
   await expect(page.locator('.stage')).toContainText('Local apparent solar time');
-  await expect(date(page)).toBeHidden();
+  await expect(page.getByLabel('Date for the standing mark', { exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Animate day' })).toBeHidden();
   await page.getByLabel('Latitude', { exact: true }).fill('0');
   await expect(page.locator('.stage')).toContainText('ellipse collapses');
   await page.getByRole('button', { name: 'Horizontal', exact: true }).click();

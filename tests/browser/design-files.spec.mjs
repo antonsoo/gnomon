@@ -15,8 +15,8 @@ const test = base.extend({
   },
 });
 const status = page => page.locator('#design-file-status');
-const date = page => page.getByLabel('Date for the simulated shadow');
-const time = page => page.getByLabel('Local time for the simulated shadow');
+const date = page => page.getByLabel(/^Date for (the simulated shadow|the standing mark)$/);
+const time = page => page.getByLabel(/^Local time for (the simulated shadow|the standing mark)$/);
 async function download(page, name) {
   const ready = page.waitForEvent('download');
   await page.getByRole('button', { name, exact: true }).click();
@@ -70,12 +70,16 @@ for (const kind of ['Horizontal', 'Vertical', 'Equatorial', 'Analemmatic']) {
   });
 }
 
-test('a changed minute and the later DST occurrence survive reopening on a Tokyo device', async ({ page, browser }) => {
+for (const kind of ['Horizontal', 'Analemmatic']) test(`${kind}: a changed minute and the later DST occurrence survive reopening on a Tokyo device`, async ({ page, browser }) => {
   await page.goto('./');
+  await page.getByRole('button', { name: kind, exact: true }).click();
+  if (kind === 'Analemmatic') await page.getByLabel('Semi-major axis (mm)', { exact: true }).fill('400');
   await date(page).fill('2026-11-01');
   await time(page).fill('01:00');
   await time(page).fill('01:30'); // geometry cache stays on the same date
+  if (kind === 'Analemmatic') await expect(page.locator('[data-selected-minute]')).toHaveAttribute('data-selected-minute', '2026-11-01T08:30:00.000Z');
   await page.getByLabel('Repeated local time').selectOption('later');
+  if (kind === 'Analemmatic') await expect(page.locator('[data-selected-minute]')).toHaveAttribute('data-selected-minute', '2026-11-01T09:30:00.000Z');
   const saved = await download(page, 'Save design');
   expect(JSON.parse(saved.bytes.toString())).toMatchObject({ customDateTimeLocal: '2026-11-01T01:30', timeDisambiguation: 'later', utcInstant: '2026-11-01T09:30:00.000Z' });
   const other = await browser.newContext({ timezoneId: 'Asia/Tokyo' });
@@ -90,6 +94,7 @@ test('a changed minute and the later DST occurrence survive reopening on a Tokyo
     await expect(target.getByLabel('Repeated local time')).toHaveValue('later');
     await expect(target.locator('.time-controls .hint')).toContainText('UTC-08:00');
     await expect(target.getByRole('button', { name: 'Now', exact: true })).toHaveAttribute('aria-pressed', 'false');
+    if (kind === 'Analemmatic') await expect(target.locator('[data-selected-minute]')).toHaveAttribute('data-selected-minute', '2026-11-01T09:30:00.000Z');
     expect((await download(target, 'Save design')).bytes.equals(saved.bytes)).toBe(true);
   } finally { await other.close(); }
 });
@@ -219,4 +224,21 @@ test('polar-day date curves keep unlit intervals in the preview and native offli
   expect(saved.bytes.equals(file)).toBe(true);
   const pdf = await download(page, 'PDF (A4)');
   expect(pdf.bytes.subarray(0, 5).toString()).toBe('%PDF-');
+});
+
+test('analemmatic standing ring follows another time on the same day in preview and native SVG', async ({ page, context }) => {
+  await configure(page, 'Analemmatic');
+  await context.setOffline(true);
+  await date(page).fill('2026-04-11');
+  await time(page).fill('06:00');
+  const marker = page.locator('.stage-canvas [data-selected-minute]');
+  await expect(marker).toHaveAttribute('data-selected-minute', '2026-04-11T04:00:00.000Z');
+  const earlierY = await marker.getAttribute('cy');
+  await time(page).fill('18:00');
+  await expect(marker).toHaveAttribute('data-selected-minute', '2026-04-11T16:00:00.000Z');
+  expect(await marker.getAttribute('cy')).not.toBe(earlierY);
+  await expect(page.locator('.stage-canvas')).toContainText('2026-04-11 18:00 UTC+02:00');
+  const drawing = await download(page, 'Download SVG');
+  expect(drawing.bytes.toString()).toContain('data-selected-minute="2026-04-11T16:00:00.000Z"');
+  expect(drawing.bytes.toString()).toContain('Open ring: rod base');
 });

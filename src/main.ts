@@ -301,7 +301,7 @@ const dialTypePanel = el("section", { className: "panel" }, [
     () => state.dialType,
     (v) => {
       state.dialType = v;
-      if (v === "analemmatic") { stopPlaying(); state.simMode = "now"; }
+      if (v === "analemmatic") stopPlaying();
       if (v !== "vertical") {
         wallInput.value = String(state.wallDeclinationDeg);
         clearFieldError(wallInput);
@@ -678,8 +678,11 @@ function render(): void {
   timeModePanel.querySelector<HTMLElement>(".analemmatic-note")!.hidden = !analemmatic;
   polarOverlays.hidden = analemmatic;
   dstRow.hidden = state.timeMode !== "standard";
-  stage.querySelector<HTMLElement>(".stage-toolbar")!.hidden = analemmatic;
-  stage.querySelector("h2")!.textContent = analemmatic ? "Dial preview" : "Shadow simulator";
+  playBtn.hidden = analemmatic;
+  dateInput.setAttribute("aria-label", analemmatic ? "Date for the standing mark" : "Date for the simulated shadow");
+  timeInput.setAttribute("aria-label", analemmatic ? "Local time for the standing mark" : "Local time for the simulated shadow");
+  timeSlider.setAttribute("aria-label", analemmatic ? "Time of day for the standing mark" : "Time of day for the simulated shadow");
+  stage.querySelector("h2")!.textContent = analemmatic ? "Rod position" : "Shadow simulator";
   exportCapability.textContent = analemmatic
     ? "This layout exports as SVG or PNG. It uses a movable vertical rod, so there is no fixed gnomon template or PDF export."
     : "PDFs include the matching gnomon template and mounting instructions. Large pieces use full-size sheets with 10 mm overlaps. Print at 100% and check every 100 mm bar. The simulated shadow is preview-only.";
@@ -716,10 +719,10 @@ function render(): void {
   timeReadout.textContent = `${local.replace("T", " ")} ${offset}`;
   timeSlider.setAttribute("aria-valuetext", `${timeInput.value} in ${state.timeZone}`);
   const simulationMessage = analemmatic
-    ? "The date scale sets the position of your vertical rod. Shadow animation is available for the three polar-style dials."
+    ? "Choose the date and local time for the open standing ring. Keep the rod vertical; hour marks read apparent solar time."
     : `Date and time in ${state.timeZone}. ${repeated ? "This clock time occurs twice; choose an occurrence above." : "Automatic dial clock adjustment follows this simulation date."}`;
   if (simulationNote.textContent !== simulationMessage) simulationNote.textContent = simulationMessage;
-  const key = JSON.stringify({ ...state, customDateTimeLocal: local.slice(0, 10), simMode: "custom", timeDisambiguation: "earlier", playing: false, offset });
+  const key = JSON.stringify({ ...state, customDateTimeLocal: analemmatic ? local : local.slice(0, 10), simMode: "custom", timeDisambiguation: "earlier", playing: false, offset });
   let design: DesignSnapshot;
   try {
     if (key !== lastDesignKey || !lastDesign) {
@@ -733,7 +736,7 @@ function render(): void {
     return;
   }
   currentDesign = design;
-  playBtn.disabled = false;
+  playBtn.disabled = analemmatic;
   svgStageWrap.dataset.theme = state.theme;
   gnomonThumb.dataset.theme = state.theme;
   const { dial } = design;
@@ -744,10 +747,14 @@ function render(): void {
   readout.replaceChildren();
   if (dial.kind === "analemmatic") {
     svgStageWrap.innerHTML = renderAnalemmaticSVG(dial, { ...design.analemmaticOptions, theme: state.theme });
-    orientationText.textContent = "Lay flat and level, top of the design toward true north, major axis east-west. For a date marked on the scale, put the vertical rod's base at its matching mark and read the apparent solar hour where the shadow points across the ellipse.";
-    gnomonSetupText.textContent = "Use a vertical rod, checked with a plumb line, with its base at the selected date mark. You can also stand upright on the mark. The shadow direction points toward the apparent solar hour on the ellipse.";
+    const mark = design.analemmaticOptions.selectedDateMark!;
+    orientationText.textContent = `Lay flat and level, top toward true north, major axis east-west. Put the vertical rod at the open ring for ${mark.localLabel}: ${mark.positionLabel}. Read the apparent solar hour where its shadow points across the ellipse.`;
+    gnomonSetupText.textContent = "Use a vertical rod, checked with a plumb line, with its base at the open ring for the selected date and time. You can also stand upright on that mark. The shadow direction points toward the apparent solar hour on the ellipse.";
     gnomonThumb.replaceChildren("No fixed gnomon: use a vertical rod or stand on the date scale.");
     gnomonNote.textContent = "";
+    readout.replaceChildren(el("span", {}, [el("strong", {}, ["rod base "]), mark.positionLabel]),
+      el("span", {}, [el("strong", {}, ["declination "]), `${mark.declinationDeg.toFixed(2)}°`]),
+      el("span", {}, ["open ring follows the selected local minute"]));
   } else {
     gnomonSetupText.textContent = polarGnomonSetup;
     const shadow = simulatePolarShadow(instant, state.latitudeDeg, state.longitudeDeg, buildDialPlane(dial.kind, state.latitudeDeg, state.wallDeclinationDeg), state.radiusMm * 0.32);

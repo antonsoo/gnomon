@@ -38,6 +38,11 @@ export interface AnalemmaticDialOptions {
   includeZodiac?: boolean;
 }
 
+/** Vertical rod's northward offset from the ellipse centre, in millimetres. */
+export function analemmaticStandingOffset(latitudeDeg: number, semiMajorMm: number, declinationDeg: number): number {
+  return semiMajorMm * Math.cos((latitudeDeg * Math.PI) / 180) * tanDeg(declinationDeg);
+}
+
 export function buildAnalemmaticDial(opts: AnalemmaticDialOptions): AnalemmaticDialResult {
   const R = opts.semiMajorMm;
   const phi = opts.latitudeDeg;
@@ -59,7 +64,7 @@ export function buildAnalemmaticDial(opts: AnalemmaticDialOptions): AnalemmaticD
   const dateScale = dateSpecs.map((spec) => ({
     label: spec.label,
     declinationDeg: spec.declinationDeg,
-    offsetMm: R * Math.cos((phi * Math.PI) / 180) * tanDeg(spec.declinationDeg),
+    offsetMm: analemmaticStandingOffset(phi, R, spec.declinationDeg),
   }));
 
   return { kind: "analemmatic", semiMajorMm: R, semiMinorMm, hourPoints, dateScale };
