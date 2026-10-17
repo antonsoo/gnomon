@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import { URL, pathToFileURL } from 'node:url';
 import { log } from 'node:console';
 import { chromium, firefox } from 'playwright';
-const [url, designArg, outputArg, phase] = process.argv.slice(2);
+const [url, designArg, outputArg, phase, pdfOption] = process.argv.slice(2);
 assert.ok(url && designArg && outputArg && ['before','after'].includes(phase), 'URL DESIGN_FILE OUTPUT_DIR before|after');
 const output = resolve(outputArg);
 await mkdir(output, { recursive: true });
@@ -56,6 +56,22 @@ for (const [engine, launcher] of Object.entries({chromium,firefox})) {
           await standalone.locator('svg').first().screenshot({path:resolve(output,`${stem}-drawing.png`)});
           results.push({engine,width,phase,inputSha256:sha(drawingInput),svgSha256:sha(await readFile(svgPath)),evidence,errors,requests,lateRequests});
         } finally {await standalone.close();}
+        if (pdfOption === '--pdf') {
+          await page.getByRole('button', { name: 'Horizontal', exact: true }).click();
+          const pdfs = [];
+          for (const paper of ['A4', 'Letter']) {
+            const ready = page.waitForEvent('download');
+            await page.getByRole('button', { name: `PDF (${paper})`, exact: true }).click();
+            const pdf = await ready;
+            assert.equal(await pdf.failure(), null);
+            const bytes = await readFile(await pdf.path());
+            assert.equal(bytes.subarray(0, 5).toString(), '%PDF-');
+            const filename = `${stem}-${paper}.pdf`;
+            await writeFile(resolve(output, filename), bytes);
+            pdfs.push({ paper, file: filename, bytes: bytes.length, sha256: sha(bytes) });
+          }
+          results.at(-1).polarPdfDownloads = pdfs;
+        }
         assert.deepEqual(errors,[]);assert.deepEqual(lateRequests,[]);
         assert.ok(requests.every(u=>u.startsWith(new URL(url).origin)));
       } finally {await context.close();}

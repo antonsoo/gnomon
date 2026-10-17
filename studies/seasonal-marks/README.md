@@ -69,3 +69,20 @@ node studies/seasonal-marks/replay.mjs . /tmp/gnomon-standing-check
 Pass an older checkout as the first argument to reproduce its labels. With a
 built designer running, `browser.mjs URL DESIGN_FILE OUTPUT_DIR before|after`
 repeats the actual portable-file and native SVG workflow.
+
+## Public designer
+
+Source `4bd6661` and Pages `2723d00` publish the clean `49b838c` build.
+All 33 built files and the root URL match exactly: [served bytes](hosted-bytes.json).
+The [public replay](hosted/browser.json) opens the same Sydney file offline,
+saves unchanged inputs, and downloads/reopens the four native SVGs. Its eight
+screenshots are byte-identical to the reviewed local captures. The separately
+hosted designer was previously older than the checkout and lacked this input
+workflow; it now serves the verified current build.
+
+The same disconnected contexts then switch to a horizontal dial and download
+their first A4 and Letter construction kits. An independent PDF parser checks
+all eight files, both pages per kit and every 100 mm calibration bar:
+[PDF measurements](hosted-pdf.json), [publication boundary](publication.json).
+This checks native documents and browser behavior, not physical printer scale
+or a built sundial. The movable-rod layout still exports SVG/PNG.

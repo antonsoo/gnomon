@@ -1,0 +1,231 @@
+{
+  "url": "https://antonsoo.github.io/gnomon/",
+  "phase": "after",
+  "scope": "Actual designer opened a portable Sydney setup after disconnecting; native SVG and design-file downloads, standalone SVG reopen. No physical field measurement.",
+  "results": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "phase": "after",
+      "inputSha256": "8eae119060b706b0215ca977bc63ed8287becae17cdcf374cb916824d9ecaa96",
+      "svgSha256": "b07eeb89f9192ee85408dab73d00c51392becf17686b07d0a732a0c9a61211d8",
+      "evidence": {
+        "width": "234mm",
+        "height": "234mm",
+        "labels": [
+          {
+            "label": "June solstice",
+            "x": "121.000",
+            "y": "84.600"
+          },
+          {
+            "label": "Equinox",
+            "x": "121.000",
+            "y": "117.000"
+          },
+          {
+            "label": "December solstice",
+            "x": "121.000",
+            "y": "149.400"
+          }
+        ],
+        "scripts": 0
+      },
+      "errors": [],
+      "requests": [
+        "https://antonsoo.github.io/gnomon/",
+        "https://antonsoo.github.io/gnomon/assets/index-YVjITIBN.js",
+        "https://antonsoo.github.io/gnomon/assets/index-DpJ6Eoy3.css",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ],
+      "lateRequests": [],
+      "polarPdfDownloads": [
+        {
+          "paper": "A4",
+          "file": "chromium-1440-A4.pdf",
+          "bytes": 27314,
+          "sha256": "ae95f56789850c74d5b8e017375dafd83181c94b1bab5c354c0a55ef4adc6d78"
+        },
+        {
+          "paper": "Letter",
+          "file": "chromium-1440-Letter.pdf",
+          "bytes": 27245,
+          "sha256": "e054f1dd81966dd50215a06cacdb1a1f1663a48200ad7021dba35b1a5883db70"
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "phase": "after",
+      "inputSha256": "8eae119060b706b0215ca977bc63ed8287becae17cdcf374cb916824d9ecaa96",
+      "svgSha256": "b07eeb89f9192ee85408dab73d00c51392becf17686b07d0a732a0c9a61211d8",
+      "evidence": {
+        "width": "234mm",
+        "height": "234mm",
+        "labels": [
+          {
+            "label": "June solstice",
+            "x": "121.000",
+            "y": "84.600"
+          },
+          {
+            "label": "Equinox",
+            "x": "121.000",
+            "y": "117.000"
+          },
+          {
+            "label": "December solstice",
+            "x": "121.000",
+            "y": "149.400"
+          }
+        ],
+        "scripts": 0
+      },
+      "errors": [],
+      "requests": [
+        "https://antonsoo.github.io/gnomon/",
+        "https://antonsoo.github.io/gnomon/assets/index-YVjITIBN.js",
+        "https://antonsoo.github.io/gnomon/assets/index-DpJ6Eoy3.css",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ],
+      "lateRequests": [],
+      "polarPdfDownloads": [
+        {
+          "paper": "A4",
+          "file": "chromium-375-A4.pdf",
+          "bytes": 27314,
+          "sha256": "07b09a412eed1ded7b981300e385c1a52594dcdb43f16d854d0360705b3e196d"
+        },
+        {
+          "paper": "Letter",
+          "file": "chromium-375-Letter.pdf",
+          "bytes": 27245,
+          "sha256": "92aac67ecb9313477703cd7385b1c1d5ce7a7d113dda64caae42c93287faa9f6"
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "phase": "after",
+      "inputSha256": "8eae119060b706b0215ca977bc63ed8287becae17cdcf374cb916824d9ecaa96",
+      "svgSha256": "b07eeb89f9192ee85408dab73d00c51392becf17686b07d0a732a0c9a61211d8",
+      "evidence": {
+        "width": "234mm",
+        "height": "234mm",
+        "labels": [
+          {
+            "label": "June solstice",
+            "x": "121.000",
+            "y": "84.600"
+          },
+          {
+            "label": "Equinox",
+            "x": "121.000",
+            "y": "117.000"
+          },
+          {
+            "label": "December solstice",
+            "x": "121.000",
+            "y": "149.400"
+          }
+        ],
+        "scripts": 0
+      },
+      "errors": [],
+      "requests": [
+        "https://antonsoo.github.io/gnomon/",
+        "https://antonsoo.github.io/gnomon/assets/index-YVjITIBN.js",
+        "https://antonsoo.github.io/gnomon/assets/index-DpJ6Eoy3.css",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2"
+      ],
+      "lateRequests": [],
+      "polarPdfDownloads": [
+        {
+          "paper": "A4",
+          "file": "firefox-1440-A4.pdf",
+          "bytes": 27302,
+          "sha256": "f5919758c3ed3d6ce25dc0a053aa235727089a21a0624ab029c242db92605c52"
+        },
+        {
+          "paper": "Letter",
+          "file": "firefox-1440-Letter.pdf",
+          "bytes": 27257,
+          "sha256": "f03550e6c3984a266b84d3a3c9c80dca6e339918dd3ac0a090f39c65625e7dd6"
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "phase": "after",
+      "inputSha256": "8eae119060b706b0215ca977bc63ed8287becae17cdcf374cb916824d9ecaa96",
+      "svgSha256": "b07eeb89f9192ee85408dab73d00c51392becf17686b07d0a732a0c9a61211d8",
+      "evidence": {
+        "width": "234mm",
+        "height": "234mm",
+        "labels": [
+          {
+            "label": "June solstice",
+            "x": "121.000",
+            "y": "84.600"
+          },
+          {
+            "label": "Equinox",
+            "x": "121.000",
+            "y": "117.000"
+          },
+          {
+            "label": "December solstice",
+            "x": "121.000",
+            "y": "149.400"
+          }
+        ],
+        "scripts": 0
+      },
+      "errors": [],
+      "requests": [
+        "https://antonsoo.github.io/gnomon/",
+        "https://antonsoo.github.io/gnomon/assets/index-YVjITIBN.js",
+        "https://antonsoo.github.io/gnomon/assets/index-DpJ6Eoy3.css",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2"
+      ],
+      "lateRequests": [],
+      "polarPdfDownloads": [
+        {
+          "paper": "A4",
+          "file": "firefox-375-A4.pdf",
+          "bytes": 27302,
+          "sha256": "614249cf7c871ece9f5bddaa47aedc4d8381cf5db7588721cb47365253605c41"
+        },
+        {
+          "paper": "Letter",
+          "file": "firefox-375-Letter.pdf",
+          "bytes": 27257,
+          "sha256": "0a85fe2f90df35588e1f836849e0dcbdc6c6a3606dec5bbf2d9c93a8d097a4f5"
+        }
+      ]
+    }
+  ]
+}

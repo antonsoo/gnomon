@@ -1,0 +1,57 @@
+{
+  "source": "4bd6661896fd9030f0e64f54cbab4cf431d055dd",
+  "buildSource": "49b838c27d97a556151cbc0853129bddbe6c4d86",
+  "deployment": "2723d0047b4004321f2e0ca84dd6bc76a154b90d",
+  "priorDeployment": "f937152",
+  "canonicalByteChecks": 34,
+  "allCanonicalBytesMatch": true,
+  "offlineDesignerContexts": 4,
+  "nativeSvgDownloads": 4,
+  "portableFileBytesUnchanged": true,
+  "offlineHorizontalPdfDownloads": 8,
+  "independentPdfPages": 16,
+  "measured100mmBars": 16,
+  "screenshots": [
+    {
+      "file": "chromium-1440-designer.png",
+      "sha256": "9db2305fd6e00e6f8871d6b59a985fd1f9e2a88c08f7e538d62dde68cd7efae7",
+      "identicalToReviewedLocalCapture": true
+    },
+    {
+      "file": "chromium-1440-drawing.png",
+      "sha256": "bcd42fdf25f575d9200eb12bda7aff0e80a3d15f3a91c56d40cc295f4bfb4471",
+      "identicalToReviewedLocalCapture": true
+    },
+    {
+      "file": "chromium-375-designer.png",
+      "sha256": "6f82de3d8d8af19d9c6b3d131aab52636038cbf80f905eda354b937c23d9124c",
+      "identicalToReviewedLocalCapture": true
+    },
+    {
+      "file": "chromium-375-drawing.png",
+      "sha256": "bcd42fdf25f575d9200eb12bda7aff0e80a3d15f3a91c56d40cc295f4bfb4471",
+      "identicalToReviewedLocalCapture": true
+    },
+    {
+      "file": "firefox-1440-designer.png",
+      "sha256": "a79e55553f9dffaf19ed81e523ecde24105822bb94782062f1d6c770caa3ac51",
+      "identicalToReviewedLocalCapture": true
+    },
+    {
+      "file": "firefox-1440-drawing.png",
+      "sha256": "15b2d6217daea2ed4a196b7344732fbdae70318a027130d4071e37af4acda539",
+      "identicalToReviewedLocalCapture": true
+    },
+    {
+      "file": "firefox-375-designer.png",
+      "sha256": "4bab84943ef300b30d41e4fc5cbb36f02ee476e48db691d7e48e6532a40d9328",
+      "identicalToReviewedLocalCapture": true
+    },
+    {
+      "file": "firefox-375-drawing.png",
+      "sha256": "329e53f725264b15bbd5950944b05b4319a017d8cc983013ea2acad11c95a518",
+      "identicalToReviewedLocalCapture": true
+    }
+  ],
+  "scope": "Source and public designer verified; no physical field measurement or registry release."
+}

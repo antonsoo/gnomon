@@ -1,0 +1,102 @@
+{
+  "scope": "Actual public downloads after disconnecting and changing to a horizontal dial; independent PDF parser verifies both kit pages and physical calibration. No physical printer or field measurement.",
+  "pymupdf": "1.28.2",
+  "cases": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "file": "chromium-1440-A4.pdf",
+      "paper": "A4",
+      "pages": 2,
+      "calibrationBarMm": [
+        100.00000412729051,
+        100.00000412729051
+      ],
+      "sha256": "ae95f56789850c74d5b8e017375dafd83181c94b1bab5c354c0a55ef4adc6d78"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "file": "chromium-1440-Letter.pdf",
+      "paper": "Letter",
+      "pages": 2,
+      "calibrationBarMm": [
+        100.00000412729051,
+        100.00000412729051
+      ],
+      "sha256": "e054f1dd81966dd50215a06cacdb1a1f1663a48200ad7021dba35b1a5883db70"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "file": "chromium-375-A4.pdf",
+      "paper": "A4",
+      "pages": 2,
+      "calibrationBarMm": [
+        100.00000412729051,
+        100.00000412729051
+      ],
+      "sha256": "07b09a412eed1ded7b981300e385c1a52594dcdb43f16d854d0360705b3e196d"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "file": "chromium-375-Letter.pdf",
+      "paper": "Letter",
+      "pages": 2,
+      "calibrationBarMm": [
+        100.00000412729051,
+        100.00000412729051
+      ],
+      "sha256": "92aac67ecb9313477703cd7385b1c1d5ce7a7d113dda64caae42c93287faa9f6"
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "file": "firefox-1440-A4.pdf",
+      "paper": "A4",
+      "pages": 2,
+      "calibrationBarMm": [
+        100.00000412729051,
+        100.00000412729051
+      ],
+      "sha256": "f5919758c3ed3d6ce25dc0a053aa235727089a21a0624ab029c242db92605c52"
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "file": "firefox-1440-Letter.pdf",
+      "paper": "Letter",
+      "pages": 2,
+      "calibrationBarMm": [
+        100.00000412729051,
+        100.00000412729051
+      ],
+      "sha256": "f03550e6c3984a266b84d3a3c9c80dca6e339918dd3ac0a090f39c65625e7dd6"
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "file": "firefox-375-A4.pdf",
+      "paper": "A4",
+      "pages": 2,
+      "calibrationBarMm": [
+        100.00000412729051,
+        100.00000412729051
+      ],
+      "sha256": "614249cf7c871ece9f5bddaa47aedc4d8381cf5db7588721cb47365253605c41"
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "file": "firefox-375-Letter.pdf",
+      "paper": "Letter",
+      "pages": 2,
+      "calibrationBarMm": [
+        100.00000412729051,
+        100.00000412729051
+      ],
+      "sha256": "0a85fe2f90df35588e1f836849e0dcbdc6c6a3606dec5bbf2d9c93a8d097a4f5"
+    }
+  ]
+}
