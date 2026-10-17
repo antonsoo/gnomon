@@ -1,0 +1,59 @@
+{
+  "source": "2a3f4f2",
+  "builtSource": "7a07466f559c207214d8c4c4ec54e47879239f89",
+  "pages": "f28869ec64b4eb2ca9812eb423291214981cc2e9",
+  "builtFiles": 33,
+  "canonicalUrlsChecked": 34,
+  "exactServedBytes": true,
+  "offlineBrowserContexts": 4,
+  "downloadedNativeVectors": 12,
+  "badDateEdgesBefore": 12,
+  "badDateEdgesAfter": 0,
+  "constructionPdfFiles": 8,
+  "constructionPdfPages": 16,
+  "calibrationBarsMeasured": 16,
+  "portableInputsUnchanged": true,
+  "screenshotComparisons": [
+    {
+      "file": "firefox-1440-drawing.png",
+      "sha256": "80a4096a42c42c5dc7b185414a805bcf8c614ffedf8fe45456f33bde589ce995",
+      "identicalToReviewedLocal": true
+    },
+    {
+      "file": "firefox-375-drawing.png",
+      "sha256": "80a4096a42c42c5dc7b185414a805bcf8c614ffedf8fe45456f33bde589ce995",
+      "identicalToReviewedLocal": true
+    },
+    {
+      "file": "chromium-375-designer.png",
+      "sha256": "0fc6c35777f45d1fead1f26d7aaeb61c9c0020f85795cc585de7bc3312bc46e6",
+      "identicalToReviewedLocal": true
+    },
+    {
+      "file": "chromium-1440-drawing.png",
+      "sha256": "9f2c8f5d84bdd8f6693334b30d0d0ccb20b73d532790098b34f1adc84b31b843",
+      "identicalToReviewedLocal": true
+    },
+    {
+      "file": "chromium-1440-designer.png",
+      "sha256": "3b37738f20babea5c1835b7398da86f7c520a7c05716cd1c2f1a2922cc2292c3",
+      "identicalToReviewedLocal": true
+    },
+    {
+      "file": "firefox-375-designer.png",
+      "sha256": "ee8986d6063e5c5f10020f2bdc97113ecb8004c4eccd69ec95d996563ea5bb89",
+      "identicalToReviewedLocal": true
+    },
+    {
+      "file": "chromium-375-drawing.png",
+      "sha256": "9f2c8f5d84bdd8f6693334b30d0d0ccb20b73d532790098b34f1adc84b31b843",
+      "identicalToReviewedLocal": true
+    },
+    {
+      "file": "firefox-1440-designer.png",
+      "sha256": "85cfa63d9fd3a1a61fa7288881d7171ee8c02ecae860e4400fa4b647e77af9ee",
+      "identicalToReviewedLocal": true
+    }
+  ],
+  "scope": "Actual canonical hosted app plus offline native SVG and construction PDF downloads; no physical printer, field measurement or registry release."
+}

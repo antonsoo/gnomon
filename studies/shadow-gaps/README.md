@@ -86,3 +86,17 @@ locales, the build, independent native-vector replay and 70 Chromium/Firefox
 browser workflows, all with process exit 0. The workflow also includes the
 native SVG/PDF geometry check; this is a local verification result, not a claim
 that the remote workflow ran.
+
+## Public correction
+
+The clean `7a07466` build is public through source `2a3f4f2` and Pages
+`f28869e`. All 33 built files and the canonical root URL match exactly:
+[served bytes](hosted-bytes.json). The [public browser replay](hosted/browser.json)
+opens the controlled wall file after disconnecting, saves identical inputs and
+downloads four SVGs and eight construction PDFs. Independent measurements find
+zero false segments in these 12 documents and verify all 16 sheets' 100 mm
+bars: [actual download measurements](hosted/artifacts.json).
+
+Its eight screenshots are byte-identical to the reviewed local captures.
+[Publication receipt](publication.json) separates the public bytes and actual
+offline behavior from physical printing or field validation.

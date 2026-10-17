@@ -1,0 +1,144 @@
+{
+  "url": "https://antonsoo.github.io/gnomon/",
+  "phase": "after",
+  "case": "north-west-90",
+  "scope": "Actual offline designer, original portable inputs, native SVG and A4/Letter construction kits. Independent metrology reads the saved vectors; no physical printing or field observation.",
+  "records": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "phase": "after",
+      "svg": "chromium-1440.svg",
+      "svgSha256": "757729ae058d406ea6a1a53d371b367316d81e87ce56009225ffabb65f6accea",
+      "pdfs": [
+        {
+          "file": "chromium-1440-A4.pdf",
+          "paper": "A4",
+          "sha256": "a7b64163b3adc624eccdc61dc99e196479841718dcef2f50b41fc16d657b8a12"
+        },
+        {
+          "file": "chromium-1440-Letter.pdf",
+          "paper": "Letter",
+          "sha256": "4fd6c6723bac6c0678bb03348946988c8a666b8c495771caecf9563083686404"
+        }
+      ],
+      "datePaths": 3,
+      "portableInputSha256": "d0b33f306d74cd8cbac9bec914732827f9220d9b19bc04793ae93ca25cef86a8",
+      "errors": [],
+      "lateRequests": [],
+      "requests": [
+        "https://antonsoo.github.io/gnomon/",
+        "https://antonsoo.github.io/gnomon/assets/index-DdOia6-b.js",
+        "https://antonsoo.github.io/gnomon/assets/index-DpJ6Eoy3.css",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "phase": "after",
+      "svg": "chromium-375.svg",
+      "svgSha256": "757729ae058d406ea6a1a53d371b367316d81e87ce56009225ffabb65f6accea",
+      "pdfs": [
+        {
+          "file": "chromium-375-A4.pdf",
+          "paper": "A4",
+          "sha256": "7cb1bdd2a4289d7fd67dcf2bc8a59a77aa149ceb35e1613f1b83d05f26a976b9"
+        },
+        {
+          "file": "chromium-375-Letter.pdf",
+          "paper": "Letter",
+          "sha256": "c18042eebf3e7691f9f46a7a7679cfb2b0787ac9d680c827b772dacd16f26a21"
+        }
+      ],
+      "datePaths": 3,
+      "portableInputSha256": "d0b33f306d74cd8cbac9bec914732827f9220d9b19bc04793ae93ca25cef86a8",
+      "errors": [],
+      "lateRequests": [],
+      "requests": [
+        "https://antonsoo.github.io/gnomon/",
+        "https://antonsoo.github.io/gnomon/assets/index-DdOia6-b.js",
+        "https://antonsoo.github.io/gnomon/assets/index-DpJ6Eoy3.css",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ]
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "phase": "after",
+      "svg": "firefox-1440.svg",
+      "svgSha256": "c843b963c206a98b47661e6f6849ed00ba418ffa4fd76132e41cba54d4335fc1",
+      "pdfs": [
+        {
+          "file": "firefox-1440-A4.pdf",
+          "paper": "A4",
+          "sha256": "8d0523861ce93026b96ed483f175048ba0529af10cf4029f3e1c62d5f6e423d4"
+        },
+        {
+          "file": "firefox-1440-Letter.pdf",
+          "paper": "Letter",
+          "sha256": "33112bc469098b313be4b3dbbb26d0c7dbec9e91e810be3ee928062e07fc23b6"
+        }
+      ],
+      "datePaths": 3,
+      "portableInputSha256": "d0b33f306d74cd8cbac9bec914732827f9220d9b19bc04793ae93ca25cef86a8",
+      "errors": [],
+      "lateRequests": [],
+      "requests": [
+        "https://antonsoo.github.io/gnomon/",
+        "https://antonsoo.github.io/gnomon/assets/index-DdOia6-b.js",
+        "https://antonsoo.github.io/gnomon/assets/index-DpJ6Eoy3.css",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2"
+      ]
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "phase": "after",
+      "svg": "firefox-375.svg",
+      "svgSha256": "c843b963c206a98b47661e6f6849ed00ba418ffa4fd76132e41cba54d4335fc1",
+      "pdfs": [
+        {
+          "file": "firefox-375-A4.pdf",
+          "paper": "A4",
+          "sha256": "f47b1da6d36cef1311e379fdc9799c0be0cf97bdaacdad381c3fe06d8e98c84c"
+        },
+        {
+          "file": "firefox-375-Letter.pdf",
+          "paper": "Letter",
+          "sha256": "094bc1f304e389c071bce9e154f1ac61a790ac8b9a37e29912719c31d0a30cf6"
+        }
+      ],
+      "datePaths": 3,
+      "portableInputSha256": "d0b33f306d74cd8cbac9bec914732827f9220d9b19bc04793ae93ca25cef86a8",
+      "errors": [],
+      "lateRequests": [],
+      "requests": [
+        "https://antonsoo.github.io/gnomon/",
+        "https://antonsoo.github.io/gnomon/assets/index-DdOia6-b.js",
+        "https://antonsoo.github.io/gnomon/assets/index-DpJ6Eoy3.css",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "https://antonsoo.github.io/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "https://antonsoo.github.io/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "https://antonsoo.github.io/gnomon/assets/inter-latin-Dx4kXJAl.woff2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "scope": "Independent inverse geometry on native serialized date paths; 0.1-degree allowance includes 0.001-mm SVG rounding and sampled chord error. Not ephemeris or field accuracy.",
+  "pymupdf": "1.28.2",
+  "phase": "after",
+  "records": [
+    {
+      "case": "north-west-90",
+      "file": "chromium-1440.svg",
+      "format": "svg",
+      "sha256": "757729ae058d406ea6a1a53d371b367316d81e87ce56009225ffabb65f6accea",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.01118528688457232
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.017567025446378892
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.008026270773378278
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "north-west-90",
+      "file": "chromium-1440-A4.pdf",
+      "format": "pdf",
+      "sha256": "a7b64163b3adc624eccdc61dc99e196479841718dcef2f50b41fc16d657b8a12",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010743541873964091
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011393849155933111
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.00021532979618356444
+        }
+      ],
+      "badEdges": 0,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-west-90",
+      "file": "chromium-1440-Letter.pdf",
+      "format": "pdf",
+      "sha256": "4fd6c6723bac6c0678bb03348946988c8a666b8c495771caecf9563083686404",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010692122019396066
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011312855265146027
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0003394823233369638
+        }
+      ],
+      "badEdges": 0,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-west-90",
+      "file": "chromium-375.svg",
+      "format": "svg",
+      "sha256": "757729ae058d406ea6a1a53d371b367316d81e87ce56009225ffabb65f6accea",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.01118528688457232
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.017567025446378892
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.008026270773378278
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "north-west-90",
+      "file": "chromium-375-A4.pdf",
+      "format": "pdf",
+      "sha256": "7cb1bdd2a4289d7fd67dcf2bc8a59a77aa149ceb35e1613f1b83d05f26a976b9",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010743541873964091
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011393849155933111
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.00021532979618356444
+        }
+      ],
+      "badEdges": 0,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-west-90",
+      "file": "chromium-375-Letter.pdf",
+      "format": "pdf",
+      "sha256": "c18042eebf3e7691f9f46a7a7679cfb2b0787ac9d680c827b772dacd16f26a21",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010692122019396066
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011312855265146027
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0003394823233369638
+        }
+      ],
+      "badEdges": 0,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-west-90",
+      "file": "firefox-1440.svg",
+      "format": "svg",
+      "sha256": "c843b963c206a98b47661e6f6849ed00ba418ffa4fd76132e41cba54d4335fc1",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.01118528688457232
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.017567025446378892
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.008026270773378278
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "north-west-90",
+      "file": "firefox-1440-A4.pdf",
+      "format": "pdf",
+      "sha256": "8d0523861ce93026b96ed483f175048ba0529af10cf4029f3e1c62d5f6e423d4",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010743541873964091
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011393849155933111
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.00021532979618356444
+        }
+      ],
+      "badEdges": 0,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-west-90",
+      "file": "firefox-1440-Letter.pdf",
+      "format": "pdf",
+      "sha256": "33112bc469098b313be4b3dbbb26d0c7dbec9e91e810be3ee928062e07fc23b6",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010692122019396066
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011312855265146027
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0003394823233369638
+        }
+      ],
+      "badEdges": 0,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-west-90",
+      "file": "firefox-375.svg",
+      "format": "svg",
+      "sha256": "c843b963c206a98b47661e6f6849ed00ba418ffa4fd76132e41cba54d4335fc1",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.01118528688457232
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.017567025446378892
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.008026270773378278
+        }
+      ],
+      "badEdges": 0
+    },
+    {
+      "case": "north-west-90",
+      "file": "firefox-375-A4.pdf",
+      "format": "pdf",
+      "sha256": "f47b1da6d36cef1311e379fdc9799c0be0cf97bdaacdad381c3fe06d8e98c84c",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010743541873964091
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011393849155933111
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.00021532979618356444
+        }
+      ],
+      "badEdges": 0,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    },
+    {
+      "case": "north-west-90",
+      "file": "firefox-375-Letter.pdf",
+      "format": "pdf",
+      "sha256": "094bc1f304e389c071bce9e154f1ac61a790ac8b9a37e29912719c31d0a30cf6",
+      "datePaths": [
+        {
+          "declinationDeg": 23.44,
+          "vertices": 3,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.010692122019396066
+        },
+        {
+          "declinationDeg": 23.44,
+          "vertices": 46,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.011312855265146027
+        },
+        {
+          "declinationDeg": 0,
+          "vertices": 22,
+          "badEdges": [],
+          "maxDeclinationErrorDeg": 0.0003394823233369638
+        }
+      ],
+      "badEdges": 0,
+      "pages": 2,
+      "calibrationBarsMm": [
+        100.00000412729051,
+        100.00000412729051
+      ]
+    }
+  ],
+  "badEdges": 0
+}
