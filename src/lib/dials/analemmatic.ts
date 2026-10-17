@@ -20,8 +20,8 @@
  * it works for any rod height) to point at the correct hour mark. Solving
  * that for the standard sun-position formulas gives the classic result
  *   offset = R cos(phi) tan(delta)
- * positive offset = toward the pole-ward end of the minor axis in
- * summer. We verified this numerically (see repository notes / tests)
+ * positive offset is true north: June is positive and December negative
+ * in either hemisphere. We verified this numerically (see repository notes / tests)
  * against the general shadow-direction formula before trusting it.
  */
 

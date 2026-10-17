@@ -1,0 +1,175 @@
+{
+  "url": "http://127.0.0.1:4333/gnomon/",
+  "phase": "after",
+  "scope": "Actual designer opened a portable Sydney setup after disconnecting; native SVG and design-file downloads, standalone SVG reopen. No physical field measurement.",
+  "results": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "phase": "after",
+      "inputSha256": "8eae119060b706b0215ca977bc63ed8287becae17cdcf374cb916824d9ecaa96",
+      "svgSha256": "b07eeb89f9192ee85408dab73d00c51392becf17686b07d0a732a0c9a61211d8",
+      "evidence": {
+        "width": "234mm",
+        "height": "234mm",
+        "labels": [
+          {
+            "label": "June solstice",
+            "x": "121.000",
+            "y": "84.600"
+          },
+          {
+            "label": "Equinox",
+            "x": "121.000",
+            "y": "117.000"
+          },
+          {
+            "label": "December solstice",
+            "x": "121.000",
+            "y": "149.400"
+          }
+        ],
+        "scripts": 0
+      },
+      "errors": [],
+      "requests": [
+        "http://127.0.0.1:4333/gnomon/",
+        "http://127.0.0.1:4333/gnomon/assets/index-YVjITIBN.js",
+        "http://127.0.0.1:4333/gnomon/assets/index-DpJ6Eoy3.css",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ],
+      "lateRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "phase": "after",
+      "inputSha256": "8eae119060b706b0215ca977bc63ed8287becae17cdcf374cb916824d9ecaa96",
+      "svgSha256": "b07eeb89f9192ee85408dab73d00c51392becf17686b07d0a732a0c9a61211d8",
+      "evidence": {
+        "width": "234mm",
+        "height": "234mm",
+        "labels": [
+          {
+            "label": "June solstice",
+            "x": "121.000",
+            "y": "84.600"
+          },
+          {
+            "label": "Equinox",
+            "x": "121.000",
+            "y": "117.000"
+          },
+          {
+            "label": "December solstice",
+            "x": "121.000",
+            "y": "149.400"
+          }
+        ],
+        "scripts": 0
+      },
+      "errors": [],
+      "requests": [
+        "http://127.0.0.1:4333/gnomon/",
+        "http://127.0.0.1:4333/gnomon/assets/index-YVjITIBN.js",
+        "http://127.0.0.1:4333/gnomon/assets/index-DpJ6Eoy3.css",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ],
+      "lateRequests": []
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "phase": "after",
+      "inputSha256": "8eae119060b706b0215ca977bc63ed8287becae17cdcf374cb916824d9ecaa96",
+      "svgSha256": "b07eeb89f9192ee85408dab73d00c51392becf17686b07d0a732a0c9a61211d8",
+      "evidence": {
+        "width": "234mm",
+        "height": "234mm",
+        "labels": [
+          {
+            "label": "June solstice",
+            "x": "121.000",
+            "y": "84.600"
+          },
+          {
+            "label": "Equinox",
+            "x": "121.000",
+            "y": "117.000"
+          },
+          {
+            "label": "December solstice",
+            "x": "121.000",
+            "y": "149.400"
+          }
+        ],
+        "scripts": 0
+      },
+      "errors": [],
+      "requests": [
+        "http://127.0.0.1:4333/gnomon/",
+        "http://127.0.0.1:4333/gnomon/assets/index-YVjITIBN.js",
+        "http://127.0.0.1:4333/gnomon/assets/index-DpJ6Eoy3.css",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2"
+      ],
+      "lateRequests": []
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "phase": "after",
+      "inputSha256": "8eae119060b706b0215ca977bc63ed8287becae17cdcf374cb916824d9ecaa96",
+      "svgSha256": "b07eeb89f9192ee85408dab73d00c51392becf17686b07d0a732a0c9a61211d8",
+      "evidence": {
+        "width": "234mm",
+        "height": "234mm",
+        "labels": [
+          {
+            "label": "June solstice",
+            "x": "121.000",
+            "y": "84.600"
+          },
+          {
+            "label": "Equinox",
+            "x": "121.000",
+            "y": "117.000"
+          },
+          {
+            "label": "December solstice",
+            "x": "121.000",
+            "y": "149.400"
+          }
+        ],
+        "scripts": 0
+      },
+      "errors": [],
+      "requests": [
+        "http://127.0.0.1:4333/gnomon/",
+        "http://127.0.0.1:4333/gnomon/assets/index-YVjITIBN.js",
+        "http://127.0.0.1:4333/gnomon/assets/index-DpJ6Eoy3.css",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/fraunces-latin-DihXLNYH.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2",
+        "http://127.0.0.1:4333/gnomon/assets/inter-latin-Dx4kXJAl.woff2"
+      ],
+      "lateRequests": []
+    }
+  ]
+}

@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Calendar standing marks in both hemispheres
+
+- Name solstice marks by month. The former Summer/Winter names followed the
+  Northern Hemisphere even on a Southern Hemisphere analemmatic drawing.
+- Match setup instructions to a vertical analemmatic rod, preserve polar-style
+  instructions for polar dials, and qualify Polaris as a northern reference.
+  Retain the same geometry, physical units and portable design-file format.
+  [Reproduction, independent shadow rays and actual SVG downloads](studies/seasonal-marks/README.md).
+
 ### Complete historical-hour ranges
 
 - Generate every usable interior hour of the 24-hour Italian and Babylonian

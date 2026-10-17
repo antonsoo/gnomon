@@ -62,6 +62,8 @@ no install needed.
   closed form.
 - **Declination (date) lines** for the solstices, equinox, and optionally
   the zodiac entries, for a nodus on the style.
+  Analemmatic standing marks name **June** and **December**, so they work in
+  either hemisphere. [Standing marks and vertical-rod setup](studies/seasonal-marks/README.md).
 - **Equation of time** table for the simulation year, computed from the same
   solar ephemeris. The library also exposes a daily curve, including leap days.
 - **Gnomon template**: a triangular style with an attached mounting tab,

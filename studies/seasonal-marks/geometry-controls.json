@@ -1,0 +1,102 @@
+{
+  "before": "3d9a8cf",
+  "scope": "Full native design snapshots, all four dial types, two hemispheres and two sizes; normalize only the two human calendar labels.",
+  "cases": [
+    {
+      "kind": "horizontal",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "horizontal",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 350,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "horizontal",
+      "latitudeDeg": 51.5072,
+      "radiusMm": 90,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "horizontal",
+      "latitudeDeg": 51.5072,
+      "radiusMm": 350,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "vertical",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "vertical",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 350,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "vertical",
+      "latitudeDeg": 51.5072,
+      "radiusMm": 90,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "vertical",
+      "latitudeDeg": 51.5072,
+      "radiusMm": 350,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "equatorial",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "equatorial",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 350,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "equatorial",
+      "latitudeDeg": 51.5072,
+      "radiusMm": 90,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "equatorial",
+      "latitudeDeg": 51.5072,
+      "radiusMm": 350,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "analemmatic",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 90,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "analemmatic",
+      "latitudeDeg": -33.8688,
+      "radiusMm": 350,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "analemmatic",
+      "latitudeDeg": 51.5072,
+      "radiusMm": 90,
+      "unchangedExceptCalendarLabels": true
+    },
+    {
+      "kind": "analemmatic",
+      "latitudeDeg": 51.5072,
+      "radiusMm": 350,
+      "unchangedExceptCalendarLabels": true
+    }
+  ]
+}

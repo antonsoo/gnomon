@@ -1,0 +1,21 @@
+{
+  "scope": "Actual laser SVG downloads from the designer; all geometry, descriptions, units and styles remain byte-identical after replacing only the two calendar names. Portable file bytes are unchanged in both browser receipts.",
+  "cases": [
+    {
+      "drawing": "chromium-1440.svg",
+      "sameAfterReplacingOnlyTwoDateLabels": true
+    },
+    {
+      "drawing": "firefox-375.svg",
+      "sameAfterReplacingOnlyTwoDateLabels": true
+    },
+    {
+      "drawing": "firefox-1440.svg",
+      "sameAfterReplacingOnlyTwoDateLabels": true
+    },
+    {
+      "drawing": "chromium-375.svg",
+      "sameAfterReplacingOnlyTwoDateLabels": true
+    }
+  ]
+}
