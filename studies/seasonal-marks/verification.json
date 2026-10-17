@@ -1,0 +1,22 @@
+{
+  "source": "49b838c27d97a556151cbc0853129bddbe6c4d86",
+  "node": "24.21.0",
+  "cleanArchive": {
+    "install": "npm ci",
+    "lint": "passed",
+    "typecheck": "passed",
+    "unitTests": 304,
+    "build": "passed",
+    "browserTests": 68,
+    "browserEngines": [
+      "Chromium",
+      "Firefox"
+    ]
+  },
+  "nativeOfflineWorkflowContexts": 4,
+  "originalSource": "3d9a8cf74cfa320c2417a764611f9b13b3e6e0ea",
+  "geometryControlCases": 16,
+  "beforeWrongStandingMarks": 8,
+  "afterWrongStandingMarks": 0,
+  "scope": "Clean source build and actual native designer/SVG/design-file downloads; no registry release or physical field measurement."
+}

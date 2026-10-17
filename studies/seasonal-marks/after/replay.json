@@ -1,5 +1,5 @@
 {
-  "sourceRevision": "f729f446489f7b584aee69bc5d10a669712ea586",
+  "sourceRevision": "49b838c27d97a556151cbc0853129bddbe6c4d86",
   "scope": "Controlled solstitial geometry and actual native labels; an independent ENU ray at apparent solar 15:00. Not field measurements or a new solar ephemeris accuracy estimate.",
   "calendarReference": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/tropical-solstice-shadows/",
   "method": "Choose the month-labelled mark, or follow the former label for the local season. Compare the direction from that standing mark to the intended hour point with the horizontal shadow direction opposite the Sun.",
@@ -10,7 +10,7 @@
     },
     {
       "file": "src/lib/dials/analemmatic.ts",
-      "sha256": "c9c890fed984945df5df5f688f03b5a659c2365fb561e99a1b0b02aea67dc510"
+      "sha256": "9cc31661e77f353377ac4235e00210dcd02fc6dc519f063351dacd0e7bdbaf3c"
     },
     {
       "file": "src/lib/render/svg.ts",
