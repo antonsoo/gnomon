@@ -1,0 +1,2336 @@
+{
+  "sourceRevision": "7ae6ab44da909505c1c5579125a8a2dc19464ba5",
+  "scope": "Authored native standing-scale drawings and non-zodiac controls, including limiting polar latitudes. No field measurements.",
+  "cases": [
+    {
+      "name": "-90-30-calendar",
+      "latitudeDeg": -90,
+      "radiusMm": 30,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 7.964510517038872e-16
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -7.964510517038872e-16
+        }
+      ],
+      "svgSha256": "f4942c15c510a40f45b01ec4b9f8b892b86d570a169dc4317905809c8855c707",
+      "hourGeometrySha256": "d2ebe231d51ef9772f4d5fa991d7fa9931f66f2bad4c0423e5a4ca40ead9bdf3"
+    },
+    {
+      "name": "-90-30-zodiac",
+      "latitudeDeg": -90,
+      "radiusMm": 30,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 7.964510517038872e-16
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -7.964510517038872e-16
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 3.737358109026035e-16
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 6.722356313513895e-16
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 7.964510517038872e-16
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -3.737358109026035e-16
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -6.722356313513895e-16
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -7.964510517038872e-16
+        }
+      ],
+      "svgSha256": "ac605a78c267c50777f96a22bccdaf9bbb8b392f5959b93001d10fca9b80740b",
+      "hourGeometrySha256": "d2ebe231d51ef9772f4d5fa991d7fa9931f66f2bad4c0423e5a4ca40ead9bdf3"
+    },
+    {
+      "name": "-90-90-calendar",
+      "latitudeDeg": -90,
+      "radiusMm": 90,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.3893531551116616e-15
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.3893531551116616e-15
+        }
+      ],
+      "svgSha256": "d50ae59e0e3faa1fd8572925d282b12fd4fb3b72a2b9f5aa6ac08113e0b1160b",
+      "hourGeometrySha256": "f5be4c1bb798daff38443102fde553ad23f0d0a6cec4462634f19b8f70fa6f0a"
+    },
+    {
+      "name": "-90-90-zodiac",
+      "latitudeDeg": -90,
+      "radiusMm": 90,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.3893531551116616e-15
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.3893531551116616e-15
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 1.1212074327078104e-15
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 2.016706894054168e-15
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.3893531551116616e-15
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -1.1212074327078104e-15
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -2.016706894054168e-15
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.3893531551116616e-15
+        }
+      ],
+      "svgSha256": "bdece7af7355816091d92fc25597d4e1f72ae561290767328ade29cf7a636c7d",
+      "hourGeometrySha256": "f5be4c1bb798daff38443102fde553ad23f0d0a6cec4462634f19b8f70fa6f0a"
+    },
+    {
+      "name": "-90-400-calendar",
+      "latitudeDeg": -90,
+      "radiusMm": 400,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 1.0619347356051829e-14
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -1.0619347356051829e-14
+        }
+      ],
+      "svgSha256": "68a18f1bd4776ef60dfb4210cabb60537133d16d39a56c2bc14fce03d96808c2",
+      "hourGeometrySha256": "68f9dfa9fe041e9f7e56794b50057da99959a7d9850d5510b76d0d0800f5f446"
+    },
+    {
+      "name": "-90-400-zodiac",
+      "latitudeDeg": -90,
+      "radiusMm": 400,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 1.0619347356051829e-14
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -1.0619347356051829e-14
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 4.983144145368046e-15
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 8.96314175135186e-15
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 1.0619347356051829e-14
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -4.983144145368046e-15
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -8.96314175135186e-15
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -1.0619347356051829e-14
+        }
+      ],
+      "svgSha256": "0c873b9b2ebb1da0a3c79d413fd379f1bd0f294d9d94f184d25f61f5baaa45de",
+      "hourGeometrySha256": "68f9dfa9fe041e9f7e56794b50057da99959a7d9850d5510b76d0d0800f5f446"
+    },
+    {
+      "name": "-80-30-calendar",
+      "latitudeDeg": -80,
+      "radiusMm": 30,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.2586475353641817
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.2586475353641817
+        }
+      ],
+      "svgSha256": "1efd4d28aef6415bf8636ec245e0c855e6d69ca770618dcd0a5c627d13370d10",
+      "hourGeometrySha256": "186037c374c228f1183ba2845a0500dfd6512047f6b663633953173dcf30ac94"
+    },
+    {
+      "name": "-80-30-zodiac",
+      "latitudeDeg": -80,
+      "radiusMm": 30,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.2586475353641817
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.2586475353641817
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 1.0598736311121622
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 1.9063862728130414
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.2586475353641817
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -1.0598736311121622
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -1.9063862728130414
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.2586475353641817
+        }
+      ],
+      "svgSha256": "29aa5e18e7a024809e57b72f0ab70b959eaf6587bfc570cbd21f62c1ee8cfc31",
+      "hourGeometrySha256": "186037c374c228f1183ba2845a0500dfd6512047f6b663633953173dcf30ac94"
+    },
+    {
+      "name": "-80-90-calendar",
+      "latitudeDeg": -80,
+      "radiusMm": 90,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 6.775942606092546
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -6.775942606092546
+        }
+      ],
+      "svgSha256": "f5f293c5551a07f5f64a242cb6081385df3f6170706ce61c58b37d783b7a9e51",
+      "hourGeometrySha256": "b64316b023826cca61f7b636c47373959d9a164b900b3e2b62c2e5442ac3c5b3"
+    },
+    {
+      "name": "-80-90-zodiac",
+      "latitudeDeg": -80,
+      "radiusMm": 90,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 6.775942606092546
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -6.775942606092546
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 3.1796208933364865
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 5.719158818439125
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 6.775942606092546
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -3.1796208933364865
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -5.719158818439125
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -6.775942606092546
+        }
+      ],
+      "svgSha256": "feaa8b026d93ab877233e1f3807c1dfeb61fe1555333b0fa5d76c56b5f7b04ed",
+      "hourGeometrySha256": "b64316b023826cca61f7b636c47373959d9a164b900b3e2b62c2e5442ac3c5b3"
+    },
+    {
+      "name": "-80-400-calendar",
+      "latitudeDeg": -80,
+      "radiusMm": 400,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 30.11530047152242
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -30.11530047152242
+        }
+      ],
+      "svgSha256": "5006d6d7729609e8795859c52ad263920fe8c8d0d3a676d7581d809472ff8660",
+      "hourGeometrySha256": "ad3246c098fc663db393c33b8cb316afa6c6f0f8a2730f40fc2133acf694299b"
+    },
+    {
+      "name": "-80-400-zodiac",
+      "latitudeDeg": -80,
+      "radiusMm": 400,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 30.11530047152242
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -30.11530047152242
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 14.131648414828827
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 25.41848363750722
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 30.11530047152242
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -14.131648414828827
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -25.41848363750722
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -30.11530047152242
+        }
+      ],
+      "svgSha256": "18276b37fdde71772c8ed6ceb2a72019d26d5797f2a55d802634caf8eb62097f",
+      "hourGeometrySha256": "ad3246c098fc663db393c33b8cb316afa6c6f0f8a2730f40fc2133acf694299b"
+    },
+    {
+      "name": "-45-30-calendar",
+      "latitudeDeg": -45,
+      "radiusMm": 30,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 9.19736106663703
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -9.19736106663703
+        }
+      ],
+      "svgSha256": "d6576ed5ff11e7dc6960f98bf3fd4e7f7ef90c08c22eb23ecbcc6b52dac3ab93",
+      "hourGeometrySha256": "1a397d39fc14a9343b5855e27c76375f291756c316705fd97cc280c3c23326d7"
+    },
+    {
+      "name": "-45-30-zodiac",
+      "latitudeDeg": -45,
+      "radiusMm": 30,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 9.19736106663703
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -9.19736106663703
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 4.315875017114812
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 7.762930076079723
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 9.19736106663703
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -4.315875017114812
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -7.762930076079723
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -9.19736106663703
+        }
+      ],
+      "svgSha256": "597199fc72a7283bb5060a79dad76bcdaefacc0e3815b17e30e1d7933428c102",
+      "hourGeometrySha256": "1a397d39fc14a9343b5855e27c76375f291756c316705fd97cc280c3c23326d7"
+    },
+    {
+      "name": "-45-90-calendar",
+      "latitudeDeg": -45,
+      "radiusMm": 90,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 27.592083199911087
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -27.592083199911087
+        }
+      ],
+      "svgSha256": "f4e8624c3fc4e8a98a74e60b5fc04a1d69803c7421d8753e0f7ee74287223eb1",
+      "hourGeometrySha256": "653635c767606c2edef19ab8da82c77162a4d4a2c1077f9fd5122b48dd630d3f"
+    },
+    {
+      "name": "-45-90-zodiac",
+      "latitudeDeg": -45,
+      "radiusMm": 90,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 27.592083199911087
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -27.592083199911087
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 12.947625051344437
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 23.28879022823917
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 27.592083199911087
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -12.947625051344437
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -23.28879022823917
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -27.592083199911087
+        }
+      ],
+      "svgSha256": "e3a68e40b34ed019fa4bd199b5dea65c152890c89be2ec2d5c9ae01a64cd6565",
+      "hourGeometrySha256": "653635c767606c2edef19ab8da82c77162a4d4a2c1077f9fd5122b48dd630d3f"
+    },
+    {
+      "name": "-45-400-calendar",
+      "latitudeDeg": -45,
+      "radiusMm": 400,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 122.63148088849371
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -122.63148088849371
+        }
+      ],
+      "svgSha256": "8d8db4240baa6af7543bfe6983a4d84c690df320962b245153bd1849b1938540",
+      "hourGeometrySha256": "b21fce77efe4c1955be3dcd294e98fbf25807620cf4a6a3beb540bff5092c907"
+    },
+    {
+      "name": "-45-400-zodiac",
+      "latitudeDeg": -45,
+      "radiusMm": 400,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 122.63148088849371
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -122.63148088849371
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 57.545000228197495
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 103.50573434772963
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 122.63148088849371
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -57.545000228197495
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -103.50573434772963
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -122.63148088849371
+        }
+      ],
+      "svgSha256": "9beb9b096ba23035615245fe16d43a4fc9333cdf484c1910daa9a702f74d98ff",
+      "hourGeometrySha256": "b21fce77efe4c1955be3dcd294e98fbf25807620cf4a6a3beb540bff5092c907"
+    },
+    {
+      "name": "-10-30-calendar",
+      "latitudeDeg": -10,
+      "radiusMm": 30,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 12.809426704235227
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -12.809426704235227
+        }
+      ],
+      "svgSha256": "25c8c32e60fd66761104967789b6b9cf9060db56c6466bef758113f40775892a",
+      "hourGeometrySha256": "a387c238493ec3a1c55f59012036a83226d205bae921abf2a9e7233b1136e3c6"
+    },
+    {
+      "name": "-10-30-zodiac",
+      "latitudeDeg": -10,
+      "radiusMm": 30,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 12.809426704235227
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -12.809426704235227
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 6.0108420552186095
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 10.811653810173365
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 12.809426704235227
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -6.0108420552186095
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -10.811653810173365
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -12.809426704235227
+        }
+      ],
+      "svgSha256": "cfee37020e2fff00df09eaeeb9659d2264d437bccf7b00f1c9d22bce214048a1",
+      "hourGeometrySha256": "a387c238493ec3a1c55f59012036a83226d205bae921abf2a9e7233b1136e3c6"
+    },
+    {
+      "name": "-10-90-calendar",
+      "latitudeDeg": -10,
+      "radiusMm": 90,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 38.42828011270568
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -38.42828011270568
+        }
+      ],
+      "svgSha256": "17cdfee9bd919d58892806ca560142a14276bef6c13c60f4339448d077f87101",
+      "hourGeometrySha256": "ce72a6de0941ff3b36b50d9242d15d2ad6bb3c56615d5eb55cd2edd22cad48fb"
+    },
+    {
+      "name": "-10-90-zodiac",
+      "latitudeDeg": -10,
+      "radiusMm": 90,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 38.42828011270568
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -38.42828011270568
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 18.032526165655828
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 32.43496143052009
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 38.42828011270568
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -18.032526165655828
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -32.43496143052009
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -38.42828011270568
+        }
+      ],
+      "svgSha256": "e2a2b65d88a3e8f05cc70f80b17e34965b277307c961e49a87420f4e79b24fe5",
+      "hourGeometrySha256": "ce72a6de0941ff3b36b50d9242d15d2ad6bb3c56615d5eb55cd2edd22cad48fb"
+    },
+    {
+      "name": "-10-400-calendar",
+      "latitudeDeg": -10,
+      "radiusMm": 400,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 170.79235605646969
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -170.79235605646969
+        }
+      ],
+      "svgSha256": "13f32acac266d943a6230cfb8322ab40a28b9967af1dd95f65288b3870a94822",
+      "hourGeometrySha256": "c2d343ac5274d4a3681f18bac8d5ce37aa6128947ef30e6a43c01af0246bfd7a"
+    },
+    {
+      "name": "-10-400-zodiac",
+      "latitudeDeg": -10,
+      "radiusMm": 400,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 170.79235605646969
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -170.79235605646969
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 80.14456073624812
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 144.15538413564485
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 170.79235605646969
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -80.14456073624812
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -144.15538413564485
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -170.79235605646969
+        }
+      ],
+      "svgSha256": "849ccbb80b97019f49308de1df243ee923bc32180e3c3f0cf2ec35393cf8dd42",
+      "hourGeometrySha256": "c2d343ac5274d4a3681f18bac8d5ce37aa6128947ef30e6a43c01af0246bfd7a"
+    },
+    {
+      "name": "10-30-calendar",
+      "latitudeDeg": 10,
+      "radiusMm": 30,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 12.809426704235227
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -12.809426704235227
+        }
+      ],
+      "svgSha256": "f883dab71943a4d9592e0f41620e883179bd58e9f3d914fbb98804f77cf3b7d2",
+      "hourGeometrySha256": "905ce6111aa7210c34364fd6a43b31a9ec44424953112cc8129fb959d9dfe4c3"
+    },
+    {
+      "name": "10-30-zodiac",
+      "latitudeDeg": 10,
+      "radiusMm": 30,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 12.809426704235227
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -12.809426704235227
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 6.0108420552186095
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 10.811653810173365
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 12.809426704235227
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -6.0108420552186095
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -10.811653810173365
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -12.809426704235227
+        }
+      ],
+      "svgSha256": "80fae9584f746570ade9f3718840c2c1ae0d0557d22595046f917d85d6b84031",
+      "hourGeometrySha256": "905ce6111aa7210c34364fd6a43b31a9ec44424953112cc8129fb959d9dfe4c3"
+    },
+    {
+      "name": "10-90-calendar",
+      "latitudeDeg": 10,
+      "radiusMm": 90,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 38.42828011270568
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -38.42828011270568
+        }
+      ],
+      "svgSha256": "ed4db47886f31d4b6c3026fdf7e86706f2e776794cc76662da65e6f5130fc4e8",
+      "hourGeometrySha256": "4e694c68e3052c773ec38767ad2b896bdc0de86273a081c880919fc05f900660"
+    },
+    {
+      "name": "10-90-zodiac",
+      "latitudeDeg": 10,
+      "radiusMm": 90,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 38.42828011270568
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -38.42828011270568
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 18.032526165655828
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 32.43496143052009
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 38.42828011270568
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -18.032526165655828
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -32.43496143052009
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -38.42828011270568
+        }
+      ],
+      "svgSha256": "36249620e5ec712f26fdee7908067b60c60088e634ac3619a74e5fdf36e943bf",
+      "hourGeometrySha256": "4e694c68e3052c773ec38767ad2b896bdc0de86273a081c880919fc05f900660"
+    },
+    {
+      "name": "10-400-calendar",
+      "latitudeDeg": 10,
+      "radiusMm": 400,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 170.79235605646969
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -170.79235605646969
+        }
+      ],
+      "svgSha256": "81577ff6a025bd5e87f0a7c3983e92fe6c945aec643c41145e6d5c4bd3960645",
+      "hourGeometrySha256": "2e891c26c8ddfbac0ed4fd0faa68c049a99f866cb672d95206d1b13693aaa617"
+    },
+    {
+      "name": "10-400-zodiac",
+      "latitudeDeg": 10,
+      "radiusMm": 400,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 170.79235605646969
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -170.79235605646969
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 80.14456073624812
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 144.15538413564485
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 170.79235605646969
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -80.14456073624812
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -144.15538413564485
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -170.79235605646969
+        }
+      ],
+      "svgSha256": "45ab0b31245517fde312279bc5da9b77ec2303fd54c32058eba25065604a34a2",
+      "hourGeometrySha256": "2e891c26c8ddfbac0ed4fd0faa68c049a99f866cb672d95206d1b13693aaa617"
+    },
+    {
+      "name": "45-30-calendar",
+      "latitudeDeg": 45,
+      "radiusMm": 30,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 9.19736106663703
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -9.19736106663703
+        }
+      ],
+      "svgSha256": "01f0dff9bcfdd5473a8b744b91a8357e48c8f0b9a341f4c8384afe83603c38a9",
+      "hourGeometrySha256": "3aa7ff967ea631678c0c5cb47457deaf9a197317ece9f19b611a5f1bf666b0b2"
+    },
+    {
+      "name": "45-30-zodiac",
+      "latitudeDeg": 45,
+      "radiusMm": 30,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 9.19736106663703
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -9.19736106663703
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 4.315875017114812
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 7.762930076079723
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 9.19736106663703
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -4.315875017114812
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -7.762930076079723
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -9.19736106663703
+        }
+      ],
+      "svgSha256": "1d66f3e85c11147f9bf4563592fa7fe2ebc81eac070811159be5cfc95bd362f2",
+      "hourGeometrySha256": "3aa7ff967ea631678c0c5cb47457deaf9a197317ece9f19b611a5f1bf666b0b2"
+    },
+    {
+      "name": "45-90-calendar",
+      "latitudeDeg": 45,
+      "radiusMm": 90,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 27.592083199911087
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -27.592083199911087
+        }
+      ],
+      "svgSha256": "ce8d6320707528321beff661bbf3b71d17dc98550f611eceecba855a24d6c426",
+      "hourGeometrySha256": "2d616761a2d5896f2a902a8c7118b02a44e725875a9bc2a5791fb4c92a986b9c"
+    },
+    {
+      "name": "45-90-zodiac",
+      "latitudeDeg": 45,
+      "radiusMm": 90,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 27.592083199911087
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -27.592083199911087
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 12.947625051344437
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 23.28879022823917
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 27.592083199911087
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -12.947625051344437
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -23.28879022823917
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -27.592083199911087
+        }
+      ],
+      "svgSha256": "c764590039297b7b2c36c36ca38154bd8aac06f3797cc0420bd56d691114b8da",
+      "hourGeometrySha256": "2d616761a2d5896f2a902a8c7118b02a44e725875a9bc2a5791fb4c92a986b9c"
+    },
+    {
+      "name": "45-400-calendar",
+      "latitudeDeg": 45,
+      "radiusMm": 400,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 122.63148088849371
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -122.63148088849371
+        }
+      ],
+      "svgSha256": "c7afcfcda0e3a2324b185b6081cb2e27f23929fdfadd96bb025b72bcc46d443f",
+      "hourGeometrySha256": "c4a24e04f0a1bc8777aeee95b1f0d4cb461f7043df8e35de2c95e6fad65ec7ea"
+    },
+    {
+      "name": "45-400-zodiac",
+      "latitudeDeg": 45,
+      "radiusMm": 400,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 122.63148088849371
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -122.63148088849371
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 57.545000228197495
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 103.50573434772963
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 122.63148088849371
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -57.545000228197495
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -103.50573434772963
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -122.63148088849371
+        }
+      ],
+      "svgSha256": "a0949cbf0662c447ce45e0c83a189223c820e964f36c343db59ab003c1ce2339",
+      "hourGeometrySha256": "c4a24e04f0a1bc8777aeee95b1f0d4cb461f7043df8e35de2c95e6fad65ec7ea"
+    },
+    {
+      "name": "80-30-calendar",
+      "latitudeDeg": 80,
+      "radiusMm": 30,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.2586475353641817
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.2586475353641817
+        }
+      ],
+      "svgSha256": "d79f96ad0b694328043d263b66ea5c4e79f6f04bf4565d495dfc455966735efb",
+      "hourGeometrySha256": "36070c07fd138f8da056b22d3207c4af72777da228d8baf1fb4f4dabe53b8249"
+    },
+    {
+      "name": "80-30-zodiac",
+      "latitudeDeg": 80,
+      "radiusMm": 30,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.2586475353641817
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.2586475353641817
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 1.0598736311121622
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 1.9063862728130414
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.2586475353641817
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -1.0598736311121622
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -1.9063862728130414
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.2586475353641817
+        }
+      ],
+      "svgSha256": "659d650f4c48e66f17498ea4fcc8adffe28a574ecaf68fe7fdbdd84abd124681",
+      "hourGeometrySha256": "36070c07fd138f8da056b22d3207c4af72777da228d8baf1fb4f4dabe53b8249"
+    },
+    {
+      "name": "80-90-calendar",
+      "latitudeDeg": 80,
+      "radiusMm": 90,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 6.775942606092546
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -6.775942606092546
+        }
+      ],
+      "svgSha256": "408dcd6b9cc14b52c985683a5809ddde81ebae32b9c4e2b88d37dfd5642e9fdd",
+      "hourGeometrySha256": "cb1798a2ee1448f2154421700e057e09907c848f95a02aadf7c23780625b8c20"
+    },
+    {
+      "name": "80-90-zodiac",
+      "latitudeDeg": 80,
+      "radiusMm": 90,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 6.775942606092546
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -6.775942606092546
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 3.1796208933364865
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 5.719158818439125
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 6.775942606092546
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -3.1796208933364865
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -5.719158818439125
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -6.775942606092546
+        }
+      ],
+      "svgSha256": "204f26045b5647c6cf4ceffeda0ebaff59cc5a568640634b16d3a55d82b2ec4b",
+      "hourGeometrySha256": "cb1798a2ee1448f2154421700e057e09907c848f95a02aadf7c23780625b8c20"
+    },
+    {
+      "name": "80-400-calendar",
+      "latitudeDeg": 80,
+      "radiusMm": 400,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 30.11530047152242
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -30.11530047152242
+        }
+      ],
+      "svgSha256": "04284326e68b781e42967722f0703c0463a0f78736d595d7762e2341b72edc94",
+      "hourGeometrySha256": "17d1284d296153188f1f7903ee7821bb70c16f81b18676dfed3cc20f8e5bfef5"
+    },
+    {
+      "name": "80-400-zodiac",
+      "latitudeDeg": 80,
+      "radiusMm": 400,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 30.11530047152242
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -30.11530047152242
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 14.131648414828827
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 25.41848363750722
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 30.11530047152242
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -14.131648414828827
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -25.41848363750722
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -30.11530047152242
+        }
+      ],
+      "svgSha256": "7cd50135e0e4f2a99c1d8b7d3d7d1a3cc13b356eb834850325c31dde94c30e76",
+      "hourGeometrySha256": "17d1284d296153188f1f7903ee7821bb70c16f81b18676dfed3cc20f8e5bfef5"
+    },
+    {
+      "name": "90-30-calendar",
+      "latitudeDeg": 90,
+      "radiusMm": 30,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 7.964510517038872e-16
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -7.964510517038872e-16
+        }
+      ],
+      "svgSha256": "f3f1ba72997b25b4b803a66eb995b6132df694057bfbd4d4162d776e723f4f26",
+      "hourGeometrySha256": "86552a639005f000a5b3c29fb75ec057dd22156d73c6bc57004d62295c36e059"
+    },
+    {
+      "name": "90-30-zodiac",
+      "latitudeDeg": 90,
+      "radiusMm": 30,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 7.964510517038872e-16
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -7.964510517038872e-16
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 3.737358109026035e-16
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 6.722356313513895e-16
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 7.964510517038872e-16
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -3.737358109026035e-16
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -6.722356313513895e-16
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -7.964510517038872e-16
+        }
+      ],
+      "svgSha256": "08a5bddbc3d56ac4700e6181b5c4b07b36dcf646dce74a3c395f86808b321d14",
+      "hourGeometrySha256": "86552a639005f000a5b3c29fb75ec057dd22156d73c6bc57004d62295c36e059"
+    },
+    {
+      "name": "90-90-calendar",
+      "latitudeDeg": 90,
+      "radiusMm": 90,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.3893531551116616e-15
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.3893531551116616e-15
+        }
+      ],
+      "svgSha256": "6dbf9314b054bc5232d8a032e9d5f52d7df2391792b7ab1297a2eb4f067aec9c",
+      "hourGeometrySha256": "b58f545e48976c996aac03ff644a9422c7f187c1956b7e153e008eeee8b838eb"
+    },
+    {
+      "name": "90-90-zodiac",
+      "latitudeDeg": 90,
+      "radiusMm": 90,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.3893531551116616e-15
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.3893531551116616e-15
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 1.1212074327078104e-15
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 2.016706894054168e-15
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 2.3893531551116616e-15
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -1.1212074327078104e-15
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -2.016706894054168e-15
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -2.3893531551116616e-15
+        }
+      ],
+      "svgSha256": "9d1af396c57371823ceb934fec4769ec0a362d7fd214e3f596f53562f128608e",
+      "hourGeometrySha256": "b58f545e48976c996aac03ff644a9422c7f187c1956b7e153e008eeee8b838eb"
+    },
+    {
+      "name": "90-400-calendar",
+      "latitudeDeg": 90,
+      "radiusMm": 400,
+      "zodiac": false,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 1.0619347356051829e-14
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -1.0619347356051829e-14
+        }
+      ],
+      "svgSha256": "39695f3f579ea22b54b01007b55350da002733b66b69b53a73500943f2614516",
+      "hourGeometrySha256": "6966689054159eb08f68ec5c47bb0fc0ee20a1ef28ab2bc51a50913f3cde96f1"
+    },
+    {
+      "name": "90-400-zodiac",
+      "latitudeDeg": 90,
+      "radiusMm": 400,
+      "zodiac": true,
+      "marks": [
+        {
+          "label": "June solstice",
+          "declinationDeg": 23.44,
+          "offsetMm": 1.0619347356051829e-14
+        },
+        {
+          "label": "Equinox",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "December solstice",
+          "declinationDeg": -23.44,
+          "offsetMm": -1.0619347356051829e-14
+        },
+        {
+          "label": "Aries / Libra",
+          "declinationDeg": 0,
+          "offsetMm": 0
+        },
+        {
+          "label": "Taurus / Virgo",
+          "declinationDeg": 11.5,
+          "offsetMm": 4.983144145368046e-15
+        },
+        {
+          "label": "Gemini / Leo",
+          "declinationDeg": 20.1,
+          "offsetMm": 8.96314175135186e-15
+        },
+        {
+          "label": "Cancer",
+          "declinationDeg": 23.44,
+          "offsetMm": 1.0619347356051829e-14
+        },
+        {
+          "label": "Scorpio / Pisces",
+          "declinationDeg": -11.5,
+          "offsetMm": -4.983144145368046e-15
+        },
+        {
+          "label": "Sagittarius / Aquarius",
+          "declinationDeg": -20.1,
+          "offsetMm": -8.96314175135186e-15
+        },
+        {
+          "label": "Capricorn",
+          "declinationDeg": -23.44,
+          "offsetMm": -1.0619347356051829e-14
+        }
+      ],
+      "svgSha256": "2a4b93f2d7072d7e4e37435b53c110d118a87fed34039f0c20623b68352aeae6",
+      "hourGeometrySha256": "6966689054159eb08f68ec5c47bb0fc0ee20a1ef28ab2bc51a50913f3cde96f1"
+    }
+  ],
+  "polarControls": [
+    {
+      "name": "-90-30-calendar-horizontal",
+      "svgSha256": "068d005264079686e2e59afb49918e312cbda1769fc340cc5c0a49e3d53d48fc"
+    },
+    {
+      "name": "-90-30-calendar-vertical",
+      "svgSha256": "55c6a911a30af5f794dc05c7fc9bdf35d4d80b52b625f12a5baec466cc2d8578"
+    },
+    {
+      "name": "-90-30-calendar-equatorial",
+      "svgSha256": "644cc1f29da03c8578ad298360b6d7c235570bef82d5f1d7b3a0aa3497332c36"
+    },
+    {
+      "name": "-90-90-calendar-horizontal",
+      "svgSha256": "faf93f82de22e6541c94e8a0da47e2cedff19513e9978e0296d2a5d2a6bea67c"
+    },
+    {
+      "name": "-90-90-calendar-vertical",
+      "svgSha256": "1b3688397696a634651b1e6a1b051117f2899c0a1a29f6e4cc0554f7ade04c2d"
+    },
+    {
+      "name": "-90-90-calendar-equatorial",
+      "svgSha256": "333ea53daccbab0adf56b3824429dc78a6a90617d967528a2edbdc971afa785d"
+    },
+    {
+      "name": "-90-400-calendar-horizontal",
+      "svgSha256": "35f70d9198e71ab1d382c3752aa3c07683c0cde7239fb40259ca09fe64275c06"
+    },
+    {
+      "name": "-90-400-calendar-vertical",
+      "svgSha256": "a1e072d8e7a66c59648f72b75f69b75ad262b600bd502d3931acca241157a348"
+    },
+    {
+      "name": "-90-400-calendar-equatorial",
+      "svgSha256": "9fa9a7232a6fd95027542090e3d2ad7c79bd256f0be04643a24d70db522fb151"
+    },
+    {
+      "name": "-80-30-calendar-horizontal",
+      "svgSha256": "d247adab193b54a754772170d92c04312ddd1b6f06f6b9516f87cf37b6f65c15"
+    },
+    {
+      "name": "-80-30-calendar-vertical",
+      "svgSha256": "722077cbb1c9c96cf6489dbfe350f2110dbd9b6b4d1b42eb4f9ddd3ed887371e"
+    },
+    {
+      "name": "-80-30-calendar-equatorial",
+      "svgSha256": "145a4b678e90c2b4dbe30a70cc4e567b5564dab4a48dcb2934c6c7aa88a67a35"
+    },
+    {
+      "name": "-80-90-calendar-horizontal",
+      "svgSha256": "4f118cf81c189069a876ea3f3876d925c83c23b201f31c56757da08f7aaf4a2e"
+    },
+    {
+      "name": "-80-90-calendar-vertical",
+      "svgSha256": "1485a8640da07d0a91523420cb3cef510f505db6ace10949c77a96492be23f17"
+    },
+    {
+      "name": "-80-90-calendar-equatorial",
+      "svgSha256": "fa1583a1bdd5898a18ca4bdff15e8aa90e89a3615c2c68737a557b5a82f00663"
+    },
+    {
+      "name": "-80-400-calendar-horizontal",
+      "svgSha256": "c50fa4be84dfb5490f3c70c795408b5b63e8789cd0e3a5d23760aa685bf21b35"
+    },
+    {
+      "name": "-80-400-calendar-vertical",
+      "svgSha256": "8957044857e94400c401576739e49b90eb889eb21799f546b32c4ec960321ad9"
+    },
+    {
+      "name": "-80-400-calendar-equatorial",
+      "svgSha256": "7db53dc4464a9355f6ed2b34c9a4d2c7402c581d44b6ec11bb1c322317673d56"
+    },
+    {
+      "name": "-45-30-calendar-horizontal",
+      "svgSha256": "27c7749eec6ab367d79925c93cd18987e724ac67c2a83468158d7fbe34862285"
+    },
+    {
+      "name": "-45-30-calendar-vertical",
+      "svgSha256": "a6caf5d1c7b36bb1579af303a6f74430f8f27c82241ee1a7dfd9fba3550c36e3"
+    },
+    {
+      "name": "-45-30-calendar-equatorial",
+      "svgSha256": "bd2f006a2df77c5fd879e312401781e42d06d13b6c3256f537bac4eea3e52c31"
+    },
+    {
+      "name": "-45-90-calendar-horizontal",
+      "svgSha256": "42f929ca8c2de74dcecd84ecae9dfa8cac8e8aee2a28c8a647b5c2542d5ce0ec"
+    },
+    {
+      "name": "-45-90-calendar-vertical",
+      "svgSha256": "7110018a9fb70d2b1779801803fc41b8f15938f76181dc3978dde46422bf3aa4"
+    },
+    {
+      "name": "-45-90-calendar-equatorial",
+      "svgSha256": "33c9427ffc9f1f2017c29e8742a23cde31c2c1947ea35e74f04d311761e32039"
+    },
+    {
+      "name": "-45-400-calendar-horizontal",
+      "svgSha256": "621c0c8b6047eca0c5a2afa1f2aafca8261aea581c60b19331b5e50b384b9c84"
+    },
+    {
+      "name": "-45-400-calendar-vertical",
+      "svgSha256": "dc4c9074b5f6b6930c83f73205c8cf34758ddd4ac33548822d3e5908be3b6bd7"
+    },
+    {
+      "name": "-45-400-calendar-equatorial",
+      "svgSha256": "2ff01b0f6c13da3105562475626865468b6afce966a9af0687e80805e950eb90"
+    },
+    {
+      "name": "-10-30-calendar-horizontal",
+      "svgSha256": "f48b67421bb5fe00eb03a788c4ae64009769ac0a9df994f6fbedbd0507d8d93d"
+    },
+    {
+      "name": "-10-30-calendar-vertical",
+      "svgSha256": "4981f89034566bb3a7668c0ac98bb0f49a534d40e1fbebf6d417d0e7c387adaa"
+    },
+    {
+      "name": "-10-30-calendar-equatorial",
+      "svgSha256": "e5d1ee9a9a8e7c3506524c16a3abdc1f3e82202d687e5f128398436b6a4febd6"
+    },
+    {
+      "name": "-10-90-calendar-horizontal",
+      "svgSha256": "7583e079b09da8dfb6fd68f555d88878b7eeb6ad1f802812c56a628daf4481e2"
+    },
+    {
+      "name": "-10-90-calendar-vertical",
+      "svgSha256": "f80f6e0d9481c952db24dcbda29276917feb95eca17f2d1c7b0d0a59eb707eb4"
+    },
+    {
+      "name": "-10-90-calendar-equatorial",
+      "svgSha256": "30bbfd97330feef61f6f22b0e7653a20aaeb739bda48435ed6229fecd53b3eb7"
+    },
+    {
+      "name": "-10-400-calendar-horizontal",
+      "svgSha256": "fac2683b979ea75e6b53c51ecc45889920ff465363750f15a68c02f15c9d83e0"
+    },
+    {
+      "name": "-10-400-calendar-vertical",
+      "svgSha256": "6af340bce6b2ef2dffadcd49ec06f7cc7062e8cac07ad356d4e67d1f763ccdc8"
+    },
+    {
+      "name": "-10-400-calendar-equatorial",
+      "svgSha256": "c81b6e6aea8ed4b033d75c1571c530ee279ac91a2e4acf9444fef14e2c00c563"
+    },
+    {
+      "name": "10-30-calendar-horizontal",
+      "svgSha256": "cc7c4525298544afce1462d4d56262c02f54d7cc334c9892d0bf857ec1209295"
+    },
+    {
+      "name": "10-30-calendar-vertical",
+      "svgSha256": "d6b3186f40ee44fd3583b11f244fe904de72ab5d4ef6085c52f3a029bcfae075"
+    },
+    {
+      "name": "10-30-calendar-equatorial",
+      "svgSha256": "a8bd34749ed9ae3fe35de0f726250f382fff964e761ca5a35ac961ed7b71bd98"
+    },
+    {
+      "name": "10-90-calendar-horizontal",
+      "svgSha256": "59947be71243813cbcdd76af3c1a2419bedbbabd6dddf3ad67690b249cdb105a"
+    },
+    {
+      "name": "10-90-calendar-vertical",
+      "svgSha256": "13beccf7dc77d342faaad5380e75fdb0269f296f4a60604dd07f6cc184b01f7f"
+    },
+    {
+      "name": "10-90-calendar-equatorial",
+      "svgSha256": "52cd1f25882c56b0f5c67df2d0dd3024bf9bb77469061df9d0dc59ecac74e031"
+    },
+    {
+      "name": "10-400-calendar-horizontal",
+      "svgSha256": "c56b70e4c91e80ba32ab0f25ebfab5ec76b617a4f0e48fc3791b945c5f2683ee"
+    },
+    {
+      "name": "10-400-calendar-vertical",
+      "svgSha256": "9bb3f3c424969c7bf27513ce465b1cc239e01ff512a05ee657837228ce11e26d"
+    },
+    {
+      "name": "10-400-calendar-equatorial",
+      "svgSha256": "4771fb4a5764519453fda2c6f332a2b164c84a5111454a0d64c707ec71e91a61"
+    },
+    {
+      "name": "45-30-calendar-horizontal",
+      "svgSha256": "77078cd383efaba256490204f53a45e6c2db2bae648d82449719b17e1f08691a"
+    },
+    {
+      "name": "45-30-calendar-vertical",
+      "svgSha256": "0c6cba56ceebf653988e6172044ffc0bd5e8e1ca879fc20e3a0c2a1a5809f3f9"
+    },
+    {
+      "name": "45-30-calendar-equatorial",
+      "svgSha256": "49871182c04ad6a518c0443b567d0a14633a8302eb4d9375532d2915252d1b4b"
+    },
+    {
+      "name": "45-90-calendar-horizontal",
+      "svgSha256": "419b46bfd583ee68833c1d46f08f2e86d257f5dfa2cd808acc432a9debcedc8d"
+    },
+    {
+      "name": "45-90-calendar-vertical",
+      "svgSha256": "332c806996c36563efe61224876793bc6041675389783cdb80e7eb08a26c6d41"
+    },
+    {
+      "name": "45-90-calendar-equatorial",
+      "svgSha256": "acab923b3257f3869726b732dbb6bbd9b095befe5e48963a10a94385e71da5e7"
+    },
+    {
+      "name": "45-400-calendar-horizontal",
+      "svgSha256": "b61f99c6467191a1d3368d26a2405d5f6e19478d1120d71f7d75a3f307a065da"
+    },
+    {
+      "name": "45-400-calendar-vertical",
+      "svgSha256": "48bb2f702c076a13c22b1a68dcd91d262d449194559452857b603fb5fcfdd6c7"
+    },
+    {
+      "name": "45-400-calendar-equatorial",
+      "svgSha256": "4f9def1f0d0c6d5318c07a8a001202c366fdbac5831ce63cf3f758c5f15f6b8c"
+    },
+    {
+      "name": "80-30-calendar-horizontal",
+      "svgSha256": "e2b3627086e2823677883ede3869f0162eef652fc266d2510790801e15065093"
+    },
+    {
+      "name": "80-30-calendar-vertical",
+      "svgSha256": "4b927226167d2093424177d120663ad67c446ca9d04074c76bb311425d7e7889"
+    },
+    {
+      "name": "80-30-calendar-equatorial",
+      "svgSha256": "acd08fcffc9ee6c1dbbe1abf7de1dda0e2d4ead1960aaeec72566c3391e8f004"
+    },
+    {
+      "name": "80-90-calendar-horizontal",
+      "svgSha256": "5210770bc315745ff1af8963cef3bb197d7b646bfaa2c51536fc6bc4ecf89d54"
+    },
+    {
+      "name": "80-90-calendar-vertical",
+      "svgSha256": "12438de3bfc3f18acdaff62bb83ea4e08c212a6ba0b400d1850cd8acfc4a8c6e"
+    },
+    {
+      "name": "80-90-calendar-equatorial",
+      "svgSha256": "c3adfc1829e64e9fb8767a221f1b93c9d1997e677b402a196dd6ee63088c674e"
+    },
+    {
+      "name": "80-400-calendar-horizontal",
+      "svgSha256": "de28dcffd6939c50b9c33167090e0ff6e0a626736e9c90e1a6eb11cf9f5ae404"
+    },
+    {
+      "name": "80-400-calendar-vertical",
+      "svgSha256": "3e6412f71e62a83abebb7f73e70a2f8d19c748f822b84d3d499ca514c5853e97"
+    },
+    {
+      "name": "80-400-calendar-equatorial",
+      "svgSha256": "c1d581e94754c6d379d003ae62b6f91887fc5d45f2b2ff4ceea3f825127a2530"
+    },
+    {
+      "name": "90-30-calendar-horizontal",
+      "svgSha256": "995c4215d3d503438c82522ef025781434293e1d4a6a6f8f6e666fca9d519950"
+    },
+    {
+      "name": "90-30-calendar-vertical",
+      "svgSha256": "021c0075684c3b90caa1077bdc25963f66adc90ec4682b32623439f040015c1f"
+    },
+    {
+      "name": "90-30-calendar-equatorial",
+      "svgSha256": "b92f50e180d29a25f796a4ecdacbbc45431909612433eaa2569f191a474f7fcb"
+    },
+    {
+      "name": "90-90-calendar-horizontal",
+      "svgSha256": "f6bbfd36a9056269f250f4e77d8ab4247270894eee6d044bd3329df3ee52ea28"
+    },
+    {
+      "name": "90-90-calendar-vertical",
+      "svgSha256": "bba2298e71613b1e430cad4d8643016a81ec79adbaff0f3b1989a165a28e6b43"
+    },
+    {
+      "name": "90-90-calendar-equatorial",
+      "svgSha256": "22f495dc633b37f8db81834a8b54390761a52971ee97283ad6560dca539bebef"
+    },
+    {
+      "name": "90-400-calendar-horizontal",
+      "svgSha256": "a0586a564459e1130bda863a03ac935a9883dd8c0126cd7e036b4755a8e408d5"
+    },
+    {
+      "name": "90-400-calendar-vertical",
+      "svgSha256": "bd941f4569dd0f875ec6e1d95112924aea7d1c1b605380359c380923a39f10d1"
+    },
+    {
+      "name": "90-400-calendar-equatorial",
+      "svgSha256": "f9095870e64606db59c7856dcaab386940626d15e24474349fe5d1aaef0fdd6c"
+    }
+  ]
+}

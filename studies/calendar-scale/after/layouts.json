@@ -1,0 +1,970 @@
+{
+  "phase": "after",
+  "scope": "Independent actual native SVG glyph boxes in millimetres. Before/after labels, unchanged physical hour marks checked separately.",
+  "layouts": 96,
+  "clippedLabels": 0,
+  "overlappingPairs": 0,
+  "missingSignLabels": 0,
+  "records": [
+    {
+      "engine": "chromium",
+      "name": "-90-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 136,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 154,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 271,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 275.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1077,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1077,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 140.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "80-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 140.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "80-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "80-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "80-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "80-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "80-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "90-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 136,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "90-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 154,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "90-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 271,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "90-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 275.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "90-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1077,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "90-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1077,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 136,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 154,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 271,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 275.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1077,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1077,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 140.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "80-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 140.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "80-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 158.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "80-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "80-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "80-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "80-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1104,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "90-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 136,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "90-30-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 154,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "90-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 271,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "90-90-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 275.5,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "90-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1077,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "90-400-zodiac",
+      "zodiac": true,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1077,
+      "outside": [],
+      "overlaps": []
+    }
+  ]
+}

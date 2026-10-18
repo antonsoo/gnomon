@@ -229,15 +229,34 @@ export interface AnalemmaticRenderOptions {
 export function renderAnalemmaticSVG(dial: AnalemmaticDialResult, opts: AnalemmaticRenderOptions): string {
   const c = THEMES[opts.theme];
   const m = { centerX: opts.widthMm / 2, centerY: opts.heightMm / 2 };
+  // Several calendar names describe the same physical standing point. Group
+  // at the SVG's existing 0.001 mm serialization precision, including the pole
+  // where every date collapses to the centre. Do not change the model values.
+  const grouped = new Map<number, { offsetMm: number; labels: string[] }>();
+  for (const mark of dial.dateScale) {
+    const key = Number((m.centerY - mark.offsetMm).toFixed(3));
+    const group = grouped.get(key);
+    if (group) group.labels.push(mark.label);
+    else grouped.set(key, { offsetMm: mark.offsetMm, labels: [mark.label] });
+  }
+  const calendar = [...grouped.values()].sort((a, b) => b.offsetMm - a.offsetMm);
+  const useCalendarKey = calendar.length !== dial.dateScale.length || calendar.some((mark, i) =>
+    i > 0 && calendar[i - 1]!.offsetMm - mark.offsetMm < 3.8);
   // A separate footer keeps the selected-date legend away from physical hour
   // points and calendar marks. Wrap small printed designs at readable font sizes.
-  const footer: { text: string; size: number; italic?: boolean }[] = [];
-  if (opts.selectedDateMark) {
+  const footer: { text: string; size: number; italic?: boolean; lineHeight?: number }[] = [];
+  if (opts.selectedDateMark || useCalendarKey) {
     const captions = [
       ...(opts.title ? [{ text: opts.title, size: 4.5 }] : []),
       ...(opts.motto ? [{ text: opts.motto.latin, size: 3.6, italic: true }] : []),
-      { text: opts.selectedDateMark.localLabel, size: 2.6 },
-      { text: `Open ring: rod base ${opts.selectedDateMark.positionLabel}`, size: 2.6 },
+      ...(opts.selectedDateMark ? [
+        { text: opts.selectedDateMark.localLabel, size: 2.6 },
+        { text: `Open ring: rod base ${opts.selectedDateMark.positionLabel}`, size: 2.6 },
+      ] : []),
+      ...(useCalendarKey ? [
+        { text: "Calendar key (approximate declinations)", size: 2.6, lineHeight: 4.5 },
+        ...calendar.map((mark, i) => ({ text: `${String.fromCharCode(65 + i)}: ${mark.labels.join(" / ")}`, size: 2.6, lineHeight: 4.5 })),
+      ] : []),
     ];
     for (const caption of captions) {
       const limit = Math.max(1, Math.floor((opts.widthMm - 12) / (caption.size * 0.75)));
@@ -249,7 +268,7 @@ export function renderAnalemmaticSVG(dial: AnalemmaticDialResult, opts: Analemma
       if (line) footer.push({ ...caption, text: line });
     }
   }
-  const heightMm = opts.heightMm + (footer.length ? footer.length * 6 + 10 : 0);
+  const heightMm = opts.heightMm + (footer.length ? footer.reduce((height, row) => height + (row.lineHeight ?? 6), 0) + 10 : 0);
   const parts: string[] = [];
   parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${opts.widthMm}mm" height="${heightMm}mm" viewBox="0 0 ${opts.widthMm} ${heightMm}" font-family="'Cormorant Garamond', Georgia, serif">`);
   if (opts.title) parts.push(`<title>${esc(opts.title)}</title>`);
@@ -266,19 +285,41 @@ export function renderAnalemmaticSVG(dial: AnalemmaticDialResult, opts: Analemma
     parts.push(`<circle cx="${pt.x.toFixed(3)}" cy="${pt.y.toFixed(3)}" r="${r}" fill="${p.isMajor ? c.hourLineMajor : c.hourLineMinor}"/>`);
     if (p.isMajor) {
       const labelPt = toPage(p.y * 1.13 + Math.sign(p.y || 1) * 3, p.x * 1.13, m);
+      // On a 30 mm polar-limit ellipse, the noon label's ink otherwise
+      // extends above the canvas. This moves only text, not the hour dot.
+      const labelY = Math.max(2.8, labelPt.y);
       parts.push(
-        `<text x="${labelPt.x.toFixed(3)}" y="${labelPt.y.toFixed(3)}" font-size="4" fill="${c.text}" text-anchor="middle" dominant-baseline="middle">${esc(hourLabel(p.hour, opts.numerals, opts.romanStyle))}</text>`,
+        `<text x="${labelPt.x.toFixed(3)}" y="${labelY.toFixed(3)}" font-size="4" fill="${c.text}" text-anchor="middle" dominant-baseline="middle">${esc(hourLabel(p.hour, opts.numerals, opts.romanStyle))}</text>`,
       );
     }
   }
 
   // Date scale, along the minor (north-south) axis.
-  for (const mark of dial.dateScale) {
-    const pt = toPage(mark.offsetMm, 0, m);
-    parts.push(`<circle cx="${pt.x.toFixed(3)}" cy="${pt.y.toFixed(3)}" r="0.8" fill="${c.declinationLine}"/>`);
-    parts.push(
-      `<text x="${(pt.x + 4).toFixed(3)}" y="${pt.y.toFixed(3)}" font-size="2.6" fill="${c.mutedText}" dominant-baseline="middle">${esc(mark.label)}</text>`,
-    );
+  if (useCalendarKey && calendar.length) {
+    // Keep callouts in order and spread only their labels. Thin physical ticks
+    // retain the standing positions, even when the larger old dots overlapped.
+    const labels = calendar.map(mark => m.centerY - mark.offsetMm);
+    for (let i = 1; i < labels.length; i++) labels[i] = Math.max(labels[i]!, labels[i - 1]! + 3.8);
+    const labelMiddle = (labels[0]! + labels[labels.length - 1]!) / 2;
+    const scaleMiddle = m.centerY - (calendar[0]!.offsetMm + calendar[calendar.length - 1]!.offsetMm) / 2;
+    const shift = labelMiddle - scaleMiddle;
+    for (const [i, mark] of calendar.entries()) {
+      const y = m.centerY - mark.offsetMm;
+      const labelY = labels[i]! - shift;
+      const key = String.fromCharCode(65 + i);
+      parts.push(`<g data-calendar-key="${key}"><title>${esc(mark.labels.join(" / "))}</title>`);
+      parts.push(`<path d="M ${(m.centerX - 1.2).toFixed(3)} ${y.toFixed(3)} H ${(m.centerX + 1.2).toFixed(3)}" fill="none" stroke="${c.declinationLine}" stroke-width="0.18"/>`);
+      parts.push(`<path d="M ${(m.centerX + 1.2).toFixed(3)} ${y.toFixed(3)} L ${(m.centerX + 3).toFixed(3)} ${labelY.toFixed(3)}" fill="none" stroke="${c.mutedText}" stroke-width="0.15"/>`);
+      parts.push(`<text x="${(m.centerX + 4).toFixed(3)}" y="${labelY.toFixed(3)}" font-size="2.6" fill="${c.mutedText}" dominant-baseline="middle">${key}</text></g>`);
+    }
+  } else {
+    for (const mark of dial.dateScale) {
+      const pt = toPage(mark.offsetMm, 0, m);
+      parts.push(`<circle cx="${pt.x.toFixed(3)}" cy="${pt.y.toFixed(3)}" r="0.8" fill="${c.declinationLine}"/>`);
+      parts.push(
+        `<text x="${(pt.x + 4).toFixed(3)}" y="${pt.y.toFixed(3)}" font-size="2.6" fill="${c.mutedText}" dominant-baseline="middle">${esc(mark.label)}</text>`,
+      );
+    }
   }
 
   parts.push(`<circle cx="${m.centerX}" cy="${m.centerY}" r="0.6" fill="${c.text}"/>`);
@@ -287,17 +328,19 @@ export function renderAnalemmaticSVG(dial: AnalemmaticDialResult, opts: Analemma
     const mark = opts.selectedDateMark;
     const pt = toPage(mark.offsetMm, 0, m);
     parts.push(`<g><title>${esc(`${mark.localLabel}: rod base ${mark.positionLabel}`)}</title><circle data-selected-minute="${esc(mark.utcInstant).replace(/"/g, "&quot;")}" cx="${pt.x.toFixed(3)}" cy="${pt.y.toFixed(3)}" r="1.6" fill="none" stroke="${c.text}" stroke-width="0.3"/></g>`);
-    for (const [index, row] of footer.entries()) {
-      parts.push(`<text x="${m.centerX}" y="${opts.heightMm + 6 + index * 6}" font-size="${row.size}"${row.italic ? ' font-style="italic"' : ''} fill="${c.mutedText}" text-anchor="middle">${esc(row.text)}</text>`);
-    }
+  }
+  let footerY = opts.heightMm + 6;
+  for (const row of footer) {
+    parts.push(`<text x="${m.centerX}" y="${footerY}" font-size="${row.size}"${row.italic ? ' font-style="italic"' : ''} fill="${c.mutedText}" text-anchor="middle">${esc(row.text)}</text>`);
+    footerY += row.lineHeight ?? 6;
   }
 
-  if (opts.title && !opts.selectedDateMark) {
+  if (opts.title && !footer.length) {
     parts.push(
       `<text x="${m.centerX}" y="${opts.heightMm - 6}" font-size="4.5" fill="${c.mutedText}" text-anchor="middle" letter-spacing="0.5">${esc(opts.title)}</text>`,
     );
   }
-  if (opts.motto && !opts.selectedDateMark) {
+  if (opts.motto && !footer.length) {
     parts.push(
       `<text x="${m.centerX}" y="${opts.heightMm - 1.5}" font-style="italic" font-size="3.6" fill="${c.mutedText}" text-anchor="middle">${esc(opts.motto.latin)}</text>`,
     );

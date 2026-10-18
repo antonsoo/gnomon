@@ -64,6 +64,9 @@ no install needed.
   the zodiac entries, for a nodus on the style.
   Analemmatic standing marks name **June** and **December**, so they work in
   either hemisphere. [Standing marks and vertical-rod setup](studies/seasonal-marks/README.md).
+  Zodiac entries cover all twelve signs. Coincident or crowded standing labels
+  use lettered ticks and a printed key, retaining their physical positions.
+  [Actual overlapping drawings, complete scale and native measurements](studies/calendar-scale/README.md).
 - **A standing mark for your chosen date.** Select a local date and time on an
   analemmatic dial; its open ring and distance from centre locate the vertical
   rod for that minute. Native SVG/PNG retains the ring and clock label; saved

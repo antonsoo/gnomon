@@ -1,0 +1,4106 @@
+{
+  "phase": "before",
+  "scope": "Independent actual native SVG glyph boxes in millimetres. Before/after labels, unchanged physical hour marks checked separately.",
+  "layouts": 96,
+  "clippedLabels": 4,
+  "overlappingPairs": 730,
+  "missingSignLabels": 96,
+  "records": [
+    {
+      "engine": "chromium",
+      "name": "-90-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-90-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-80-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-45-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "-10-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "10-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "10-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "10-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "10-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "45-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "45-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "45-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "45-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "80-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "80-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "80-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "80-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "80-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "chromium",
+      "name": "80-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "90-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [
+        "12"
+      ],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "90-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [
+        "12"
+      ],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "90-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "90-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "90-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "chromium",
+      "name": "90-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-90-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-80-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-45-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "-10-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "10-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "10-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "10-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "10-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "45-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "45-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "45-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "45-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "80-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "80-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "80-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "80-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "80-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": []
+    },
+    {
+      "engine": "firefox",
+      "name": "80-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "90-30-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [
+        "12"
+      ],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "90-30-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 78,
+      "heightMm": 118,
+      "outside": [
+        "12"
+      ],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "90-90-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "90-90-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "90-400-calendar",
+      "zodiac": false,
+      "missing": [],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ]
+      ]
+    },
+    {
+      "engine": "firefox",
+      "name": "90-400-zodiac",
+      "zodiac": true,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 1040,
+      "heightMm": 1068,
+      "outside": [],
+      "overlaps": [
+        [
+          "June solstice",
+          "Equinox"
+        ],
+        [
+          "June solstice",
+          "December solstice"
+        ],
+        [
+          "June solstice",
+          "Aries / Libra"
+        ],
+        [
+          "June solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "June solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "June solstice",
+          "Cancer"
+        ],
+        [
+          "June solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "June solstice",
+          "Capricorn"
+        ],
+        [
+          "Equinox",
+          "December solstice"
+        ],
+        [
+          "Equinox",
+          "Aries / Libra"
+        ],
+        [
+          "Equinox",
+          "Taurus / Virgo"
+        ],
+        [
+          "Equinox",
+          "Gemini / Leo"
+        ],
+        [
+          "Equinox",
+          "Cancer"
+        ],
+        [
+          "Equinox",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Equinox",
+          "Capricorn"
+        ],
+        [
+          "December solstice",
+          "Aries / Libra"
+        ],
+        [
+          "December solstice",
+          "Taurus / Virgo"
+        ],
+        [
+          "December solstice",
+          "Gemini / Leo"
+        ],
+        [
+          "December solstice",
+          "Cancer"
+        ],
+        [
+          "December solstice",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "December solstice",
+          "Capricorn"
+        ],
+        [
+          "Aries / Libra",
+          "Taurus / Virgo"
+        ],
+        [
+          "Aries / Libra",
+          "Gemini / Leo"
+        ],
+        [
+          "Aries / Libra",
+          "Cancer"
+        ],
+        [
+          "Aries / Libra",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Aries / Libra",
+          "Capricorn"
+        ],
+        [
+          "Taurus / Virgo",
+          "Gemini / Leo"
+        ],
+        [
+          "Taurus / Virgo",
+          "Cancer"
+        ],
+        [
+          "Taurus / Virgo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Taurus / Virgo",
+          "Capricorn"
+        ],
+        [
+          "Gemini / Leo",
+          "Cancer"
+        ],
+        [
+          "Gemini / Leo",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Gemini / Leo",
+          "Capricorn"
+        ],
+        [
+          "Cancer",
+          "Sagittarius / Aquarius"
+        ],
+        [
+          "Cancer",
+          "Capricorn"
+        ],
+        [
+          "Sagittarius / Aquarius",
+          "Capricorn"
+        ]
+      ]
+    }
+  ]
+}

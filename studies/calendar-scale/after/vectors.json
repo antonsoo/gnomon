@@ -1,0 +1,2217 @@
+{
+  "scope": "Actual native XML ticks versus an independent ecliptic-vector rotation. Existing rounded sign declinations retained; pole collapse explicit. Not dated ephemeris or field accuracy.",
+  "zodiacDrawings": 24,
+  "signPlacements": 288,
+  "maximumDeclinationDifferenceDeg": 0.05471560505308304,
+  "collapsedPolePlacements": 72,
+  "rows": [
+    {
+      "name": "-90-30-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Taurus",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Gemini",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Cancer",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Leo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Virgo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Libra",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Scorpio",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Sagittarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Capricorn",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Aquarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Pisces",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        }
+      ]
+    },
+    {
+      "name": "-90-90-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Taurus",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Gemini",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Cancer",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Leo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Virgo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Libra",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Scorpio",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Sagittarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Capricorn",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Aquarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Pisces",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        }
+      ]
+    },
+    {
+      "name": "-90-400-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Taurus",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Gemini",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Cancer",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Leo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Virgo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Libra",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Scorpio",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Sagittarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Capricorn",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Aquarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Pisces",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        }
+      ]
+    },
+    {
+      "name": "-80-30-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 1.0600000000000023,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50133461089585,
+          "differenceDeg": 0.02902915977658438
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 1.9059999999999988,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.096253255772247,
+          "differenceDeg": 0.054715605053079486
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 2.2590000000000003,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.443263070651,
+          "differenceDeg": 0.003263070650998401
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 1.9059999999999988,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.096253255772247,
+          "differenceDeg": 0.05471560505308304
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 1.0600000000000023,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50133461089585,
+          "differenceDeg": 0.02902915977658438
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -1.0600000000000023,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.50133461089585,
+          "differenceDeg": 0.02902915977657905
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -1.9059999999999988,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.096253255772247,
+          "differenceDeg": 0.05471560505307593
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -2.2590000000000003,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.443263070651,
+          "differenceDeg": 0.003263070650998401
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -1.9059999999999988,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.096253255772247,
+          "differenceDeg": 0.054715605053079486
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -1.0600000000000023,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.50133461089585,
+          "differenceDeg": 0.02902915977657372
+        }
+      ]
+    },
+    {
+      "name": "-80-90-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 3.180000000000007,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50133461089585,
+          "differenceDeg": 0.02902915977658438
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 5.718999999999994,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.09948651163737,
+          "differenceDeg": 0.0514823491879568
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 6.775999999999996,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.440177119186433,
+          "differenceDeg": 0.00017711918643215085
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 5.718999999999994,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.09948651163737,
+          "differenceDeg": 0.05148234918796035
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 3.180000000000007,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50133461089585,
+          "differenceDeg": 0.02902915977658438
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -3.180000000000007,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.50133461089585,
+          "differenceDeg": 0.02902915977657905
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -5.718999999999994,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.09948651163737,
+          "differenceDeg": 0.05148234918795325
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -6.775999999999996,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.440177119186433,
+          "differenceDeg": 0.00017711918643215085
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -5.718999999999994,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.09948651163737,
+          "differenceDeg": 0.0514823491879568
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -3.180000000000007,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.50133461089585,
+          "differenceDeg": 0.02902915977657372
+        }
+      ]
+    },
+    {
+      "name": "-80-400-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 14.132000000000005,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500278488935104,
+          "differenceDeg": 0.02797303781583871
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 25.418000000000006,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.099648170925605,
+          "differenceDeg": 0.05132068989972183
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 30.11500000000001,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439791365118797,
+          "differenceDeg": 0.00020863488120426155
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 25.418000000000006,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.099648170925605,
+          "differenceDeg": 0.05132068989972538
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 14.132000000000005,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500278488935104,
+          "differenceDeg": 0.02797303781583871
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -14.131999999999948,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.500278488935058,
+          "differenceDeg": 0.027973037815787194
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -25.418000000000006,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.099648170925605,
+          "differenceDeg": 0.051320689899718275
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -30.11500000000001,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439791365118797,
+          "differenceDeg": 0.00020863488120426155
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -25.418000000000006,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.099648170925605,
+          "differenceDeg": 0.05132068989972183
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -14.131999999999948,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.500278488935058,
+          "differenceDeg": 0.027973037815781865
+        }
+      ]
+    },
+    {
+      "name": "-45-30-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 4.3160000000000025,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500324154335813,
+          "differenceDeg": 0.028018703216547536
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 7.763000000000002,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.100166555909865,
+          "differenceDeg": 0.050802304915460894
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 9.197,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439179087367094,
+          "differenceDeg": 0.0008209126329070671
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 7.763000000000002,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.100166555909865,
+          "differenceDeg": 0.05080230491546445
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 4.3160000000000025,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500324154335813,
+          "differenceDeg": 0.028018703216547536
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -4.3160000000000025,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.500324154335813,
+          "differenceDeg": 0.028018703216542207
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -7.762999999999998,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10016655590986,
+          "differenceDeg": 0.05080230491546445
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -9.197000000000003,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439179087367105,
+          "differenceDeg": 0.0008209126328964089
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -7.762999999999998,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10016655590986,
+          "differenceDeg": 0.050802304915468
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -4.3160000000000025,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.500324154335813,
+          "differenceDeg": 0.028018703216536878
+        }
+      ]
+    },
+    {
+      "name": "-45-90-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 12.947999999999993,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.5003241543358,
+          "differenceDeg": 0.0280187032165351
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 23.289,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.100166555909862,
+          "differenceDeg": 0.05080230491546445
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 27.592,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439936946573127,
+          "differenceDeg": 6.30534268744043e-05
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 23.289,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.100166555909862,
+          "differenceDeg": 0.050802304915468
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 12.947999999999993,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.5003241543358,
+          "differenceDeg": 0.0280187032165351
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -12.948000000000008,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.500324154335813,
+          "differenceDeg": 0.028018703216542207
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -23.288999999999987,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10016655590985,
+          "differenceDeg": 0.05080230491547155
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -27.592000000000013,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439936946573134,
+          "differenceDeg": 6.305342686729887e-05
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -23.288999999999987,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10016655590985,
+          "differenceDeg": 0.050802304915475105
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -12.948000000000008,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.500324154335813,
+          "differenceDeg": 0.028018703216536878
+        }
+      ]
+    },
+    {
+      "name": "-45-400-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 57.545000000000016,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.49999995561115,
+          "differenceDeg": 0.02769450449188504
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 103.50599999999997,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.10004745799693,
+          "differenceDeg": 0.05092140282839708
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 122.63099999999997,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439918000198908,
+          "differenceDeg": 8.199980109324656e-05
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 103.50599999999997,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.10004745799693,
+          "differenceDeg": 0.05092140282840063
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 57.545000000000016,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.49999995561115,
+          "differenceDeg": 0.02769450449188504
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -57.54499999999996,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.49999995561114,
+          "differenceDeg": 0.027694504491869054
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -103.50599999999997,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10004745799693,
+          "differenceDeg": 0.050921402828393525
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -122.63099999999997,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439918000198908,
+          "differenceDeg": 8.199980109324656e-05
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -103.50599999999997,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10004745799693,
+          "differenceDeg": 0.05092140282839708
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -57.54499999999996,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.49999995561114,
+          "differenceDeg": 0.027694504491863725
+        }
+      ]
+    },
+    {
+      "name": "-10-30-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 6.011000000000003,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500294130566623,
+          "differenceDeg": 0.02798867944735761
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 10.812000000000001,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.100592080751422,
+          "differenceDeg": 0.050376780073904115
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 12.809000000000001,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.43930342214107,
+          "differenceDeg": 0.0006965778589318461
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 10.812000000000001,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.100592080751422,
+          "differenceDeg": 0.05037678007390767
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 6.011000000000003,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500294130566623,
+          "differenceDeg": 0.02798867944735761
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -6.011000000000003,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.500294130566623,
+          "differenceDeg": 0.027988679447352283
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -10.811999999999998,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10059208075142,
+          "differenceDeg": 0.050376780073904115
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -12.808999999999997,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439303422141066,
+          "differenceDeg": 0.0006965778589353988
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -10.811999999999998,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10059208075142,
+          "differenceDeg": 0.05037678007390767
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -6.011000000000003,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.500294130566623,
+          "differenceDeg": 0.027988679447346954
+        }
+      ]
+    },
+    {
+      "name": "-10-90-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 18.033,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50029413056662,
+          "differenceDeg": 0.027988679447355835
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 32.435,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.10002198825427,
+          "differenceDeg": 0.0509468725710569
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 38.428,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439847576307557,
+          "differenceDeg": 0.0001524236924446143
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 32.435,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.10002198825427,
+          "differenceDeg": 0.05094687257106045
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 18.033,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50029413056662,
+          "differenceDeg": 0.027988679447355835
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -18.032999999999987,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.50029413056661,
+          "differenceDeg": 0.027988679447339848
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -32.435,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10002198825427,
+          "differenceDeg": 0.05094687257105335
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -38.428,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439847576307557,
+          "differenceDeg": 0.0001524236924446143
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -32.435,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10002198825427,
+          "differenceDeg": 0.0509468725710569
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -18.032999999999987,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.50029413056661,
+          "differenceDeg": 0.02798867944733452
+        }
+      ]
+    },
+    {
+      "name": "-10-400-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 80.14499999999998,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.5000613510313,
+          "differenceDeg": 0.02775589991203553
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 144.15499999999997,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.099950726400206,
+          "differenceDeg": 0.05101813442512082
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 170.79199999999997,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.4399564066031,
+          "differenceDeg": 4.359339690296338e-05
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 144.15499999999997,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.099950726400206,
+          "differenceDeg": 0.05101813442512437
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 80.14499999999998,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.5000613510313,
+          "differenceDeg": 0.02775589991203553
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -80.14499999999998,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.5000613510313,
+          "differenceDeg": 0.027755899912030202
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -144.15499999999997,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.099950726400206,
+          "differenceDeg": 0.05101813442511727
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -170.79200000000003,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439956406603105,
+          "differenceDeg": 4.359339689585795e-05
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -144.15499999999997,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.099950726400206,
+          "differenceDeg": 0.05101813442512082
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -80.14499999999998,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.5000613510313,
+          "differenceDeg": 0.027755899912024873
+        }
+      ]
+    },
+    {
+      "name": "10-30-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 6.011000000000003,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500294130566623,
+          "differenceDeg": 0.02798867944735761
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 10.812000000000001,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.100592080751422,
+          "differenceDeg": 0.050376780073904115
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 12.809000000000001,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.43930342214107,
+          "differenceDeg": 0.0006965778589318461
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 10.812000000000001,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.100592080751422,
+          "differenceDeg": 0.05037678007390767
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 6.011000000000003,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500294130566623,
+          "differenceDeg": 0.02798867944735761
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -6.011000000000003,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.500294130566623,
+          "differenceDeg": 0.027988679447352283
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -10.811999999999998,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10059208075142,
+          "differenceDeg": 0.050376780073904115
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -12.808999999999997,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439303422141066,
+          "differenceDeg": 0.0006965778589353988
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -10.811999999999998,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10059208075142,
+          "differenceDeg": 0.05037678007390767
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -6.011000000000003,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.500294130566623,
+          "differenceDeg": 0.027988679447346954
+        }
+      ]
+    },
+    {
+      "name": "10-90-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 18.033,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50029413056662,
+          "differenceDeg": 0.027988679447355835
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 32.435,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.10002198825427,
+          "differenceDeg": 0.0509468725710569
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 38.428,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439847576307557,
+          "differenceDeg": 0.0001524236924446143
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 32.435,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.10002198825427,
+          "differenceDeg": 0.05094687257106045
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 18.033,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50029413056662,
+          "differenceDeg": 0.027988679447355835
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -18.032999999999987,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.50029413056661,
+          "differenceDeg": 0.027988679447339848
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -32.435,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10002198825427,
+          "differenceDeg": 0.05094687257105335
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -38.428,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439847576307557,
+          "differenceDeg": 0.0001524236924446143
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -32.435,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10002198825427,
+          "differenceDeg": 0.0509468725710569
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -18.032999999999987,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.50029413056661,
+          "differenceDeg": 0.02798867944733452
+        }
+      ]
+    },
+    {
+      "name": "10-400-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 80.14499999999998,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.5000613510313,
+          "differenceDeg": 0.02775589991203553
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 144.15499999999997,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.099950726400206,
+          "differenceDeg": 0.05101813442512082
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 170.79199999999997,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.4399564066031,
+          "differenceDeg": 4.359339690296338e-05
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 144.15499999999997,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.099950726400206,
+          "differenceDeg": 0.05101813442512437
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 80.14499999999998,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.5000613510313,
+          "differenceDeg": 0.02775589991203553
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -80.14499999999998,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.5000613510313,
+          "differenceDeg": 0.027755899912030202
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -144.15499999999997,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.099950726400206,
+          "differenceDeg": 0.05101813442511727
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -170.79200000000003,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439956406603105,
+          "differenceDeg": 4.359339689585795e-05
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -144.15499999999997,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.099950726400206,
+          "differenceDeg": 0.05101813442512082
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -80.14499999999998,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.5000613510313,
+          "differenceDeg": 0.027755899912024873
+        }
+      ]
+    },
+    {
+      "name": "45-30-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 4.3160000000000025,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500324154335813,
+          "differenceDeg": 0.028018703216547536
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 7.763000000000002,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.100166555909865,
+          "differenceDeg": 0.050802304915460894
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 9.197,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439179087367094,
+          "differenceDeg": 0.0008209126329070671
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 7.763000000000002,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.100166555909865,
+          "differenceDeg": 0.05080230491546445
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 4.3160000000000025,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500324154335813,
+          "differenceDeg": 0.028018703216547536
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -4.3160000000000025,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.500324154335813,
+          "differenceDeg": 0.028018703216542207
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -7.762999999999998,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10016655590986,
+          "differenceDeg": 0.05080230491546445
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -9.197000000000003,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439179087367105,
+          "differenceDeg": 0.0008209126328964089
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -7.762999999999998,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10016655590986,
+          "differenceDeg": 0.050802304915468
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -4.3160000000000025,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.500324154335813,
+          "differenceDeg": 0.028018703216536878
+        }
+      ]
+    },
+    {
+      "name": "45-90-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 12.947999999999993,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.5003241543358,
+          "differenceDeg": 0.0280187032165351
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 23.289,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.100166555909862,
+          "differenceDeg": 0.05080230491546445
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 27.592,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439936946573127,
+          "differenceDeg": 6.30534268744043e-05
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 23.289,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.100166555909862,
+          "differenceDeg": 0.050802304915468
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 12.947999999999993,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.5003241543358,
+          "differenceDeg": 0.0280187032165351
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -12.948000000000008,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.500324154335813,
+          "differenceDeg": 0.028018703216542207
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -23.288999999999987,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10016655590985,
+          "differenceDeg": 0.05080230491547155
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -27.592000000000013,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439936946573134,
+          "differenceDeg": 6.305342686729887e-05
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -23.288999999999987,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10016655590985,
+          "differenceDeg": 0.050802304915475105
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -12.948000000000008,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.500324154335813,
+          "differenceDeg": 0.028018703216536878
+        }
+      ]
+    },
+    {
+      "name": "45-400-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 57.545000000000016,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.49999995561115,
+          "differenceDeg": 0.02769450449188504
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 103.50599999999997,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.10004745799693,
+          "differenceDeg": 0.05092140282839708
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 122.63099999999997,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439918000198908,
+          "differenceDeg": 8.199980109324656e-05
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 103.50599999999997,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.10004745799693,
+          "differenceDeg": 0.05092140282840063
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 57.545000000000016,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.49999995561115,
+          "differenceDeg": 0.02769450449188504
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -57.54499999999996,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.49999995561114,
+          "differenceDeg": 0.027694504491869054
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -103.50599999999997,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.10004745799693,
+          "differenceDeg": 0.050921402828393525
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -122.63099999999997,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439918000198908,
+          "differenceDeg": 8.199980109324656e-05
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -103.50599999999997,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.10004745799693,
+          "differenceDeg": 0.05092140282839708
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -57.54499999999996,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.49999995561114,
+          "differenceDeg": 0.027694504491863725
+        }
+      ]
+    },
+    {
+      "name": "80-30-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 1.0600000000000023,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50133461089585,
+          "differenceDeg": 0.02902915977658438
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 1.9059999999999988,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.096253255772247,
+          "differenceDeg": 0.054715605053079486
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 2.2590000000000003,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.443263070651,
+          "differenceDeg": 0.003263070650998401
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 1.9059999999999988,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.096253255772247,
+          "differenceDeg": 0.05471560505308304
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 1.0600000000000023,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50133461089585,
+          "differenceDeg": 0.02902915977658438
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -1.0600000000000023,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.50133461089585,
+          "differenceDeg": 0.02902915977657905
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -1.9059999999999988,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.096253255772247,
+          "differenceDeg": 0.05471560505307593
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -2.2590000000000003,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.443263070651,
+          "differenceDeg": 0.003263070650998401
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -1.9059999999999988,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.096253255772247,
+          "differenceDeg": 0.054715605053079486
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -1.0600000000000023,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.50133461089585,
+          "differenceDeg": 0.02902915977657372
+        }
+      ]
+    },
+    {
+      "name": "80-90-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 3.180000000000007,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50133461089585,
+          "differenceDeg": 0.02902915977658438
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 5.718999999999994,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.09948651163737,
+          "differenceDeg": 0.0514823491879568
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 6.775999999999996,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.440177119186433,
+          "differenceDeg": 0.00017711918643215085
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 5.718999999999994,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.09948651163737,
+          "differenceDeg": 0.05148234918796035
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 3.180000000000007,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.50133461089585,
+          "differenceDeg": 0.02902915977658438
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -3.180000000000007,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.50133461089585,
+          "differenceDeg": 0.02902915977657905
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -5.718999999999994,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.09948651163737,
+          "differenceDeg": 0.05148234918795325
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -6.775999999999996,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.440177119186433,
+          "differenceDeg": 0.00017711918643215085
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -5.718999999999994,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.09948651163737,
+          "differenceDeg": 0.0514823491879568
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -3.180000000000007,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.50133461089585,
+          "differenceDeg": 0.02902915977657372
+        }
+      ]
+    },
+    {
+      "name": "80-400-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "eclipticLongitudeDeg": 0,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 0.0,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 0.0
+        },
+        {
+          "sign": "Taurus",
+          "eclipticLongitudeDeg": 30,
+          "serializedOffsetMm": 14.132000000000005,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500278488935104,
+          "differenceDeg": 0.02797303781583871
+        },
+        {
+          "sign": "Gemini",
+          "eclipticLongitudeDeg": 60,
+          "serializedOffsetMm": 25.418000000000006,
+          "oracleDeclinationDeg": 20.150968860825326,
+          "recoveredDeclinationDeg": 20.099648170925605,
+          "differenceDeg": 0.05132068989972183
+        },
+        {
+          "sign": "Cancer",
+          "eclipticLongitudeDeg": 90,
+          "serializedOffsetMm": 30.11500000000001,
+          "oracleDeclinationDeg": 23.44,
+          "recoveredDeclinationDeg": 23.439791365118797,
+          "differenceDeg": 0.00020863488120426155
+        },
+        {
+          "sign": "Leo",
+          "eclipticLongitudeDeg": 120,
+          "serializedOffsetMm": 25.418000000000006,
+          "oracleDeclinationDeg": 20.15096886082533,
+          "recoveredDeclinationDeg": 20.099648170925605,
+          "differenceDeg": 0.05132068989972538
+        },
+        {
+          "sign": "Virgo",
+          "eclipticLongitudeDeg": 150,
+          "serializedOffsetMm": 14.132000000000005,
+          "oracleDeclinationDeg": 11.472305451119265,
+          "recoveredDeclinationDeg": 11.500278488935104,
+          "differenceDeg": 0.02797303781583871
+        },
+        {
+          "sign": "Libra",
+          "eclipticLongitudeDeg": 180,
+          "serializedOffsetMm": 0.0,
+          "oracleDeclinationDeg": 2.7911663187095035e-15,
+          "recoveredDeclinationDeg": 0.0,
+          "differenceDeg": 2.7911663187095035e-15
+        },
+        {
+          "sign": "Scorpio",
+          "eclipticLongitudeDeg": 210,
+          "serializedOffsetMm": -14.131999999999948,
+          "oracleDeclinationDeg": -11.47230545111927,
+          "recoveredDeclinationDeg": -11.500278488935058,
+          "differenceDeg": 0.027973037815787194
+        },
+        {
+          "sign": "Sagittarius",
+          "eclipticLongitudeDeg": 240,
+          "serializedOffsetMm": -25.418000000000006,
+          "oracleDeclinationDeg": -20.150968860825323,
+          "recoveredDeclinationDeg": -20.099648170925605,
+          "differenceDeg": 0.051320689899718275
+        },
+        {
+          "sign": "Capricorn",
+          "eclipticLongitudeDeg": 270,
+          "serializedOffsetMm": -30.11500000000001,
+          "oracleDeclinationDeg": -23.44,
+          "recoveredDeclinationDeg": -23.439791365118797,
+          "differenceDeg": 0.00020863488120426155
+        },
+        {
+          "sign": "Aquarius",
+          "eclipticLongitudeDeg": 300,
+          "serializedOffsetMm": -25.418000000000006,
+          "oracleDeclinationDeg": -20.150968860825326,
+          "recoveredDeclinationDeg": -20.099648170925605,
+          "differenceDeg": 0.05132068989972183
+        },
+        {
+          "sign": "Pisces",
+          "eclipticLongitudeDeg": 330,
+          "serializedOffsetMm": -14.131999999999948,
+          "oracleDeclinationDeg": -11.472305451119276,
+          "recoveredDeclinationDeg": -11.500278488935058,
+          "differenceDeg": 0.027973037815781865
+        }
+      ]
+    },
+    {
+      "name": "90-30-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Taurus",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Gemini",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Cancer",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Leo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Virgo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Libra",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Scorpio",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Sagittarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Capricorn",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Aquarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Pisces",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        }
+      ]
+    },
+    {
+      "name": "90-90-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Taurus",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Gemini",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Cancer",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Leo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Virgo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Libra",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Scorpio",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Sagittarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Capricorn",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Aquarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Pisces",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        }
+      ]
+    },
+    {
+      "name": "90-400-zodiac",
+      "checks": [
+        {
+          "sign": "Aries",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Taurus",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Gemini",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Cancer",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Leo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Virgo",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Libra",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Scorpio",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Sagittarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Capricorn",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Aquarius",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        },
+        {
+          "sign": "Pisces",
+          "serializedOffsetMm": 0.0,
+          "state": "collapsed-at-pole"
+        }
+      ]
+    }
+  ]
+}

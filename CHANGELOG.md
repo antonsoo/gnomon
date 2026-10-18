@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Complete and readable calendar scales
+
+- Add the omitted Scorpio/Pisces pair at the existing approximate -11.5-degree
+  convention. Keep previous sign-entry coordinates rather than changing the
+  ephemeris or claiming precise calendar-entry dates.
+- Combine coincident printed standing marks and separate crowded labels using
+  lettered thin ticks, leaders and a wrapped calendar key. Standard clear
+  layouts retain their native SVG; hour dots and the selected-minute ring keep
+  their geometry. Keep the smallest polar-limit noon label inside the canvas.
+  [Before/after native drawings and independent checks](studies/calendar-scale/README.md).
+
 ### Movable rod for the selected date
 
 - Show an open standing ring for the selected local minute on an analemmatic

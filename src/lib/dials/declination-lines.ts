@@ -12,11 +12,14 @@ import { nodusShadow } from "../geometry.ts";
 import type { DialPlane } from "../geometry.ts";
 import type { DeclinationLine, PlanePoint } from "./types.ts";
 
+// Approximate tropical sign-entry declinations, paired across the two halves
+// of the year. A chosen civil date uses the solar ephemeris instead.
 export const ZODIAC_DECLINATIONS: { name: string; declinationDeg: number }[] = [
   { name: "Aries / Libra", declinationDeg: 0 },
   { name: "Taurus / Virgo", declinationDeg: 11.5 },
   { name: "Gemini / Leo", declinationDeg: 20.1 },
   { name: "Cancer", declinationDeg: 23.44 },
+  { name: "Scorpio / Pisces", declinationDeg: -11.5 },
   { name: "Sagittarius / Aquarius", declinationDeg: -20.1 },
   { name: "Capricorn", declinationDeg: -23.44 },
 ];
