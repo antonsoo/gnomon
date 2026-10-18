@@ -85,3 +85,29 @@ before|after` exercises the real designer, SVG/PNG downloads and unchanged
 portable inputs after disconnecting. It then disables zodiac entries and
 downloads that SVG and edited inputs as separate controls. Screenshots show
 actual native drawings, not a recreated diagram.
+
+Correction `14cdc07` is independently verified from its frozen archive:
+fresh Node 24.21.0 installation, lint/type checking, 313 unit checks in each
+of two number locales, production build, native replay and 76 actual
+Chromium/Firefox workflows complete with exit 0. The first chained check
+process terminated with exit 143 and is not accepted as a pass; the separate
+completed checks and exact build hashes are retained in
+[clean verification](verification.json).
+
+The original public designer's [four-context capture](browser-before/browser.json)
+retains all 20 actual downloads; the [local corrected capture](browser-local/browser.json)
+repeats them. All four zodiac-off SVGs remain byte-identical across the two
+versions, and both original and edited portable input files keep their values.
+The zodiac drawings now contain all twelve sign names and seven standing ticks.
+
+Independent raster inspection checks actual PNG paint, rather than image
+dimensions alone. The four original PNGs each lack the Scorpio/Pisces position;
+all four corrected images paint all seven expected positions. Across the 28
+corrected positions, maximum vertical deviation is 0.38 pixels at the native
+export scale: [before pixels](before/pixels.json), [after pixels](after/pixels.json).
+This controlled palette/location check is not general OCR or a physical
+fabrication estimate. Replay it with pinned Pillow using
+`uv run --script studies/calendar-scale/check_png.py --downloads DOWNLOAD_DIR
+--input studies/calendar-scale/Sydney-zodiac.gnomon.json --phase before|after
+--out RESULT.json`. The actual designer, reopened vectors and native rasters
+were visually reviewed: [capture hashes](visual-review.json).

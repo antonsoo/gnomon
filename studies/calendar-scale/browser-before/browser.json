@@ -1,0 +1,90 @@
+{
+  "url": "https://antonsoo.github.io/gnomon/",
+  "phase": "before",
+  "inputSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+  "scope": "Actual public/local native SVG/PNG and editable-file downloads after disconnecting, plus zodiac-off controls. No physical printing or field measurement.",
+  "contexts": 4,
+  "downloads": 20,
+  "records": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "svgSha256": "b7afa10710405cd7e770af54965b93703c24688a5a3acf8301cc9a6b8ce363cf",
+      "pngSha256": "b129e409aa5c70ab2f762dc68a1cab022c483581cef6e69fc78f80560ebb9e5e",
+      "savedInputsSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "plainSvgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "plainInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "pixelWidth": 2763,
+      "pixelHeight": 3094,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "keys": [],
+      "errors": [],
+      "lateRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "svgSha256": "b7afa10710405cd7e770af54965b93703c24688a5a3acf8301cc9a6b8ce363cf",
+      "pngSha256": "b129e409aa5c70ab2f762dc68a1cab022c483581cef6e69fc78f80560ebb9e5e",
+      "savedInputsSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "plainSvgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "plainInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "pixelWidth": 2763,
+      "pixelHeight": 3094,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "keys": [],
+      "errors": [],
+      "lateRequests": []
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "svgSha256": "b7afa10710405cd7e770af54965b93703c24688a5a3acf8301cc9a6b8ce363cf",
+      "pngSha256": "f8febd04063e06195f309ad99ec297a00540e12019c30538607aeeb65e3a4de3",
+      "savedInputsSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "plainSvgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "plainInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "pixelWidth": 2763,
+      "pixelHeight": 3094,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "keys": [],
+      "errors": [],
+      "lateRequests": []
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "svgSha256": "b7afa10710405cd7e770af54965b93703c24688a5a3acf8301cc9a6b8ce363cf",
+      "pngSha256": "2b11ec3cfba26f4d4a293821663cfece5f6fcbf49cfff0b4128cc0b902dedb5e",
+      "savedInputsSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "plainSvgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "plainInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "pixelWidth": 2763,
+      "pixelHeight": 3094,
+      "missing": [
+        "Scorpio",
+        "Pisces"
+      ],
+      "widthMm": 234,
+      "heightMm": 262,
+      "keys": [],
+      "errors": [],
+      "lateRequests": []
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "scope": "Actual designer, reopened vector and native raster captures. Byte-identical files share a visual review. Native text/vector/pixel measurements are separate.",
+  "screenshots": [
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "firefox-1440.png",
+      "sha256": "f8febd04063e06195f309ad99ec297a00540e12019c30538607aeeb65e3a4de3",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "chromium-375.png",
+      "sha256": "b129e409aa5c70ab2f762dc68a1cab022c483581cef6e69fc78f80560ebb9e5e",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "firefox-1440-drawing.png",
+      "sha256": "8da18e9ed94a650f3f940bd32f85eb3bdcae70aeb363067ce4a69095f0e4641d",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "firefox-375.png",
+      "sha256": "2b11ec3cfba26f4d4a293821663cfece5f6fcbf49cfff0b4128cc0b902dedb5e",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "chromium-1440.png",
+      "sha256": "b129e409aa5c70ab2f762dc68a1cab022c483581cef6e69fc78f80560ebb9e5e",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "firefox-375-drawing.png",
+      "sha256": "267cd2f1b8fc397f1393f583bb736154b62babd5f6fbe3c9faaa015e99693640",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "chromium-375-designer.png",
+      "sha256": "d2224e7552dba975d5b665b16ad430870ecd5a7e5a759687e0e78856b11c4c02",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "chromium-1440-drawing.png",
+      "sha256": "e6e7d6f115aca19a05f3aedc81128f3cf24d002d56aa423d0144fac9e273bbb6",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "chromium-1440-designer.png",
+      "sha256": "a55fdd4a9b96b763253f80c531c725605bfad1fcd4b2d495e0b9d657a13b5e6e",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "firefox-375-designer.png",
+      "sha256": "c94cdee3a4f8498a0ca2eddfb5f9e2e25abb0c8ad3645827495f607976689b6f",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "chromium-375-drawing.png",
+      "sha256": "e6e7d6f115aca19a05f3aedc81128f3cf24d002d56aa423d0144fac9e273bbb6",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-public-before",
+      "file": "firefox-1440-designer.png",
+      "sha256": "b52a17d99603e5fddaea99ed7a30de294945e19d2e660ccd6c179a16988b9f73",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "firefox-1440.png",
+      "sha256": "26e5dafbc7f5446fb20b9803e93dcc6a5a22ca419a9e2225ff5cc083abc4469c",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "chromium-375.png",
+      "sha256": "0f63140886d9b7161482f43d3cf122bea7ff430860b6ac7327c7d81cfc6ab7d4",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "firefox-1440-drawing.png",
+      "sha256": "38987a74041de0d572518ad190de5a53804cd2e14a94cc84d5c92a4068cb2dd0",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "firefox-375.png",
+      "sha256": "be182e5d25cbef3533e430069c87b7c63bf887bb40b85cf05ebdbaa57a0ff892",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "chromium-1440.png",
+      "sha256": "0f63140886d9b7161482f43d3cf122bea7ff430860b6ac7327c7d81cfc6ab7d4",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "firefox-375-drawing.png",
+      "sha256": "298de9cfd873f66038e010e610c57a664f64e6834dad728bf5bbfd5459452647",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "chromium-375-designer.png",
+      "sha256": "971444620e611e4e7840550fc426d747622260a3d290b79a9b4223a8b42f9dba",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "chromium-1440-drawing.png",
+      "sha256": "956d9aa75417a067ab0bb16ceb68a5b568bab9a0f8bf15c2f41ab774d14a28c6",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "chromium-1440-designer.png",
+      "sha256": "35ba5c515675395ed070f22722ce07911bc804942f9ca0d420d4131500b7f368",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "firefox-375-designer.png",
+      "sha256": "3f4dba40c8a3b2d167d8cbaa7ca9a920bbba2b6df434a011ee2230b49779e3aa",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "chromium-375-drawing.png",
+      "sha256": "956d9aa75417a067ab0bb16ceb68a5b568bab9a0f8bf15c2f41ab774d14a28c6",
+      "visuallyReviewed": true
+    },
+    {
+      "phase": "gnomon-calendar-local-after",
+      "file": "firefox-1440-designer.png",
+      "sha256": "4296bfa710e245da1cbff6ee71c3a0e3f08752d9f386a3a42347acdb7fb0aa7b",
+      "visuallyReviewed": true
+    }
+  ]
+}
