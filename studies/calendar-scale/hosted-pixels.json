@@ -1,0 +1,238 @@
+{
+  "phase": "after",
+  "scope": "Actual blueprint raster downloads, yellow calendar paint at independently predicted physical positions. No OCR, fabrication precision or arbitrary-image claim.",
+  "images": 4,
+  "positionsPresent": 28,
+  "missingPositions": 0,
+  "maximumDifferencePixels": 0.37919463087246186,
+  "rows": [
+    {
+      "engine": "chromium",
+      "viewport": 1440,
+      "width": 2763,
+      "height": 3519,
+      "positions": [
+        {
+          "declinationDeg": 23.44,
+          "expectedPixelY": 999.0200399885045,
+          "observedPixelY": 999.0,
+          "differencePixels": 0.02003998850454991,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 20.1,
+          "expectedPixelY": 1058.6908945843634,
+          "observedPixelY": 1059.0,
+          "differencePixels": 0.30910541563662264,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 11.5,
+          "expectedPixelY": 1202.0848414256122,
+          "observedPixelY": 1202.0,
+          "differencePixels": 0.08484142561223962,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 0,
+          "expectedPixelY": 1381.6208053691275,
+          "observedPixelY": 1382.0,
+          "differencePixels": 0.37919463087246186,
+          "paintedPixels": 10
+        },
+        {
+          "declinationDeg": -11.5,
+          "expectedPixelY": 1561.1567693126426,
+          "observedPixelY": 1561.0,
+          "differencePixels": 0.1567693126426093,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": -20.1,
+          "expectedPixelY": 1704.5507161538917,
+          "observedPixelY": 1704.5,
+          "differencePixels": 0.05071615389169892,
+          "paintedPixels": 10
+        },
+        {
+          "declinationDeg": -23.44,
+          "expectedPixelY": 1764.2215707497503,
+          "observedPixelY": 1764.0,
+          "differencePixels": 0.221570749750299,
+          "paintedPixels": 20
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "viewport": 375,
+      "width": 2763,
+      "height": 3519,
+      "positions": [
+        {
+          "declinationDeg": 23.44,
+          "expectedPixelY": 999.0200399885045,
+          "observedPixelY": 999.0,
+          "differencePixels": 0.02003998850454991,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 20.1,
+          "expectedPixelY": 1058.6908945843634,
+          "observedPixelY": 1059.0,
+          "differencePixels": 0.30910541563662264,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 11.5,
+          "expectedPixelY": 1202.0848414256122,
+          "observedPixelY": 1202.0,
+          "differencePixels": 0.08484142561223962,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 0,
+          "expectedPixelY": 1381.6208053691275,
+          "observedPixelY": 1382.0,
+          "differencePixels": 0.37919463087246186,
+          "paintedPixels": 10
+        },
+        {
+          "declinationDeg": -11.5,
+          "expectedPixelY": 1561.1567693126426,
+          "observedPixelY": 1561.0,
+          "differencePixels": 0.1567693126426093,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": -20.1,
+          "expectedPixelY": 1704.5507161538917,
+          "observedPixelY": 1704.5,
+          "differencePixels": 0.05071615389169892,
+          "paintedPixels": 10
+        },
+        {
+          "declinationDeg": -23.44,
+          "expectedPixelY": 1764.2215707497503,
+          "observedPixelY": 1764.0,
+          "differencePixels": 0.221570749750299,
+          "paintedPixels": 20
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "viewport": 1440,
+      "width": 2763,
+      "height": 3519,
+      "positions": [
+        {
+          "declinationDeg": 23.44,
+          "expectedPixelY": 999.0200399885045,
+          "observedPixelY": 999.0,
+          "differencePixels": 0.02003998850454991,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 20.1,
+          "expectedPixelY": 1058.6908945843634,
+          "observedPixelY": 1059.0,
+          "differencePixels": 0.30910541563662264,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 11.5,
+          "expectedPixelY": 1202.0848414256122,
+          "observedPixelY": 1202.0,
+          "differencePixels": 0.08484142561223962,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 0,
+          "expectedPixelY": 1381.6208053691275,
+          "observedPixelY": 1382.0,
+          "differencePixels": 0.37919463087246186,
+          "paintedPixels": 10
+        },
+        {
+          "declinationDeg": -11.5,
+          "expectedPixelY": 1561.1567693126426,
+          "observedPixelY": 1561.0,
+          "differencePixels": 0.1567693126426093,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": -20.1,
+          "expectedPixelY": 1704.5507161538917,
+          "observedPixelY": 1704.5,
+          "differencePixels": 0.05071615389169892,
+          "paintedPixels": 10
+        },
+        {
+          "declinationDeg": -23.44,
+          "expectedPixelY": 1764.2215707497503,
+          "observedPixelY": 1764.0,
+          "differencePixels": 0.221570749750299,
+          "paintedPixels": 20
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "viewport": 375,
+      "width": 2763,
+      "height": 3519,
+      "positions": [
+        {
+          "declinationDeg": 23.44,
+          "expectedPixelY": 999.0200399885045,
+          "observedPixelY": 999.0,
+          "differencePixels": 0.02003998850454991,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 20.1,
+          "expectedPixelY": 1058.6908945843634,
+          "observedPixelY": 1059.0,
+          "differencePixels": 0.30910541563662264,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 11.5,
+          "expectedPixelY": 1202.0848414256122,
+          "observedPixelY": 1202.0,
+          "differencePixels": 0.08484142561223962,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": 0,
+          "expectedPixelY": 1381.6208053691275,
+          "observedPixelY": 1382.0,
+          "differencePixels": 0.37919463087246186,
+          "paintedPixels": 10
+        },
+        {
+          "declinationDeg": -11.5,
+          "expectedPixelY": 1561.1567693126426,
+          "observedPixelY": 1561.0,
+          "differencePixels": 0.1567693126426093,
+          "paintedPixels": 20
+        },
+        {
+          "declinationDeg": -20.1,
+          "expectedPixelY": 1704.5507161538917,
+          "observedPixelY": 1704.5,
+          "differencePixels": 0.05071615389169892,
+          "paintedPixels": 10
+        },
+        {
+          "declinationDeg": -23.44,
+          "expectedPixelY": 1764.2215707497503,
+          "observedPixelY": 1764.0,
+          "differencePixels": 0.221570749750299,
+          "paintedPixels": 20
+        }
+      ]
+    }
+  ]
+}

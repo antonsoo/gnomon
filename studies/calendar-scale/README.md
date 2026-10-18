@@ -111,3 +111,25 @@ fabrication estimate. Replay it with pinned Pillow using
 --input studies/calendar-scale/Sydney-zodiac.gnomon.json --phase before|after
 --out RESULT.json`. The actual designer, reopened vectors and native rasters
 were visually reviewed: [capture hashes](visual-review.json).
+
+## Public designer
+
+Source `3006797` and Pages `423e161` publish the clean `14cdc07` build. All 33
+built files and the canonical root match the served bytes:
+[canonical HTTP receipt](hosted-bytes.json). Four public Chromium/Firefox
+desktop/mobile contexts disconnect, open the same Sydney file and complete
+20 actual downloads: [public replay](browser-hosted/browser.json).
+
+All eight SVGs and all eight original/edited portable files match the clean
+local downloads exactly; the zodiac-off SVGs also retain the former native
+bytes. All public designer and reopened-vector screenshots match the reviewed
+local captures. Native Firefox PNG bytes differ slightly; their actual pixels
+were reviewed and compared separately rather than called byte-identical.
+[Raster comparison](hosted-pixel-comparison.json) and
+[independent public tick positions](hosted-pixels.json) retain that boundary.
+All 28 public raster positions are present within 0.38 pixels of the independent
+prediction. [Publication receipt](publication.json).
+
+This verifies digital geometry and actual public/offline exports. No physical
+printing, engraving, mounting, outdoor observation or new registry release
+is claimed.

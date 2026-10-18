@@ -1,0 +1,37 @@
+{
+  "scope": "Actual public versus clean local native raster RGB comparisons. Byte differences do not by themselves establish geometric differences.",
+  "images": [
+    {
+      "file": "chromium-1440.png",
+      "maximumChannelDifference": 0,
+      "size": [
+        2763,
+        3519
+      ]
+    },
+    {
+      "file": "chromium-375.png",
+      "maximumChannelDifference": 0,
+      "size": [
+        2763,
+        3519
+      ]
+    },
+    {
+      "file": "firefox-1440.png",
+      "maximumChannelDifference": 0,
+      "size": [
+        2763,
+        3519
+      ]
+    },
+    {
+      "file": "firefox-375.png",
+      "maximumChannelDifference": 0,
+      "size": [
+        2763,
+        3519
+      ]
+    }
+  ]
+}

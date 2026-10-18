@@ -1,0 +1,222 @@
+{
+  "url": "https://antonsoo.github.io/gnomon/",
+  "phase": "after",
+  "inputSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+  "scope": "Actual public/local native SVG/PNG and editable-file downloads after disconnecting, plus zodiac-off controls. No physical printing or field measurement.",
+  "contexts": 4,
+  "downloads": 20,
+  "records": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "svgSha256": "3f4394592229b0766c22e4fdfddca7a0229ab8c57c6f457964207bf20cffc50b",
+      "pngSha256": "0f63140886d9b7161482f43d3cf122bea7ff430860b6ac7327c7d81cfc6ab7d4",
+      "savedInputsSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "plainSvgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "plainInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "pixelWidth": 2763,
+      "pixelHeight": 3519,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "keys": [
+        {
+          "key": "A",
+          "label": "June solstice / Cancer",
+          "path": "M 115.800 84.600 H 118.200"
+        },
+        {
+          "key": "B",
+          "label": "Gemini / Leo",
+          "path": "M 115.800 89.653 H 118.200"
+        },
+        {
+          "key": "C",
+          "label": "Taurus / Virgo",
+          "path": "M 115.800 101.796 H 118.200"
+        },
+        {
+          "key": "D",
+          "label": "Equinox / Aries / Libra",
+          "path": "M 115.800 117.000 H 118.200"
+        },
+        {
+          "key": "E",
+          "label": "Scorpio / Pisces",
+          "path": "M 115.800 132.204 H 118.200"
+        },
+        {
+          "key": "F",
+          "label": "Sagittarius / Aquarius",
+          "path": "M 115.800 144.347 H 118.200"
+        },
+        {
+          "key": "G",
+          "label": "December solstice / Capricorn",
+          "path": "M 115.800 149.400 H 118.200"
+        }
+      ],
+      "errors": [],
+      "lateRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "svgSha256": "3f4394592229b0766c22e4fdfddca7a0229ab8c57c6f457964207bf20cffc50b",
+      "pngSha256": "0f63140886d9b7161482f43d3cf122bea7ff430860b6ac7327c7d81cfc6ab7d4",
+      "savedInputsSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "plainSvgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "plainInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "pixelWidth": 2763,
+      "pixelHeight": 3519,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "keys": [
+        {
+          "key": "A",
+          "label": "June solstice / Cancer",
+          "path": "M 115.800 84.600 H 118.200"
+        },
+        {
+          "key": "B",
+          "label": "Gemini / Leo",
+          "path": "M 115.800 89.653 H 118.200"
+        },
+        {
+          "key": "C",
+          "label": "Taurus / Virgo",
+          "path": "M 115.800 101.796 H 118.200"
+        },
+        {
+          "key": "D",
+          "label": "Equinox / Aries / Libra",
+          "path": "M 115.800 117.000 H 118.200"
+        },
+        {
+          "key": "E",
+          "label": "Scorpio / Pisces",
+          "path": "M 115.800 132.204 H 118.200"
+        },
+        {
+          "key": "F",
+          "label": "Sagittarius / Aquarius",
+          "path": "M 115.800 144.347 H 118.200"
+        },
+        {
+          "key": "G",
+          "label": "December solstice / Capricorn",
+          "path": "M 115.800 149.400 H 118.200"
+        }
+      ],
+      "errors": [],
+      "lateRequests": []
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "svgSha256": "3f4394592229b0766c22e4fdfddca7a0229ab8c57c6f457964207bf20cffc50b",
+      "pngSha256": "746d024b3f70597e1082204805237da3eb5e4fd6ff792f8f0c6f1f68abf2ec56",
+      "savedInputsSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "plainSvgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "plainInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "pixelWidth": 2763,
+      "pixelHeight": 3519,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "keys": [
+        {
+          "key": "A",
+          "label": "June solstice / Cancer",
+          "path": "M 115.800 84.600 H 118.200"
+        },
+        {
+          "key": "B",
+          "label": "Gemini / Leo",
+          "path": "M 115.800 89.653 H 118.200"
+        },
+        {
+          "key": "C",
+          "label": "Taurus / Virgo",
+          "path": "M 115.800 101.796 H 118.200"
+        },
+        {
+          "key": "D",
+          "label": "Equinox / Aries / Libra",
+          "path": "M 115.800 117.000 H 118.200"
+        },
+        {
+          "key": "E",
+          "label": "Scorpio / Pisces",
+          "path": "M 115.800 132.204 H 118.200"
+        },
+        {
+          "key": "F",
+          "label": "Sagittarius / Aquarius",
+          "path": "M 115.800 144.347 H 118.200"
+        },
+        {
+          "key": "G",
+          "label": "December solstice / Capricorn",
+          "path": "M 115.800 149.400 H 118.200"
+        }
+      ],
+      "errors": [],
+      "lateRequests": []
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "svgSha256": "3f4394592229b0766c22e4fdfddca7a0229ab8c57c6f457964207bf20cffc50b",
+      "pngSha256": "3f0c6a0ab29dcb8d4e8fc20e298c3b919acd6f308d88622d76f3dc40c7b08f20",
+      "savedInputsSha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "plainSvgSha256": "f75b494867f9b8228b3e8c5d0dd6484ed41a3746631797dda2d4bfd836046f6a",
+      "plainInputsSha256": "6da73881219635e21a8cfbfe0de2f54756f1eed5b48ee86df927f9889408ec9e",
+      "pixelWidth": 2763,
+      "pixelHeight": 3519,
+      "missing": [],
+      "widthMm": 234,
+      "heightMm": 298,
+      "keys": [
+        {
+          "key": "A",
+          "label": "June solstice / Cancer",
+          "path": "M 115.800 84.600 H 118.200"
+        },
+        {
+          "key": "B",
+          "label": "Gemini / Leo",
+          "path": "M 115.800 89.653 H 118.200"
+        },
+        {
+          "key": "C",
+          "label": "Taurus / Virgo",
+          "path": "M 115.800 101.796 H 118.200"
+        },
+        {
+          "key": "D",
+          "label": "Equinox / Aries / Libra",
+          "path": "M 115.800 117.000 H 118.200"
+        },
+        {
+          "key": "E",
+          "label": "Scorpio / Pisces",
+          "path": "M 115.800 132.204 H 118.200"
+        },
+        {
+          "key": "F",
+          "label": "Sagittarius / Aquarius",
+          "path": "M 115.800 144.347 H 118.200"
+        },
+        {
+          "key": "G",
+          "label": "December solstice / Capricorn",
+          "path": "M 115.800 149.400 H 118.200"
+        }
+      ],
+      "errors": [],
+      "lateRequests": []
+    }
+  ]
+}
