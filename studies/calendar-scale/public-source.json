@@ -1,0 +1,46 @@
+{
+  "pin": "14cdc0747d7484c2fe9e0fff92adf930320a066d",
+  "scope": "Unauthenticated public raw source and actual portable input at the frozen runtime revision; separate from hosted output.",
+  "files": [
+    {
+      "file": "src/lib/dials/declination-lines.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/14cdc0747d7484c2fe9e0fff92adf930320a066d/src/lib/dials/declination-lines.ts",
+      "status": 200,
+      "bytes": 2709,
+      "sha256": "aaa21c214f0c04dc2286cc2b82e8a0002db99a24066a16b10c63a1d95345c490",
+      "matchesFrozenArchive": true
+    },
+    {
+      "file": "src/lib/render/svg.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/14cdc0747d7484c2fe9e0fff92adf930320a066d/src/lib/render/svg.ts",
+      "status": 200,
+      "bytes": 18413,
+      "sha256": "66bd00d77a4879e7912faff72dd7183c85bd42363e452ec60b08c33a9a87ed74",
+      "matchesFrozenArchive": true
+    },
+    {
+      "file": "tests/browser/calendar-scale.spec.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/14cdc0747d7484c2fe9e0fff92adf930320a066d/tests/browser/calendar-scale.spec.mjs",
+      "status": 200,
+      "bytes": 2421,
+      "sha256": "ca85826d9e43e1ee069902eb977d49b100cd84833a3ab1f3395688d300514da3",
+      "matchesFrozenArchive": true
+    },
+    {
+      "file": "tests/calendar-scale.test.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/14cdc0747d7484c2fe9e0fff92adf930320a066d/tests/calendar-scale.test.ts",
+      "status": 200,
+      "bytes": 1333,
+      "sha256": "e3c15ce406e0741377bab99df5ca6bb513a4c8da5c1d12e8135f2f76f995173d",
+      "matchesFrozenArchive": true
+    },
+    {
+      "file": "studies/calendar-scale/Sydney-zodiac.gnomon.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/14cdc0747d7484c2fe9e0fff92adf930320a066d/studies/calendar-scale/Sydney-zodiac.gnomon.json",
+      "status": 200,
+      "bytes": 584,
+      "sha256": "f93c0b4745cb939c14b602538a9ed0999a956f9288471d1f62bf8d89e7adbb06",
+      "matchesFrozenArchive": true
+    }
+  ]
+}

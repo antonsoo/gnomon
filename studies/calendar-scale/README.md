@@ -123,12 +123,14 @@ desktop/mobile contexts disconnect, open the same Sydney file and complete
 All eight SVGs and all eight original/edited portable files match the clean
 local downloads exactly; the zodiac-off SVGs also retain the former native
 bytes. All public designer and reopened-vector screenshots match the reviewed
-local captures. Native Firefox PNG bytes differ slightly; their actual pixels
-were reviewed and compared separately rather than called byte-identical.
+local captures. Native Firefox PNG container bytes differ; all four decoded
+public RGB images are identical to their reviewed local downloads.
 [Raster comparison](hosted-pixel-comparison.json) and
 [independent public tick positions](hosted-pixels.json) retain that boundary.
 All 28 public raster positions are present within 0.38 pixels of the independent
 prediction. [Publication receipt](publication.json).
+Five pinned public source/input files also match the frozen archive through
+unauthenticated HTTP: [source receipt](public-source.json).
 
 This verifies digital geometry and actual public/offline exports. No physical
 printing, engraving, mounting, outdoor observation or new registry release

@@ -17,63 +17,81 @@
     {
       "file": "firefox-1440.png",
       "sha256": "746d024b3f70597e1082204805237da3eb5e4fd6ff792f8f0c6f1f68abf2ec56",
-      "identicalToReviewedLocal": false
+      "identicalToReviewedLocal": false,
+      "visuallyReviewed": true,
+      "decodedRgbMatchesReviewedLocal": true
     },
     {
       "file": "chromium-375.png",
       "sha256": "0f63140886d9b7161482f43d3cf122bea7ff430860b6ac7327c7d81cfc6ab7d4",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true,
+      "decodedRgbMatchesReviewedLocal": true
     },
     {
       "file": "firefox-1440-drawing.png",
       "sha256": "38987a74041de0d572518ad190de5a53804cd2e14a94cc84d5c92a4068cb2dd0",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true
     },
     {
       "file": "firefox-375.png",
       "sha256": "3f0c6a0ab29dcb8d4e8fc20e298c3b919acd6f308d88622d76f3dc40c7b08f20",
-      "identicalToReviewedLocal": false
+      "identicalToReviewedLocal": false,
+      "visuallyReviewed": true,
+      "decodedRgbMatchesReviewedLocal": true
     },
     {
       "file": "chromium-1440.png",
       "sha256": "0f63140886d9b7161482f43d3cf122bea7ff430860b6ac7327c7d81cfc6ab7d4",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true,
+      "decodedRgbMatchesReviewedLocal": true
     },
     {
       "file": "firefox-375-drawing.png",
       "sha256": "298de9cfd873f66038e010e610c57a664f64e6834dad728bf5bbfd5459452647",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true
     },
     {
       "file": "chromium-375-designer.png",
       "sha256": "971444620e611e4e7840550fc426d747622260a3d290b79a9b4223a8b42f9dba",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true
     },
     {
       "file": "chromium-1440-drawing.png",
       "sha256": "956d9aa75417a067ab0bb16ceb68a5b568bab9a0f8bf15c2f41ab774d14a28c6",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true
     },
     {
       "file": "chromium-1440-designer.png",
       "sha256": "35ba5c515675395ed070f22722ce07911bc804942f9ca0d420d4131500b7f368",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true
     },
     {
       "file": "firefox-375-designer.png",
       "sha256": "3f4dba40c8a3b2d167d8cbaa7ca9a920bbba2b6df434a011ee2230b49779e3aa",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true
     },
     {
       "file": "chromium-375-drawing.png",
       "sha256": "956d9aa75417a067ab0bb16ceb68a5b568bab9a0f8bf15c2f41ab774d14a28c6",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true
     },
     {
       "file": "firefox-1440-designer.png",
       "sha256": "4296bfa710e245da1cbff6ee71c3a0e3f08752d9f386a3a42347acdb7fb0aa7b",
-      "identicalToReviewedLocal": true
+      "identicalToReviewedLocal": true,
+      "visuallyReviewed": true
     }
   ],
-  "scope": "Actual public designer and offline native SVG/PNG/input downloads; native physical measurements and palette checks retained separately. No physical printing or field validation."
+  "scope": "Actual public designer and offline native SVG/PNG/input downloads; native physical measurements and palette checks retained separately. No physical printing or field validation.",
+  "allPublicAndLocalNativePngRgbIdentical": true,
+  "pinnedPublicSourceFilesVerified": 5
 }
