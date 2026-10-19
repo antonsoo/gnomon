@@ -27,7 +27,7 @@ jobs:
           LC_ALL: de_DE.UTF-8
           LANG: de_DE.UTF-8
       - run: npm run build
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.3.0
         with:
           python-version: '3.12'
       - name: Check physical date curves in native SVG and PDF output
