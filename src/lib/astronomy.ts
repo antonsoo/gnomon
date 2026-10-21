@@ -112,12 +112,13 @@ export function altAzFromHourAngle(latDeg: number, declinationDeg: number, hourA
   const sinAlt =
     sinDeg(latDeg) * sinDeg(declinationDeg) + cosDeg(latDeg) * cosDeg(declinationDeg) * cosDeg(hourAngleDeg);
   const altitudeDeg = asinDeg(sinAlt);
-  const cosAlt = Math.cos(altitudeDeg * DEG);
-
-  // atan2 form (rather than a bare acos + sign patch) so the branch cut
-  // falls out automatically instead of needing a hand-picked case split.
-  const sinAz = (-cosDeg(declinationDeg) * sinDeg(hourAngleDeg)) / cosAlt;
-  const cosAz = (sinDeg(declinationDeg) - sinDeg(latDeg) * sinAlt) / (cosDeg(latDeg) * cosAlt);
+  // Use the horizontal components in atan2 directly. Subtracting sin(phi)
+  // sin(altitude) from sin(delta), then dividing by cos(phi), loses the
+  // north component near either geographic pole. Both components have the
+  // same cos(altitude) factor, so that division is unnecessary too.
+  const sinAz = -cosDeg(declinationDeg) * sinDeg(hourAngleDeg);
+  const cosAz = cosDeg(latDeg) * sinDeg(declinationDeg)
+    - sinDeg(latDeg) * cosDeg(declinationDeg) * cosDeg(hourAngleDeg);
   const azimuthDeg = norm360(atan2Deg(sinAz, cosAz));
 
   return { altitudeDeg, azimuthDeg };
