@@ -6,6 +6,13 @@ millimetres. Large pieces tile independently across ordinary A4 or Letter
 paper, with overlaps and calibration bars. The [2026-10-10 source verification](verification-2026-10-10.md)
 records the fresh artifact checks performed before pushing this work.
 
+Equatorial construction PDFs now include **both faces** and a gauge for the
+rod's exposed half-length. Their P- and O-prefixed sheets assemble separately
+on opposite sides of the same backing. Align the foot dots and target A before
+trimming; leave the stated rod length exposed on each side and add the backing's
+thickness to the whole rod. [Printable example, hemisphere conventions and
+independent native measurements](../studies/equatorial-faces/README.md).
+
 Try the [two-page garden dial](../examples/printing/garden-a4.pdf), or the
 actual browser downloads of a 300 mm circle in
 [A4](../examples/printing/north-a4.pdf) and

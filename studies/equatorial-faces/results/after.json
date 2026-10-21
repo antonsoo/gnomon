@@ -1,0 +1,296 @@
+{
+  "phase": "after",
+  "manifestSha256": "f281adbf8b62cb80a442a27fc8fd9ed0254594f2b8c0d60319540bff6d575c48",
+  "verifierSha256": "fb6a73a734b038646f58265eff52f2b4f07538c9870983ef115c531e34fbaa84",
+  "pymupdf": "1.28.2",
+  "cases": [
+    {
+      "name": "north-circle",
+      "pages": 3,
+      "nativeSvgRays": 108,
+      "nativePdfRaysIncludingTiles": 108,
+      "maxDirectionError": 6.190719295066254e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 192,
+      "maxDateChordErrorDeg": 0.011286332789495646,
+      "completePrintedStrokeSegments": 398,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 52,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "south-circle",
+      "pages": 3,
+      "nativeSvgRays": 108,
+      "nativePdfRaysIncludingTiles": 108,
+      "maxDirectionError": 6.190719295066254e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 192,
+      "maxDateChordErrorDeg": 0.011286332789495646,
+      "completePrintedStrokeSegments": 398,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 52,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "north-fan-zone",
+      "pages": 3,
+      "nativeSvgRays": 113,
+      "nativePdfRaysIncludingTiles": 113,
+      "maxDirectionError": 9.129694717824319e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 192,
+      "maxDateChordErrorDeg": 0.011373909899564438,
+      "completePrintedStrokeSegments": 407,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 58,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "south-fan-zone",
+      "pages": 3,
+      "nativeSvgRays": 105,
+      "nativePdfRaysIncludingTiles": 105,
+      "maxDirectionError": 9.145124981170691e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 192,
+      "maxDateChordErrorDeg": 0.01130315009452687,
+      "completePrintedStrokeSegments": 399,
+      "exposedRodLengthMm": 49.599997880723734,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 54,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "equator",
+      "pages": 3,
+      "nativeSvgRays": 94,
+      "nativePdfRaysIncludingTiles": 94,
+      "maxDirectionError": 6.190719295066254e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 196,
+      "maxDateChordErrorDeg": 0.011286332789495646,
+      "completePrintedStrokeSegments": 386,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 44,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "north-polar-day",
+      "pages": 3,
+      "nativeSvgRays": 120,
+      "nativePdfRaysIncludingTiles": 120,
+      "maxDirectionError": 8.826382038997846e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 150,
+      "maxDateChordErrorDeg": 0.011350680360276755,
+      "completePrintedStrokeSegments": 394,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 60,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "south-polar-day",
+      "pages": 3,
+      "nativeSvgRays": 120,
+      "nativePdfRaysIncludingTiles": 120,
+      "maxDirectionError": 8.82638203880555e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 150,
+      "maxDateChordErrorDeg": 0.01135068036026965,
+      "completePrintedStrokeSegments": 394,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 60,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "north-pole",
+      "pages": 3,
+      "nativeSvgRays": 73,
+      "nativePdfRaysIncludingTiles": 73,
+      "maxDirectionError": 6.190719295066254e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 194,
+      "maxDateChordErrorDeg": 0.011286332789495646,
+      "completePrintedStrokeSegments": 365,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 38,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "south-pole",
+      "pages": 3,
+      "nativeSvgRays": 73,
+      "nativePdfRaysIncludingTiles": 73,
+      "maxDirectionError": 6.190719295066254e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 194,
+      "maxDateChordErrorDeg": 0.011286332789495646,
+      "completePrintedStrokeSegments": 365,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 38,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "north-tiled",
+      "pages": 11,
+      "nativeSvgRays": 108,
+      "nativePdfRaysIncludingTiles": 432,
+      "maxDirectionError": 4.2670201681618505e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 480,
+      "maxDateChordErrorDeg": 0.011264491691893141,
+      "completePrintedStrokeSegments": 398,
+      "exposedRodLengthMm": 92.9999973720976,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 130,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "south-tiled-fan",
+      "pages": 11,
+      "nativeSvgRays": 110,
+      "nativePdfRaysIncludingTiles": 440,
+      "maxDirectionError": 4.637987148125749e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 480,
+      "maxDateChordErrorDeg": 0.011276667136101537,
+      "completePrintedStrokeSegments": 404,
+      "exposedRodLengthMm": 93.00000813802083,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 135,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "large-rod",
+      "pages": 35,
+      "nativeSvgRays": 106,
+      "nativePdfRaysIncludingTiles": 1590,
+      "maxDirectionError": 1.5657008170603253e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 1536,
+      "maxDateChordErrorDeg": 0.011235937770941007,
+      "completePrintedStrokeSegments": 400,
+      "exposedRodLengthMm": 247.99999478658043,
+      "fullSizeRodSheets": 2,
+      "nativeHourNumeralsCheckedIncludingTiles": 432,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "opposite-first",
+      "pages": 3,
+      "nativeSvgRays": 105,
+      "nativePdfRaysIncludingTiles": 105,
+      "maxDirectionError": 9.145124981170691e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 192,
+      "maxDateChordErrorDeg": 0.01130315009452687,
+      "completePrintedStrokeSegments": 399,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 54,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "single-hour",
+      "pages": 3,
+      "nativeSvgRays": 2,
+      "nativePdfRaysIncludingTiles": 2,
+      "maxDirectionError": 5.494045212079505e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 12,
+      "maxDateChordErrorDeg": 0.011210188291354228,
+      "completePrintedStrokeSegments": 206,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 4,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    },
+    {
+      "name": "limited-hours",
+      "pages": 3,
+      "nativeSvgRays": 38,
+      "nativePdfRaysIncludingTiles": 38,
+      "maxDirectionError": 8.649810521241958e-06,
+      "badSvgRays": 0,
+      "badPdfRaysIncludingTiles": 0,
+      "dateVerticesIncludingTiles": 146,
+      "maxDateChordErrorDeg": 0.011462798381526085,
+      "completePrintedStrokeSegments": 309,
+      "exposedRodLengthMm": 49.600008646647424,
+      "fullSizeRodSheets": 1,
+      "nativeHourNumeralsCheckedIncludingTiles": 40,
+      "facesPresent": [
+        "opposite",
+        "pole-facing"
+      ]
+    }
+  ],
+  "nativeSvgRays": 1383,
+  "nativePdfRaysIncludingTiles": 3521,
+  "scope": "Independent analytical Sun visibility and signed ray directions in serialized drawings; mirrored cut paths, alignment targets and native scale bars. No physical printer or field measurements."
+}

@@ -23,6 +23,16 @@ The [construction and simulation audit](docs/construction-audit.md) explains
 the wall-shadow error found in the original geometry and its oracle, the
 correction, and what remains outside the verification.
 
+**Both faces of an equatorial dial (source checkout).** The construction PDF
+now includes the pole-facing and opposite faces, their shared cut and alignment
+target, and a rod gauge for equal exposed lengths on both sides. Winter hour
+numbers reverse when viewed from the back; the summer face cannot simply be
+copied there. Large pieces still tile across A4 or Letter sheets. The same
+work corrects distorted hour directions at the geographic poles.
+[Open the printable kit and measured drawings](studies/equatorial-faces/README.md).
+The designer's preview and ordinary SVG/PNG download still show the pole-facing
+face; the library and runnable example expose either face separately.
+
 **Editable design files (source checkout).** Save the complete setup, reload
 or move to another browser, and reopen it with the same dimensions and selected
 clock minute. A winter design keeps its winter clock adjustment. Invalid files
@@ -268,8 +278,12 @@ The library (`src/lib/`) has no dependency on the DOM or on the UI code in
   solar ephemeris. Its printed distance rounds to 0.1 mm; this is a display
   precision, not a fabrication or field-accuracy guarantee. Choose another date
   to generate its standing point.
-- **Equatorial** output covers the pole-facing face only. It is not a
-  complete two-sided winter/summer construction.
+- **Equatorial** construction PDFs include both faces; the designer preview
+  and ordinary SVG/PNG download show the pole-facing face. Both faces share
+  the same fixed clock convention. Neither works at the ideal equinox, and
+  a back face cannot provide daylight during polar night. You supply the
+  tilted support, backing and a rod long enough to protrude from both sides.
+  [Construction, numerical checks and remaining physical limits](studies/equatorial-faces/README.md).
 - **Degenerate orientations** (for example a horizontal polar style at
   the equator, or an east/west wall with the style in its plane) cannot
   make a usable dial in this model. The UI explains the problem and pauses

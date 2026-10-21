@@ -1,0 +1,30 @@
+{
+  "controls": [
+    {
+      "authoredFault": "wrong-back-numeral",
+      "originalPdfSha256": "f478eda8dfe177fb6352c65f43790f5dff92659c7758267a2423d0108f96ab20",
+      "modifiedPdfSha256": "f4b34b4980f7979b3326821fdedfbf8743c99c1ef8671a3cbfd0a0d9ade4a4e1",
+      "selfConsistentManifest": true,
+      "rejected": true,
+      "reason": "AssertionError: ('north-circle', 'opposite', 7.0, '8', '7')"
+    },
+    {
+      "authoredFault": "wrong-back-ray",
+      "originalPdfSha256": "f478eda8dfe177fb6352c65f43790f5dff92659c7758267a2423d0108f96ab20",
+      "modifiedPdfSha256": "a0e195c7718aafd72de03cde77faf9d0c6137ddd11e11780540831765e67154d",
+      "selfConsistentManifest": true,
+      "rejected": true,
+      "reason": "AssertionError: ('north-circle', 'opposite', 6.25, 1.9957178355377876)"
+    },
+    {
+      "authoredFault": "short-rod-gauge",
+      "originalPdfSha256": "f478eda8dfe177fb6352c65f43790f5dff92659c7758267a2423d0108f96ab20",
+      "modifiedPdfSha256": "8e99285df2c8fb8c43a4a45c4c053ffe413a43a08a6dfbdb5cb231d878748d9f",
+      "selfConsistentManifest": true,
+      "rejected": true,
+      "reason": "AssertionError: ('exposed rod gauge', 48.11200731065568, 49.6)"
+    }
+  ],
+  "scope": "Authored mutations of native saved output, not observed field incidents.",
+  "producerSha256": "8352157a2ead5afbbfdbd888dd5843573227ed08c96064a34a3845d21d0ad657"
+}

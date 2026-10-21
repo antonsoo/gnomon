@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Two faces for equatorial construction
+
+- Include both equatorial faces in construction PDFs, with the back's viewed
+  hour order, hemisphere-specific equinox ranges, a common mirrored cut,
+  alignment target and rod dimensions measured from each outer surface.
+- Retain full-size A4/Letter tiling, distinguish P/O sheet groups and count
+  both faces in the Export panel. Expose `face: "opposite"` and an acyclic
+  counterpart in the library; add a runnable SVG/PDF construction example.
+- Correct the azimuth calculation's cancellation at the geographic poles.
+  Original native hour rays missed their analytical directions by up to
+  11.25 degrees. The independent serialized-vector study covers both viewed
+  faces, date curves, physical stroke coverage, mirrored cuts and scale bars.
+  [Artifacts and reproducible measurements](studies/equatorial-faces/README.md).
+
 ### Complete and readable calendar scales
 
 - Add the omitted Scorpio/Pisces pair at the existing approximate -11.5-degree

@@ -78,6 +78,22 @@ def check_date_curve(case, face, points, tolerance):
     return max(errors, default=0)
 
 
+def check_labels(case, face, labels):
+    hours = [h for h in expected_hours(case, face) if h == int(h)]
+    assert len(labels) == len(hours), (case["name"], face, len(labels), len(hours))
+    matched = []
+    romans = ["XII", "I", "II", "III", "IIII", "V", "VI", "VII", "VIII", "IX", "X", "XI"]
+    for text, point in labels:
+        hour = min(hours, key=lambda h: ray_error(case, face, h, point))
+        # Glyph-bounds centres differ slightly from the nominal text anchors.
+        # This 0.02-unit direction bound is far below a one-hour label spacing.
+        assert ray_error(case, face, hour, point) < .02, (case["name"], face, text, point)
+        expected = str(int(hour) % 12 or 12) if case["options"].get("numerals") == "arabic" else romans[int(hour) % 12]
+        assert text == expected, (case["name"], face, hour, text, expected)
+        matched.append(hour)
+    assert sorted(matched) == hours
+
+
 def covered(a, b, rectangles):
     intervals = []
     for rect in rectangles:
@@ -120,7 +136,10 @@ def svg_vectors(path):
         if node.get("stroke-width") == "0.25":
             values = [float(v) for v in re.findall(r"[-+]?(?:\d*\.\d+|\d+)", node.attrib["d"])]
             curves.append([(cy - y, x - cx) for x, y in zip(values[::2], values[1::2], strict=True)])
-    return rays, outline, curves
+    labels = [(node.text, (cy - float(node.attrib["y"]), float(node.attrib["x"]) - cx))
+              for node in root.findall(NS + "text") if node.get("text-anchor") == "middle"
+              and node.get("dominant-baseline") == "middle"]
+    return rays, outline, curves, labels
 
 
 def pdf_vectors(page, case):
@@ -151,6 +170,8 @@ def pdf_vectors(page, case):
                 segments.append((((cy - a.y) * MM, (a.x - cx) * MM), ((cy - b.y) * MM, (b.x - cx) * MM)))
             if abs(width * MM - .2) < 1e-5 and abs((b - a).norm() * MM - 2) < 1e-4 and abs(a.y - b.y) < 1e-4:
                 targets.append(((cy - (a.y + b.y) / 2) * MM, ((a.x + b.x) / 2 - cx) * MM))
+            if abs(width * MM - .2) < 1e-5 and abs((b - a).norm() * MM - 2) < 1e-4:
+                segments.append((((cy - a.y) * MM, (a.x - cx) * MM), ((cy - b.y) * MM, (b.x - cx) * MM)))
     assert len(outlines) == 1
     clips = [d["scissor"] for d in page.get_drawings(extended=True) if d["type"] == "clip"]
     assert len(clips) <= 1
@@ -158,13 +179,44 @@ def pdf_vectors(page, case):
     # These are actual PDF clipping frames, translated into shared physical
     # coordinates by each tile's serialized foot, not by the product planner.
     rectangle = ((cy - clip.y1) * MM, (clip.x0 - cx) * MM, (cy - clip.y0) * MM, (clip.x1 - cx) * MM)
-    return rays, outlines[0], targets, segments, rectangle, curves
+    labels = []
+    for span in page.get_texttrace():
+        text = "".join(chr(c[0]) for c in span["chars"])
+        if not re.fullmatch(r"[0-9IVX]+", text):
+            continue
+        x0, y0, x1, y1 = span["bbox"]
+        point = ((cy - (y0 + y1) / 2) * MM, ((x0 + x1) / 2 - cx) * MM)
+        if .65 * case["options"]["radiusMm"] < math.hypot(*point) < case["options"]["radiusMm"]:
+            labels.append((text, point))
+    return rays, outlines[0], targets, segments, rectangle, curves, labels
 
 
 def mirrored(a, b, tolerance):
     # Direction and start vertex may differ after reflecting a closed cut path.
     for u, v in a:
         assert min(math.hypot(u - x, -v - y) for x, y in b) < tolerance
+
+
+def rod_geometry(page, case):
+    drawings = page.get_drawings()
+    feet = [d for d in drawings if d["fill"] is not None and
+            abs(d["rect"].width * MM - 1.6) < 1e-4 and abs(d["rect"].height * MM - 1.6) < 1e-4]
+    if not feet:
+        return None
+    assert len(feet) == 1
+    foot = (feet[0]["rect"].tl + feet[0]["rect"].br) / 2
+    lines = [item for d in drawings if d["width"] is not None and abs(d["width"] * MM - .35) < 1e-5
+             for item in d["items"] if item[0] == "l" and (item[1] - foot).norm() * MM < 1e-4]
+    assert len(lines) == 1
+    length = (lines[0][2] - foot).norm() * MM
+    assert abs(length - case["input"]["gnomonBaseLengthMm"]) < 1e-4, ("exposed rod gauge", length, case["input"]["gnomonBaseLengthMm"])
+    crosses = [item for d in drawings if d["width"] is not None and abs(d["width"] * MM - .25) < 1e-5
+               for item in d["items"] if item[0] == "l" and abs((item[2] - item[1]).norm() * MM - 3) < 1e-4
+               and abs(item[1].y - item[2].y) < 1e-4]
+    assert len(crosses) == 1
+    nodus = (crosses[0][1] + crosses[0][2]) / 2
+    assert abs((nodus - foot).norm() * MM - case["input"]["nodusDistanceMm"]) < 1e-4
+    return length
 
 
 def main():
@@ -186,10 +238,15 @@ def main():
         svg_outlines, pdf_outlines, targets, clip_rects, face_segments = {}, {}, {}, {}, {}
         max_error = bad_svg = bad_pdf = date_vertices = 0
         max_chord_error = 0
+        rod_sheets = []
+        labels_checked = 0
         for face in case["faces"]:
             path = args.capture / face["svgFile"]
             assert hashlib.sha256(path.read_bytes()).hexdigest() == face["svgSha256"]
-            rays, outline, curves = svg_vectors(path)
+            rays, outline, curves, labels = svg_vectors(path)
+            if after or abs(case["input"]["latitudeDeg"]) < 90:
+                check_labels(case, face["face"], labels)
+                labels_checked += len(labels)
             for curve in curves:
                 if after or abs(case["input"]["latitudeDeg"]) < 90:
                     max_chord_error = max(max_chord_error, check_date_curve(case, face["face"], curve, .002))
@@ -206,6 +263,9 @@ def main():
                 max_error = max(max_error, error)
                 svg_count += 1
         for page in pdf:
+            rod = rod_geometry(page, case)
+            if rod is not None:
+                rod_sheets.append(rod)
             size = (210, 297) if case["options"]["format"] == "a4" else (215.9, 279.4)
             # jsPDF's standard A4 MediaBox rounds its dimensions to 0.01 pt.
             assert abs(page.rect.width * MM - size[0]) < .003
@@ -218,10 +278,13 @@ def main():
             vectors = pdf_vectors(page, case)
             if vectors is None:
                 continue
-            rays, outline, target, segments, rectangle, curves = vectors
+            rays, outline, target, segments, rectangle, curves, labels = vectors
             page_text = page.get_text()
             side = "opposite" if "O | Opposite" in page_text or "O-R" in page_text else "pole-facing"
             face = next(f for f in case["faces"] if f["face"] == side)
+            if after or abs(case["input"]["latitudeDeg"]) < 90:
+                check_labels(case, side, labels)
+                labels_checked += len(labels)
             for curve in curves:
                 # Baseline polar azimuth faults also distort chord spacing.
                 if after or abs(case["input"]["latitudeDeg"]) < 90:
@@ -252,11 +315,14 @@ def main():
         for side, segments in face_segments.items():
             for a, b in segments:
                 covered(a, b, clip_rects[side])
+        assert rod_sheets
         results.append({"name": case["name"], "pages": len(pdf), "nativeSvgRays": svg_count,
                         "nativePdfRaysIncludingTiles": pdf_count, "maxDirectionError": max_error,
                         "badSvgRays": bad_svg, "badPdfRaysIncludingTiles": bad_pdf,
                         "dateVerticesIncludingTiles": date_vertices, "maxDateChordErrorDeg": max_chord_error,
                         "completePrintedStrokeSegments": sum(len(s) for s in face_segments.values()),
+                        "exposedRodLengthMm": rod_sheets[0], "fullSizeRodSheets": len(rod_sheets),
+                        "nativeHourNumeralsCheckedIncludingTiles": labels_checked,
                         "facesPresent": sorted(set(page_faces))})
     result = {"phase": manifest["phase"], "manifestSha256": hashlib.sha256(raw_manifest).hexdigest(),
               "verifierSha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
