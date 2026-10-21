@@ -122,9 +122,10 @@ match all 33 tested build files and the 37 previous non-entrypoint files:
 
 The [public measurements](results/hosted-measurements.json) repeat all eight
 workflows on the actual hosted page. Geometry, projection errors, decoded PNG
-pixels and all 16 screenshots equal the clean build's results. The
+pixels equal the clean build's results. All 16 screenshots also have
+identical decoded pixels. The
 [actual public downloads](artifacts/hosted-browser.tar.gz) and
 [publication receipt](results/publication.json) are retained separately.
-PDF bytes need not be identical because their document identifiers can vary;
-the reader compares their actual serialized geometry. No registry release
+Encoded PNG bytes and PDF identifiers can vary; the checks compare decoded
+image pixels and actual serialized geometry. No registry release
 is associated with this private web application.

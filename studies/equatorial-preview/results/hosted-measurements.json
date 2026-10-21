@@ -1,0 +1,432 @@
+{
+  "cases": [
+    {
+      "scenario": "equatorial-preview-outside-1b1a9-nd-downloads-at--33-9-375px-chromium",
+      "svgDownloads": 4,
+      "svgHourRays": 208,
+      "pdfPages": 3,
+      "pdfHourRays": 104,
+      "hourNumerals": 78,
+      "exposedRodMm": 49.600008646647424,
+      "png": {
+        "width": 2078,
+        "height": 2196,
+        "maxComponentDifference": 0,
+        "differentComponents": 0,
+        "pngPixelsSha256": "c2ced02f574c4949117518d193333798b1a6cefe84c9603aab9dc09b8d1de585",
+        "svgPixelsSha256": "c2ced02f574c4949117518d193333798b1a6cefe84c9603aab9dc09b8d1de585"
+      },
+      "seasonalShadowChecks": [
+        {
+          "season": "06-21",
+          "face": "pole-facing",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "06-21",
+          "face": "opposite",
+          "visible": true,
+          "tip": {
+            "u": -59.04900000000001,
+            "v": 0.46999999999999886
+          },
+          "projectionErrorMm": 0.045690020846899555
+        },
+        {
+          "season": "12-21",
+          "face": "pole-facing",
+          "visible": true,
+          "tip": {
+            "u": -59.05099999999999,
+            "v": 0.49500000000000455
+          },
+          "projectionErrorMm": 0.021880164328422495
+        },
+        {
+          "season": "12-21",
+          "face": "opposite",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        }
+      ]
+    },
+    {
+      "scenario": "equatorial-preview-outside-1b1a9-nd-downloads-at--33-9-375px-firefox",
+      "svgDownloads": 4,
+      "svgHourRays": 208,
+      "pdfPages": 3,
+      "pdfHourRays": 104,
+      "hourNumerals": 78,
+      "exposedRodMm": 49.600008646647424,
+      "png": {
+        "width": 2078,
+        "height": 2196,
+        "maxComponentDifference": 0,
+        "differentComponents": 0,
+        "pngPixelsSha256": "dd9ca4f3448525298b602dc9033d161d0f8f79884b7c673a96c83b32baf9b4f0",
+        "svgPixelsSha256": "dd9ca4f3448525298b602dc9033d161d0f8f79884b7c673a96c83b32baf9b4f0"
+      },
+      "seasonalShadowChecks": [
+        {
+          "season": "06-21",
+          "face": "pole-facing",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "06-21",
+          "face": "opposite",
+          "visible": true,
+          "tip": {
+            "u": -59.04900000000001,
+            "v": 0.46999999999999886
+          },
+          "projectionErrorMm": 0.045690020846899555
+        },
+        {
+          "season": "12-21",
+          "face": "pole-facing",
+          "visible": true,
+          "tip": {
+            "u": -59.05099999999999,
+            "v": 0.49500000000000455
+          },
+          "projectionErrorMm": 0.021880164328422495
+        },
+        {
+          "season": "12-21",
+          "face": "opposite",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        }
+      ]
+    },
+    {
+      "scenario": "equatorial-preview-outside-4734b--downloads-at-37-7749-375px-chromium",
+      "svgDownloads": 4,
+      "svgHourRays": 212,
+      "pdfPages": 3,
+      "pdfHourRays": 106,
+      "hourNumerals": 78,
+      "exposedRodMm": 49.600008646647424,
+      "png": {
+        "width": 2078,
+        "height": 2196,
+        "maxComponentDifference": 0,
+        "differentComponents": 0,
+        "pngPixelsSha256": "3b59b478299f991e9d31ce3a27032a11bcba06215ee189087fa559b5ed0918ac",
+        "svgPixelsSha256": "3b59b478299f991e9d31ce3a27032a11bcba06215ee189087fa559b5ed0918ac"
+      },
+      "seasonalShadowChecks": [
+        {
+          "season": "06-21",
+          "face": "pole-facing",
+          "visible": true,
+          "tip": {
+            "u": -59.04900000000001,
+            "v": 0.46999999999999886
+          },
+          "projectionErrorMm": 0.045690020846899555
+        },
+        {
+          "season": "06-21",
+          "face": "opposite",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "12-21",
+          "face": "pole-facing",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "12-21",
+          "face": "opposite",
+          "visible": true,
+          "tip": {
+            "u": -59.05099999999999,
+            "v": 0.49500000000000455
+          },
+          "projectionErrorMm": 0.021880164328422495
+        }
+      ]
+    },
+    {
+      "scenario": "equatorial-preview-outside-4734b--downloads-at-37-7749-375px-firefox",
+      "svgDownloads": 4,
+      "svgHourRays": 212,
+      "pdfPages": 3,
+      "pdfHourRays": 106,
+      "hourNumerals": 78,
+      "exposedRodMm": 49.600008646647424,
+      "png": {
+        "width": 2078,
+        "height": 2196,
+        "maxComponentDifference": 0,
+        "differentComponents": 0,
+        "pngPixelsSha256": "55e0899c09d7e26c7094741ea0b7c1becec9080e90c260d3bec4866fbf475a45",
+        "svgPixelsSha256": "55e0899c09d7e26c7094741ea0b7c1becec9080e90c260d3bec4866fbf475a45"
+      },
+      "seasonalShadowChecks": [
+        {
+          "season": "06-21",
+          "face": "pole-facing",
+          "visible": true,
+          "tip": {
+            "u": -59.04900000000001,
+            "v": 0.46999999999999886
+          },
+          "projectionErrorMm": 0.045690020846899555
+        },
+        {
+          "season": "06-21",
+          "face": "opposite",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "12-21",
+          "face": "pole-facing",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "12-21",
+          "face": "opposite",
+          "visible": true,
+          "tip": {
+            "u": -59.05099999999999,
+            "v": 0.49500000000000455
+          },
+          "projectionErrorMm": 0.021880164328422495
+        }
+      ]
+    },
+    {
+      "scenario": "equatorial-preview-outside-4bbcd-d-downloads-at--33-9-1440px-chromium",
+      "svgDownloads": 4,
+      "svgHourRays": 208,
+      "pdfPages": 3,
+      "pdfHourRays": 104,
+      "hourNumerals": 78,
+      "exposedRodMm": 49.600008646647424,
+      "png": {
+        "width": 2078,
+        "height": 2196,
+        "maxComponentDifference": 0,
+        "differentComponents": 0,
+        "pngPixelsSha256": "c2ced02f574c4949117518d193333798b1a6cefe84c9603aab9dc09b8d1de585",
+        "svgPixelsSha256": "c2ced02f574c4949117518d193333798b1a6cefe84c9603aab9dc09b8d1de585"
+      },
+      "seasonalShadowChecks": [
+        {
+          "season": "06-21",
+          "face": "pole-facing",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "06-21",
+          "face": "opposite",
+          "visible": true,
+          "tip": {
+            "u": -59.04900000000001,
+            "v": 0.46999999999999886
+          },
+          "projectionErrorMm": 0.045690020846899555
+        },
+        {
+          "season": "12-21",
+          "face": "pole-facing",
+          "visible": true,
+          "tip": {
+            "u": -59.05099999999999,
+            "v": 0.49500000000000455
+          },
+          "projectionErrorMm": 0.021880164328422495
+        },
+        {
+          "season": "12-21",
+          "face": "opposite",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        }
+      ]
+    },
+    {
+      "scenario": "equatorial-preview-outside-4bbcd-d-downloads-at--33-9-1440px-firefox",
+      "svgDownloads": 4,
+      "svgHourRays": 208,
+      "pdfPages": 3,
+      "pdfHourRays": 104,
+      "hourNumerals": 78,
+      "exposedRodMm": 49.600008646647424,
+      "png": {
+        "width": 2078,
+        "height": 2196,
+        "maxComponentDifference": 0,
+        "differentComponents": 0,
+        "pngPixelsSha256": "dd9ca4f3448525298b602dc9033d161d0f8f79884b7c673a96c83b32baf9b4f0",
+        "svgPixelsSha256": "dd9ca4f3448525298b602dc9033d161d0f8f79884b7c673a96c83b32baf9b4f0"
+      },
+      "seasonalShadowChecks": [
+        {
+          "season": "06-21",
+          "face": "pole-facing",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "06-21",
+          "face": "opposite",
+          "visible": true,
+          "tip": {
+            "u": -59.04900000000001,
+            "v": 0.46999999999999886
+          },
+          "projectionErrorMm": 0.045690020846899555
+        },
+        {
+          "season": "12-21",
+          "face": "pole-facing",
+          "visible": true,
+          "tip": {
+            "u": -59.05099999999999,
+            "v": 0.49500000000000455
+          },
+          "projectionErrorMm": 0.021880164328422495
+        },
+        {
+          "season": "12-21",
+          "face": "opposite",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        }
+      ]
+    },
+    {
+      "scenario": "equatorial-preview-outside-52eac-downloads-at-37-7749-1440px-chromium",
+      "svgDownloads": 4,
+      "svgHourRays": 212,
+      "pdfPages": 3,
+      "pdfHourRays": 106,
+      "hourNumerals": 78,
+      "exposedRodMm": 49.600008646647424,
+      "png": {
+        "width": 2078,
+        "height": 2196,
+        "maxComponentDifference": 0,
+        "differentComponents": 0,
+        "pngPixelsSha256": "3b59b478299f991e9d31ce3a27032a11bcba06215ee189087fa559b5ed0918ac",
+        "svgPixelsSha256": "3b59b478299f991e9d31ce3a27032a11bcba06215ee189087fa559b5ed0918ac"
+      },
+      "seasonalShadowChecks": [
+        {
+          "season": "06-21",
+          "face": "pole-facing",
+          "visible": true,
+          "tip": {
+            "u": -59.04900000000001,
+            "v": 0.46999999999999886
+          },
+          "projectionErrorMm": 0.045690020846899555
+        },
+        {
+          "season": "06-21",
+          "face": "opposite",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "12-21",
+          "face": "pole-facing",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "12-21",
+          "face": "opposite",
+          "visible": true,
+          "tip": {
+            "u": -59.05099999999999,
+            "v": 0.49500000000000455
+          },
+          "projectionErrorMm": 0.021880164328422495
+        }
+      ]
+    },
+    {
+      "scenario": "equatorial-preview-outside-52eac-downloads-at-37-7749-1440px-firefox",
+      "svgDownloads": 4,
+      "svgHourRays": 212,
+      "pdfPages": 3,
+      "pdfHourRays": 106,
+      "hourNumerals": 78,
+      "exposedRodMm": 49.600008646647424,
+      "png": {
+        "width": 2078,
+        "height": 2196,
+        "maxComponentDifference": 0,
+        "differentComponents": 0,
+        "pngPixelsSha256": "55e0899c09d7e26c7094741ea0b7c1becec9080e90c260d3bec4866fbf475a45",
+        "svgPixelsSha256": "55e0899c09d7e26c7094741ea0b7c1becec9080e90c260d3bec4866fbf475a45"
+      },
+      "seasonalShadowChecks": [
+        {
+          "season": "06-21",
+          "face": "pole-facing",
+          "visible": true,
+          "tip": {
+            "u": -59.04900000000001,
+            "v": 0.46999999999999886
+          },
+          "projectionErrorMm": 0.045690020846899555
+        },
+        {
+          "season": "06-21",
+          "face": "opposite",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "12-21",
+          "face": "pole-facing",
+          "visible": false,
+          "tip": null,
+          "projectionErrorMm": null
+        },
+        {
+          "season": "12-21",
+          "face": "opposite",
+          "visible": true,
+          "tip": {
+            "u": -59.05099999999999,
+            "v": 0.49500000000000455
+          },
+          "projectionErrorMm": 0.021880164328422495
+        }
+      ]
+    }
+  ],
+  "nativeReader": "PyMuPDF 1.28.2",
+  "verifierSha256": "7b2c641fa461859ae098279014ce486bf5c53adc53856e876d4439f48a65f0e6",
+  "geometryReaderSha256": "fb6a73a734b038646f58265eff52f2b4f07538c9870983ef115c531e34fbaa84",
+  "scope": "Actual browser downloads, serialized geometry and browser raster equivalence; no physical printing or field trial."
+}

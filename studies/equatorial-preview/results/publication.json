@@ -1,0 +1,133 @@
+{
+  "implementationCommit": "b39cfff5d74c58a37a58d4853ed1d82ebbbc18fd",
+  "sourceAtDeployment": "82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5",
+  "pagesCommit": "2ddaa3c4673387f62a95ef4b50e9e7b4887454e7",
+  "pagesParent": "9b4134372a184614bd6dc1db0941e83652bf0cae",
+  "site": "https://antonsoo.github.io/gnomon/",
+  "testedBuildFiles": 33,
+  "canonicalHostedFiles": 42,
+  "preservedPriorNonEntrypointFiles": 37,
+  "publicFaceScenarios": 8,
+  "publicFaceSeasonStates": 32,
+  "publicSVGDownloads": 32,
+  "publicPDFDownloads": 8,
+  "publicPNGDownloads": 8,
+  "publicGeometryProjectionAndDecodedExportPixelsEqualCleanBuild": true,
+  "screenshots": [
+    {
+      "case": "equatorial-preview-outside-1b1a9-nd-downloads-at--33-9-375px-chromium",
+      "file": "face-control.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-1b1a9-nd-downloads-at--33-9-375px-chromium",
+      "file": "opposite-preview.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-1b1a9-nd-downloads-at--33-9-375px-firefox",
+      "file": "face-control.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-1b1a9-nd-downloads-at--33-9-375px-firefox",
+      "file": "opposite-preview.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-4734b--downloads-at-37-7749-375px-chromium",
+      "file": "face-control.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-4734b--downloads-at-37-7749-375px-chromium",
+      "file": "opposite-preview.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-4734b--downloads-at-37-7749-375px-firefox",
+      "file": "face-control.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-4734b--downloads-at-37-7749-375px-firefox",
+      "file": "opposite-preview.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-4bbcd-d-downloads-at--33-9-1440px-chromium",
+      "file": "face-control.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-4bbcd-d-downloads-at--33-9-1440px-chromium",
+      "file": "opposite-preview.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-4bbcd-d-downloads-at--33-9-1440px-firefox",
+      "file": "face-control.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-4bbcd-d-downloads-at--33-9-1440px-firefox",
+      "file": "opposite-preview.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-52eac-downloads-at-37-7749-1440px-chromium",
+      "file": "face-control.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-52eac-downloads-at-37-7749-1440px-chromium",
+      "file": "opposite-preview.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-52eac-downloads-at-37-7749-1440px-firefox",
+      "file": "face-control.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    },
+    {
+      "case": "equatorial-preview-outside-52eac-downloads-at-37-7749-1440px-firefox",
+      "file": "opposite-preview.png",
+      "bytesEqual": true,
+      "decodedPixelsEqual": true,
+      "differentComponents": 0
+    }
+  ],
+  "encodedFileComparison": "PDF identifiers and PNG encoding can vary. Native geometry and decoded PNG pixels are compared; download bytes are retained separately.",
+  "hostedArchiveSha256": "8ffaa598bfa533c5551c113c2a9949e8d4b2d2df9cc4cc5425bf94e8a0f6e819",
+  "registryRelease": false
+}
