@@ -30,8 +30,12 @@ numbers reverse when viewed from the back; the summer face cannot simply be
 copied there. Large pieces still tile across A4 or Letter sheets. The same
 work corrects distorted hour directions at the geographic poles.
 [Open the printable kit and measured drawings](studies/equatorial-faces/README.md).
-The designer's preview and ordinary SVG/PNG download still show the pole-facing
-face; the library and runnable example expose either face separately.
+Choose **Equatorial face preview** under **Dial type** to inspect either side
+from outside, including its live shadow and hemisphere-specific season.
+SVG/PNG export the selected face; opposite-face filenames include `-opposite`.
+PDF includes both faces, starting with the selected one. Portable designs
+retain the complete physical pair and reopen with the pole-facing preview.
+[Actual downloads, seasonal shadows and raster checks](studies/equatorial-preview/README.md).
 
 **Editable design files (source checkout).** Save the complete setup, reload
 or move to another browser, and reopen it with the same dimensions and selected

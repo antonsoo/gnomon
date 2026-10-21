@@ -6,6 +6,11 @@ All notable changes to this project are documented in this file.
 
 ### Two faces for equatorial construction
 
+- Preview either equatorial face from outside, with the matching live shadow
+  and individually named SVG/PNG downloads. Keep both faces in the PDF, ordered
+  from the selected view. Portable designs remain compatible and reopen on the
+  pole-facing face. [Native browser downloads and seasonal checks](studies/equatorial-preview/README.md).
+
 - Include both equatorial faces in construction PDFs, with the back's viewed
   hour order, hemisphere-specific equinox ranges, a common mirrored cut,
   alignment target and rod dimensions measured from each outer surface.

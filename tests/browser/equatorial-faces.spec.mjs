@@ -20,7 +20,7 @@ for (const width of [375, 1440]) for (const latitude of ['37.7749', '-33.9']) {
     await page.getByLabel('Dial radius (mm)', { exact: true }).fill('80');
     const panel = page.locator('.panel').filter({ has: page.getByRole('heading', { name: 'Export', exact: true }) });
     await expect(panel).toContainText('3 pages total — pole face 1 sheet; opposite face 1 sheet; rod gauge 1 sheet');
-    await expect(panel).toContainText('preview and SVG/PNG show the pole-facing face');
+    await expect(panel).toContainText('SVG/PNG use that face; PDFs include both faces');
     await context.setOffline(true);
     for (const format of ['A4', 'Letter']) {
       const pending = page.waitForEvent('download');

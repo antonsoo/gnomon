@@ -61,8 +61,10 @@ gives a usable reading.
 Both sides retain the **same** apparent or zone-time convention. A summer
 clock adjustment stays fixed on the winter face; the kit does not switch DST
 between faces. Zone-time designs still require an equation-of-time correction.
-The designer preview, simulator and ordinary SVG/PNG download remain
-pole-facing. The PDF contains both faces; the example below also exports
+The initial implementation kept the designer preview, simulator and ordinary
+SVG/PNG download pole-facing. The later [face-preview workflow](../equatorial-preview/README.md)
+adds either outside view, its matching shadow and individual downloads.
+The PDF contains both faces; the example below also exports
 their separate SVGs.
 
 ## Shared physical geometry

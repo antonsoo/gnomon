@@ -2,7 +2,8 @@ import "./fonts/fonts.css";
 import "./style.css";
 
 import { CITIES } from "./lib/cities.ts";
-import { buildDialPlane } from "./lib/dials/plane.ts";
+import { buildDialPlane, buildEquatorialPlane } from "./lib/dials/plane.ts";
+import type { EquatorialFace } from "./lib/dials/types.ts";
 import { captureDesign, designSvg, requireUsableDesign, type DesignSnapshot } from "./design.ts";
 import { MAX_DESIGN_FILE_BYTES, openDesignFile, saveDesignFile, type OpenedDesign } from "./design-file.ts";
 import { equationOfTimeTable } from "./lib/equation-of-time.ts";
@@ -54,6 +55,8 @@ svgStageWrap.tabIndex = 0;
 svgStageWrap.setAttribute("role", "group");
 svgStageWrap.setAttribute("aria-label", "Scrollable sundial drawing");
 let previewZoom = 1;
+// A view of the complete physical pair, like zoom; portable files keep both faces.
+let equatorialPreviewFace: EquatorialFace = "pole-facing";
 const zoomOut = el("button", { type: "button", attrs: { "aria-label": "Zoom out preview" } }, ["−"]);
 const zoomIn = el("button", { type: "button", attrs: { "aria-label": "Zoom in preview" } }, ["+"]);
 const zoomReset = el("button", { type: "button" }, ["Fit preview"]);
@@ -294,6 +297,17 @@ const wallHint = el("p", { className: "hint" }, [
   "0\u00B0 = direct south. Positive declines west; negative declines east. The formula handles either hemisphere.",
 ]);
 
+const equatorialFaceSelect = el("select", {}, [
+  el("option", { value: "pole-facing" }, ["Pole-facing, viewed from outside"]),
+  el("option", { value: "opposite" }, ["Opposite, viewed from outside"]),
+]);
+const equatorialFaceField = fieldRow("Equatorial face preview", equatorialFaceSelect);
+const equatorialFaceHint = el("p", { className: "hint" });
+equatorialFaceSelect.addEventListener("change", () => {
+  equatorialPreviewFace = equatorialFaceSelect.value as EquatorialFace;
+  renderEdited();
+});
+
 const dialTypePanel = el("section", { className: "panel" }, [
   el("h2", {}, ["Dial type"]),
   segmented(
@@ -311,6 +325,8 @@ const dialTypePanel = el("section", { className: "panel" }, [
   ),
   wallDeclinationField,
   wallHint,
+  equatorialFaceField,
+  equatorialFaceHint,
 ]);
 wallDeclinationField.style.display = "none";
 wallHint.style.display = "none";
@@ -655,7 +671,9 @@ function updateExportButtons(): void {
       const plate = plan.plate;
       if (plan.reversePlate) {
         const sheets = (p: typeof plate) => p.tiled ? `${p.tiles.length} sheets (${p.columns} across, ${p.rows} down) + guide` : "1 sheet";
-        return `${format === "a4" ? "A4" : "Letter"}: ${plan.pageCount} pages total — pole face ${sheets(plate)}; opposite face ${sheets(plan.reversePlate)}; rod gauge ${plan.gnomon.tiled ? `${plan.gnomon.tiles.length} sheets + guide` : "1 sheet"}`;
+        const primary = dial.equatorial?.face === "opposite" ? "opposite face" : "pole face";
+        const reverse = dial.equatorial?.face === "opposite" ? "pole face" : "opposite face";
+        return `${format === "a4" ? "A4" : "Letter"}: ${plan.pageCount} pages total — ${primary} ${sheets(plate)}; ${reverse} ${sheets(plan.reversePlate)}; rod gauge ${plan.gnomon.tiled ? `${plan.gnomon.tiles.length} sheets + guide` : "1 sheet"}`;
       }
       return `${format === "a4" ? "A4" : "Letter"}: ${plan.pageCount} pages total — plate ${plate.tiled ? `${plate.tiles.length} sheets (${plate.columns} across, ${plate.rows} down) + guide` : "1 sheet"}; gnomon ${plan.gnomon.tiled ? `${plan.gnomon.tiles.length} sheets + guide` : "1 sheet"}`;
     }).join(". ") + ".";
@@ -675,6 +693,7 @@ function showInvalidDesign(message: string): void {
 function render(): void {
   wallDeclinationField.style.display = state.dialType === "vertical" ? "" : "none";
   wallHint.style.display = state.dialType === "vertical" ? "" : "none";
+  equatorialFaceField.style.display = equatorialFaceHint.style.display = state.dialType === "equatorial" ? "" : "none";
   plateShapeField.style.display = state.dialType === "analemmatic" ? "none" : "";
   radiusField.querySelector("label")!.textContent = state.dialType === "analemmatic" ? "Semi-major axis (mm)" : "Dial radius (mm)";
   const analemmatic = state.dialType === "analemmatic";
@@ -690,7 +709,7 @@ function render(): void {
   exportCapability.textContent = analemmatic
     ? "This layout exports as SVG or PNG. It uses a movable vertical rod, so there is no fixed gnomon template or PDF export."
     : state.dialType === "equatorial"
-    ? "Equatorial PDFs include both faces and a rod gauge. The preview and SVG/PNG show the pole-facing face. Print faces separately at 100% and align the foot dots and target A. Large pieces use full-size sheets with 10 mm overlaps; check every 100 mm bar."
+    ? "Preview either equatorial face from outside. SVG/PNG use that face; PDFs include both faces, starting with the selected one, and a rod gauge. Print faces separately at 100% and align the foot dots and target A. Large pieces use full-size sheets with 10 mm overlaps; check every 100 mm bar."
     : "PDFs include the matching gnomon template and mounting instructions. Large pieces use full-size sheets with 10 mm overlaps. Print at 100% and check every 100 mm bar. The simulated shadow is preview-only.";
   nowBtn.setAttribute("aria-pressed", String(state.simMode === "now"));
   designStatus.textContent = "";
@@ -728,11 +747,11 @@ function render(): void {
     ? "Choose the date and local time for the open standing ring. Keep the rod vertical; hour marks read apparent solar time."
     : `Date and time in ${state.timeZone}. ${repeated ? "This clock time occurs twice; choose an occurrence above." : "Automatic dial clock adjustment follows this simulation date."}`;
   if (simulationNote.textContent !== simulationMessage) simulationNote.textContent = simulationMessage;
-  const key = JSON.stringify({ ...state, customDateTimeLocal: analemmatic ? local : local.slice(0, 10), simMode: "custom", timeDisambiguation: "earlier", playing: false, offset });
+  const key = JSON.stringify({ ...state, equatorialPreviewFace, customDateTimeLocal: analemmatic ? local : local.slice(0, 10), simMode: "custom", timeDisambiguation: "earlier", playing: false, offset });
   let design: DesignSnapshot;
   try {
     if (key !== lastDesignKey || !lastDesign) {
-      lastDesign = captureDesign(state, instant);
+      lastDesign = captureDesign(state, instant, equatorialPreviewFace);
       lastDesignKey = key;
     }
     design = lastDesign;
@@ -746,6 +765,9 @@ function render(): void {
   svgStageWrap.dataset.theme = state.theme;
   gnomonThumb.dataset.theme = state.theme;
   const { dial } = design;
+  equatorialFaceHint.textContent = dial.kind === "equatorial"
+    ? `${dial.equatorial!.face === "pole-facing" ? "Pole-facing" : "Opposite"} face, Sun-facing half-year: ${dial.equatorial!.illuminated}. A shadow also needs local daylight. Design files keep both faces and reopen with the pole-facing preview.`
+    : "";
   updateExportButtons();
   timeBasisNote.textContent = `Hour labels: ${design.timeBasis}.`;
   const previewScroll = { left: svgStageWrap.scrollLeft, top: svgStageWrap.scrollTop };
@@ -763,7 +785,9 @@ function render(): void {
       el("span", {}, ["open ring follows the selected local minute"]));
   } else {
     gnomonSetupText.textContent = polarGnomonSetup;
-    const shadow = simulatePolarShadow(instant, state.latitudeDeg, state.longitudeDeg, buildDialPlane(dial.kind, state.latitudeDeg, state.wallDeclinationDeg), state.radiusMm * 0.32);
+    const plane = dial.kind === "equatorial" ? buildEquatorialPlane(state.latitudeDeg, dial.equatorial!.face)
+      : buildDialPlane(dial.kind, state.latitudeDeg, state.wallDeclinationDeg);
+    const shadow = simulatePolarShadow(instant, state.latitudeDeg, state.longitudeDeg, plane, state.radiusMm * 0.32);
     svgStageWrap.innerHTML = renderPolarDialSVG(dial, { ...design.polarOptions, theme: state.theme, shadowTip: shadow.visible ? shadow.tip : null });
     orientationText.textContent = dial.orientation;
     gnomonThumb.innerHTML = renderGnomonSVG(dial, { theme: state.theme, marginMm: 8 });
@@ -779,7 +803,10 @@ function render(): void {
     );
   }
   svgStageWrap.querySelector("svg")?.setAttribute("role", "img");
-  svgStageWrap.querySelector("svg")?.setAttribute("aria-label", design.title);
+  const drawingLabel = dial.kind === "equatorial"
+    ? `${design.title}. ${dial.equatorial!.face === "pole-facing" ? "Pole-facing" : "Opposite"} face, viewed from outside. ${dial.equatorial!.illuminated}.`
+    : design.title;
+  svgStageWrap.querySelector("svg")?.setAttribute("aria-label", drawingLabel);
   updatePreviewZoom();
   svgStageWrap.scrollLeft = previewScroll.left;
   svgStageWrap.scrollTop = previewScroll.top;
@@ -830,7 +857,7 @@ async function runExport(produce: (design: DesignSnapshot) => Promise<string> | 
 }
 
 exportSvgBtn.addEventListener("click", () => void runExport((design) => {
-  const filename = `gnomon-${design.settings.dialType}.svg`;
+  const filename = `gnomon-${design.settings.dialType}${design.dial.kind === "equatorial" && design.dial.equatorial?.face === "opposite" ? "-opposite" : ""}.svg`;
   downloadBlob(new Blob([designSvg(design, "laser")], { type: "image/svg+xml" }), filename);
   return `Downloaded ${filename} at physical millimetre scale.`;
 }));
@@ -846,7 +873,7 @@ exportPngBtn.addEventListener("click", () => void runExport(async (design) => {
   if (!match) throw new Error("Cannot determine the design's dimensions. Use SVG instead.");
   const dimensions = pngDimensions(Number(match[1]), Number(match[2]));
   const blob = await svgToPngBlob(svg, dimensions.width, dimensions.height);
-  const filename = `gnomon-${design.settings.dialType}.png`;
+  const filename = `gnomon-${design.settings.dialType}${design.dial.kind === "equatorial" && design.dial.equatorial?.face === "opposite" ? "-opposite" : ""}.png`;
   downloadBlob(blob, filename);
   return `Downloaded ${filename}: ${dimensions.width} × ${dimensions.height} pixels (about ${dimensions.dpi.toFixed(0)} DPI). Use SVG or PDF for physical scale.`;
 }));
@@ -868,6 +895,8 @@ function applyOpenedDesign(opened: OpenedDesign): void {
   retireLocation();
   [...invalidFields.keys()].forEach(clearFieldError);
   Object.assign(state, opened.state);
+  equatorialPreviewFace = "pole-facing";
+  equatorialFaceSelect.value = equatorialPreviewFace;
   latInput.value = String(state.latitudeDeg);
   lonInput.value = String(state.longitudeDeg);
   tzInput.value = state.timeZone;

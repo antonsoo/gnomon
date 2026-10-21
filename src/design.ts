@@ -3,6 +3,7 @@ import { analemmaticStandingOffset, buildAnalemmaticDial } from "./lib/dials/ana
 import { buildHorizontalDial } from "./lib/dials/horizontal.ts";
 import { buildVerticalDial } from "./lib/dials/vertical.ts";
 import { buildEquatorialDial } from "./lib/dials/equatorial.ts";
+import type { EquatorialFace } from "./lib/dials/types.ts";
 import { formatUtcOffset, offsetMinutesAt, resolveLocalDateTime, resolveZone, zonedDateTimeInput } from "./lib/timezone.ts";
 import { solarEphemeris } from "./lib/astronomy.ts";
 import type { TimeReference } from "./lib/time-reference.ts";
@@ -15,7 +16,7 @@ export function formatLatLon(latitudeDeg: number, longitudeDeg: number): string 
 }
 
 /** One immutable-in-use design: async exports must not read the live form again. */
-export function captureDesign(state: AppState, instant: Date) {
+export function captureDesign(state: AppState, instant: Date, equatorialFace: EquatorialFace = "pole-facing") {
   const settings = { ...state, historicalHours: [...state.historicalHours] };
   const zone = resolveZone(settings.timeZone, instant);
   const dstOffsetHours = settings.dstOffsetOverride ?? zone.dstOffsetHours;
@@ -34,7 +35,7 @@ export function captureDesign(state: AppState, instant: Date) {
   const dial = settings.dialType === "analemmatic"
     ? buildAnalemmaticDial({ latitudeDeg: settings.latitudeDeg, semiMajorMm: settings.radiusMm, startHour: 4, endHour: 20, stepHours: 1, includeZodiac: settings.showZodiac })
     : settings.dialType === "horizontal" ? buildHorizontalDial(shared)
-    : settings.dialType === "equatorial" ? buildEquatorialDial(shared)
+    : settings.dialType === "equatorial" ? buildEquatorialDial({ ...shared, face: equatorialFace })
     : buildVerticalDial({ ...shared, wallDeclinationDeg: settings.wallDeclinationDeg });
   const title = `${settings.dialType[0]!.toUpperCase()}${settings.dialType.slice(1)} · ${formatLatLon(settings.latitudeDeg, settings.longitudeDeg)}`;
   const timeBasis = settings.dialType === "analemmatic" || settings.timeMode === "apparent"
