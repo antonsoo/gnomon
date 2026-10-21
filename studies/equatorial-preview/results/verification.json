@@ -1,0 +1,487 @@
+{
+  "implementationCommit": "b39cfff5d74c58a37a58d4853ed1d82ebbbc18fd",
+  "node": "24.22.0",
+  "npm": "11.19.1",
+  "freshInstall": true,
+  "checks": {
+    "lint": true,
+    "typecheck": true,
+    "unitTestsPerLocale": 336,
+    "locales": [
+      "default",
+      "de_DE.UTF-8"
+    ],
+    "browserPassed": 92,
+    "browserSkipped": 0,
+    "browserFailed": 0,
+    "browserFlaky": 0,
+    "auditVulnerabilities": 0,
+    "newFaceScenarios": 8,
+    "actualViewportWidths": [
+      375,
+      1440
+    ],
+    "svgDownloads": 32,
+    "pdfDownloads": 8,
+    "pngDownloads": 8,
+    "retainedDesignPairs": 8,
+    "litShadowProjections": 16,
+    "unlitFaceChecks": 16,
+    "pngPixelMatches": 8,
+    "nativeSVGHourRays": 1680,
+    "nativePDFHourRays": 840,
+    "nativeHourNumerals": 624,
+    "legacyPDFDownloads": 24,
+    "legacyPDFPages": 136,
+    "legacyNativeRays": 5040
+  },
+  "archive": {
+    "file": "artifacts/browser.tar.gz",
+    "sha256": "a62e9e6723e14f5ec9b613f724c64e252edecacfd06bf6e8d8231faf36535938"
+  },
+  "build": {
+    "command": "npm run build",
+    "directory": "dist",
+    "files": [
+      {
+        "path": "assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+        "bytes": 42372,
+        "sha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3"
+      },
+      {
+        "path": "assets/fraunces-italic-latin-ext-C5JMU4hr.woff2",
+        "bytes": 37620,
+        "sha256": "bbf614d45de67a99e638b753611329b2cb8b5b6d8da53b2aee0267fe75cfc5c8"
+      },
+      {
+        "path": "assets/fraunces-italic-vietnamese-B7PmIdA3.woff2",
+        "bytes": 12048,
+        "sha256": "b2383049df5de759100887e80450ef360e502d5b0454954fab2dcd6b322944f5"
+      },
+      {
+        "path": "assets/fraunces-latin-DihXLNYH.woff2",
+        "bytes": 67304,
+        "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+      },
+      {
+        "path": "assets/fraunces-latin-ext-CJcjJNj7.woff2",
+        "bytes": 59388,
+        "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e"
+      },
+      {
+        "path": "assets/fraunces-vietnamese-Czevyj-6.woff2",
+        "bytes": 19700,
+        "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4"
+      },
+      {
+        "path": "assets/html2canvas.esm-B0tyYwQk.js",
+        "bytes": 202416,
+        "sha256": "385cc729ff5c4c54ae7e6c1c4bc9bc29227e5e800f2d47154b596cb2216881a4"
+      },
+      {
+        "path": "assets/html2canvas.esm-B0tyYwQk.js.map",
+        "bytes": 603193,
+        "sha256": "e9e422cf9c03db12fec7fa5bd220edd8a63b111260da52c0930c8b9b1ec76170"
+      },
+      {
+        "path": "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+        "bytes": 8356,
+        "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+      },
+      {
+        "path": "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+        "bytes": 6912,
+        "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+      },
+      {
+        "path": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+        "bytes": 14708,
+        "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+      },
+      {
+        "path": "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+        "bytes": 13348,
+        "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+      },
+      {
+        "path": "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+        "bytes": 5868,
+        "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+      },
+      {
+        "path": "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+        "bytes": 8460,
+        "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+      },
+      {
+        "path": "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+        "bytes": 6972,
+        "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+      },
+      {
+        "path": "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+        "bytes": 14888,
+        "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+      },
+      {
+        "path": "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+        "bytes": 13432,
+        "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+      },
+      {
+        "path": "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+        "bytes": 6040,
+        "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+      },
+      {
+        "path": "assets/index-Br7vz6SV.js",
+        "bytes": 477663,
+        "sha256": "39add2eec1b61060e934ac5b2be68a1c6f0deea92e622624ee5163b162cfb319"
+      },
+      {
+        "path": "assets/index-Br7vz6SV.js.map",
+        "bytes": 1599190,
+        "sha256": "877e62095d1cf493826c1ad2636bd8502b683b2a2b49a847179e90be9f9df8fe"
+      },
+      {
+        "path": "assets/index-DpJ6Eoy3.css",
+        "bytes": 22812,
+        "sha256": "9427d92805d2710c09814a63a514cc80116b3f22360d3f7c36a3163867127e38"
+      },
+      {
+        "path": "assets/index.es-4Omboqrf.js",
+        "bytes": 159956,
+        "sha256": "114e0aa939719185ae960b3bd178aaad67185586e20783d75462e3b81ce1829d"
+      },
+      {
+        "path": "assets/index.es-4Omboqrf.js.map",
+        "bytes": 643700,
+        "sha256": "8c7eea09206e5dfecfdfe32d4fd6ffa432e582a4c4482face2be76012c02085f"
+      },
+      {
+        "path": "assets/inter-cyrillic-DqGufNeO.woff2",
+        "bytes": 18748,
+        "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075"
+      },
+      {
+        "path": "assets/inter-cyrillic-ext-BOeWTOD4.woff2",
+        "bytes": 25960,
+        "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd"
+      },
+      {
+        "path": "assets/inter-greek-CkhJZR-_.woff2",
+        "bytes": 18996,
+        "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6"
+      },
+      {
+        "path": "assets/inter-greek-ext-DlzME5K_.woff2",
+        "bytes": 11232,
+        "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190"
+      },
+      {
+        "path": "assets/inter-latin-Dx4kXJAl.woff2",
+        "bytes": 48256,
+        "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+      },
+      {
+        "path": "assets/inter-latin-ext-DO1Apj_S.woff2",
+        "bytes": 85068,
+        "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956"
+      },
+      {
+        "path": "assets/inter-vietnamese-CBcvBZtf.woff2",
+        "bytes": 10252,
+        "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2"
+      },
+      {
+        "path": "assets/purify.es-DBIK8olT.js",
+        "bytes": 29447,
+        "sha256": "aaefb6a2d1e15e27b00c617bc13a3d3e9271374e68c60c2e13f824fbbf750992"
+      },
+      {
+        "path": "assets/purify.es-DBIK8olT.js.map",
+        "bytes": 132614,
+        "sha256": "6254e5e317109666e16906c142dada6ea36064ae7e0b350217dee4ad79150d0f"
+      },
+      {
+        "path": "index.html",
+        "bytes": 2538,
+        "sha256": "2226009cdd12274184324c8f26395620c02c59bb04bf335108bcfdaf4a76dd1a"
+      }
+    ]
+  },
+  "sourceFileHashes": [
+    {
+      "path": "package-lock.json",
+      "sha256": "9e9fbd60daf177ea7390da2c81e44a55e998880f641f0c30f64d86cd1bfde95c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "436a9c96ee3fe379c7160b5ed56454a6323848a687fd2676ec8127041b0d7f6b"
+    },
+    {
+      "path": "src/design-file.ts",
+      "sha256": "90f9a1b7a2f089958b1ef8310e962f57c1d8fd6c38c7c9db36fdd2856b204102"
+    },
+    {
+      "path": "src/design.ts",
+      "sha256": "72bdfb7a01356dbb9915f3da861e1e3c1113aee7f0696208090277a634440332"
+    },
+    {
+      "path": "src/fonts/LICENSE.txt",
+      "sha256": "11a4d861226ad2d7a42174946d51ea50c7a1744dc60eb3910aed9419dec4f770"
+    },
+    {
+      "path": "src/fonts/fonts.css",
+      "sha256": "5bb1b1a3ef4c49bd51b4f27566924597e616f0c55814acf125a4f5ce8c597e06"
+    },
+    {
+      "path": "src/fonts/fraunces-italic-latin-ext.woff2",
+      "sha256": "bbf614d45de67a99e638b753611329b2cb8b5b6d8da53b2aee0267fe75cfc5c8"
+    },
+    {
+      "path": "src/fonts/fraunces-italic-latin.woff2",
+      "sha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3"
+    },
+    {
+      "path": "src/fonts/fraunces-italic-vietnamese.woff2",
+      "sha256": "b2383049df5de759100887e80450ef360e502d5b0454954fab2dcd6b322944f5"
+    },
+    {
+      "path": "src/fonts/fraunces-latin-ext.woff2",
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e"
+    },
+    {
+      "path": "src/fonts/fraunces-latin.woff2",
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    {
+      "path": "src/fonts/fraunces-vietnamese.woff2",
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-cyrillic-ext.woff2",
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-cyrillic.woff2",
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-latin-ext.woff2",
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-latin.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-vietnamese.woff2",
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-cyrillic-ext.woff2",
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-cyrillic.woff2",
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-latin-ext.woff2",
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-latin.woff2",
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-vietnamese.woff2",
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+    },
+    {
+      "path": "src/fonts/inter-cyrillic-ext.woff2",
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd"
+    },
+    {
+      "path": "src/fonts/inter-cyrillic.woff2",
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075"
+    },
+    {
+      "path": "src/fonts/inter-greek-ext.woff2",
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190"
+    },
+    {
+      "path": "src/fonts/inter-greek.woff2",
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6"
+    },
+    {
+      "path": "src/fonts/inter-latin-ext.woff2",
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956"
+    },
+    {
+      "path": "src/fonts/inter-latin.woff2",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    {
+      "path": "src/fonts/inter-vietnamese.woff2",
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2"
+    },
+    {
+      "path": "src/lib/astronomy.ts",
+      "sha256": "0aca2187d0cdaaebd0d3306c224116c873a5d8d76a10d28a9616fbc844992756"
+    },
+    {
+      "path": "src/lib/cities.ts",
+      "sha256": "f92bf6e05cb15a412c753c10232962c01c6175cc4a169a478139e8422dddf849"
+    },
+    {
+      "path": "src/lib/dials/analemmatic.ts",
+      "sha256": "13fb66c94cea40ec1797afbd68b9ace9323e27b9a3a47d48f3732120a7cd28f4"
+    },
+    {
+      "path": "src/lib/dials/common.ts",
+      "sha256": "2340c99de7358dfa0ccda5f54825dc1ef7e3ed4d9073c767e6ed5f7d70b343b0"
+    },
+    {
+      "path": "src/lib/dials/declination-lines.ts",
+      "sha256": "aaa21c214f0c04dc2286cc2b82e8a0002db99a24066a16b10c63a1d95345c490"
+    },
+    {
+      "path": "src/lib/dials/equatorial.ts",
+      "sha256": "ab09cbe42bd77709fadf864897c3d5c4afe17a6e3dbc3a9e3ec0d6504242d388"
+    },
+    {
+      "path": "src/lib/dials/historical-hours.ts",
+      "sha256": "529e046c618870e67545b66a053c84bb60f3e41f2c5b70f561e1511c1b4246ba"
+    },
+    {
+      "path": "src/lib/dials/horizontal.ts",
+      "sha256": "17970f4010155f59a6906d4d35034d065d95fe8d695ee5316159686fa4ad6b5c"
+    },
+    {
+      "path": "src/lib/dials/plane.ts",
+      "sha256": "35d0386a9fa01aeefd9ad7a101db86b79e088c2d010bcede56d1d3b9fc2ed4e6"
+    },
+    {
+      "path": "src/lib/dials/types.ts",
+      "sha256": "ec981906352c88f6601deb1256959d018c4cd6596261e2975ac8d31f7a096631"
+    },
+    {
+      "path": "src/lib/dials/vertical.ts",
+      "sha256": "c1153b6d7354c7cf9627476bcadb45fae1a2d0e4048d349c0271074ecafabcc3"
+    },
+    {
+      "path": "src/lib/equation-of-time.ts",
+      "sha256": "681f01b31d42df37a8bc043f84154f2356080681730736566694e108e5f9f8a3"
+    },
+    {
+      "path": "src/lib/export/pdf.ts",
+      "sha256": "5a96c570529988e5044854e6e9ca6a5a889a7030f875d921a8981f6f02d772f8"
+    },
+    {
+      "path": "src/lib/export/png.ts",
+      "sha256": "800d651728a3719368ea0239508f414a1d1a15a95bb4a9110470775dd003c3e3"
+    },
+    {
+      "path": "src/lib/export/print-layout.ts",
+      "sha256": "1cef6144f6f88562c9a6156502d288dfdd3dd418b897e77cc1ebd3608f2c18d3"
+    },
+    {
+      "path": "src/lib/geometry.ts",
+      "sha256": "9662a68d097c8167338b1ad900d5a0abe80fc2a5caf491c2a6b70368f26896f1"
+    },
+    {
+      "path": "src/lib/index.ts",
+      "sha256": "f5ae0335d2886b29a10fa9206dc71d2f4eda4c9764c69270bca01f46f5f0c7e7"
+    },
+    {
+      "path": "src/lib/locate.ts",
+      "sha256": "bf92291ffe5adcfa0be9c1edf70ac367ba9dd7012d226c67ba5fa18dcb989988"
+    },
+    {
+      "path": "src/lib/motto.ts",
+      "sha256": "819abecf9f741d06b0287ab9358a8bf69e69ea796b0f78f0959d7e18300500ad"
+    },
+    {
+      "path": "src/lib/render/curves.ts",
+      "sha256": "6e50a208b1f420be28fa0e1831bc059b6fb249f3131adf9c64e749ad4b9e4efa"
+    },
+    {
+      "path": "src/lib/render/equatorial-marks.ts",
+      "sha256": "77ba6e160e5c3a0f6b8cced4d736220fdedb13ed451819bd47adf4aa6ad50a6d"
+    },
+    {
+      "path": "src/lib/render/gnomon-layout.ts",
+      "sha256": "8b1ebe54e9203fd963a67d785ea52024cbca7d5bd550af70c7457b9dfb9bb912"
+    },
+    {
+      "path": "src/lib/render/hour-marks.ts",
+      "sha256": "d90f7b1ac5a86f2bda836caf0db3854c3549fedfc417b2e9720ae6c83b608678"
+    },
+    {
+      "path": "src/lib/render/numerals.ts",
+      "sha256": "28d5c0271415afface47f6ceb92a76c9345e3200c1d6fbbd826a39269e5a1af2"
+    },
+    {
+      "path": "src/lib/render/plate-shape.ts",
+      "sha256": "02cbf5209f989254d2c9095f99f3543e5b9d4a00713a2710deb2dc2a5fd92949"
+    },
+    {
+      "path": "src/lib/render/project.ts",
+      "sha256": "eab5569a4ac85db4d09fb181140190f052f35070b2eb077192cd6b17af26508b"
+    },
+    {
+      "path": "src/lib/render/svg.ts",
+      "sha256": "258504d94a0c1db0e7b0f376ec57879f2e1287b2352489fef21d32eba3414172"
+    },
+    {
+      "path": "src/lib/render/theme.ts",
+      "sha256": "1287529cd68d235848c250a8548e5649aee946926797c4502bc6f51bf898fe63"
+    },
+    {
+      "path": "src/lib/simulation.ts",
+      "sha256": "c96b780e742bbf7334e225911df8a5012396717cb02cdf8ccb5c0ba83d460238"
+    },
+    {
+      "path": "src/lib/time-reference.ts",
+      "sha256": "b00388e2de2ff508c8c911d717b545b6e36685a696f687c55d1758f3888ce797"
+    },
+    {
+      "path": "src/lib/timezone.ts",
+      "sha256": "5c0c937446c7eed47babcfdb5837375d84885164f89e0e4abd67ad3ff6e6e806"
+    },
+    {
+      "path": "src/lib/vec3.ts",
+      "sha256": "8e3f72971a3d4eb972ecb4008d8607f2c186bdde4ae6b0dbbc5449aff5b0bb35"
+    },
+    {
+      "path": "src/main.ts",
+      "sha256": "97181e472b8093e249ff4b3bf21075ced96dd3ed4e72549e499cbe257003a1e7"
+    },
+    {
+      "path": "src/state.ts",
+      "sha256": "f2d568a591b5557e0cfb276a09c3ccb754023e7bf33ce44104d80dd069c458b0"
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "cad635845d579b1049088ef9048c371155999fe7b2c14e15114d944dfcf6ed3e"
+    },
+    {
+      "path": "src/ui/dom.ts",
+      "sha256": "c199ab621a83c33243752bcbd2c01b0d8ad732f0ee58fe33a0865c8e8531a525"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "770b4140bbb581e2dfd9ea9946ffc9c75a1d86ba7d2db5f77c83e37cbdf9d808"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "58712a4ce9970126e7640ee826c0dfd236a135329aa26edc0b878d5dc930f3ee"
+    },
+    {
+      "path": "vite.csp.ts",
+      "sha256": "a0a3087ad8ac363a358684d8e0166f4d9eccb0a2f77e731a8548a9287f7b8962"
+    }
+  ]
+}

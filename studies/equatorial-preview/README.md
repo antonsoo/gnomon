@@ -19,6 +19,10 @@ pair, rather than a new construction setting.
 | Save design | Existing version 1 physical settings and fixed clock minute; identical from either face |
 | Open design | Restore the complete pair and start with its pole-facing preview |
 
+![Opposite face control with its southern Sun-facing half-year](../../docs/assets/equatorial-preview/face-control.png)
+
+![The southern opposite face receiving a June solstice shadow](../../docs/assets/equatorial-preview/opposite-south.png)
+
 SVG remains in millimetres. PNG is a raster image, not a print-scale
 guarantee. Both faces share the same cut and clock convention within a kit.
 The existing laser template, full-size PDF tiling, alignment target and rod
@@ -95,3 +99,14 @@ directories are present. The same checks can target the public page using
 an alternate Playwright configuration with the hosted base URL and no local
 web server. Publication receipts distinguish that observation from the source
 checkout and the clean local build.
+
+The [clean-install receipt](results/verification.json) records Node 24.22.0,
+lint/typecheck, 336 unit cases in both required locales, the production build
+and 92 passing browser workflows. The [native face measurements](results/browser-measurements.json)
+retain each projection coordinate and error; the maximum is 0.046 mm against
+the rounded readout. The [legacy PDF replay](results/legacy-pdf-measurements.json)
+independently checks another 24 downloads, 136 pages and 5,040 ray copies,
+including both hemispheres and tiled kits. The
+[original downloads and screenshots](artifacts/browser.tar.gz) retain the
+eight new workflows. All 16 preview/control screenshots were opened and
+visually inspected, including the actual 375 px layouts.
