@@ -179,3 +179,19 @@ output and observed polar errors.
 
 Browser downloads, clean-install checks and source/hosting publication are
 recorded separately in [verification](results/verification.json).
+
+The capability is now in [published source `7236c4e`](https://github.com/antonsoo/gnomon/commit/7236c4e042d07563a1dc985ffc89956480df6cc9)
+and the [live designer](https://antonsoo.github.io/gnomon/). Immutable source
+bytes match the checked inputs; all 33 files from the tested build match their
+canonical hosted URLs. The deployment preserves all 33 earlier files other than
+the intentionally updated entrypoint; 38 canonical files match in total.
+[Source](results/source-bytes.json) and [hosted-byte receipts](results/hosted-bytes.json)
+keep those claims separate.
+
+Eight additional workflows against the actual hosted page repeat the offline
+downloads in Chromium and Firefox at both widths. Their 24 PDFs (136 pages)
+also pass the independent numeral, ray, cut, printable coverage and rod/nodus
+checks. [Hosted measurements](results/hosted-browser.json) and
+[original hosted downloads/screenshots](artifacts/hosted-browser.tar.gz) are
+retained. This publication is a static-app update, not a registry release or
+a physical construction trial.

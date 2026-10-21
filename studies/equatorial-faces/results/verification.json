@@ -246,13 +246,30 @@
       "file": "south-fan-zone.pdf",
       "bytes": 38849,
       "sha256": "f9da86f2463359b5d92854eeb1891c2d0df69029d350fa1e1d63c10c134d0905"
+    },
+    {
+      "file": "hosted-browser.tar.gz",
+      "bytes": 909202,
+      "sha256": "a4764c47a2df57673b14b6fbfb104635ff9094f6785b28e1ace2ef9fb78f6cf3"
     }
   ],
   "sourcePublication": {
-    "status": "pending"
+    "status": "verified",
+    "commit": "7236c4e042d07563a1dc985ffc89956480df6cc9",
+    "immutableSourceFiles": 39,
+    "registryRelease": false
   },
   "hosting": {
-    "status": "pending"
+    "status": "verified",
+    "url": "https://antonsoo.github.io/gnomon/",
+    "deploymentCommit": "9b4134372a184614bd6dc1db0941e83652bf0cae",
+    "canonicalFilesMatched": 38,
+    "testedBuildFiles": 33,
+    "priorFilesPreservedExceptEntrypoint": 33,
+    "offlineBrowserScenarios": 8,
+    "actualPdfDownloads": 24,
+    "actualPdfPages": 136,
+    "nativeDownloadGeometryVerified": true
   },
   "limitations": [
     "No physical print, assembly or field measurements.",

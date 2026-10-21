@@ -1,0 +1,239 @@
+{
+  "commit": "7236c4e042d07563a1dc985ffc89956480df6cc9",
+  "files": [
+    {
+      "file": "src/main.ts",
+      "sha256": "ce834bd01dd9fd926171d527b57cdf14657a33d57e8c022961568146a80c7bd7",
+      "immutableRemoteSha256": "ce834bd01dd9fd926171d527b57cdf14657a33d57e8c022961568146a80c7bd7",
+      "matched": true
+    },
+    {
+      "file": "src/design.ts",
+      "sha256": "769539de2f25b4445ea39d0e18ea9549af7d4d5ddda2a22d6c130ba03ed9837c",
+      "immutableRemoteSha256": "769539de2f25b4445ea39d0e18ea9549af7d4d5ddda2a22d6c130ba03ed9837c",
+      "matched": true
+    },
+    {
+      "file": "src/state.ts",
+      "sha256": "f2d568a591b5557e0cfb276a09c3ccb754023e7bf33ce44104d80dd069c458b0",
+      "immutableRemoteSha256": "f2d568a591b5557e0cfb276a09c3ccb754023e7bf33ce44104d80dd069c458b0",
+      "matched": true
+    },
+    {
+      "file": "src/lib/astronomy.ts",
+      "sha256": "0aca2187d0cdaaebd0d3306c224116c873a5d8d76a10d28a9616fbc844992756",
+      "immutableRemoteSha256": "0aca2187d0cdaaebd0d3306c224116c873a5d8d76a10d28a9616fbc844992756",
+      "matched": true
+    },
+    {
+      "file": "src/lib/cities.ts",
+      "sha256": "f92bf6e05cb15a412c753c10232962c01c6175cc4a169a478139e8422dddf849",
+      "immutableRemoteSha256": "f92bf6e05cb15a412c753c10232962c01c6175cc4a169a478139e8422dddf849",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/analemmatic.ts",
+      "sha256": "13fb66c94cea40ec1797afbd68b9ace9323e27b9a3a47d48f3732120a7cd28f4",
+      "immutableRemoteSha256": "13fb66c94cea40ec1797afbd68b9ace9323e27b9a3a47d48f3732120a7cd28f4",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/common.ts",
+      "sha256": "2340c99de7358dfa0ccda5f54825dc1ef7e3ed4d9073c767e6ed5f7d70b343b0",
+      "immutableRemoteSha256": "2340c99de7358dfa0ccda5f54825dc1ef7e3ed4d9073c767e6ed5f7d70b343b0",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/declination-lines.ts",
+      "sha256": "aaa21c214f0c04dc2286cc2b82e8a0002db99a24066a16b10c63a1d95345c490",
+      "immutableRemoteSha256": "aaa21c214f0c04dc2286cc2b82e8a0002db99a24066a16b10c63a1d95345c490",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/equatorial.ts",
+      "sha256": "ab09cbe42bd77709fadf864897c3d5c4afe17a6e3dbc3a9e3ec0d6504242d388",
+      "immutableRemoteSha256": "ab09cbe42bd77709fadf864897c3d5c4afe17a6e3dbc3a9e3ec0d6504242d388",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/historical-hours.ts",
+      "sha256": "529e046c618870e67545b66a053c84bb60f3e41f2c5b70f561e1511c1b4246ba",
+      "immutableRemoteSha256": "529e046c618870e67545b66a053c84bb60f3e41f2c5b70f561e1511c1b4246ba",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/horizontal.ts",
+      "sha256": "17970f4010155f59a6906d4d35034d065d95fe8d695ee5316159686fa4ad6b5c",
+      "immutableRemoteSha256": "17970f4010155f59a6906d4d35034d065d95fe8d695ee5316159686fa4ad6b5c",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/plane.ts",
+      "sha256": "35d0386a9fa01aeefd9ad7a101db86b79e088c2d010bcede56d1d3b9fc2ed4e6",
+      "immutableRemoteSha256": "35d0386a9fa01aeefd9ad7a101db86b79e088c2d010bcede56d1d3b9fc2ed4e6",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/types.ts",
+      "sha256": "ec981906352c88f6601deb1256959d018c4cd6596261e2975ac8d31f7a096631",
+      "immutableRemoteSha256": "ec981906352c88f6601deb1256959d018c4cd6596261e2975ac8d31f7a096631",
+      "matched": true
+    },
+    {
+      "file": "src/lib/dials/vertical.ts",
+      "sha256": "c1153b6d7354c7cf9627476bcadb45fae1a2d0e4048d349c0271074ecafabcc3",
+      "immutableRemoteSha256": "c1153b6d7354c7cf9627476bcadb45fae1a2d0e4048d349c0271074ecafabcc3",
+      "matched": true
+    },
+    {
+      "file": "src/lib/equation-of-time.ts",
+      "sha256": "681f01b31d42df37a8bc043f84154f2356080681730736566694e108e5f9f8a3",
+      "immutableRemoteSha256": "681f01b31d42df37a8bc043f84154f2356080681730736566694e108e5f9f8a3",
+      "matched": true
+    },
+    {
+      "file": "src/lib/export/pdf.ts",
+      "sha256": "5a96c570529988e5044854e6e9ca6a5a889a7030f875d921a8981f6f02d772f8",
+      "immutableRemoteSha256": "5a96c570529988e5044854e6e9ca6a5a889a7030f875d921a8981f6f02d772f8",
+      "matched": true
+    },
+    {
+      "file": "src/lib/export/png.ts",
+      "sha256": "800d651728a3719368ea0239508f414a1d1a15a95bb4a9110470775dd003c3e3",
+      "immutableRemoteSha256": "800d651728a3719368ea0239508f414a1d1a15a95bb4a9110470775dd003c3e3",
+      "matched": true
+    },
+    {
+      "file": "src/lib/export/print-layout.ts",
+      "sha256": "1cef6144f6f88562c9a6156502d288dfdd3dd418b897e77cc1ebd3608f2c18d3",
+      "immutableRemoteSha256": "1cef6144f6f88562c9a6156502d288dfdd3dd418b897e77cc1ebd3608f2c18d3",
+      "matched": true
+    },
+    {
+      "file": "src/lib/geometry.ts",
+      "sha256": "9662a68d097c8167338b1ad900d5a0abe80fc2a5caf491c2a6b70368f26896f1",
+      "immutableRemoteSha256": "9662a68d097c8167338b1ad900d5a0abe80fc2a5caf491c2a6b70368f26896f1",
+      "matched": true
+    },
+    {
+      "file": "src/lib/index.ts",
+      "sha256": "f5ae0335d2886b29a10fa9206dc71d2f4eda4c9764c69270bca01f46f5f0c7e7",
+      "immutableRemoteSha256": "f5ae0335d2886b29a10fa9206dc71d2f4eda4c9764c69270bca01f46f5f0c7e7",
+      "matched": true
+    },
+    {
+      "file": "src/lib/locate.ts",
+      "sha256": "bf92291ffe5adcfa0be9c1edf70ac367ba9dd7012d226c67ba5fa18dcb989988",
+      "immutableRemoteSha256": "bf92291ffe5adcfa0be9c1edf70ac367ba9dd7012d226c67ba5fa18dcb989988",
+      "matched": true
+    },
+    {
+      "file": "src/lib/motto.ts",
+      "sha256": "819abecf9f741d06b0287ab9358a8bf69e69ea796b0f78f0959d7e18300500ad",
+      "immutableRemoteSha256": "819abecf9f741d06b0287ab9358a8bf69e69ea796b0f78f0959d7e18300500ad",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/curves.ts",
+      "sha256": "6e50a208b1f420be28fa0e1831bc059b6fb249f3131adf9c64e749ad4b9e4efa",
+      "immutableRemoteSha256": "6e50a208b1f420be28fa0e1831bc059b6fb249f3131adf9c64e749ad4b9e4efa",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/equatorial-marks.ts",
+      "sha256": "77ba6e160e5c3a0f6b8cced4d736220fdedb13ed451819bd47adf4aa6ad50a6d",
+      "immutableRemoteSha256": "77ba6e160e5c3a0f6b8cced4d736220fdedb13ed451819bd47adf4aa6ad50a6d",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/gnomon-layout.ts",
+      "sha256": "8b1ebe54e9203fd963a67d785ea52024cbca7d5bd550af70c7457b9dfb9bb912",
+      "immutableRemoteSha256": "8b1ebe54e9203fd963a67d785ea52024cbca7d5bd550af70c7457b9dfb9bb912",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/hour-marks.ts",
+      "sha256": "d90f7b1ac5a86f2bda836caf0db3854c3549fedfc417b2e9720ae6c83b608678",
+      "immutableRemoteSha256": "d90f7b1ac5a86f2bda836caf0db3854c3549fedfc417b2e9720ae6c83b608678",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/numerals.ts",
+      "sha256": "28d5c0271415afface47f6ceb92a76c9345e3200c1d6fbbd826a39269e5a1af2",
+      "immutableRemoteSha256": "28d5c0271415afface47f6ceb92a76c9345e3200c1d6fbbd826a39269e5a1af2",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/plate-shape.ts",
+      "sha256": "02cbf5209f989254d2c9095f99f3543e5b9d4a00713a2710deb2dc2a5fd92949",
+      "immutableRemoteSha256": "02cbf5209f989254d2c9095f99f3543e5b9d4a00713a2710deb2dc2a5fd92949",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/project.ts",
+      "sha256": "eab5569a4ac85db4d09fb181140190f052f35070b2eb077192cd6b17af26508b",
+      "immutableRemoteSha256": "eab5569a4ac85db4d09fb181140190f052f35070b2eb077192cd6b17af26508b",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/svg.ts",
+      "sha256": "258504d94a0c1db0e7b0f376ec57879f2e1287b2352489fef21d32eba3414172",
+      "immutableRemoteSha256": "258504d94a0c1db0e7b0f376ec57879f2e1287b2352489fef21d32eba3414172",
+      "matched": true
+    },
+    {
+      "file": "src/lib/render/theme.ts",
+      "sha256": "1287529cd68d235848c250a8548e5649aee946926797c4502bc6f51bf898fe63",
+      "immutableRemoteSha256": "1287529cd68d235848c250a8548e5649aee946926797c4502bc6f51bf898fe63",
+      "matched": true
+    },
+    {
+      "file": "src/lib/simulation.ts",
+      "sha256": "c96b780e742bbf7334e225911df8a5012396717cb02cdf8ccb5c0ba83d460238",
+      "immutableRemoteSha256": "c96b780e742bbf7334e225911df8a5012396717cb02cdf8ccb5c0ba83d460238",
+      "matched": true
+    },
+    {
+      "file": "src/lib/time-reference.ts",
+      "sha256": "b00388e2de2ff508c8c911d717b545b6e36685a696f687c55d1758f3888ce797",
+      "immutableRemoteSha256": "b00388e2de2ff508c8c911d717b545b6e36685a696f687c55d1758f3888ce797",
+      "matched": true
+    },
+    {
+      "file": "src/lib/timezone.ts",
+      "sha256": "5c0c937446c7eed47babcfdb5837375d84885164f89e0e4abd67ad3ff6e6e806",
+      "immutableRemoteSha256": "5c0c937446c7eed47babcfdb5837375d84885164f89e0e4abd67ad3ff6e6e806",
+      "matched": true
+    },
+    {
+      "file": "src/lib/vec3.ts",
+      "sha256": "8e3f72971a3d4eb972ecb4008d8607f2c186bdde4ae6b0dbbc5449aff5b0bb35",
+      "immutableRemoteSha256": "8e3f72971a3d4eb972ecb4008d8607f2c186bdde4ae6b0dbbc5449aff5b0bb35",
+      "matched": true
+    },
+    {
+      "file": "package.json",
+      "sha256": "436a9c96ee3fe379c7160b5ed56454a6323848a687fd2676ec8127041b0d7f6b",
+      "immutableRemoteSha256": "436a9c96ee3fe379c7160b5ed56454a6323848a687fd2676ec8127041b0d7f6b",
+      "matched": true
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "9e9fbd60daf177ea7390da2c81e44a55e998880f641f0c30f64d86cd1bfde95c",
+      "immutableRemoteSha256": "9e9fbd60daf177ea7390da2c81e44a55e998880f641f0c30f64d86cd1bfde95c",
+      "matched": true
+    },
+    {
+      "file": "studies/equatorial-faces/measure.py",
+      "sha256": "fb6a73a734b038646f58265eff52f2b4f07538c9870983ef115c531e34fbaa84",
+      "immutableRemoteSha256": "fb6a73a734b038646f58265eff52f2b4f07538c9870983ef115c531e34fbaa84",
+      "matched": true
+    },
+    {
+      "file": "studies/equatorial-faces/browser-measure.py",
+      "sha256": "9aa1e52503872fe658bba29e42e8c22068174dd5489734bc7ca8842accb64047",
+      "immutableRemoteSha256": "9aa1e52503872fe658bba29e42e8c22068174dd5489734bc7ca8842accb64047",
+      "matched": true
+    }
+  ]
+}

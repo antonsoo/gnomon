@@ -23,7 +23,7 @@ The [construction and simulation audit](docs/construction-audit.md) explains
 the wall-shadow error found in the original geometry and its oracle, the
 correction, and what remains outside the verification.
 
-**Both faces of an equatorial dial (source checkout).** The construction PDF
+**Both faces of an equatorial dial.** The source checkout and live demo's construction PDF
 now includes the pole-facing and opposite faces, their shared cut and alignment
 target, and a rod gauge for equal exposed lengths on both sides. Winter hour
 numbers reverse when viewed from the back; the summer face cannot simply be

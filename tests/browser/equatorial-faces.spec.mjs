@@ -1,14 +1,16 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFile } from 'node:fs/promises';
+import { URL } from 'node:url';
 
 for (const width of [375, 1440]) for (const latitude of ['37.7749', '-33.9']) {
   test(`both equatorial faces download offline at ${latitude}, ${width}px`, async ({ page, context }, testInfo) => {
     await page.setViewportSize({ width, height: 1000 });
     const errors = [], external = [];
+    const allowedPrefix = new URL('./', testInfo.project.use.baseURL).href;
     page.on('pageerror', error => errors.push(error.message));
     page.on('request', request => {
-      if (!request.url().startsWith('http://127.0.0.1:4317/') && !/^(blob|data):/.test(request.url())) external.push(request.url());
+      if (!request.url().startsWith(allowedPrefix) && !/^(blob|data):/.test(request.url())) external.push(request.url());
     });
     await page.clock.setFixedTime(new Date('2026-12-21T20:00:00Z'));
     await page.goto('./');

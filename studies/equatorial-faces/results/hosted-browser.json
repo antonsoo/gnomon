@@ -1,0 +1,248 @@
+{
+  "downloads": [
+    {
+      "scenario": "equatorial-faces-both-equa-68073-d-offline-at-37-7749-1440px-chromium",
+      "file": "a4-compact.pdf",
+      "sha256": "94d49c7d86854ed9b50d96377d14b6100976835083c6bdba916cb19a71eef2f2",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 106,
+      "maxDirectionError": 1.8918759041131346e-07,
+      "exposedRodLengthMm": 49.600008646647424,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-68073-d-offline-at-37-7749-1440px-chromium",
+      "file": "a4-tiled.pdf",
+      "sha256": "625e957b856952acebd7a95e7cba2229e4bd5cf0dce0e06e4c01e9ebb5e8a224",
+      "pages": 11,
+      "nativeRaysIncludingTiles": 424,
+      "maxDirectionError": 1.367120845525478e-07,
+      "exposedRodLengthMm": 92.9999973720976,
+      "nativeHourNumeralsIncludingTiles": 104
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-68073-d-offline-at-37-7749-1440px-chromium",
+      "file": "letter-compact.pdf",
+      "sha256": "10e4d9319ee5d697d6270fcc443828a97bbf1dbb6424d0112738003912c87b1a",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 106,
+      "maxDirectionError": 2.164160356524985e-07,
+      "exposedRodLengthMm": 49.599997880723734,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-68073-d-offline-at-37-7749-1440px-firefox",
+      "file": "a4-compact.pdf",
+      "sha256": "3a995b9cf6103678cee3a373e7c89b146f95d24505555992c05b2422be6a4154",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 106,
+      "maxDirectionError": 1.8918759041131346e-07,
+      "exposedRodLengthMm": 49.600008646647424,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-68073-d-offline-at-37-7749-1440px-firefox",
+      "file": "a4-tiled.pdf",
+      "sha256": "6f96f70690abce038659183829811848a15d05d856c0126a4bd60dbe367b8f0c",
+      "pages": 11,
+      "nativeRaysIncludingTiles": 424,
+      "maxDirectionError": 1.367120845525478e-07,
+      "exposedRodLengthMm": 92.9999973720976,
+      "nativeHourNumeralsIncludingTiles": 104
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-68073-d-offline-at-37-7749-1440px-firefox",
+      "file": "letter-compact.pdf",
+      "sha256": "cfecb8531d7b91d31de93fded7cbef8f6c7a910b9b797b0d838a1bc6d1da2611",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 106,
+      "maxDirectionError": 2.164160356524985e-07,
+      "exposedRodLengthMm": 49.599997880723734,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-89bad-oad-offline-at--33-9-1440px-chromium",
+      "file": "a4-compact.pdf",
+      "sha256": "b38b5695e77d066c93ffa2d9a78ee3984c5495e75fc3d22251970aec8f8c2a02",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 104,
+      "maxDirectionError": 1.8918759041131346e-07,
+      "exposedRodLengthMm": 49.600008646647424,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-89bad-oad-offline-at--33-9-1440px-chromium",
+      "file": "a4-tiled.pdf",
+      "sha256": "60f8cfaeeeabbc2ebbe683d941532d28c69b1a22a1ad786ae1516f53cf8e5a16",
+      "pages": 11,
+      "nativeRaysIncludingTiles": 416,
+      "maxDirectionError": 1.367120845525478e-07,
+      "exposedRodLengthMm": 92.9999973720976,
+      "nativeHourNumeralsIncludingTiles": 104
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-89bad-oad-offline-at--33-9-1440px-chromium",
+      "file": "letter-compact.pdf",
+      "sha256": "2e7ccb1f83c2101584638713dd48e987d2a6567a97719b19252450c21c4b6092",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 104,
+      "maxDirectionError": 1.1174432444594871e-07,
+      "exposedRodLengthMm": 49.599997880723734,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-89bad-oad-offline-at--33-9-1440px-firefox",
+      "file": "a4-compact.pdf",
+      "sha256": "69e29e1f8ca6115d31d0e4d7737c1c6f4042280437db544c8e667182b667d579",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 104,
+      "maxDirectionError": 1.8918759041131346e-07,
+      "exposedRodLengthMm": 49.600008646647424,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-89bad-oad-offline-at--33-9-1440px-firefox",
+      "file": "a4-tiled.pdf",
+      "sha256": "9dfe5a2486c489cca568db3cdc68f57eb6b8c50c605ea1e109fa46186e17276e",
+      "pages": 11,
+      "nativeRaysIncludingTiles": 416,
+      "maxDirectionError": 1.367120845525478e-07,
+      "exposedRodLengthMm": 92.9999973720976,
+      "nativeHourNumeralsIncludingTiles": 104
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-89bad-oad-offline-at--33-9-1440px-firefox",
+      "file": "letter-compact.pdf",
+      "sha256": "b991ffdc12b0152ca8f65ea5fddbd0d14a2adcab81ff05515949b2b2a336686c",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 104,
+      "maxDirectionError": 1.1174432444594871e-07,
+      "exposedRodLengthMm": 49.599997880723734,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-a6f39-ad-offline-at-37-7749-375px-chromium",
+      "file": "a4-compact.pdf",
+      "sha256": "68d6881da785539f73857dfb6b667c62965c4e9668a00424331680575028a19a",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 106,
+      "maxDirectionError": 1.8918759041131346e-07,
+      "exposedRodLengthMm": 49.600008646647424,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-a6f39-ad-offline-at-37-7749-375px-chromium",
+      "file": "a4-tiled.pdf",
+      "sha256": "4bcd385799a3cbb8ac15b9959a75b27d796302f5b83ca62ab69b6afdf0fd2ae8",
+      "pages": 11,
+      "nativeRaysIncludingTiles": 424,
+      "maxDirectionError": 1.367120845525478e-07,
+      "exposedRodLengthMm": 92.9999973720976,
+      "nativeHourNumeralsIncludingTiles": 104
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-a6f39-ad-offline-at-37-7749-375px-chromium",
+      "file": "letter-compact.pdf",
+      "sha256": "8bed566fa1e53411e100cdee5d9a687dd38578df5f41a5c348bfc0edd5a95150",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 106,
+      "maxDirectionError": 2.164160356524985e-07,
+      "exposedRodLengthMm": 49.599997880723734,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-a6f39-ad-offline-at-37-7749-375px-firefox",
+      "file": "a4-compact.pdf",
+      "sha256": "927516739dbb589fb373dc6bd9d89927342baee27d8e88baf6bbb05d440789f1",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 106,
+      "maxDirectionError": 1.8918759041131346e-07,
+      "exposedRodLengthMm": 49.600008646647424,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-a6f39-ad-offline-at-37-7749-375px-firefox",
+      "file": "a4-tiled.pdf",
+      "sha256": "93273b108bce7c9249ce72f2e7b7105a637897a9edbf5550cc4c3aaead9eefd4",
+      "pages": 11,
+      "nativeRaysIncludingTiles": 424,
+      "maxDirectionError": 1.367120845525478e-07,
+      "exposedRodLengthMm": 92.9999973720976,
+      "nativeHourNumeralsIncludingTiles": 104
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-a6f39-ad-offline-at-37-7749-375px-firefox",
+      "file": "letter-compact.pdf",
+      "sha256": "1177eec26ceef46ee59ee24ff4bf3a9edbe88ebfdb054283c9736abe25dd159b",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 106,
+      "maxDirectionError": 2.164160356524985e-07,
+      "exposedRodLengthMm": 49.599997880723734,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-caa33-load-offline-at--33-9-375px-chromium",
+      "file": "a4-compact.pdf",
+      "sha256": "ae8e1b0e32ae2483f00e9bf2bbd294a33bda9e19c7cc5da38d0637c08198e0df",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 104,
+      "maxDirectionError": 1.8918759041131346e-07,
+      "exposedRodLengthMm": 49.600008646647424,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-caa33-load-offline-at--33-9-375px-chromium",
+      "file": "a4-tiled.pdf",
+      "sha256": "613e51108fedfec5386a27b00b7ba4682fdae76cfb6209f0fd602e31440ac26b",
+      "pages": 11,
+      "nativeRaysIncludingTiles": 416,
+      "maxDirectionError": 1.367120845525478e-07,
+      "exposedRodLengthMm": 92.9999973720976,
+      "nativeHourNumeralsIncludingTiles": 104
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-caa33-load-offline-at--33-9-375px-chromium",
+      "file": "letter-compact.pdf",
+      "sha256": "254e480fcf063b1b5e16222785a66e4a04dc13ca33c62555f29d9f383734eb25",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 104,
+      "maxDirectionError": 1.1174432444594871e-07,
+      "exposedRodLengthMm": 49.599997880723734,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-caa33-load-offline-at--33-9-375px-firefox",
+      "file": "a4-compact.pdf",
+      "sha256": "034d2e09e7cb2e1cd3521adda81bdb8c1fcd4b45553bb9cfaa2ac88f34310341",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 104,
+      "maxDirectionError": 1.8918759041131346e-07,
+      "exposedRodLengthMm": 49.600008646647424,
+      "nativeHourNumeralsIncludingTiles": 26
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-caa33-load-offline-at--33-9-375px-firefox",
+      "file": "a4-tiled.pdf",
+      "sha256": "d8c2e2767760b7a022741ac4f3b5e7709a2fba8c7c4d780c00c2ffd05bf51db1",
+      "pages": 11,
+      "nativeRaysIncludingTiles": 416,
+      "maxDirectionError": 1.367120845525478e-07,
+      "exposedRodLengthMm": 92.9999973720976,
+      "nativeHourNumeralsIncludingTiles": 104
+    },
+    {
+      "scenario": "equatorial-faces-both-equa-caa33-load-offline-at--33-9-375px-firefox",
+      "file": "letter-compact.pdf",
+      "sha256": "e1d363d3605b7b123b10dd85ce25b3eec6571f0ec81ed45432903606e4ea2ee4",
+      "pages": 3,
+      "nativeRaysIncludingTiles": 104,
+      "maxDirectionError": 1.1174432444594871e-07,
+      "exposedRodLengthMm": 49.599997880723734,
+      "nativeHourNumeralsIncludingTiles": 26
+    }
+  ],
+  "scenarios": 8,
+  "verifierSha256": "9aa1e52503872fe658bba29e42e8c22068174dd5489734bc7ca8842accb64047",
+  "nativeReaderSha256": "fb6a73a734b038646f58265eff52f2b4f07538c9870983ef115c531e34fbaa84",
+  "scope": "Actual Chromium/Firefox downloads; mathematical and serialized physical geometry, not a field trial."
+}
