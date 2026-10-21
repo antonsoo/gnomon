@@ -110,3 +110,21 @@ including both hemispheres and tiled kits. The
 [original downloads and screenshots](artifacts/browser.tar.gz) retain the
 eight new workflows. All 16 preview/control screenshots were opened and
 visually inspected, including the actual 375 px layouts.
+
+## Published preview and exports
+
+Source `82898cb` and Pages `2ddaa3c` publish the selector and receiving-plane
+simulation. [The immutable source check](results/source-bytes.json) verifies
+25 changed/supporting files against their Git objects, including the native
+reader and retained downloads. [Canonical site bytes](results/hosted-bytes.json)
+match all 33 tested build files and the 37 previous non-entrypoint files:
+42 files in total, with the root and explicit index checked separately.
+
+The [public measurements](results/hosted-measurements.json) repeat all eight
+workflows on the actual hosted page. Geometry, projection errors, decoded PNG
+pixels and all 16 screenshots equal the clean build's results. The
+[actual public downloads](artifacts/hosted-browser.tar.gz) and
+[publication receipt](results/publication.json) are retained separately.
+PDF bytes need not be identical because their document identifiers can vary;
+the reader compares their actual serialized geometry. No registry release
+is associated with this private web application.

@@ -1,0 +1,180 @@
+{
+  "sourceCommit": "82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/CHANGELOG.md",
+      "bytes": 13292,
+      "sha256": "97313b1c30875d07268989e97788a6eac1d34088ca9fd2d227d7cbda05d7896d",
+      "matched": true
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/README.md",
+      "bytes": 19388,
+      "sha256": "77bd67fc0ca89ac7230b141562da3e344a5018c15288182ea54c6d83bf0df6b5",
+      "matched": true
+    },
+    {
+      "path": "docs/assets/equatorial-preview/face-control.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/docs/assets/equatorial-preview/face-control.png",
+      "bytes": 18492,
+      "sha256": "d4a4e07be9ebaedeae569df4706d858e77a952925b2a3a06eceb7db5bec148b4",
+      "matched": true
+    },
+    {
+      "path": "docs/assets/equatorial-preview/mobile-control.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/docs/assets/equatorial-preview/mobile-control.png",
+      "bytes": 18857,
+      "sha256": "6453e0181827694876a9113e1976a3718135645a1ff8514bf2565b2d5c874d8d",
+      "matched": true
+    },
+    {
+      "path": "docs/assets/equatorial-preview/mobile-opposite.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/docs/assets/equatorial-preview/mobile-opposite.png",
+      "bytes": 58903,
+      "sha256": "b45975a523058aef78bc08e54a81fec5306412338b71a747b6da5b8856b838ea",
+      "matched": true
+    },
+    {
+      "path": "docs/assets/equatorial-preview/opposite-south.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/docs/assets/equatorial-preview/opposite-south.png",
+      "bytes": 98842,
+      "sha256": "0e6d4c4dd4c15bf8e375bb69e27360e0811a5b7bf92dfb8d90badc8cdfdf70c0",
+      "matched": true
+    },
+    {
+      "path": "src/design-file.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/design-file.ts",
+      "bytes": 7805,
+      "sha256": "90f9a1b7a2f089958b1ef8310e962f57c1d8fd6c38c7c9db36fdd2856b204102",
+      "matched": true
+    },
+    {
+      "path": "src/design.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/design.ts",
+      "bytes": 6228,
+      "sha256": "72bdfb7a01356dbb9915f3da861e1e3c1113aee7f0696208090277a634440332",
+      "matched": true
+    },
+    {
+      "path": "src/lib/dials/equatorial.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/lib/dials/equatorial.ts",
+      "bytes": 4391,
+      "sha256": "ab09cbe42bd77709fadf864897c3d5c4afe17a6e3dbc3a9e3ec0d6504242d388",
+      "matched": true
+    },
+    {
+      "path": "src/lib/dials/plane.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/lib/dials/plane.ts",
+      "bytes": 1620,
+      "sha256": "35d0386a9fa01aeefd9ad7a101db86b79e088c2d010bcede56d1d3b9fc2ed4e6",
+      "matched": true
+    },
+    {
+      "path": "src/lib/export/pdf.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/lib/export/pdf.ts",
+      "bytes": 19386,
+      "sha256": "5a96c570529988e5044854e6e9ca6a5a889a7030f875d921a8981f6f02d772f8",
+      "matched": true
+    },
+    {
+      "path": "src/lib/geometry.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/lib/geometry.ts",
+      "bytes": 6303,
+      "sha256": "9662a68d097c8167338b1ad900d5a0abe80fc2a5caf491c2a6b70368f26896f1",
+      "matched": true
+    },
+    {
+      "path": "src/lib/render/svg.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/lib/render/svg.ts",
+      "bytes": 18993,
+      "sha256": "258504d94a0c1db0e7b0f376ec57879f2e1287b2352489fef21d32eba3414172",
+      "matched": true
+    },
+    {
+      "path": "src/lib/simulation.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/lib/simulation.ts",
+      "bytes": 2203,
+      "sha256": "c96b780e742bbf7334e225911df8a5012396717cb02cdf8ccb5c0ba83d460238",
+      "matched": true
+    },
+    {
+      "path": "src/main.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/src/main.ts",
+      "bytes": 48737,
+      "sha256": "97181e472b8093e249ff4b3bf21075ced96dd3ed4e72549e499cbe257003a1e7",
+      "matched": true
+    },
+    {
+      "path": "studies/equatorial-faces/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/studies/equatorial-faces/README.md",
+      "bytes": 10693,
+      "sha256": "e3dffbb3cb8517dfd95c5e7e6286148c13e8f33e4ca51d558caa295112f5d07f",
+      "matched": true
+    },
+    {
+      "path": "studies/equatorial-faces/measure.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/studies/equatorial-faces/measure.py",
+      "bytes": 17232,
+      "sha256": "fb6a73a734b038646f58265eff52f2b4f07538c9870983ef115c531e34fbaa84",
+      "matched": true
+    },
+    {
+      "path": "studies/equatorial-preview/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/studies/equatorial-preview/README.md",
+      "bytes": 6259,
+      "sha256": "70b990c95b328739c822adb94df237566daa9efa727365c00547e42be6f6aa88",
+      "matched": true
+    },
+    {
+      "path": "studies/equatorial-preview/artifacts/browser.tar.gz",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/studies/equatorial-preview/artifacts/browser.tar.gz",
+      "bytes": 4206317,
+      "sha256": "a62e9e6723e14f5ec9b613f724c64e252edecacfd06bf6e8d8231faf36535938",
+      "matched": true
+    },
+    {
+      "path": "studies/equatorial-preview/measure.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/studies/equatorial-preview/measure.py",
+      "bytes": 6023,
+      "sha256": "7b2c641fa461859ae098279014ce486bf5c53adc53856e876d4439f48a65f0e6",
+      "matched": true
+    },
+    {
+      "path": "studies/equatorial-preview/results/browser-measurements.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/studies/equatorial-preview/results/browser-measurements.json",
+      "bytes": 12443,
+      "sha256": "fa3081ff10221ce244195ea37b71df78c89b5f2c7de3cf36dbc0765a2f2a09f9",
+      "matched": true
+    },
+    {
+      "path": "studies/equatorial-preview/results/legacy-pdf-measurements.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/studies/equatorial-preview/results/legacy-pdf-measurements.json",
+      "bytes": 10433,
+      "sha256": "cb6f5357f772f14362fbbf1330f9e343077117af65cf5f78ca2c955fc787fc1e",
+      "matched": true
+    },
+    {
+      "path": "studies/equatorial-preview/results/verification.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/studies/equatorial-preview/results/verification.json",
+      "bytes": 16788,
+      "sha256": "1aeab90c76412a842339d406796ac1900a77f8009f7b040cec98205efebbe9c6",
+      "matched": true
+    },
+    {
+      "path": "tests/browser/equatorial-faces.spec.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/tests/browser/equatorial-faces.spec.mjs",
+      "bytes": 3957,
+      "sha256": "67156615748e454681d048805432ff072ab48869de79cbe4cbfc1c894c8a416c",
+      "matched": true
+    },
+    {
+      "path": "tests/browser/equatorial-preview.spec.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/gnomon/82898cb6788cd5ce8cacd05b6d0908ea85b3d7b5/tests/browser/equatorial-preview.spec.mjs",
+      "bytes": 10338,
+      "sha256": "11d199b0a5062841fa4619256f1fcefb1aef186604c033eb49649140e5ce1e0b",
+      "matched": true
+    }
+  ]
+}
