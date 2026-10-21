@@ -653,6 +653,10 @@ function updateExportButtons(): void {
     printSummary = (["a4", "letter"] as const).map((format) => {
       const plan = planConstructionPrint(dial, { ...design.polarOptions, format });
       const plate = plan.plate;
+      if (plan.reversePlate) {
+        const sheets = (p: typeof plate) => p.tiled ? `${p.tiles.length} sheets (${p.columns} across, ${p.rows} down) + guide` : "1 sheet";
+        return `${format === "a4" ? "A4" : "Letter"}: ${plan.pageCount} pages total — pole face ${sheets(plate)}; opposite face ${sheets(plan.reversePlate)}; rod gauge ${plan.gnomon.tiled ? `${plan.gnomon.tiles.length} sheets + guide` : "1 sheet"}`;
+      }
       return `${format === "a4" ? "A4" : "Letter"}: ${plan.pageCount} pages total — plate ${plate.tiled ? `${plate.tiles.length} sheets (${plate.columns} across, ${plate.rows} down) + guide` : "1 sheet"}; gnomon ${plan.gnomon.tiled ? `${plan.gnomon.tiles.length} sheets + guide` : "1 sheet"}`;
     }).join(". ") + ".";
   }
@@ -685,6 +689,8 @@ function render(): void {
   stage.querySelector("h2")!.textContent = analemmatic ? "Rod position" : "Shadow simulator";
   exportCapability.textContent = analemmatic
     ? "This layout exports as SVG or PNG. It uses a movable vertical rod, so there is no fixed gnomon template or PDF export."
+    : state.dialType === "equatorial"
+    ? "Equatorial PDFs include both faces and a rod gauge. The preview and SVG/PNG show the pole-facing face. Print faces separately at 100% and align the foot dots and target A. Large pieces use full-size sheets with 10 mm overlaps; check every 100 mm bar."
     : "PDFs include the matching gnomon template and mounting instructions. Large pieces use full-size sheets with 10 mm overlaps. Print at 100% and check every 100 mm bar. The simulated shadow is preview-only.";
   nowBtn.setAttribute("aria-pressed", String(state.simMode === "now"));
   designStatus.textContent = "";

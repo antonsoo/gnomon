@@ -5,6 +5,7 @@ import type { Motto } from "../motto.ts";
 import { hourLabel } from "../render/numerals.ts";
 import { plateOutline, type PlateShape } from "../render/plate-shape.ts";
 import { clipCurve } from "../render/curves.ts";
+import { equatorialAlignmentMark } from "../render/equatorial-marks.ts";
 import { gnomonBaseEnd, gnomonInstructions, gnomonConstructionWarning, type gnomonLayout } from "../render/gnomon-layout.ts";
 import { polarToUV, toPage, type PageMapping } from "../render/project.ts";
 import { planPolarPrint, planConstructionPrint, registrationMarks, type PageFormat, type PolarPrintPlan, type GnomonPrintPlan, type PrintTile } from "./print-layout.ts";
@@ -69,6 +70,20 @@ function drawPlate(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, pl
   }
   doc.setFillColor(20, 20, 20);
   doc.circle(m.centerX, m.centerY, 0.6 * scale, "F");
+  const alignment = equatorialAlignmentMark(dial, opts.radiusMm);
+  if (alignment) {
+    const p = project(alignment);
+    doc.setLineWidth(0.2 * scale);
+    doc.line(p.x - scale, p.y, p.x + scale, p.y);
+    doc.line(p.x, p.y - scale, p.x, p.y + scale);
+    doc.setFontSize(7 * scale);
+    doc.text("A", p.x + 1.5 * scale, p.y, { baseline: "middle" });
+  }
+}
+
+function faceHeading(dial: PolarDialResult): string | undefined {
+  const face = dial.equatorial;
+  return face ? `${face.face === "pole-facing" ? "P | Pole-facing" : "O | Opposite"} face | ${face.illuminated} | viewed from outside` : undefined;
 }
 
 function calibrationBar(doc: jsPDF): void {
@@ -86,6 +101,12 @@ function calibrationBar(doc: jsPDF): void {
 }
 
 function singlePage(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan): void {
+  const heading = faceHeading(dial);
+  if (heading) {
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8);
+    doc.text(heading, 10, 10);
+  }
   const m = { centerX: plan.page.width / 2, centerY: 20 + plan.bounds.topU };
   drawPlate(doc, dial, opts, plan, m);
   let y = m.centerY - plan.bounds.bottomU + 8;
@@ -106,18 +127,23 @@ function singlePage(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, p
   calibrationBar(doc);
 }
 
-function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan, kit: boolean): void {
+function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan, kit: boolean, prefix: string): void {
   const width = plan.page.width - 20;
   doc.setTextColor(20, 20, 20);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(17);
-  doc.text("Assemble your sundial", 10, 17);
+  doc.text(dial.equatorial ? `${prefix}Assemble this face` : "Assemble your sundial", 10, 17);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
   doc.text(`${plan.columns} ${plan.columns === 1 ? "column" : "columns"} x ${plan.rows} ${plan.rows === 1 ? "row" : "rows"} / ${plan.tiles.length} full-size sheets / ${opts.format.toUpperCase()}`, 10, 25);
   doc.setFontSize(8);
   doc.text(`Radius ${opts.radiusMm} mm. Overlap ${plan.overlapMm} mm. Print one-sided at Actual size / 100%.`, 10, 32);
   doc.text("Disable Fit, Shrink and extra poster tiling. Check each bar and the frame's width and height.", 10, 37);
+  const heading = faceHeading(dial);
+  if (heading) {
+    doc.setFontSize(7);
+    doc.text(heading, 10, 41);
+  }
 
   // The map is deliberately separated from cutting geometry and labelled at
   // the point of use. The source drawing and sheet arrangement share a frame.
@@ -139,7 +165,7 @@ function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions
     doc.setFillColor(255, 255, 255);
     doc.rect(cx - 7, cy - 2.5, 14, 5, "F");
     doc.setFontSize(8);
-    doc.text(tile.id, cx, cy, { align: "center", baseline: "middle" });
+    doc.text(prefix + tile.id, cx, cy, { align: "center", baseline: "middle" });
   }
   doc.setLineDashPattern([], 0);
   let cursor = y + mapHeight + 9;
@@ -153,7 +179,7 @@ function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions
     doc.text(lines, 10, cursor, { lineHeightFactor: 1.35 });
     cursor += lines.length * leading + 2.5;
   };
-  paragraph("1. Keep all sheets facing the same way. Start at R1C1, then work across each row.");
+  paragraph(`1. Keep all sheets facing the same way. Start at ${prefix}R1C1, then work across each row. ${dial.equatorial ? "Assemble P- and O-sheets separately." : ""}`);
   paragraph("2. On columns after C1, trim the left blank margin at the dashed frame. On rows after R1, trim the top blank margin there. Keep the printed overlap.");
   paragraph("3. Lay each new sheet over its neighbor's 10 mm overlap. Match both crosshair targets and the drawing. Tape the back, then cut the plate's solid outline.");
   paragraph("Dashed frames and crosshairs are assembly aids, not dial cuts. The frame sits 10 mm from the left and right paper edges. " + (kit ? "The matching gnomon template and mounting instructions follow the plate sheets." : "Keep the separate Gnomon SVG for the style template."));
@@ -163,15 +189,15 @@ function assemblyGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions
   calibrationBar(doc);
 }
 
-function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan, tile: PrintTile, index: number, totalPages: number): void {
+function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan, tile: PrintTile, index: number, totalPages: number, pageOffset: number, prefix: string): void {
   const v = plan.viewport;
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
   doc.setTextColor(20, 20, 20);
-  doc.text(`${tile.id} / ${plan.rows} ${plan.rows === 1 ? "row" : "rows"} x ${plan.columns} ${plan.columns === 1 ? "column" : "columns"}`, 10, 10);
+  doc.text(`${prefix}${tile.id} / ${plan.rows} ${plan.rows === 1 ? "row" : "rows"} x ${plan.columns} ${plan.columns === 1 ? "column" : "columns"}`, 10, 10);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(7);
-  doc.text(`${opts.format.toUpperCase()} | radius ${opts.radiusMm} mm | 100% | page ${index + 2} of ${totalPages}`, plan.page.width - 10, 10, { align: "right" });
+  doc.text(`${opts.format.toUpperCase()} | radius ${opts.radiusMm} mm | 100% | page ${pageOffset + index + 2} of ${totalPages}`, plan.page.width - 10, 10, { align: "right" });
   doc.text(`Drawing origin x ${tile.x.toFixed(1)} mm, y ${tile.y.toFixed(1)} mm | 10 mm overlaps`, 10, 16);
   const m = { centerX: v.x + plan.root.x - tile.x, centerY: v.y + plan.root.y - tile.y };
   doc.saveGraphicsState();
@@ -181,7 +207,7 @@ function drawTile(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, pla
   drawPlate(doc, dial, opts, plan, m);
   doc.restoreGraphicsState();
 
-  drawTileFrame(doc, plan, tile);
+  drawTileFrame(doc, plan, tile, prefix);
   if (opts.title) {
     const lines = doc.splitTextToSize(opts.title, plan.page.width - 125) as string[];
     doc.text(lines[0]!, plan.page.width - 10, plan.page.height - 19, { align: "right" });
@@ -223,14 +249,20 @@ function createPlateDocument(dial: PolarDialResult, opts: PdfExportOptions, tota
   const plan = planPolarPrint(dial, opts);
   const doc = new jsPDF({ unit: "mm", format: opts.format, orientation: "portrait" });
   doc.setProperties({ title: opts.title ?? "Sundial", subject: opts.description ?? "", creator: "Gnomon" });
+  drawPlatePages(doc, dial, opts, plan, totalPages ?? plan.pageCount, 0, totalPages !== undefined);
+  return doc;
+}
+
+/** Draw onto the current page and append subsequent sheets, preserving page numbering. */
+function drawPlatePages(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, plan: PolarPrintPlan, totalPages: number, pageOffset: number, kit: boolean): void {
+  const prefix = dial.equatorial ? dial.equatorial.face === "pole-facing" ? "P-" : "O-" : "";
   if (plan.tiled) {
-    assemblyGuide(doc, dial, opts, plan, totalPages !== undefined);
+    assemblyGuide(doc, dial, opts, plan, kit, prefix);
     for (const [index, tile] of plan.tiles.entries()) {
       doc.addPage();
-      drawTile(doc, dial, opts, plan, tile, index, totalPages ?? plan.pageCount);
+      drawTile(doc, dial, opts, plan, tile, index, totalPages, pageOffset, prefix);
     }
   } else singlePage(doc, dial, opts, plan);
-  return doc;
 }
 
 /** Plate-only export for callers that fabricate their own style. */
@@ -311,6 +343,14 @@ function gnomonGuide(doc: jsPDF, dial: PolarDialResult, opts: PdfExportOptions, 
 export function exportConstructionPDF(dial: PolarDialResult, opts: PdfExportOptions): Uint8Array {
   const plan = planConstructionPrint(dial, opts);
   const doc = createPlateDocument(dial, opts, plan.pageCount);
+  const counterpart = dial.equatorial?.counterpart;
+  if (counterpart && plan.reversePlate) {
+    doc.addPage();
+    // The caller's description names the primary face. Give the reverse its
+    // own orientation while retaining the same clock convention and design notes.
+    const reverseOpts = { ...opts, description: opts.description?.replace(dial.orientation, counterpart.orientation) };
+    drawPlatePages(doc, counterpart, reverseOpts, plan.reversePlate, plan.pageCount, plan.plate.pageCount, true);
+  }
   doc.addPage();
   gnomonGuide(doc, dial, opts, plan.gnomon);
   if (plan.gnomon.tiled) {
@@ -323,7 +363,7 @@ export function exportConstructionPDF(dial: PolarDialResult, opts: PdfExportOpti
       doc.text(`G-${tile.id} / GNOMON / ${g.rows} rows x ${g.columns} columns`, 10, 10);
       doc.setFont("helvetica", "normal");
       doc.setFontSize(7);
-      doc.text(`${opts.format.toUpperCase()} | radius ${opts.radiusMm} mm | 100% | page ${plan.plate.pageCount + index + 2} of ${plan.pageCount}`, g.page.width - 10, 16, { align: "right" });
+      doc.text(`${opts.format.toUpperCase()} | radius ${opts.radiusMm} mm | 100% | page ${plan.plate.pageCount + (plan.reversePlate?.pageCount ?? 0) + index + 2} of ${plan.pageCount}`, g.page.width - 10, 16, { align: "right" });
       doc.text(`Drawing origin x ${tile.x.toFixed(1)} mm, y ${tile.y.toFixed(1)} mm`, 10, 16);
       const v = g.viewport;
       doc.saveGraphicsState();

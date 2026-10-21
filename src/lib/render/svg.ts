@@ -14,6 +14,7 @@ import { plateBounds, plateOutline, type PlateShape } from "./plate-shape.ts";
 import { polarHourMarks } from "./hour-marks.ts";
 import { gnomonBaseEnd, gnomonLayout, gnomonConstructionWarning } from "./gnomon-layout.ts";
 import { clipCurve } from "./curves.ts";
+import { equatorialAlignmentMark } from "./equatorial-marks.ts";
 import { polarToUV, toPage } from "./project.ts";
 import type { PageMapping } from "./project.ts";
 import { THEMES, type Theme } from "./theme.ts";
@@ -129,6 +130,12 @@ export function renderPolarDialSVG(dial: PolarDialResult, opts: PolarDialRenderO
   }
   // Gnomon foot marker.
   parts.push(`<circle cx="${m.centerX}" cy="${m.centerY}" r="0.6" fill="${c.text}"/>`);
+  const alignment = equatorialAlignmentMark(dial, opts.radiusMm);
+  if (alignment) {
+    const p = toPage(alignment.u, alignment.v, m);
+    parts.push(`<path d="M ${p.x - 1} ${p.y} h 2 M ${p.x} ${p.y - 1} v 2" fill="none" stroke="${c.text}" stroke-width="0.2"/>`);
+    parts.push(`<text x="${p.x + 1.5}" y="${p.y}" font-size="2.5" fill="${c.text}" dominant-baseline="middle">A</text>`);
+  }
 
   if (opts.shadowTip) {
     const tip = toPage(opts.shadowTip.u, opts.shadowTip.v, m);
@@ -194,7 +201,9 @@ export function renderGnomonSVG(dial: PolarDialResult, opts: GnomonRenderOptions
     parts.push(`<path d="M ${p.x - 1.5} ${p.y} h 3 M ${p.x} ${p.y - 1.5} v 3" stroke="${c.text}" stroke-width="0.25"/>`);
   }
   const lines = [
-    layout.rod ? `rod ${g.styleLengthMm.toFixed(2)}mm; perpendicular to plate`
+    layout.rod ? dial.equatorial?.counterpart
+      ? `${g.styleLengthMm.toFixed(2)}mm exposed on EACH side; perpendicular to plate`
+      : `rod ${g.styleLengthMm.toFixed(2)}mm; perpendicular to plate`
       : `style ${g.styleHeightDeg.toFixed(4)}°; ${gnomonConstructionWarning(dial) ? "angle gauge for a rigid style" : "fold tab 90° along dashed base"}`,
     layout.rod ? "filled dot = foot on plate; line = length gauge" : "match filled foot dots and open base-end circles",
     ...(g.nodusDistanceMm === undefined ? [] : [`cross = nodus, ${g.nodusDistanceMm.toFixed(1)}mm from foot`]),

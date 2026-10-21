@@ -6,8 +6,8 @@
  * since its hour lines do not depend on latitude at all once you are in
  * the plane's own coordinates. It has two faces (used opposite halves of
  * the year, spring/summer vs. autumn/winter); both share the same hour
- * geometry when viewed from the same side. This designer renders only
- * the pole-facing face; a reverse-face construction is not provided.
+ * geometry when viewed from the same side. Each printed face is instead
+ * viewed from outside, so its horizontal coordinate reverses on the back.
  */
 
 import type { TimeReference } from "../time-reference.ts";
@@ -15,8 +15,9 @@ import { computeGnomon, generateHourLines } from "./common.ts";
 import type { HourLineOptions } from "./common.ts";
 import { generateDeclinationLines, STANDARD_DECLINATION_LINES, ZODIAC_DECLINATIONS } from "./declination-lines.ts";
 import { generateHistoricalHours } from "./historical-hours.ts";
-import { buildDialPlane } from "./plane.ts";
-import type { PolarDialResult } from "./types.ts";
+import { buildEquatorialPlane } from "./plane.ts";
+import { plateSector } from "../render/plate-shape.ts";
+import type { EquatorialFace, PolarDialResult } from "./types.ts";
 
 export interface EquatorialDialOptions {
   latitudeDeg: number;
@@ -27,10 +28,12 @@ export interface EquatorialDialOptions {
   gnomonBaseLengthMm: number;
   includeZodiac?: boolean;
   historicalHours?: Array<"temporal" | "babylonian" | "italian">;
+  /** Default: pole-facing. PDF construction kits also include the other face. */
+  face?: EquatorialFace;
 }
 
-export function buildEquatorialDial(opts: EquatorialDialOptions): PolarDialResult {
-  const plane = buildDialPlane("equatorial", opts.latitudeDeg); // plane is perpendicular to Earth's axis
+function buildFace(opts: EquatorialDialOptions, face: EquatorialFace): PolarDialResult {
+  const plane = buildEquatorialPlane(opts.latitudeDeg, face);
 
   const hourLines = generateHourLines(opts.latitudeDeg, plane, opts.timeReference, opts.hourLineOptions);
   const declinationSpecs = opts.includeZodiac
@@ -48,6 +51,30 @@ export function buildEquatorialDial(opts: EquatorialDialOptions): PolarDialResul
     declinationLines,
     historicalHours,
     gnomon,
-    orientation: `Tilt the disc ${(90 - Math.abs(opts.latitudeDeg)).toFixed(1)}° from horizontal so its face is perpendicular to Earth's axis, facing ${opts.latitudeDeg >= 0 ? "the north celestial pole" : "the south celestial pole"}. The rod is perpendicular to the disc. This is the pole-facing face only; it is not illuminated in the opposite half of the year.`,
+    orientation: `Tilt the disc ${(90 - Math.abs(opts.latitudeDeg)).toFixed(1)}° from horizontal, perpendicular to Earth's axis. The pole-facing side faces ${opts.latitudeDeg >= 0 ? "the north celestial pole" : "the south celestial pole"}. The rod is perpendicular to the disc. This drawing is the ${face === "pole-facing" ? "pole-facing" : "opposite"} face, viewed from outside.`,
   };
+}
+
+export function buildEquatorialDial(opts: EquatorialDialOptions): PolarDialResult {
+  const face = opts.face ?? "pole-facing";
+  // Validate the requested face even though both physical planes are built below.
+  buildEquatorialPlane(opts.latitudeDeg, face);
+  const pole = buildFace(opts, "pole-facing");
+  const opposite = buildFace(opts, "opposite");
+  // Map the opposite face's rays into pole-face coordinates before choosing
+  // the cut. A separate minimal fan for each side would not fit one backing.
+  const cutSector = plateSector({ ...pole, hourLines: [
+    ...pole.hourLines,
+    ...opposite.hourLines.map(line => ({ ...line, angleRad: -line.angleRad })),
+  ] });
+  const north = opts.latitudeDeg >= 0;
+  const poleMonths = north ? "March equinox to September equinox" : "September equinox to March equinox";
+  const oppositeMonths = north ? "September equinox to March equinox" : "March equinox to September equinox";
+  pole.equatorial = { face: "pole-facing", illuminated: poleMonths, cutSector };
+  opposite.equatorial = { face: "opposite", illuminated: oppositeMonths,
+    cutSector: { thetaMax: cutSector.thetaMax, thetaCenter: -cutSector.thetaCenter } };
+  const requested = face === "pole-facing" ? pole : opposite;
+  const counterpart = face === "pole-facing" ? opposite : pole;
+  requested.equatorial!.counterpart = counterpart;
+  return requested;
 }

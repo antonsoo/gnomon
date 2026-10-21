@@ -100,8 +100,10 @@ export type GnomonPrintPlan = ReturnType<typeof planGnomonPrint>;
 
 export function planConstructionPrint(dial: PolarDialResult, opts: PrintDimensions) {
   const plate = planPolarPrint(dial, opts);
+  const counterpart = dial.equatorial?.counterpart;
+  const reversePlate = counterpart ? planPolarPrint(counterpart, opts) : undefined;
   const gnomon = planGnomonPrint(dial, opts.format);
-  return { plate, gnomon, pageCount: plate.pageCount + gnomon.pageCount };
+  return { plate, reversePlate, gnomon, pageCount: plate.pageCount + (reversePlate?.pageCount ?? 0) + gnomon.pageCount };
 }
 
 /** Each seam's two targets occur at exactly the same drawing coordinates on both sheets. */

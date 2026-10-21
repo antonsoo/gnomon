@@ -25,7 +25,7 @@ test('cutting every supported polar plate retains the rendered hour numerals', a
       document.querySelector('main').innerHTML = input.svg;
       const svg = document.querySelector('svg');
       const cut = new Path2D(svg.querySelector('path').getAttribute('d'));
-      for (const text of svg.querySelectorAll('text[dominant-baseline="middle"]')) {
+      for (const text of svg.querySelectorAll('text[text-anchor="middle"][dominant-baseline="middle"]')) {
         labels++;
         const box = text.getBBox();
         for (const x of [box.x, box.x + box.width / 2, box.x + box.width]) for (const y of [box.y, box.y + box.height / 2, box.y + box.height]) {

@@ -1,6 +1,7 @@
 /** Shared output shapes that every dial-type module produces, ready for the renderer. */
 
 export type DialKind = "horizontal" | "vertical" | "equatorial" | "analemmatic";
+export type EquatorialFace = "pole-facing" | "opposite";
 
 export interface HourLine {
   /** Civil clock hour, decimal (e.g. 14.5 = 2:30 PM). */
@@ -56,6 +57,14 @@ export interface PolarDialResult {
   gnomon: GnomonTemplate;
   /** Human-readable description of plane orientation, for the UI/README. */
   orientation: string;
+  /** Both faces use the same physical cut, reflected in their own viewing coordinates. */
+  equatorial?: {
+    face: EquatorialFace;
+    illuminated: string;
+    cutSector: { thetaMax: number; thetaCenter: number };
+    /** Only the requested face carries its counterpart, keeping results acyclic. */
+    counterpart?: PolarDialResult;
+  };
 }
 
 export interface AnalemmaticHourPoint {

@@ -27,6 +27,7 @@ export function thetaMaxRad(dial: PolarDialResult): number {
 
 /** Smallest sector containing the hour rays AND the physical style base. */
 export function plateSector(dial: PolarDialResult): { thetaMax: number; thetaCenter: number } {
+  if (dial.equatorial) return dial.equatorial.cutSector;
   const turn = 2 * Math.PI;
   const rays = dial.hourLines.map((line) => line.angleRad);
   if (dial.gnomon.baseLengthMm > 0) rays.push(dial.gnomon.substyleAngleDeg * Math.PI / 180);

@@ -39,6 +39,16 @@ export function gnomonInstructions(dial: PolarDialResult): string[] {
   const g = dial.gnomon;
   const rod = g.baseLengthMm === 0;
   const warning = gnomonConstructionWarning(dial);
+  if (rod && dial.equatorial?.counterpart) return [
+    `Use a thin rod with ${g.styleLengthMm.toFixed(2)} mm exposed on EACH side of the plate: ${(2 * g.styleLengthMm).toFixed(2)} mm plus your backing's thickness in total. The gauge measures one exposed half from its plate surface, not the whole rod. Set the rod perpendicular through the filled foot dots.`,
+    "Print both faces on separate sheets at 100%, not automatic duplex. Keep the print facing outward on each side of one rigid backing. Align the filled foot dots and target A through the backing; transfer those two marks before trimming. The outlines fit the same cut. Target A is an assembly aid outside the cut.",
+    "Away from the poles, page-up on both layouts is uphill on the tilted disc. Support the disc without blocking either face or the rod. At a geographic pole the meridian reference is arbitrary; there is no illuminated winter face during polar night.",
+    `Read the pole-facing side from ${dial.equatorial.face === "pole-facing" ? dial.equatorial.illuminated : dial.equatorial.counterpart.equatorial!.illuminated}; use the opposite side in the other half of the year, when the Sun is above your horizon. At an equinox the Sun grazes both faces, so neither gives a usable reading.`,
+    ...(g.nodusDistanceMm === undefined ? [] : [
+      `For date curves, put a bead or notch ${g.nodusDistanceMm.toFixed(2)} mm along EACH exposed half, measured from that side's plate surface. The cross on the gauge marks this distance; ink alone does not cast a distinct nodus shadow.`,
+    ]),
+    "The tilt and mounting support are not cut templates. Material thickness, kerf and printer distortion are not compensated; check the calibration bars before cutting.",
+  ];
   return [
     ...(warning ? [warning] : []),
     rod

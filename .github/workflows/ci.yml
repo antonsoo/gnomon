@@ -34,5 +34,9 @@ jobs:
         run: |
           node studies/shadow-gaps/replay.mjs . "$RUNNER_TEMP/shadow-curves" after
           uv run --script studies/shadow-gaps/measure.py --capture "$RUNNER_TEMP/shadow-curves" --out "$RUNNER_TEMP/shadow-vectors.json" --expect after
+      - name: Check both equatorial faces in native SVG and PDF output
+        run: |
+          node studies/equatorial-faces/replay.mjs . "$RUNNER_TEMP/equatorial-faces" after
+          uv run --script studies/equatorial-faces/measure.py "$RUNNER_TEMP/equatorial-faces" "$RUNNER_TEMP/equatorial-measurements.json"
       - run: npx playwright install --with-deps chromium firefox
       - run: npx playwright test
