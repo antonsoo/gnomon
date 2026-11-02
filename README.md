@@ -2,7 +2,7 @@
 
 **Design a sundial for your location. Inspect its shadow and export a construction drawing at physical scale.**
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License: PolyForm Noncommercial](https://img.shields.io/badge/license-PolyForm%20Noncommercial-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/demo-antonsoo.github.io%2Fgnomon-c9a24b)](https://antonsoo.github.io/gnomon/)
 
 ![Gnomon: a horizontal sundial being designed for San Francisco, brass theme](docs/assets/hero.png)
@@ -333,7 +333,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-[MIT](LICENSE) (c) 2026 Anthony Mercer.
+New versions are released under the [PolyForm Noncommercial License 1.0.0](LICENSE). It is free for any noncommercial purpose, including personal study, teaching and research, and for use by charities, schools, universities, research organizations and government institutions. Commercial use needs written permission from Anthony Mercer (anthony@praviel.com). Versions up to commit [`d192b41`](https://github.com/antonsoo/gnomon/tree/d192b41) (2026-11-01) were released under the MIT License, and copies of those versions keep it.
+
+[PolyForm Noncommercial 1.0.0](LICENSE) (c) 2026 Anthony Mercer.
 
 ---
 

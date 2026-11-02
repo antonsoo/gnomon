@@ -627,7 +627,7 @@ const oracleNote = el("section", { className: "section" }, [
 ]);
 
 const footer = el("footer", { className: "site-footer" }, [
-  el("span", {}, ["Gnomon — MIT licensed."]),
+  el("span", {}, ["Gnomon — licensed under PolyForm Noncommercial."]),
   el("a", { href: "https://github.com/antonsoo/gnomon" }, ["Source on GitHub"]),
 ]);
 
