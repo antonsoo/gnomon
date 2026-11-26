@@ -37,7 +37,7 @@
   },
   "archive": {
     "file": "artifacts/browser.tar.gz",
-    "sha256": "a62e9e6723e14f5ec9b613f724c64e252edecacfd06bf6e8d8231faf36535938"
+    "sha256": "54b5ab75282713b7cfeed01ad4cd33b6dfd079e9050df651a995d1afbca6cffa"
   },
   "build": {
     "command": "npm run build",

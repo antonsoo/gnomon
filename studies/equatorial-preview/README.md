@@ -129,3 +129,9 @@ identical decoded pixels. The
 Encoded PNG bytes and PDF identifiers can vary; the checks compare decoded
 image pixels and actual serialized geometry. No registry release
 is associated with this private web application.
+
+On 2026-11-25 the two archives in `artifacts/` were rewritten with blank tar
+owner names (they recorded this machine's user name); every member's name,
+mode, time, size and bytes are unchanged. `results/source-bytes.json` and
+`results/verification.json` list the rewritten archives;
+`results/publication.json` records the archives as first published.
